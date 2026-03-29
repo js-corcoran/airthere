@@ -1,0 +1,372 @@
+# AirThere — Cursor AI Rules
+## Build-Ready Frontend Prototype | Design Mode | 2026-03-29
+
+You are building **AirThere**, the world's first anticipatory travel operating system. This is a **Design Mode** frontend prototype — pixel-perfect, production-quality UI with realistic mock data. Read CLAUDE.md first (same content as this file, formatted for Cursor).
+
+---
+
+## Quick Start
+
+1. **Read immediately:**
+   - This file (.cursorrules)
+   - `07-shards/00-screen-inventory.md` (build order)
+   - `07.5-design-direction/design-direction.md` (visual system — AUTHORITATIVE)
+   - `07.5-design-direction/design-tokens.json` (token values)
+
+2. **Start with Shard 01:** `07-shards/01-onboarding-shard.md`
+   - Includes tech setup, folder structure, global layouts
+   - Build this first (2-3 days)
+
+3. **Continue sequentially** per build order in `00-screen-inventory.md`
+
+---
+
+## Tech Stack (Locked)
+
+- **Framework:** Next.js 14 (App Router)
+- **Styling:** Tailwind CSS v4 + design tokens from `07.5-design-direction/`
+- **Components:** Shadcn UI (themed with AirThere colors)
+- **Language:** TypeScript (strict mode)
+- **Forms:** React Hook Form + Zod validation
+- **Dates:** date-fns
+- **Data:** Mock service layer (swappable for real APIs)
+- **Testing:** Vitest + React Testing Library + axe-core
+- **Deployment:** Vercel
+
+---
+
+## The Five Experience Principles (Non-Negotiable)
+
+Every line of code must serve these:
+
+### 1. Anticipatory Calm
+The best technology is felt, never seen. Proactive, predictive, invisible.
+- Animations purposeful (never decorative)
+- Transitions smooth
+- Form layouts intuitive
+- Error messages rare and helpful
+- Abundant white space
+
+### 2. Radical Transparency
+Every cost, delay, option visible. No dark patterns.
+- Show actual prices (no hidden fees)
+- Display all costs upfront
+- Explain delays clearly
+- Never manipulate options
+
+### 3. Family Integrity
+The family unit is sacred. Never separate, never surprise.
+- Family groups stay together
+- Seating locks in place
+- Rebooking maintains group
+- Itineraries are shared
+
+### 4. Graduated Trust
+AI earns autonomy through competence. Copilot → Curator → Agent.
+- Show what AI is about to do before it does it
+- Give users override capability
+- Build trust through transparency
+
+### 5. Journey Continuity
+One identity, one context, zero repetition.
+- User state persists across screens
+- Preferences remembered
+- No re-explaining of information
+- Context carries through
+
+---
+
+## The Three Personas
+
+Design for these humans. Every screen has persona adaptations.
+
+### PERSONA-01: Alexandra — Premium Traveler
+- 45-62, UHNW ($5M+), C-suite, 15-30+ trips/year, $8k-$30k+ per ticket
+- Psychology: Status marker. Invisible seamlessness expected. Zero tolerance for mediocrity.
+- Key Needs: Biometric-first, invisible context, autonomy with override, premium visual language, privacy
+- Design Tone: Elegant restraint, sophisticated blue, premium whitespace, status symbols, subtle confidence
+
+### PERSONA-02: Marcus — Business Traveler
+- 35-55, 12-25+ trips/year, corporate $15k-$40k/year, tech/finance/consulting
+- Psychology: Control-seeking but time-starved. Perfect info without research. Policy-conscious.
+- Key Needs: Sub-90-second booking, unified visibility, auto disruption recovery, lounge consistency, expense reconciliation
+- Design Tone: Efficient, time-saving indicators, clear metrics, policy badges, quick-tap shortcuts
+
+### PERSONA-03: The Chen Family — Leisure/Family Traveler
+- Parents 35-50, 2-4 kids, 3-5 trips/year, $4k-$8k per trip, price-conscious
+- Psychology: Transparency and honesty. Coordination efficiency. Family bonding focus. Guided support.
+- Key Needs: Total cost transparency, family group booking, seating guarantee, packing intelligence, coordination tools, deal alerts
+- Design Tone: Warm, family-centric, helpful guidance, clear cost breakdowns, child-friendly content
+
+---
+
+## Coding Conventions
+
+### TypeScript
+- **Strict mode always** — No `any` types
+- **All props fully typed** — Explicit interfaces for every component
+- **Discriminated unions** — For state (`{ status: 'loading' } | { status: 'success'; data: T }`)
+
+```typescript
+interface FlightSearchProps {
+  onSearch: (params: SearchParams) => Promise<void>;
+  isLoading: boolean;
+}
+
+interface SearchParams {
+  from: string;
+  to: string;
+  departDate: Date;
+  returnDate?: Date;
+  passengers: number;
+}
+```
+
+### Components
+- **Server Components by default** — Client Components only when needed (interactivity, hooks)
+- **Mobile-first responsive** — Use Tailwind `sm:`, `md:`, `lg:` breakpoints
+- **Accessibility required** — Semantic HTML, ARIA labels, keyboard navigation
+- **States always handled** — Loading, error, empty states for every component
+
+```typescript
+interface FlightCardProps {
+  flight: Flight;
+  isSelected: boolean;
+  onSelect: (flightId: string) => void;
+}
+
+export function FlightCard({
+  flight,
+  isSelected,
+  onSelect,
+}: FlightCardProps) {
+  return (
+    <button
+      onClick={() => onSelect(flight.id)}
+      className={`card ${isSelected ? 'ring-2 ring-primary-500' : ''}`}
+      aria-pressed={isSelected}
+    >
+      {/* Content */}
+    </button>
+  );
+}
+```
+
+### Styling
+- **Never use default Shadcn colors** — Apply AirThere theme from `design-tokens.json`
+- **No placeholder grays** — Use surface tokens (primary-50, primary-100, neutral-200, etc.)
+- **OKLCH is canonical** — Use `oklch(...)` values, not hex approximations
+- **Consistent border-radius** — From design tokens (usually 8px or 12px)
+- **Test dark mode** — Every component must have `dark:` variants
+
+```tsx
+// CORRECT: Using AirThere tokens
+<button className="bg-primary-500 text-white hover:bg-primary-600 dark:bg-primary-400 dark:hover:bg-primary-300">
+  Book Now
+</button>
+
+// WRONG: Generic Tailwind colors (do not use)
+<button className="bg-blue-600 text-white hover:bg-blue-700">
+  Book Now
+</button>
+```
+
+### Data & Mock Services
+- **Service interface abstraction** — Every API has an interface; mock is swappable
+- **Realistic data** — Real airline codes (AA, BA, SQ), airport codes (JFK, LHR, SIN), authentic prices
+- **No Lorem Ipsum** — Use actual travel content: real cities, airlines, routes
+
+```typescript
+interface FlightService {
+  search(params: SearchParams): Promise<Flight[]>;
+  getDetails(flightId: string): Promise<FlightDetails>;
+}
+
+class MockFlightService implements FlightService {
+  async search(params: SearchParams): Promise<Flight[]> {
+    return getMockFlightsForRoute(params.from, params.to);
+  }
+}
+```
+
+### Accessibility (WCAG 2.1 AA)
+- **Semantic HTML** — `<button>`, `<input>`, `<label>`, not `<div onclick>`
+- **ARIA labels** — Complex components need `role`, `aria-label`, `aria-describedby`
+- **Focus management** — Visible focus rings, logical tab order
+- **Color contrast** — Minimum 4.5:1 for normal text
+- **Touch targets** — Minimum 44×44pt
+- **Keyboard navigation** — All interactions accessible via keyboard
+
+```tsx
+<button
+  onClick={handleClick}
+  className="focus:ring-2 focus:ring-primary-500 focus:outline-none"
+  aria-label="Book this flight"
+  aria-describedby="flight-price"
+>
+  Book <span id="flight-price">$892</span>
+</button>
+```
+
+### Responsiveness
+- **Mobile first** — Design for 320px, enhance for larger screens
+- **Test at breakpoints** — 320px, 768px (tablet), 1024px (desktop)
+- **Touch-friendly** — 44pt targets, ample spacing
+- **Flexible layouts** — Stack on mobile, grid on desktop
+
+```tsx
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+  {flights.map(f => <FlightCard key={f.id} flight={f} />)}
+</div>
+```
+
+---
+
+## Anti-Slop Directive
+
+**Before generating ANY code for a new screen, read `design-direction.md` AND `design-tokens.json` in full.**
+
+Slop is generic UI that ignores AirThere's identity:
+
+❌ Default Shadcn colors (blue-600, gray-200) instead of AirThere tokens
+❌ Placeholder grays (#ccc, #999) instead of OKLCH surface palette
+❌ Lorem Ipsum instead of real travel data
+❌ Inconsistent border-radius (mix of sizes instead of unified system)
+❌ Missing dark mode variants
+❌ 40×40pt touch targets (too small; min 44pt)
+❌ Copy that doesn't match AirThere's tone (should be calm, transparent, warm)
+❌ Colors with 3:1 contrast instead of 4.5:1
+
+**Quality gates before pushing code:**
+
+✅ All colors from `design-tokens.json`
+✅ All spacing from `design-tokens.json` (multiples of 4px)
+✅ All typography from design system (16px body, 20px heading, etc.)
+✅ Touch targets ≥44×44pt
+✅ Color contrast ≥4.5:1
+✅ Dark mode tested and working
+✅ ARIA labels present for complex components
+✅ Loading, error, empty states implemented
+✅ Authentic travel data (no Lorem Ipsum)
+✅ Copy matches tone (calm, transparent, warm, family-centric as appropriate)
+
+---
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── (auth)/                      # Onboarding, login
+│   │   └── onboarding/page.tsx      # SCR-001
+│   │
+│   ├── (main)/                      # Main app (5-tab nav)
+│   │   ├── home/page.tsx            # SCR-002
+│   │   ├── discover/page.tsx        # SCR-003
+│   │   ├── search/page.tsx          # SCR-004
+│   │   ├── search/results/page.tsx  # SCR-005
+│   │   ├── booking/detail/page.tsx  # SCR-006
+│   │   ├── booking/checkout/page.tsx # SCR-007
+│   │   ├── trips/page.tsx           # SCR-008
+│   │   ├── trips/documents/page.tsx # SCR-009
+│   │   ├── trips/[tripId]/airport/page.tsx  # SCR-010
+│   │   ├── trips/[tripId]/gate/page.tsx     # SCR-011
+│   │   ├── trips/[tripId]/inflight/page.tsx # SCR-012
+│   │   ├── trips/[tripId]/recovery/page.tsx # SCR-013
+│   │   ├── trips/[tripId]/recap/page.tsx    # SCR-014
+│   │   ├── profile/page.tsx         # SCR-015
+│   │   ├── settings/page.tsx        # SCR-017
+│   │   ├── family/page.tsx          # SCR-018
+│   │   ├── notifications/page.tsx   # SCR-019
+│   │   └── lounge/page.tsx          # SCR-020
+│   │
+│   ├── layout.tsx
+│   └── globals.css
+│
+├── components/
+│   ├── ui/                          # Shadcn UI (imported, themed)
+│   ├── layout/                      # BottomTabBar, Header, AppLayout
+│   ├── navigation/                  # TabBar, Breadcrumb
+│   ├── cards/                       # TripCard, FlightCard, DestinationCard
+│   ├── search/                      # SearchForm, Results, SeatMap
+│   ├── booking/                     # PassengerForm, PaymentForm, Review
+│   ├── trip/                        # TripTimeline, UpcomingTrips
+│   ├── airport/                     # AirportLive, GateInfo, Lounge
+│   ├── ai/                          # AICopilot, ChatMessage
+│   ├── family/                      # FamilyHub, FamilySeatMap
+│   ├── shared/                      # StatusBadge, LoadingSkeleton, ErrorBoundary
+│   └── patterns/                    # BottomSheet, Modal, Tooltip
+│
+├── lib/
+│   ├── types/                       # Flight, User, Trip, Airport, Disruption
+│   ├── services/                    # FlightService, BookingService, etc.
+│   ├── mock-data/                   # 200+ flights, users, airports, trips
+│   ├── hooks/                       # useAuth, useTrips, useSearch, etc.
+│   ├── utils/                       # format, validation, calculation
+│   └── constants/                   # routes, personas, features, colors
+│
+├── styles/
+│   ├── globals.css
+│   └── design-tokens.css
+│
+└── __tests__/
+    ├── components/
+    └── lib/
+```
+
+---
+
+## How to Test
+
+```bash
+npm run test              # Vitest unit tests
+npm run test:a11y        # Accessibility tests (axe-core)
+npm run test:watch       # Watch mode
+npm run lint             # ESLint
+npm run type-check       # TypeScript strict
+npm run build            # Production build
+```
+
+Every screen must include:
+- Unit tests for all components
+- Accessibility audit (axe-core)
+- Responsive snapshot tests (320px, 768px, 1024px)
+
+---
+
+## Key Constraints
+
+| Constraint | Target | Why |
+|-----------|--------|-----|
+| **WCAG 2.1 AA** | 100% compliance | Legal + moral imperative |
+| **Core Web Vitals** | LCP <2.5s, FID <100ms, CLS <0.1 | Performance baseline |
+| **Mobile-first** | Perfect at 320px | Device-inclusive design |
+| **Responsive** | Up to 1440px+ | Tablet + desktop support |
+| **NPS 60+** | Industry-leading | Year 1 success goal |
+| **Booking <30% abandon** | Drop-off prevention | Revenue impact |
+| **Family seating 98%** | Guaranteed placement | Core family promise |
+
+---
+
+## Key Principles
+
+**Read Design Direction First.** Every time. Before building any new screen, read `07.5-design-direction/design-direction.md` and `design-tokens.json` in full. This is the source of truth for colors, spacing, typography, and visual identity.
+
+**Mock Data is Real Data.** Use actual airline codes (AA, BA, SQ), airport codes (JFK, LHR, SIN), realistic prices. No Lorem Ipsum. Travelers need authentic content to validate the experience.
+
+**Personas are Real People.** Alexandra isn't a generic "premium user." Marcus isn't a generic "business user." The Chen Family isn't a generic "budget user." Design for their actual needs, psychographics, and success indicators.
+
+**Accessibility is Beauty.** WCAG 2.1 AA isn't a constraint; it's a feature. High contrast improves legibility for everyone. Clear focus indicators help all users. Sufficient spacing reduces errors. The most beautiful design serves everyone equally well.
+
+**State Management Matters.** Every component has loading, error, and empty states. Never show a bare skeleton. Never show an unhelpful error. Every state is an opportunity to reinforce AirThere's brand of anticipatory calm.
+
+**Dark Mode Works.** Test every component in dark mode. The color system supports it. Every `bg-primary-500` needs a `dark:bg-primary-400` variant. No exceptions.
+
+---
+
+**Last Updated:** 2026-03-29
+**Start with:** `07-shards/00-screen-inventory.md` (build order)
+**Then read:** `07.5-design-direction/design-direction.md` (visual system)
+**Then build:** Shard 01 (Onboarding + Tech Setup)
+
+Good luck. AirThere is going to be beautiful.

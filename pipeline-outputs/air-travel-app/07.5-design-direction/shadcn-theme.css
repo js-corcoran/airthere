@@ -1,0 +1,564 @@
+/* AirThere — Shadcn UI Theme Overrides */
+/* This file implements AirThere's design system for Shadcn UI components */
+/* These CSS variables override Shadcn's default color system */
+
+@layer base {
+  :root {
+    /* ============================================================
+       SHADCN COLOR SYSTEM — LIGHT MODE
+       ============================================================ */
+
+    /* Background: Page background */
+    --background: oklch(98% 0.001 50);
+
+    /* Foreground: Text color */
+    --foreground: oklch(25% 0.140 262);
+
+    /* Primary: Main interactive color (buttons, links, accents) */
+    --primary: oklch(64% 0.158 50);
+    --primary-foreground: #ffffff;
+
+    /* Secondary: Alternative interactive color */
+    --secondary: oklch(57.5% 0.194 262);
+    --secondary-foreground: #ffffff;
+
+    /* Destructive: Error states, delete actions */
+    --destructive: oklch(62% 0.228 25);
+    --destructive-foreground: #ffffff;
+
+    /* Muted: Disabled, secondary, less important elements */
+    --muted: oklch(91% 0.005 50);
+    --muted-foreground: oklch(43% 0.200 262);
+
+    /* Accent: Highlight color, emphasis */
+    --accent: oklch(64% 0.158 50);
+    --accent-foreground: #ffffff;
+
+    /* Popover: Modal/dropdown background */
+    --popover: oklch(97% 0.002 50);
+    --popover-foreground: oklch(25% 0.140 262);
+
+    /* Card: Card/container background */
+    --card: oklch(97% 0.002 50);
+    --card-foreground: oklch(25% 0.140 262);
+
+    /* ============================================================
+       SHADCN UTILITY COLORS — LIGHT MODE
+       ============================================================ */
+
+    /* Input: Form input fields */
+    --input: oklch(91% 0.005 50);
+    --input-foreground: oklch(25% 0.140 262);
+
+    /* Ring: Focus ring, outline color */
+    --ring: oklch(57.5% 0.194 262);
+
+    /* Border: Dividers, borders, lines */
+    --border: oklch(91% 0.005 50);
+
+    /* ============================================================
+       SUCCESS, WARNING, ERROR COLORS (Semantic)
+       ============================================================ */
+
+    /* Success states */
+    --success: oklch(62% 0.165 142);
+    --success-foreground: #ffffff;
+    --success-background: oklch(95% 0.008 142);
+
+    /* Warning states */
+    --warning: oklch(67% 0.175 60);
+    --warning-foreground: #ffffff;
+    --warning-background: oklch(96% 0.005 60);
+
+    /* Error/Danger states (matches destructive) */
+    --error: oklch(62% 0.228 25);
+    --error-foreground: #ffffff;
+    --error-background: oklch(96% 0.008 25);
+
+    /* Info states */
+    --info: oklch(62% 0.155 240);
+    --info-foreground: #ffffff;
+    --info-background: oklch(96% 0.002 240);
+
+    /* ============================================================
+       RADIUS TOKENS
+       ============================================================ */
+    --radius: 8px;
+
+    /* ============================================================
+       SHADOW TOKENS
+       ============================================================ */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.16), 0 4px 8px rgba(0, 0, 0, 0.08);
+    --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.2), 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  /* ============================================================
+     DARK MODE COLOR OVERRIDES
+     ============================================================ */
+  .dark {
+    /* Background: Darker for dark mode */
+    --background: oklch(12% 0.002 50);
+
+    /* Foreground: Light text for dark background */
+    --foreground: oklch(95% 0.002 50);
+
+    /* Primary: Lighter primary for visibility on dark */
+    --primary: oklch(72% 0.158 50);
+    --primary-foreground: oklch(25% 0.140 262);
+
+    /* Secondary: Lighter secondary */
+    --secondary: oklch(65% 0.194 262);
+    --secondary-foreground: #ffffff;
+
+    /* Destructive: Lighter error for dark mode */
+    --destructive: oklch(70% 0.228 25);
+    --destructive-foreground: #ffffff;
+
+    /* Muted: Lighter for dark mode */
+    --muted: oklch(32% 0.008 50);
+    --muted-foreground: oklch(85% 0.005 50);
+
+    /* Accent: Adjusted for dark mode */
+    --accent: oklch(72% 0.158 50);
+    --accent-foreground: oklch(25% 0.140 262);
+
+    /* Popover: Dark popover background */
+    --popover: oklch(18% 0.003 50);
+    --popover-foreground: oklch(95% 0.002 50);
+
+    /* Card: Dark card background */
+    --card: oklch(18% 0.003 50);
+    --card-foreground: oklch(95% 0.002 50);
+
+    /* Input: Dark input background */
+    --input: oklch(25% 0.005 50);
+    --input-foreground: oklch(95% 0.002 50);
+
+    /* Ring: Focus ring for dark mode */
+    --ring: oklch(65% 0.194 262);
+
+    /* Border: Dark mode border */
+    --border: oklch(32% 0.008 50);
+
+    /* Shadow: Darker shadows for dark mode */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.5), 0 4px 8px rgba(0, 0, 0, 0.4);
+    --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.6), 0 8px 16px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* ============================================================
+   COMPONENT-SPECIFIC OVERRIDES
+   ============================================================ */
+
+@layer components {
+  /* ============================================================
+     BUTTON STYLES
+     ============================================================ */
+
+  /* Primary button (uses accent/secondary color) */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+  }
+
+  /* Secondary button */
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90;
+  }
+
+  /* Destructive button (delete, cancel, error actions) */
+  .btn-destructive {
+    @apply bg-destructive text-destructive-foreground hover:bg-destructive/90;
+  }
+
+  /* Ghost button (minimal background) */
+  .btn-ghost {
+    @apply hover:bg-muted hover:text-foreground;
+  }
+
+  /* Outline button */
+  .btn-outline {
+    @apply border border-input hover:bg-muted hover:text-foreground;
+  }
+
+  /* ============================================================
+     CARD STYLES
+     ============================================================ */
+
+  /* Base card with Shadcn variables */
+  .card {
+    @apply bg-card text-card-foreground;
+  }
+
+  /* Card header */
+  .card-header {
+    @apply flex flex-col space-y-1.5 p-6;
+  }
+
+  /* Card title */
+  .card-title {
+    @apply text-2xl font-semibold leading-none tracking-tight;
+  }
+
+  /* Card description */
+  .card-description {
+    @apply text-sm text-muted-foreground;
+  }
+
+  /* Card content */
+  .card-content {
+    @apply p-6 pt-0;
+  }
+
+  /* Card footer */
+  .card-footer {
+    @apply flex items-center p-6 pt-0;
+  }
+
+  /* ============================================================
+     INPUT/FORM STYLES
+     ============================================================ */
+
+  /* Base input styles */
+  .input {
+    @apply flex h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-base placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-input;
+  }
+
+  /* Select dropdown */
+  .select {
+    @apply flex h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-base placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  /* Textarea */
+  .textarea {
+    @apply flex min-h-20 w-full rounded-md border border-input bg-background px-3 py-2 text-base placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  /* Form label */
+  .label {
+    @apply text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
+  }
+
+  /* ============================================================
+     DIALOG/MODAL STYLES
+     ============================================================ */
+
+  /* Dialog overlay */
+  .dialog-overlay {
+    @apply fixed inset-0 z-50 bg-background/80 backdrop-blur-sm;
+  }
+
+  /* Dialog content */
+  .dialog-content {
+    @apply fixed left-1/2 top-1/2 z-50 grid w-full max-w-lg -translate-x-1/2 -translate-y-1/2 gap-4 border border-border bg-background p-6 shadow-lg rounded-lg;
+  }
+
+  /* ============================================================
+     SHEET/BOTTOM SHEET STYLES
+     ============================================================ */
+
+  /* Sheet overlay */
+  .sheet-overlay {
+    @apply fixed inset-0 z-50 bg-black/60;
+  }
+
+  /* Sheet content */
+  .sheet-content {
+    @apply fixed z-50 gap-4 bg-background p-6 shadow-lg animate-in;
+  }
+
+  /* Sheet content (bottom) */
+  .sheet-content-bottom {
+    @apply inset-x-0 bottom-0 border-t border-border rounded-t-lg;
+  }
+
+  /* Sheet header */
+  .sheet-header {
+    @apply flex flex-col space-y-2;
+  }
+
+  /* Sheet title */
+  .sheet-title {
+    @apply text-lg font-semibold text-foreground;
+  }
+
+  /* Sheet description */
+  .sheet-description {
+    @apply text-sm text-muted-foreground;
+  }
+
+  /* ============================================================
+     BADGE/PILL STYLES
+     ============================================================ */
+
+  /* Base badge */
+  .badge {
+    @apply inline-flex items-center rounded-md border border-border px-2.5 py-0.5 text-xs font-semibold;
+  }
+
+  /* Badge variant: default */
+  .badge-default {
+    @apply border-transparent bg-primary text-primary-foreground;
+  }
+
+  /* Badge variant: secondary */
+  .badge-secondary {
+    @apply border-transparent bg-secondary text-secondary-foreground;
+  }
+
+  /* Badge variant: destructive */
+  .badge-destructive {
+    @apply border-transparent bg-destructive text-destructive-foreground;
+  }
+
+  /* Badge variant: outline */
+  .badge-outline {
+    @apply text-foreground;
+  }
+
+  /* Badge variant: success */
+  .badge-success {
+    @apply border-transparent bg-success text-success-foreground;
+  }
+
+  /* Badge variant: warning */
+  .badge-warning {
+    @apply border-transparent bg-warning text-warning-foreground;
+  }
+
+  /* Badge variant: error */
+  .badge-error {
+    @apply border-transparent bg-error text-error-foreground;
+  }
+
+  /* Badge variant: info */
+  .badge-info {
+    @apply border-transparent bg-info text-info-foreground;
+  }
+
+  /* ============================================================
+     ALERT/NOTIFICATION STYLES
+     ============================================================ */
+
+  /* Base alert */
+  .alert {
+    @apply relative w-full rounded-lg border border-border p-4;
+  }
+
+  /* Alert title */
+  .alert-title {
+    @apply mb-1 font-medium leading-none tracking-tight;
+  }
+
+  /* Alert description */
+  .alert-description {
+    @apply text-sm opacity-90;
+  }
+
+  /* Alert variant: default */
+  .alert-default {
+    @apply bg-background text-foreground;
+  }
+
+  /* Alert variant: success */
+  .alert-success {
+    @apply border-success bg-success-background text-foreground;
+  }
+
+  /* Alert variant: warning */
+  .alert-warning {
+    @apply border-warning bg-warning-background text-foreground;
+  }
+
+  /* Alert variant: error */
+  .alert-error {
+    @apply border-error bg-error-background text-foreground;
+  }
+
+  /* Alert variant: info */
+  .alert-info {
+    @apply border-info bg-info-background text-foreground;
+  }
+
+  /* ============================================================
+     SEPARATOR STYLES
+     ============================================================ */
+
+  /* Horizontal separator */
+  .separator-h {
+    @apply h-px bg-border;
+  }
+
+  /* Vertical separator */
+  .separator-v {
+    @apply w-px bg-border;
+  }
+
+  /* ============================================================
+     NAVIGATION/TAB STYLES
+     ============================================================ */
+
+  /* Tab list */
+  .tabs-list {
+    @apply inline-flex h-10 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground;
+  }
+
+  /* Tab trigger */
+  .tabs-trigger {
+    @apply inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm;
+  }
+
+  /* Tab content */
+  .tabs-content {
+    @apply mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+  }
+
+  /* ============================================================
+     SKELETON/LOADING STYLES
+     ============================================================ */
+
+  /* Skeleton pulse animation */
+  .skeleton {
+    @apply rounded-md bg-muted animate-pulse;
+  }
+
+  /* ============================================================
+     ACCESSIBILITY OVERRIDES
+     ============================================================ */
+
+  /* High contrast mode support */
+  @media (prefers-contrast: more) {
+    :root {
+      --foreground: oklch(20% 0.140 262);
+      --muted-foreground: oklch(50% 0.200 262);
+    }
+
+    .dark {
+      --foreground: oklch(99% 0.002 50);
+      --muted-foreground: oklch(80% 0.005 50);
+    }
+
+    .btn,
+    .input,
+    .select {
+      @apply border-2;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      @apply !animate-none !transition-none;
+    }
+  }
+
+  /* ============================================================
+     FOCUS RING STYLES (WCAG Compliance)
+     ============================================================ */
+
+  /* Default focus ring */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+
+  /* Alternative: Ring-based focus indicator for buttons, inputs */
+  .focus-ring:focus {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /* ============================================================
+     FONT UTILITIES
+     ============================================================ */
+
+  /* Display (H1) */
+  .text-display {
+    @apply text-4xl font-bold leading-tight -tracking-wider;
+  }
+
+  /* Heading (H2) */
+  .text-heading {
+    @apply text-2xl font-semibold leading-tight -tracking-tight;
+  }
+
+  /* Subheading (H3) */
+  .text-subheading {
+    @apply text-xl font-semibold leading-snug -tracking-tight;
+  }
+
+  /* Body text */
+  .text-body {
+    @apply text-base font-normal leading-relaxed;
+  }
+
+  /* Small body text */
+  .text-body-sm {
+    @apply text-sm font-normal leading-relaxed;
+  }
+
+  /* Caption */
+  .text-caption {
+    @apply text-xs font-normal leading-tight;
+  }
+
+  /* Monospace (flight codes, prices, IDs) */
+  .text-mono {
+    @apply font-mono text-base font-semibold tracking-wide;
+  }
+}
+
+/* ============================================================
+   UTILITY CLASSES FOR TRAVEL-SPECIFIC COMPONENTS
+   ============================================================ */
+
+/* Flight status styles */
+.flight-status {
+  @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-medium;
+}
+
+.flight-status-on-time {
+  @apply bg-success-background text-success-foreground border border-success;
+}
+
+.flight-status-delayed {
+  @apply bg-warning-background text-warning-foreground border border-warning;
+}
+
+.flight-status-cancelled {
+  @apply bg-error-background text-error-foreground border border-error;
+}
+
+.flight-status-boarding {
+  @apply bg-primary/10 text-primary border border-primary;
+}
+
+.flight-status-departed {
+  @apply bg-primary/10 text-primary border border-primary;
+}
+
+.flight-status-arrived {
+  @apply bg-success-background text-success-foreground border border-success;
+}
+
+/* Trip card styles */
+.trip-card {
+  @apply rounded-lg border border-border bg-card p-4 hover:shadow-md transition-shadow;
+}
+
+/* Disruption alert card */
+.disruption-alert {
+  @apply rounded-lg border-l-4 border-l-error bg-error-background p-4;
+}
+
+/* Button group (for related buttons) */
+.button-group {
+  @apply flex gap-2;
+}
+
+/* ============================================================
+   END OF SHADCN THEME
+   ============================================================ */

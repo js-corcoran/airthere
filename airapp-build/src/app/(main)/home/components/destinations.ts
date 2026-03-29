@@ -1,0 +1,88 @@
+import { Destination } from './DestinationCard';
+
+export const DESTINATIONS: Destination[] = [
+  {
+    id: 'dest-tokyo',
+    city: 'Tokyo',
+    country: 'Japan',
+    highlights: [
+      'Cherry blossom season in April',
+      'World-class dining and cuisine',
+      'Rich culture and modern innovation',
+      'Kid-friendly attractions and parks',
+    ],
+    priceFrom: 1290,
+    imageGradient: 'bg-gradient-to-br from-error-300 to-secondary-400',
+    persona: ['premium', 'business', 'family'],
+  },
+  {
+    id: 'dest-paris',
+    city: 'Paris',
+    country: 'France',
+    highlights: [
+      'Art galleries and architecture',
+      'Michelin-star restaurants',
+      'Shopping on the Champs-Élysées',
+      'Family-friendly museums',
+    ],
+    priceFrom: 680,
+    imageGradient: 'bg-gradient-to-br from-primary-300 to-info-400',
+    persona: ['premium', 'business', 'family'],
+  },
+  {
+    id: 'dest-dubai',
+    city: 'Dubai',
+    country: 'UAE',
+    highlights: [
+      'Luxury resorts and experiences',
+      'Business hub connections',
+      'Year-round sunshine',
+      'Theme parks for all ages',
+    ],
+    priceFrom: 980,
+    imageGradient: 'bg-gradient-to-br from-secondary-300 to-warning-400',
+    persona: ['premium', 'business', 'family'],
+  },
+  {
+    id: 'dest-london',
+    city: 'London',
+    country: 'United Kingdom',
+    highlights: [
+      'World-class theater and arts',
+      'Financial center networking',
+      'Historic landmarks and museums',
+      'Harry Potter experiences',
+    ],
+    priceFrom: 620,
+    imageGradient: 'bg-gradient-to-br from-primary-400 to-primary-600',
+    persona: ['premium', 'business', 'family'],
+  },
+  {
+    id: 'dest-singapore',
+    city: 'Singapore',
+    country: 'Singapore',
+    highlights: [
+      'Changi Airport — the world\'s best',
+      'Tech and innovation hub',
+      'Gardens by the Bay',
+      'Food capital of Southeast Asia',
+    ],
+    priceFrom: 920,
+    imageGradient: 'bg-gradient-to-br from-success-300 to-info-400',
+    persona: ['premium', 'business', 'family'],
+  },
+  {
+    id: 'dest-sydney',
+    city: 'Sydney',
+    country: 'Australia',
+    highlights: [
+      'Iconic harbor and Opera House',
+      'Beautiful beaches',
+      'Wine country day trips',
+      'Wildlife and nature for families',
+    ],
+    priceFrom: 1450,
+    imageGradient: 'bg-gradient-to-br from-info-300 to-success-400',
+    persona: ['premium', 'family'],
+  },
+];

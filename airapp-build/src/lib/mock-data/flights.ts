@@ -109,5 +109,10 @@ export function getMockFlights(from: string, to: string, date: string): Flight[]
   return generateFlightsForRoute(from, to, ['UA', 'DL', 'AA'], 750, 480, date);
 }
 
+export function getFlightById(flightId: string, from: string, to: string, date: string): Flight | undefined {
+  const flights = getMockFlights(from, to, date);
+  return flights.find((f) => f.id === flightId);
+}
+
 // Pre-built default set for home screen displays
 export const FEATURED_FLIGHTS = getMockFlights('JFK', 'LHR', '2026-04-15');

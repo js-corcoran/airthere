@@ -156,6 +156,9 @@ function SearchResultsContent() {
   const handleSelectFlight = (flight: Flight) => {
     const params = new URLSearchParams({
       flightId: flight.id,
+      from,
+      to,
+      departDate: currentDate,
       cabinClass,
       adults: String(adults),
       children: String(children),

@@ -12,8 +12,10 @@ const TITLE_MAP: Record<string, string> = {
   '/booking/detail': 'Flight Details',
   '/booking/checkout': 'Checkout',
   '/trips': 'My Trips',
+  '/trips/documents': 'Document Vault',
   '/airport': 'Airport Live',
   '/airport/gate': 'Gate & Boarding',
+  '/family': 'Family Hub',
   '/profile': 'Profile',
   '/ai/copilot': 'AI Copilot',
 };

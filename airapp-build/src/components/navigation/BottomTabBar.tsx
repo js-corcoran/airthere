@@ -17,7 +17,7 @@ const TABS: TabItem[] = [
   { label: 'Home', href: ROUTES.HOME, icon: Home, matchPaths: ['/home'] },
   { label: 'Discover', href: ROUTES.DISCOVER, icon: Compass, matchPaths: ['/discover'] },
   { label: 'Search', href: ROUTES.SEARCH, icon: Search, matchPaths: ['/search'] },
-  { label: 'Trips', href: ROUTES.TRIPS, icon: Briefcase, matchPaths: ['/trips', '/booking'] },
+  { label: 'Trips', href: ROUTES.TRIPS, icon: Briefcase, matchPaths: ['/trips', '/booking', '/airport', '/irops'] },
   { label: 'Profile', href: ROUTES.PROFILE, icon: User, matchPaths: ['/profile'] },
 ];
 

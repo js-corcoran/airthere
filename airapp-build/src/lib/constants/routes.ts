@@ -9,5 +9,9 @@ export const ROUTES = {
   BOOKING_CHECKOUT: '/booking/checkout',
   TRIPS: '/trips',
   TRIP_DETAIL: (tripId: string) => `/trips/${tripId}`,
+  AIRPORT: '/airport',
+  GATE: '/airport/gate',
+  IROPS: (flightId: string) => `/irops/${flightId}`,
   PROFILE: '/profile',
+  AI_COPILOT: '/ai/copilot',
 } as const;

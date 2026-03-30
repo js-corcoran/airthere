@@ -57,7 +57,7 @@ export function TravelStatsSection({ stats }: TravelStatsSectionProps) {
             </span>
           </div>
           <div className="flex items-center gap-2">
-            <Plane className="w-3.5 h-3.5 text-primary-400" aria-hidden="true" />
+            <Plane className="w-3.5 h-3.5 text-primary-500 dark:text-primary-400" aria-hidden="true" />
             <span className="text-xs text-primary-500 dark:text-primary-400">Top route:</span>
             <span className="text-xs font-medium text-primary-800 dark:text-subtle-foreground">
               {stats.favoriteRoute}

@@ -40,7 +40,7 @@ export function JourneyBreadcrumb({ currentStep, flightId }: JourneyBreadcrumbPr
                   className={cn(
                     'w-3.5 h-3.5 mx-0.5 shrink-0',
                     isPast || isCurrent
-                      ? 'text-primary-400 dark:text-primary-500'
+                      ? 'text-primary-600 dark:text-primary-400'
                       : 'text-surface-300 dark:text-muted'
                   )}
                   aria-hidden="true"
@@ -56,7 +56,7 @@ export function JourneyBreadcrumb({ currentStep, flightId }: JourneyBreadcrumbPr
                     ? 'bg-primary-500 text-white dark:bg-primary-500 dark:text-white shadow-sm'
                     : isPast
                       ? 'bg-primary-100 text-primary-700 dark:bg-surface-primary dark:text-primary-300 hover:bg-primary-200 dark:hover:bg-primary-800'
-                      : 'bg-surface-100 text-primary-400 dark:bg-surface-100 dark:text-faint-foreground hover:bg-surface-200 dark:hover:bg-surface-elevated'
+                      : 'bg-surface-100 text-primary-600 dark:bg-surface-100 dark:text-faint-foreground hover:bg-surface-200 dark:hover:bg-surface-elevated'
                 )}
                 aria-current={isCurrent ? 'step' : undefined}
                 aria-label={`${step.label}${isCurrent ? ' (current)' : ''}`}

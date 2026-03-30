@@ -25,7 +25,7 @@ const TYPE_COLORS: Record<string, string> = {
   visa: 'text-info-600 dark:text-info-400',
   insurance: 'text-success-600 dark:text-success-400',
   booking: 'text-secondary-600 dark:text-secondary-400',
-  custom: 'text-primary-500 dark:text-faint-foreground',
+  custom: 'text-primary-600 dark:text-faint-foreground',
 };
 
 function getExpirationInfo(expirationDate?: string): { label: string; variant: 'ok' | 'warning' | 'expired' } | null {
@@ -74,7 +74,7 @@ export function DocumentCard({ document: doc, onView, onDelete, onShare, onUploa
                 {doc.name}
               </h3>
               {doc.holderName && (
-                <p className="text-xs text-primary-500 dark:text-faint-foreground">
+                <p className="text-xs text-primary-600 dark:text-faint-foreground">
                   {doc.holderName}
                 </p>
               )}
@@ -123,7 +123,7 @@ export function DocumentCard({ document: doc, onView, onDelete, onShare, onUploa
 
           {/* Document number */}
           {doc.metadata.documentNumber && (
-            <p className="text-[10px] text-primary-400 dark:text-faint-foreground mt-1 font-mono">
+            <p className="text-[10px] text-primary-600 dark:text-faint-foreground mt-1 font-mono">
               {doc.metadata.documentNumber}
             </p>
           )}
@@ -131,8 +131,8 @@ export function DocumentCard({ document: doc, onView, onDelete, onShare, onUploa
           {/* Encryption badge */}
           {doc.encrypted && !isNotUploaded && (
             <div className="flex items-center gap-1 mt-1">
-              <Shield className="w-3 h-3 text-primary-400 dark:text-faint-foreground" aria-hidden="true" />
-              <span className="text-[10px] text-primary-400 dark:text-faint-foreground">
+              <Shield className="w-3 h-3 text-primary-600 dark:text-faint-foreground" aria-hidden="true" />
+              <span className="text-[10px] text-primary-600 dark:text-faint-foreground">
                 Encrypted
               </span>
             </div>

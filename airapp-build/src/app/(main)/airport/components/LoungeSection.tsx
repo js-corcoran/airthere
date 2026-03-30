@@ -76,7 +76,7 @@ function LoungeCard({ lounge, persona }: { lounge: AirportLounge; persona: Perso
             <h4 className="text-base font-semibold text-primary-900 dark:text-foreground">
               {lounge.name}
             </h4>
-            <div className="flex items-center gap-2 mt-1 text-xs text-primary-500 dark:text-caption-foreground">
+            <div className="flex items-center gap-2 mt-1 text-xs text-primary-700 dark:text-caption-foreground">
               <MapPin className="w-3 h-3" aria-hidden="true" />
               <span>{lounge.terminal}, near Gate {lounge.nearGate}</span>
               <span aria-hidden="true">·</span>
@@ -84,7 +84,7 @@ function LoungeCard({ lounge, persona }: { lounge: AirportLounge; persona: Perso
             </div>
           </div>
           {!lounge.hasAccess && (
-            <span className="flex items-center gap-1 text-xs font-medium text-primary-500 dark:text-caption-foreground">
+            <span className="flex items-center gap-1 text-xs font-medium text-primary-700 dark:text-caption-foreground">
               <Lock className="w-3 h-3" aria-hidden="true" />
               {lounge.accessReason}
             </span>
@@ -112,7 +112,7 @@ function LoungeCard({ lounge, persona }: { lounge: AirportLounge; persona: Perso
         {/* Capacity bar */}
         <div className="mb-3">
           <div className="flex items-center justify-between text-[10px] mb-1">
-            <span className="text-primary-500 dark:text-caption-foreground">Capacity</span>
+            <span className="text-primary-700 dark:text-caption-foreground">Capacity</span>
             <span className={cn(
               'font-medium',
               isBusy
@@ -168,7 +168,7 @@ export function LoungeSection({ lounges, persona }: LoungeSectionProps) {
         <h2 className="text-lg font-semibold text-primary-900 dark:text-foreground">
           {persona === 'premium' ? 'Your Premium Lounges' : 'Airport Lounges'}
         </h2>
-        <p className="text-xs text-primary-500 dark:text-caption-foreground mt-0.5">
+        <p className="text-xs text-primary-700 dark:text-caption-foreground mt-0.5">
           {accessibleLounges.length > 0
             ? `You have access to ${accessibleLounges.length} lounge${accessibleLounges.length !== 1 ? 's' : ''}`
             : 'Explore available lounges'}

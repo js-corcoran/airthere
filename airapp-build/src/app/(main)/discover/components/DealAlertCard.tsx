@@ -72,12 +72,12 @@ export function DealAlertCard({ deal, onSave }: DealAlertCardProps) {
               <span className="text-base font-semibold text-primary-900 dark:text-foreground">
                 {deal.route.fromCity}
               </span>
-              <ArrowRight className="w-4 h-4 text-primary-400 dark:text-faint-foreground" aria-label="to" />
+              <ArrowRight className="w-4 h-4 text-primary-600 dark:text-faint-foreground" aria-label="to" />
               <span className="text-base font-semibold text-primary-900 dark:text-foreground">
                 {deal.route.toCity}
               </span>
             </div>
-            <div className="flex items-center gap-2 text-xs text-primary-500 dark:text-caption-foreground">
+            <div className="flex items-center gap-2 text-xs text-primary-700 dark:text-caption-foreground">
               <Plane className="w-3 h-3" aria-hidden="true" />
               <span>{deal.airline}</span>
               <span aria-hidden="true">·</span>
@@ -93,7 +93,7 @@ export function DealAlertCard({ deal, onSave }: DealAlertCardProps) {
 
         {/* Pricing */}
         <div className="flex items-end gap-3 mb-3">
-          <span className="text-sm text-primary-400 dark:text-faint-foreground line-through">
+          <span className="text-sm text-primary-600 dark:text-faint-foreground line-through">
             ${deal.originalPrice.toLocaleString()}
           </span>
           <span className="text-2xl font-bold text-success-600 dark:text-success-400">

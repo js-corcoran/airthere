@@ -89,7 +89,7 @@ export default function LoungeFinderPage() {
             Airport Lounges
           </h1>
         </div>
-        <p className="text-sm text-primary-500 dark:text-caption-foreground">
+        <p className="text-sm text-primary-700 dark:text-caption-foreground">
           SFO — San Francisco International, Terminal 3
         </p>
       </header>
@@ -191,7 +191,7 @@ export default function LoungeFinderPage() {
               ))
             ) : (
               <div className="py-12 text-center">
-                <p className="text-sm text-primary-500 dark:text-caption-foreground">
+                <p className="text-sm text-primary-700 dark:text-caption-foreground">
                   No lounges match your filter. Try showing all lounges.
                 </p>
                 <button
@@ -487,7 +487,7 @@ export default function LoungeFinderPage() {
                     <span className="text-sm font-medium text-primary-900 dark:text-foreground">
                       {lounge.name}
                     </span>
-                    <span className="text-xs text-primary-500 dark:text-caption-foreground ml-2">
+                    <span className="text-xs text-primary-700 dark:text-caption-foreground ml-2">
                       {lounge.terminal}
                     </span>
                   </div>

@@ -28,7 +28,7 @@ export function StepProgress({ currentStep, totalSteps, labels }: StepProgressPr
                     ? 'bg-success-500 text-white dark:bg-success-500'
                     : isCurrent
                       ? 'bg-primary-500 text-white dark:bg-primary-500'
-                      : 'bg-surface-200 text-primary-400 dark:bg-input dark:text-faint-foreground'
+                      : 'bg-surface-200 text-primary-600 dark:bg-input dark:text-faint-foreground'
                 )}
               >
                 {isComplete ? <Check className="w-3.5 h-3.5" /> : step}
@@ -37,7 +37,7 @@ export function StepProgress({ currentStep, totalSteps, labels }: StepProgressPr
                 'text-[10px] mt-1 text-center whitespace-nowrap',
                 isCurrent
                   ? 'text-primary-700 font-medium dark:text-muted-foreground'
-                  : 'text-primary-400 dark:text-faint-foreground'
+                  : 'text-primary-600 dark:text-faint-foreground'
               )}>
                 {label}
               </span>

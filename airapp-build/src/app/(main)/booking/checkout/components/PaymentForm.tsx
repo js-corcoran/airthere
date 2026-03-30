@@ -47,7 +47,7 @@ export function PaymentForm({ data, onChange, errors }: PaymentFormProps) {
         <h2 className="text-lg font-semibold text-primary-900 dark:text-foreground">
           Payment Method
         </h2>
-        <p className="text-sm text-primary-500 dark:text-faint-foreground mt-0.5">
+        <p className="text-sm text-primary-600 dark:text-faint-foreground mt-0.5">
           Choose how you&apos;d like to pay
         </p>
       </div>
@@ -111,7 +111,7 @@ export function PaymentForm({ data, onChange, errors }: PaymentFormProps) {
                 'focus:outline-none focus:ring-2 focus:ring-primary-500',
                 'dark:bg-card dark:text-foreground',
                 'min-h-[var(--touch-min)]',
-                'placeholder:text-primary-400 dark:placeholder:text-faint-foreground',
+                'placeholder:text-primary-500 dark:placeholder:text-faint-foreground',
                 errors.cardNumber
                   ? 'border-error-400'
                   : 'border-surface-300 dark:border-muted'
@@ -138,7 +138,7 @@ export function PaymentForm({ data, onChange, errors }: PaymentFormProps) {
                 'focus:outline-none focus:ring-2 focus:ring-primary-500',
                 'dark:bg-card dark:text-foreground',
                 'min-h-[var(--touch-min)]',
-                'placeholder:text-primary-400 dark:placeholder:text-faint-foreground',
+                'placeholder:text-primary-500 dark:placeholder:text-faint-foreground',
                 'border-surface-300 dark:border-muted'
               )}
               aria-label="Cardholder name"
@@ -162,7 +162,7 @@ export function PaymentForm({ data, onChange, errors }: PaymentFormProps) {
                   'focus:outline-none focus:ring-2 focus:ring-primary-500',
                   'dark:bg-card dark:text-foreground',
                   'min-h-[var(--touch-min)]',
-                  'placeholder:text-primary-400 dark:placeholder:text-faint-foreground',
+                  'placeholder:text-primary-500 dark:placeholder:text-faint-foreground',
                   'border-surface-300 dark:border-muted'
                 )}
                 aria-label="Expiry date"
@@ -184,7 +184,7 @@ export function PaymentForm({ data, onChange, errors }: PaymentFormProps) {
                   'focus:outline-none focus:ring-2 focus:ring-primary-500',
                   'dark:bg-card dark:text-foreground',
                   'min-h-[var(--touch-min)]',
-                  'placeholder:text-primary-400 dark:placeholder:text-faint-foreground',
+                  'placeholder:text-primary-500 dark:placeholder:text-faint-foreground',
                   'border-surface-300 dark:border-muted'
                 )}
                 aria-label="CVV"
@@ -194,7 +194,7 @@ export function PaymentForm({ data, onChange, errors }: PaymentFormProps) {
 
           <div className="flex items-center gap-2 mt-2">
             <ShieldCheck className="w-4 h-4 text-success-500 dark:text-success-400" />
-            <span className="text-xs text-primary-500 dark:text-faint-foreground">
+            <span className="text-xs text-primary-600 dark:text-faint-foreground">
               Secure checkout — your payment info is encrypted
             </span>
           </div>

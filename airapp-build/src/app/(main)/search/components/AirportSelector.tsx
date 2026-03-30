@@ -95,7 +95,7 @@ export function AirportSelector({ value, onChange, label, placeholder, excludeAi
             'dark:bg-card dark:text-foreground',
             'border-surface-300 dark:border-muted',
             'min-h-[var(--touch-preferred)]',
-            'placeholder:text-primary-400 dark:placeholder:text-faint-foreground'
+            'placeholder:text-primary-500 dark:placeholder:text-faint-foreground'
           )}
         />
         {value && (
@@ -106,7 +106,7 @@ export function AirportSelector({ value, onChange, label, placeholder, excludeAi
                        transition-colors focus-visible:outline-2 focus-visible:outline-primary-500"
             aria-label="Clear selection"
           >
-            <X className="w-4 h-4 text-primary-400" />
+            <X className="w-4 h-4 text-primary-500 dark:text-primary-400" />
           </button>
         )}
       </div>
@@ -120,7 +120,7 @@ export function AirportSelector({ value, onChange, label, placeholder, excludeAi
           role="listbox"
         >
           {query.length === 0 && (
-            <div className="px-3 py-2 text-xs font-medium text-primary-400 dark:text-faint-foreground uppercase tracking-wider flex items-center gap-1">
+            <div className="px-3 py-2 text-xs font-medium text-primary-600 dark:text-faint-foreground uppercase tracking-wider flex items-center gap-1">
               <Clock className="w-3 h-3" /> Popular airports
             </div>
           )}
@@ -140,7 +140,7 @@ export function AirportSelector({ value, onChange, label, placeholder, excludeAi
                   value === airport.code && 'bg-primary-50 dark:bg-primary-900'
                 )}
               >
-                <MapPin className="w-4 h-4 text-primary-400 shrink-0" aria-hidden="true" />
+                <MapPin className="w-4 h-4 text-primary-500 dark:text-primary-400 shrink-0" aria-hidden="true" />
                 <div className="flex-1 min-w-0">
                   <span className="text-sm font-semibold text-primary-900 dark:text-foreground">
                     {airport.code}
@@ -152,7 +152,7 @@ export function AirportSelector({ value, onChange, label, placeholder, excludeAi
               </button>
             ))
           ) : (
-            <div className="px-3 py-4 text-sm text-primary-500 dark:text-caption-foreground text-center">
+            <div className="px-3 py-4 text-sm text-primary-700 dark:text-caption-foreground text-center">
               No airports found for &ldquo;{query}&rdquo;
             </div>
           )}

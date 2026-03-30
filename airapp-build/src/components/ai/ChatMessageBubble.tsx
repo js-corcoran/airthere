@@ -61,8 +61,8 @@ export function ChatMessageBubble({ message, onSuggestionSelect, onActionCardBoo
         <p className={cn(
           'text-[10px] px-1',
           isUser
-            ? 'text-right text-primary-400 dark:text-primary-500'
-            : 'text-primary-400 dark:text-primary-500',
+            ? 'text-right text-primary-600 dark:text-primary-400'
+            : 'text-primary-600 dark:text-primary-400',
         )}>
           {formatTimestamp(message.timestamp)}
         </p>

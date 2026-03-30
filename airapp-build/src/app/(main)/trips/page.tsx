@@ -53,12 +53,12 @@ export default function TripsPage() {
       {/* Header */}
       <div className="px-4 pt-2 pb-3">
         <div className="flex items-center gap-2 mb-1">
-          <Luggage className="w-5 h-5 text-primary-500 dark:text-primary-400" />
+          <Luggage className="w-5 h-5 text-primary-500 dark:text-primary-500 dark:text-primary-400" />
           <h1 className="text-xl font-bold text-primary-900 dark:text-foreground">
             My Trips
           </h1>
         </div>
-        <p className="text-sm text-primary-500 dark:text-faint-foreground">
+        <p className="text-sm text-primary-600 dark:text-faint-foreground">
           {persona === 'premium'
             ? 'Your premium travel itineraries'
             : persona === 'business'
@@ -84,9 +84,9 @@ export default function TripsPage() {
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-sm font-semibold text-primary-900 dark:text-foreground">Go to Airport</p>
-              <p className="text-xs text-primary-500 dark:text-caption-foreground">Live gate, security & lounge info</p>
+              <p className="text-xs text-primary-700 dark:text-caption-foreground">Live gate, security & lounge info</p>
             </div>
-            <ArrowRight className="w-4 h-4 text-primary-400 shrink-0" aria-hidden="true" />
+            <ArrowRight className="w-4 h-4 text-primary-500 dark:text-primary-400 shrink-0" aria-hidden="true" />
           </Link>
         </div>
       )}
@@ -105,7 +105,7 @@ export default function TripsPage() {
               'min-h-[var(--touch-min)]',
               activeTab === 'upcoming'
                 ? 'bg-background text-primary-900 shadow-sm dark:bg-input dark:text-foreground'
-                : 'text-primary-500 dark:text-faint-foreground'
+                : 'text-primary-600 dark:text-faint-foreground'
             )}
           >
             Upcoming ({upcomingTrips.length})
@@ -121,7 +121,7 @@ export default function TripsPage() {
               'min-h-[var(--touch-min)]',
               activeTab === 'disrupted'
                 ? 'bg-background text-primary-900 shadow-sm dark:bg-input dark:text-foreground'
-                : 'text-primary-500 dark:text-faint-foreground'
+                : 'text-primary-600 dark:text-faint-foreground'
             )}
           >
             <span className="flex items-center justify-center gap-1.5">
@@ -130,7 +130,7 @@ export default function TripsPage() {
                 'inline-flex items-center justify-center px-1.5 py-0.5 rounded-full text-[10px] font-bold min-w-[18px] leading-none',
                 disruptedTrips.length > 0
                   ? 'bg-error-100 text-error-600 dark:bg-surface-error dark:text-error-300'
-                  : 'bg-surface-200 text-primary-400 dark:bg-input dark:text-faint-foreground'
+                  : 'bg-surface-200 text-primary-600 dark:bg-input dark:text-faint-foreground'
               )}>
                 {disruptedTrips.length}
               </span>
@@ -147,7 +147,7 @@ export default function TripsPage() {
               'min-h-[var(--touch-min)]',
               activeTab === 'past'
                 ? 'bg-background text-primary-900 shadow-sm dark:bg-input dark:text-foreground'
-                : 'text-primary-500 dark:text-faint-foreground'
+                : 'text-primary-600 dark:text-faint-foreground'
             )}
           >
             Past ({pastTrips.length})

@@ -36,7 +36,7 @@ export function TripTypeToggle({ value, onChange }: TripTypeToggleProps) {
             'min-h-[var(--touch-min)]',
             value === option.value
               ? 'bg-background text-primary-900 shadow-sm dark:bg-input dark:text-foreground'
-              : 'text-primary-500 dark:text-dimmed-foreground hover:text-primary-700 dark:hover:text-soft-foreground'
+              : 'text-primary-600 dark:text-dimmed-foreground hover:text-primary-700 dark:hover:text-soft-foreground'
           )}
         >
           {option.label}

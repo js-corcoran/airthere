@@ -94,7 +94,7 @@ export function DiscoverDestinationCard({
             <h3 className="text-sm font-semibold text-primary-900 dark:text-foreground truncate">
               {destination.city}
             </h3>
-            <p className="text-xs text-primary-500 dark:text-caption-foreground">
+            <p className="text-xs text-primary-700 dark:text-caption-foreground">
               {destination.country}
             </p>
           </div>
@@ -123,7 +123,7 @@ export function DiscoverDestinationCard({
           <div>
             {destination.dealBadge ? (
               <div className="flex items-center gap-2">
-                <span className="text-xs text-primary-400 dark:text-faint-foreground line-through">
+                <span className="text-xs text-primary-600 dark:text-faint-foreground line-through">
                   ${destination.dealBadge.originalPrice.toLocaleString()}
                 </span>
                 <span className="text-sm font-bold text-success-600 dark:text-success-400">
@@ -136,7 +136,7 @@ export function DiscoverDestinationCard({
               </span>
             )}
             {persona === 'family' && !destination.dealBadge && (
-              <span className="block text-[10px] text-primary-400 dark:text-faint-foreground">
+              <span className="block text-[10px] text-primary-600 dark:text-faint-foreground">
                 family of 4
               </span>
             )}

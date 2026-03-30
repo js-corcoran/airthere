@@ -20,7 +20,7 @@ export function WelcomeStep({ onGetStarted, onSkip }: WelcomeStepProps) {
 
       {/* Decorative airplane */}
       <div className="absolute top-[15%] right-[10%] opacity-10 dark:opacity-5" aria-hidden="true">
-        <Plane className="w-40 h-40 text-primary-500 rotate-[-15deg]" />
+        <Plane className="w-40 h-40 text-primary-500 dark:text-primary-400 rotate-[-15deg]" />
       </div>
 
       {/* Content */}

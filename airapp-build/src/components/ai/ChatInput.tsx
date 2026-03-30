@@ -54,7 +54,7 @@ export function ChatInput({ onSend, isLoading, placeholder = 'Ask me anything...
           'flex-1 resize-none rounded-[var(--radius-lg)] px-4 py-2.5 text-sm',
           'bg-surface-200 dark:bg-surface-elevated',
           'text-primary-800 dark:text-subtle-foreground',
-          'placeholder:text-primary-400 dark:placeholder:text-primary-500',
+          'placeholder:text-primary-500 dark:placeholder:text-primary-500',
           'border border-transparent',
           'focus:border-primary-300 dark:focus:border-primary-600',
           'focus:outline-none focus:ring-1 focus:ring-primary-300 dark:focus:ring-primary-600',
@@ -86,7 +86,7 @@ export function ChatInput({ onSend, isLoading, placeholder = 'Ask me anything...
           'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
           input.trim() && !isLoading
             ? 'bg-primary-600 dark:bg-primary-500 text-white hover:bg-primary-700 dark:hover:bg-primary-400'
-            : 'bg-surface-200 dark:bg-input text-primary-400 dark:text-primary-500 cursor-not-allowed',
+            : 'bg-surface-200 dark:bg-input text-primary-600 dark:text-primary-400 cursor-not-allowed',
         )}
         aria-label="Send message"
       >

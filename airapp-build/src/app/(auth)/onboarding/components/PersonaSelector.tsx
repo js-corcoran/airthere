@@ -56,7 +56,7 @@ export function PersonaSelector({ onSelect, selectedPersona }: PersonaSelectorPr
                     <h3 className="text-lg font-semibold text-primary-900 dark:text-foreground">
                       {persona.name}
                     </h3>
-                    <p className="text-xs text-primary-500 dark:text-caption-foreground font-medium uppercase tracking-wider">
+                    <p className="text-xs text-primary-700 dark:text-caption-foreground font-medium uppercase tracking-wider">
                       {persona.tagline}
                     </p>
                   </div>
@@ -72,7 +72,7 @@ export function PersonaSelector({ onSelect, selectedPersona }: PersonaSelectorPr
                       <span
                         className={cn(
                           'font-bold mt-0.5 shrink-0',
-                          isSelected ? 'text-primary-500' : 'text-success-500'
+                          isSelected ? 'text-primary-500 dark:text-primary-400' : 'text-success-500 dark:text-success-400'
                         )}
                         aria-hidden="true"
                       >

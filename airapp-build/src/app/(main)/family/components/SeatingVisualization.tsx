@@ -61,7 +61,7 @@ export function SeatingVisualization({ seating }: SeatingVisualizationProps) {
                   <span className="text-primary-800 dark:text-subtle-foreground">
                     {seat.memberName}
                   </span>
-                  <span className="text-xs text-primary-500 dark:text-faint-foreground">
+                  <span className="text-xs text-primary-600 dark:text-faint-foreground">
                     ({seat.memberType === 'adult' ? 'Adult' : 'Child'})
                   </span>
                 </div>

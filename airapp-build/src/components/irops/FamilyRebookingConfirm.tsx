@@ -81,10 +81,10 @@ export function FamilyRebookingConfirm({ familyInfo, onConfirm }: FamilyRebookin
                 </div>
 
                 <div className="flex items-center gap-2 text-xs">
-                  <span className="text-primary-400 dark:text-primary-500 line-through font-mono">
+                  <span className="text-primary-600 dark:text-primary-400 line-through font-mono">
                     {origSeat?.seat}
                   </span>
-                  <span className="text-primary-400 dark:text-primary-500" aria-hidden="true">&rarr;</span>
+                  <span className="text-primary-600 dark:text-primary-400" aria-hidden="true">&rarr;</span>
                   <span className="font-mono font-semibold text-primary-800 dark:text-subtle-foreground">
                     {newSeat?.seat}
                   </span>

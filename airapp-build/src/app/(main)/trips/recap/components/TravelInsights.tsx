@@ -58,7 +58,7 @@ export function TravelInsights({ insights }: TravelInsightsProps) {
                 {stat.label}
               </p>
               {stat.detail && (
-                <p className="text-[10px] text-primary-500 dark:text-caption-foreground mt-0.5">
+                <p className="text-[10px] text-primary-700 dark:text-caption-foreground mt-0.5">
                   {stat.detail}
                 </p>
               )}

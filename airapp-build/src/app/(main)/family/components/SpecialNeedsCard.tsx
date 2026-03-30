@@ -76,8 +76,8 @@ export function SpecialNeedsCard({ members }: SpecialNeedsCardProps) {
             {/* Doctor contact */}
             {member.medicalInfo?.doctorContact && (
               <div className="flex items-center gap-2 mt-2 pt-2 border-t border-warning-200 dark:border-muted">
-                <Phone className="w-4 h-4 text-primary-500 dark:text-faint-foreground shrink-0" aria-hidden="true" />
-                <span className="text-xs text-primary-600 dark:text-caption-foreground">
+                <Phone className="w-4 h-4 text-primary-600 dark:text-faint-foreground shrink-0" aria-hidden="true" />
+                <span className="text-xs text-primary-700 dark:text-caption-foreground">
                   {member.medicalInfo.doctorContact}
                 </span>
               </div>
@@ -86,8 +86,8 @@ export function SpecialNeedsCard({ members }: SpecialNeedsCardProps) {
             {/* Insurance */}
             {member.medicalInfo?.insuranceInfo && (
               <div className="flex items-center gap-2 mt-1">
-                <ShieldCheck className="w-4 h-4 text-primary-500 dark:text-faint-foreground shrink-0" aria-hidden="true" />
-                <span className="text-xs text-primary-600 dark:text-caption-foreground">
+                <ShieldCheck className="w-4 h-4 text-primary-600 dark:text-faint-foreground shrink-0" aria-hidden="true" />
+                <span className="text-xs text-primary-700 dark:text-caption-foreground">
                   {member.medicalInfo.insuranceInfo}
                 </span>
               </div>

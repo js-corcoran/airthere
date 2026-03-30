@@ -25,7 +25,7 @@ export function DayOfTravelTimeline({ events, travelDate }: DayOfTravelTimelineP
           Day of Travel
         </h2>
       </div>
-      <p className="text-xs text-primary-500 dark:text-faint-foreground mb-4 ml-7">
+      <p className="text-xs text-primary-600 dark:text-faint-foreground mb-4 ml-7">
         {travelDate}
       </p>
 
@@ -62,7 +62,7 @@ export function DayOfTravelTimeline({ events, travelDate }: DayOfTravelTimelineP
                     className={cn(
                       'text-sm',
                       event.completed
-                        ? 'text-primary-400 dark:text-faint-foreground line-through'
+                        ? 'text-primary-600 dark:text-faint-foreground line-through'
                         : 'text-primary-900 dark:text-foreground'
                     )}
                   >
@@ -71,8 +71,8 @@ export function DayOfTravelTimeline({ events, travelDate }: DayOfTravelTimelineP
                 </div>
                 {event.assignedTo && (
                   <div className="flex items-center gap-1 mt-0.5">
-                    <User className="w-3 h-3 text-primary-400 dark:text-faint-foreground" aria-hidden="true" />
-                    <span className="text-xs text-primary-500 dark:text-faint-foreground">
+                    <User className="w-3 h-3 text-primary-600 dark:text-faint-foreground" aria-hidden="true" />
+                    <span className="text-xs text-primary-600 dark:text-faint-foreground">
                       {event.assignedTo}
                     </span>
                   </div>

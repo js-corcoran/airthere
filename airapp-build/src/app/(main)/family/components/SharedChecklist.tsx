@@ -31,7 +31,7 @@ export function SharedChecklist({ items, tripLabel, onToggle }: SharedChecklistP
           Pre-Trip Checklist
         </h2>
       </div>
-      <p className="text-xs text-primary-500 dark:text-faint-foreground mb-3">
+      <p className="text-xs text-primary-600 dark:text-faint-foreground mb-3">
         {tripLabel}
       </p>
 
@@ -41,7 +41,7 @@ export function SharedChecklist({ items, tripLabel, onToggle }: SharedChecklistP
           <span className="text-xs font-medium text-primary-700 dark:text-muted-foreground">
             {completedCount} of {items.length} completed
           </span>
-          <span className="text-xs font-medium text-primary-500 dark:text-faint-foreground">
+          <span className="text-xs font-medium text-primary-600 dark:text-faint-foreground">
             {progressPercent}%
           </span>
         </div>
@@ -77,20 +77,20 @@ export function SharedChecklist({ items, tripLabel, onToggle }: SharedChecklistP
               {item.completed ? (
                 <CheckSquare className="w-5 h-5 text-success-500 shrink-0" aria-hidden="true" />
               ) : (
-                <Square className="w-5 h-5 text-primary-400 dark:text-faint-foreground shrink-0" aria-hidden="true" />
+                <Square className="w-5 h-5 text-primary-600 dark:text-faint-foreground shrink-0" aria-hidden="true" />
               )}
               <span
                 className={cn(
                   'text-sm flex-1',
                   item.completed
-                    ? 'line-through text-primary-400 dark:text-faint-foreground'
+                    ? 'line-through text-primary-600 dark:text-faint-foreground'
                     : 'text-primary-900 dark:text-foreground'
                 )}
               >
                 {item.task}
               </span>
               {item.assignedTo && (
-                <span className="inline-flex items-center gap-1 text-xs text-primary-500 dark:text-faint-foreground shrink-0">
+                <span className="inline-flex items-center gap-1 text-xs text-primary-600 dark:text-faint-foreground shrink-0">
                   <User className="w-3 h-3" aria-hidden="true" />
                   {item.assignedTo}
                 </span>

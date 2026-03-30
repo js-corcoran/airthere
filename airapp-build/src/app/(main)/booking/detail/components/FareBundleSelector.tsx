@@ -23,7 +23,7 @@ function FeatureRow({ label, included }: { label: string; included: boolean }) {
         'text-xs',
         included
           ? 'text-primary-700 dark:text-soft-foreground'
-          : 'text-primary-400 dark:text-faint-foreground line-through'
+          : 'text-primary-600 dark:text-faint-foreground line-through'
       )}>
         {label}
       </span>

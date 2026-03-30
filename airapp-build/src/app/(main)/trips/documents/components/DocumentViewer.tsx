@@ -53,11 +53,11 @@ export function DocumentViewer({ document: doc, onClose }: DocumentViewerProps) 
             'border-2 border-dashed border-primary-200 dark:border-primary'
           )}
         >
-          <FileText className="w-12 h-12 text-primary-400 dark:text-primary-600 mb-3" aria-hidden="true" />
-          <p className="text-sm text-primary-600 dark:text-caption-foreground">
+          <FileText className="w-12 h-12 text-primary-500 dark:text-primary-400 mb-3" aria-hidden="true" />
+          <p className="text-sm text-primary-700 dark:text-caption-foreground">
             Document Preview
           </p>
-          <p className="text-xs text-primary-400 dark:text-faint-foreground mt-1">
+          <p className="text-xs text-primary-600 dark:text-faint-foreground mt-1">
             {doc.fileSize ? `${(doc.fileSize / 1024).toFixed(0)} KB` : 'No file size'}
           </p>
         </div>
@@ -66,13 +66,13 @@ export function DocumentViewer({ document: doc, onClose }: DocumentViewerProps) 
         <div className="px-4 pb-4 space-y-2">
           {doc.holderName && (
             <div className="flex items-center justify-between text-sm">
-              <span className="text-primary-500 dark:text-faint-foreground">Holder</span>
+              <span className="text-primary-600 dark:text-faint-foreground">Holder</span>
               <span className="text-primary-900 dark:text-foreground font-medium">{doc.holderName}</span>
             </div>
           )}
           {doc.metadata.documentNumber && (
             <div className="flex items-center justify-between text-sm">
-              <span className="flex items-center gap-1 text-primary-500 dark:text-faint-foreground">
+              <span className="flex items-center gap-1 text-primary-600 dark:text-faint-foreground">
                 <Hash className="w-3.5 h-3.5" aria-hidden="true" /> Number
               </span>
               <span className="text-primary-900 dark:text-foreground font-mono text-xs">{doc.metadata.documentNumber}</span>
@@ -80,7 +80,7 @@ export function DocumentViewer({ document: doc, onClose }: DocumentViewerProps) 
           )}
           {doc.expirationDate && (
             <div className="flex items-center justify-between text-sm">
-              <span className="flex items-center gap-1 text-primary-500 dark:text-faint-foreground">
+              <span className="flex items-center gap-1 text-primary-600 dark:text-faint-foreground">
                 <Calendar className="w-3.5 h-3.5" aria-hidden="true" /> Expires
               </span>
               <span className="text-primary-900 dark:text-foreground">{doc.expirationDate}</span>
@@ -88,7 +88,7 @@ export function DocumentViewer({ document: doc, onClose }: DocumentViewerProps) 
           )}
           {doc.encrypted && (
             <div className="flex items-center justify-between text-sm">
-              <span className="flex items-center gap-1 text-primary-500 dark:text-faint-foreground">
+              <span className="flex items-center gap-1 text-primary-600 dark:text-faint-foreground">
                 <Shield className="w-3.5 h-3.5" aria-hidden="true" /> Security
               </span>
               <span className="text-success-600 dark:text-success-400 font-medium">AES-256 Encrypted</span>

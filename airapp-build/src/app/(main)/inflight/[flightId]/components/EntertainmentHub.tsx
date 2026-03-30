@@ -66,7 +66,7 @@ export function EntertainmentHub({ items, flightDurationMinutes }: Entertainment
 
         {/* Search */}
         <div className="relative mb-3">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-primary-400 dark:text-faint-foreground" aria-hidden="true" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-primary-600 dark:text-faint-foreground" aria-hidden="true" />
           <input
             type="search"
             value={searchQuery}
@@ -77,7 +77,7 @@ export function EntertainmentHub({ items, flightDurationMinutes }: Entertainment
               'bg-background border-surface-300',
               'dark:bg-background dark:border-muted',
               'text-primary-900 dark:text-foreground',
-              'placeholder:text-primary-400 dark:placeholder:text-faint-foreground',
+              'placeholder:text-primary-500 dark:placeholder:text-faint-foreground',
               'focus:outline-none focus:ring-2 focus:ring-primary-500',
               'min-h-[var(--touch-min)]'
             )}
@@ -141,10 +141,10 @@ export function EntertainmentHub({ items, flightDurationMinutes }: Entertainment
                 'dark:from-surface-primary dark:to-surface-primary'
               )}
             >
-              {item.type === 'movie' && <Film className="w-8 h-8 text-primary-400 dark:text-primary-600" />}
-              {item.type === 'show' && <Tv className="w-8 h-8 text-primary-400 dark:text-primary-600" />}
-              {item.type === 'game' && <Gamepad2 className="w-8 h-8 text-primary-400 dark:text-primary-600" />}
-              {(item.type === 'music' || item.type === 'podcast') && <Music className="w-8 h-8 text-primary-400 dark:text-primary-600" />}
+              {item.type === 'movie' && <Film className="w-8 h-8 text-primary-500 dark:text-primary-400" />}
+              {item.type === 'show' && <Tv className="w-8 h-8 text-primary-500 dark:text-primary-400" />}
+              {item.type === 'game' && <Gamepad2 className="w-8 h-8 text-primary-500 dark:text-primary-400" />}
+              {(item.type === 'music' || item.type === 'podcast') && <Music className="w-8 h-8 text-primary-500 dark:text-primary-400" />}
               {item.isNew && (
                 <span className="absolute top-1.5 left-1.5 text-[10px] px-1.5 py-0.5 rounded-full bg-secondary-500 text-white font-medium">
                   NEW
@@ -159,15 +159,15 @@ export function EntertainmentHub({ items, flightDurationMinutes }: Entertainment
               </p>
               <div className="flex items-center gap-1.5 mt-0.5">
                 <Star className="w-3 h-3 text-secondary-500" aria-hidden="true" />
-                <span className="text-[10px] text-primary-600 dark:text-caption-foreground">
+                <span className="text-[10px] text-primary-700 dark:text-caption-foreground">
                   {item.rating}
                 </span>
-                <Clock className="w-3 h-3 text-primary-400 dark:text-faint-foreground ml-1" aria-hidden="true" />
-                <span className="text-[10px] text-primary-600 dark:text-caption-foreground">
+                <Clock className="w-3 h-3 text-primary-600 dark:text-faint-foreground ml-1" aria-hidden="true" />
+                <span className="text-[10px] text-primary-700 dark:text-caption-foreground">
                   {item.runtime}m
                 </span>
               </div>
-              <p className="text-[10px] text-primary-500 dark:text-faint-foreground mt-0.5 truncate">
+              <p className="text-[10px] text-primary-600 dark:text-faint-foreground mt-0.5 truncate">
                 {item.genre.join(', ')}
               </p>
             </div>
@@ -206,7 +206,7 @@ export function EntertainmentHub({ items, flightDurationMinutes }: Entertainment
                   {selectedItem.rating}/10
                 </span>
               </div>
-              <span className="text-sm text-primary-500 dark:text-faint-foreground">
+              <span className="text-sm text-primary-600 dark:text-faint-foreground">
                 {selectedItem.runtime} min
               </span>
               {selectedItem.ageRestriction && (

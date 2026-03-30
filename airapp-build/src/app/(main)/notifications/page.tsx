@@ -208,7 +208,7 @@ export default function NotificationsPage() {
         <div className="sticky top-0 z-10 bg-background dark:bg-background pb-2">
           <div className="relative">
             <Search
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-primary-400 dark:text-faint-foreground"
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-primary-600 dark:text-faint-foreground"
               aria-hidden="true"
             />
             <input
@@ -223,7 +223,7 @@ export default function NotificationsPage() {
                 'border border-surface-300 dark:border-muted',
                 'bg-surface dark:bg-card',
                 'text-sm text-primary-900 dark:text-foreground',
-                'placeholder:text-primary-400 dark:placeholder:text-faint-foreground',
+                'placeholder:text-primary-500 dark:placeholder:text-faint-foreground',
                 'focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400',
                 'min-h-[var(--touch-min)]',
                 'transition-colors duration-[--duration-micro]',
@@ -233,7 +233,7 @@ export default function NotificationsPage() {
               <button
                 onClick={() => setSearchQuery('')}
                 aria-label="Clear search"
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-primary-400 hover:text-primary-600 dark:text-faint-foreground dark:hover:text-soft-foreground"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-primary-500 hover:text-primary-700 dark:text-faint-foreground dark:hover:text-soft-foreground"
               >
                 <X className="w-4 h-4" aria-hidden="true" />
               </button>
@@ -254,14 +254,14 @@ export default function NotificationsPage() {
           <div className="flex flex-col items-center justify-center py-16 text-center">
             <div className="w-14 h-14 rounded-full bg-surface-200 dark:bg-input flex items-center justify-center mb-4">
               <BellOff
-                className="w-7 h-7 text-primary-400 dark:text-faint-foreground"
+                className="w-7 h-7 text-primary-600 dark:text-faint-foreground"
                 aria-hidden="true"
               />
             </div>
             <h2 className="text-base font-semibold text-primary-900 dark:text-foreground mb-1">
               No notifications
             </h2>
-            <p className="text-sm text-primary-500 dark:text-caption-foreground max-w-xs">
+            <p className="text-sm text-primary-700 dark:text-caption-foreground max-w-xs">
               {searchQuery
                 ? `No notifications match "${searchQuery}". Try a different search.`
                 : activeFilter !== 'all'
@@ -280,7 +280,7 @@ export default function NotificationsPage() {
               <section key={group.label} aria-labelledby={`group-${group.label}`}>
                 <h2
                   id={`group-${group.label}`}
-                  className="text-xs font-semibold uppercase tracking-wider text-primary-500 dark:text-caption-foreground mb-3"
+                  className="text-xs font-semibold uppercase tracking-wider text-primary-700 dark:text-caption-foreground mb-3"
                 >
                   {group.label}
                 </h2>
@@ -331,7 +331,7 @@ export default function NotificationsPage() {
                 aria-label="Close notification settings"
                 className={cn(
                   'flex items-center justify-center w-8 h-8 rounded-full',
-                  'text-primary-500 dark:text-caption-foreground',
+                  'text-primary-700 dark:text-caption-foreground',
                   'hover:bg-surface-200 dark:hover:bg-input',
                   'transition-colors duration-[--duration-micro]',
                   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
@@ -428,7 +428,7 @@ function SettingsToggle({
         >
           {label}
         </label>
-        <p className="text-xs text-primary-500 dark:text-caption-foreground mt-0.5">
+        <p className="text-xs text-primary-700 dark:text-caption-foreground mt-0.5">
           {description}
         </p>
       </div>

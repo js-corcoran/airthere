@@ -92,7 +92,7 @@ export default function HomePage() {
             <h2 className="text-base font-semibold text-primary-900 dark:text-foreground mb-1">
               Switch Persona
             </h2>
-            <p className="text-xs text-primary-500 dark:text-caption-foreground mb-4">
+            <p className="text-xs text-primary-700 dark:text-caption-foreground mb-4">
               Preview the app as a different traveler
             </p>
             <div className="space-y-2">
@@ -117,11 +117,11 @@ export default function HomePage() {
                       <span className={`text-sm font-medium ${persona === p.key ? 'text-primary-700 dark:text-primary-300' : 'text-primary-800 dark:text-subtle-foreground'}`}>
                         {p.name}
                       </span>
-                      <span className="ml-2 text-xs text-primary-400 dark:text-faint-foreground">{p.role}</span>
+                      <span className="ml-2 text-xs text-primary-600 dark:text-faint-foreground">{p.role}</span>
                     </div>
-                    {persona === p.key && <Check className="w-4 h-4 text-primary-500" />}
+                    {persona === p.key && <Check className="w-4 h-4 text-primary-500 dark:text-primary-400" />}
                   </div>
-                  <p className="text-xs text-primary-500 dark:text-caption-foreground mt-0.5">{p.desc}</p>
+                  <p className="text-xs text-primary-700 dark:text-caption-foreground mt-0.5">{p.desc}</p>
                 </button>
               ))}
             </div>
@@ -227,11 +227,11 @@ export default function HomePage() {
                 <p className="text-sm font-semibold text-primary-900 dark:text-foreground">
                   Airport Live Mode
                 </p>
-                <p className="text-xs text-primary-600 dark:text-caption-foreground mt-0.5">
+                <p className="text-xs text-primary-700 dark:text-caption-foreground mt-0.5">
                   {travelDayTrip.departure.airport} → {travelDayTrip.arrival.airport} · Gate info, security, lounges & more
                 </p>
               </div>
-              <ArrowRight className="w-4 h-4 text-primary-400 shrink-0 mt-0.5" aria-hidden="true" />
+              <ArrowRight className="w-4 h-4 text-primary-500 dark:text-primary-400 shrink-0 mt-0.5" aria-hidden="true" />
             </div>
           </Link>
         </div>
@@ -294,7 +294,7 @@ export default function HomePage() {
                   ? 'Popular Business Routes'
                   : 'Family-Friendly Destinations'}
             </h2>
-            <p className="text-xs text-primary-500 dark:text-caption-foreground mt-0.5">
+            <p className="text-xs text-primary-700 dark:text-caption-foreground mt-0.5">
               {persona === 'premium'
                 ? 'Handpicked destinations matching your preferences'
                 : persona === 'business'

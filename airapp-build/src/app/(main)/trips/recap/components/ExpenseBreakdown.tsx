@@ -79,7 +79,7 @@ export function ExpenseBreakdown({ expenses, totalCost, currency, persona }: Exp
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className="text-xs text-primary-500 dark:text-caption-foreground">
+                  <span className="text-xs text-primary-700 dark:text-caption-foreground">
                     {pct}%
                   </span>
                   <span className="text-sm font-medium text-primary-900 dark:text-foreground tabular-nums w-16 text-right">
@@ -107,7 +107,7 @@ export function ExpenseBreakdown({ expenses, totalCost, currency, persona }: Exp
         {/* Family per-person breakdown */}
         {persona === 'family' && (
           <div className="flex items-center justify-between pt-1">
-            <span className="text-xs text-primary-500 dark:text-caption-foreground">
+            <span className="text-xs text-primary-700 dark:text-caption-foreground">
               Per person ({FAMILY_MEMBERS} travelers)
             </span>
             <span className="text-sm font-medium text-primary-700 dark:text-muted-foreground tabular-nums">

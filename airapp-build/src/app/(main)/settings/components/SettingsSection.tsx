@@ -68,7 +68,7 @@ export function SettingsSection({
           {title}
         </span>
         <ChevronDown
-          className={`w-5 h-5 text-primary-500 dark:text-caption-foreground transition-transform duration-200 ${
+          className={`w-5 h-5 text-primary-700 dark:text-caption-foreground transition-transform duration-200 ${
             isOpen ? 'rotate-180' : 'rotate-0'
           }`}
           aria-hidden="true"

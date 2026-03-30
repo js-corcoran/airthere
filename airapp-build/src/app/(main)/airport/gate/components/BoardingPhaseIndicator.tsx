@@ -36,7 +36,7 @@ export function BoardingPhaseIndicator({ phases, passengerGroup }: BoardingPhase
                     ? 'bg-success-500 dark:bg-success-500 text-white'
                     : phase.status === 'in_progress'
                       ? 'bg-primary-500 dark:bg-primary-500 text-white animate-pulse'
-                      : 'bg-surface-200 dark:bg-muted text-primary-400 dark:text-faint-foreground'
+                      : 'bg-surface-200 dark:bg-muted text-primary-600 dark:text-faint-foreground'
                 )}
                 aria-hidden="true"
               >
@@ -69,13 +69,13 @@ export function BoardingPhaseIndicator({ phases, passengerGroup }: BoardingPhase
                     ? 'text-success-700 dark:text-success-400'
                     : phase.status === 'in_progress'
                       ? 'text-primary-900 dark:text-foreground'
-                      : 'text-primary-400 dark:text-faint-foreground'
+                      : 'text-primary-600 dark:text-faint-foreground'
                 )}
               >
                 {phase.label}
               </p>
               {phase.time && (
-                <p className="text-xs text-primary-500 dark:text-caption-foreground">
+                <p className="text-xs text-primary-700 dark:text-caption-foreground">
                   {phase.time}
                 </p>
               )}

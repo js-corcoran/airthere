@@ -85,7 +85,7 @@ export function FlightCard({ flight, cabinClass, passengerCount, onSelect, perso
             <p className="text-sm font-semibold text-primary-900 dark:text-foreground">
               {flight.airline.name}
             </p>
-            <p className="text-xs text-primary-500 dark:text-faint-foreground">
+            <p className="text-xs text-primary-600 dark:text-faint-foreground">
               {flight.flightNumber} · {flight.aircraft}
             </p>
           </div>
@@ -95,7 +95,7 @@ export function FlightCard({ flight, cabinClass, passengerCount, onSelect, perso
             ${totalPrice.toLocaleString()}
           </p>
           {passengerCount > 1 && (
-            <p className="text-xs text-primary-500 dark:text-faint-foreground">
+            <p className="text-xs text-primary-600 dark:text-faint-foreground">
               ${price}/person
             </p>
           )}
@@ -108,14 +108,14 @@ export function FlightCard({ flight, cabinClass, passengerCount, onSelect, perso
           <p className="text-lg font-semibold text-primary-900 dark:text-foreground tabular-nums">
             {formatTime(flight.departure.time)}
           </p>
-          <p className="text-xs font-medium text-primary-500 dark:text-faint-foreground">
+          <p className="text-xs font-medium text-primary-600 dark:text-faint-foreground">
             {flight.departure.airport}
           </p>
         </div>
 
         {/* Duration line */}
         <div className="flex-1 flex flex-col items-center gap-1 px-2">
-          <p className="text-xs text-primary-500 dark:text-faint-foreground flex items-center gap-1">
+          <p className="text-xs text-primary-600 dark:text-faint-foreground flex items-center gap-1">
             <Clock className="w-3 h-3" />
             {formatDuration(flight.duration)}
           </p>
@@ -128,7 +128,7 @@ export function FlightCard({ flight, cabinClass, passengerCount, onSelect, perso
                 <div className="flex-1 h-px bg-surface-300 dark:bg-muted" />
               </>
             )}
-            <ArrowRight className="w-3 h-3 text-primary-400" />
+            <ArrowRight className="w-3 h-3 text-primary-500 dark:text-primary-400" />
           </div>
           <p className={cn(
             'text-xs font-medium',
@@ -138,7 +138,7 @@ export function FlightCard({ flight, cabinClass, passengerCount, onSelect, perso
           )}>
             {getStopsLabel(flight.stops)}
             {flight.stopoverAirports && flight.stopoverAirports.length > 0 && (
-              <span className="text-primary-400 dark:text-faint-foreground font-normal">
+              <span className="text-primary-600 dark:text-faint-foreground font-normal">
                 {' '}via {flight.stopoverAirports.join(', ')}
               </span>
             )}
@@ -152,7 +152,7 @@ export function FlightCard({ flight, cabinClass, passengerCount, onSelect, perso
               <span className="text-xs text-warning-500 font-normal ml-0.5">+{dayDiff}</span>
             )}
           </p>
-          <p className="text-xs font-medium text-primary-500 dark:text-faint-foreground">
+          <p className="text-xs font-medium text-primary-600 dark:text-faint-foreground">
             {flight.arrival.airport}
           </p>
         </div>
@@ -171,7 +171,7 @@ export function FlightCard({ flight, cabinClass, passengerCount, onSelect, perso
                 className="flex items-center gap-0.5"
                 title={config.label}
               >
-                <Icon className="w-3.5 h-3.5 text-primary-400 dark:text-faint-foreground" aria-hidden="true" />
+                <Icon className="w-3.5 h-3.5 text-primary-600 dark:text-faint-foreground" aria-hidden="true" />
               </div>
             );
           })}

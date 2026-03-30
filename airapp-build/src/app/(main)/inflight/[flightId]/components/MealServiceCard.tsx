@@ -49,7 +49,7 @@ export function MealServiceCard({ meal }: MealServiceCardProps) {
 
       {/* Timing */}
       <div className="flex items-center gap-1.5 mb-3">
-        <Clock className="w-4 h-4 text-primary-500 dark:text-faint-foreground" aria-hidden="true" />
+        <Clock className="w-4 h-4 text-primary-600 dark:text-faint-foreground" aria-hidden="true" />
         <span className="text-sm text-primary-700 dark:text-muted-foreground">
           {preOrdered ? 'Pre-order confirmed' : `Service in ${meal.minutesUntil} minutes`}
         </span>
@@ -57,7 +57,7 @@ export function MealServiceCard({ meal }: MealServiceCardProps) {
 
       {/* Previous choice */}
       {meal.previousChoice && !preOrdered && (
-        <p className="text-xs text-primary-500 dark:text-faint-foreground mb-3">
+        <p className="text-xs text-primary-600 dark:text-faint-foreground mb-3">
           Last time: {meal.previousChoice}
         </p>
       )}
@@ -129,7 +129,7 @@ export function MealServiceCard({ meal }: MealServiceCardProps) {
                     <p className="text-sm font-medium text-primary-900 dark:text-foreground">
                       {option.name}
                     </p>
-                    <p className="text-xs text-primary-600 dark:text-caption-foreground mt-0.5">
+                    <p className="text-xs text-primary-700 dark:text-caption-foreground mt-0.5">
                       {option.description}
                     </p>
                     <div className="flex flex-wrap gap-1 mt-1.5">

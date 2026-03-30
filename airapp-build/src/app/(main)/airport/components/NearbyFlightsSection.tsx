@@ -34,9 +34,9 @@ export function NearbyFlightsSection({ flights }: NearbyFlightsSectionProps) {
             <div className="flex-1 min-w-0">
               <p className="text-sm font-medium text-primary-900 dark:text-foreground">
                 <span className="font-semibold">{f.flightNumber}</span>
-                <span className="text-primary-500 dark:text-caption-foreground"> · {f.airline}</span>
+                <span className="text-primary-700 dark:text-caption-foreground"> · {f.airline}</span>
               </p>
-              <p className="text-xs text-primary-500 dark:text-caption-foreground">
+              <p className="text-xs text-primary-700 dark:text-caption-foreground">
                 to {f.destination}
               </p>
             </div>
@@ -44,7 +44,7 @@ export function NearbyFlightsSection({ flights }: NearbyFlightsSectionProps) {
               <p className="text-sm font-medium text-primary-900 dark:text-foreground">
                 Gate {f.gate}
               </p>
-              <p className="text-xs text-primary-500 dark:text-caption-foreground">
+              <p className="text-xs text-primary-700 dark:text-caption-foreground">
                 {f.departureTime}
               </p>
             </div>

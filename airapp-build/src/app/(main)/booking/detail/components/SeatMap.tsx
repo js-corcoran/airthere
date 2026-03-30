@@ -53,7 +53,7 @@ export function SeatMap({ seats, maxSelections, selectedSeats, onSelectionChange
         <h3 className="text-xs font-medium text-primary-700 dark:text-soft-foreground uppercase tracking-wider">
           Select {maxSelections > 1 ? `${maxSelections} Seats` : 'Your Seat'}
         </h3>
-        <p className="text-xs text-primary-500 dark:text-faint-foreground">
+        <p className="text-xs text-primary-600 dark:text-faint-foreground">
           {selectedSeats.length}/{maxSelections} selected
         </p>
       </div>
@@ -62,24 +62,24 @@ export function SeatMap({ seats, maxSelections, selectedSeats, onSelectionChange
       <div className="flex flex-wrap gap-3 mb-4">
         <div className="flex items-center gap-1.5">
           <div className="w-4 h-4 rounded border border-surface-300 dark:border-muted bg-background dark:bg-surface-100" />
-          <span className="text-[11px] text-primary-500 dark:text-faint-foreground">Available</span>
+          <span className="text-[11px] text-primary-600 dark:text-faint-foreground">Available</span>
         </div>
         <div className="flex items-center gap-1.5">
           <div className="w-4 h-4 rounded bg-primary-500 dark:bg-primary-500" />
-          <span className="text-[11px] text-primary-500 dark:text-faint-foreground">Selected</span>
+          <span className="text-[11px] text-primary-600 dark:text-faint-foreground">Selected</span>
         </div>
         <div className="flex items-center gap-1.5">
           <div className="w-4 h-4 rounded bg-surface-200 dark:bg-input" />
-          <span className="text-[11px] text-primary-500 dark:text-faint-foreground">Taken</span>
+          <span className="text-[11px] text-primary-600 dark:text-faint-foreground">Taken</span>
         </div>
         <div className="flex items-center gap-1.5">
           <div className="w-4 h-4 rounded border border-secondary-300 dark:border-success bg-secondary-50 dark:bg-surface-success" />
-          <span className="text-[11px] text-primary-500 dark:text-faint-foreground">Extra legroom +$50</span>
+          <span className="text-[11px] text-primary-600 dark:text-faint-foreground">Extra legroom +$50</span>
         </div>
         {persona === 'family' && (
           <div className="flex items-center gap-1.5">
             <div className="w-4 h-4 rounded border border-info-200 dark:border-info bg-info-50 dark:bg-surface-info" />
-            <span className="text-[11px] text-primary-500 dark:text-faint-foreground">Family friendly</span>
+            <span className="text-[11px] text-primary-600 dark:text-faint-foreground">Family friendly</span>
           </div>
         )}
       </div>
@@ -91,13 +91,13 @@ export function SeatMap({ seats, maxSelections, selectedSeats, onSelectionChange
           <div className="grid grid-cols-[1fr_repeat(3,_minmax(0,_1fr))_0.6fr_repeat(3,_minmax(0,_1fr))] gap-1 mb-2">
             <div />
             {COLUMNS.slice(0, 3).map((col) => (
-              <div key={col} className="text-center text-[10px] font-medium text-primary-400 dark:text-faint-foreground">
+              <div key={col} className="text-center text-[10px] font-medium text-primary-600 dark:text-faint-foreground">
                 {col}
               </div>
             ))}
             <div /> {/* Aisle */}
             {COLUMNS.slice(3).map((col) => (
-              <div key={col} className="text-center text-[10px] font-medium text-primary-400 dark:text-faint-foreground">
+              <div key={col} className="text-center text-[10px] font-medium text-primary-600 dark:text-faint-foreground">
                 {col}
               </div>
             ))}
@@ -110,7 +110,7 @@ export function SeatMap({ seats, maxSelections, selectedSeats, onSelectionChange
               className="grid grid-cols-[1fr_repeat(3,_minmax(0,_1fr))_0.6fr_repeat(3,_minmax(0,_1fr))] gap-1 mb-1"
               role="row"
             >
-              <div className="flex items-center justify-center text-[10px] text-primary-400 dark:text-faint-foreground tabular-nums">
+              <div className="flex items-center justify-center text-[10px] text-primary-600 dark:text-faint-foreground tabular-nums">
                 {rowNum}
               </div>
               {COLUMNS.slice(0, 3).map((col) => {

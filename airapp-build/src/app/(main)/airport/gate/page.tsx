@@ -179,19 +179,19 @@ export default function GateBoardingPage() {
           </h3>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <p className="text-[10px] text-primary-400 dark:text-faint-foreground uppercase tracking-wider">Aircraft</p>
+              <p className="text-[10px] text-primary-600 dark:text-faint-foreground uppercase tracking-wider">Aircraft</p>
               <p className="text-sm font-medium text-primary-900 dark:text-foreground">{boardingInfo.aircraft}</p>
             </div>
             <div>
-              <p className="text-[10px] text-primary-400 dark:text-faint-foreground uppercase tracking-wider">Confirmation</p>
+              <p className="text-[10px] text-primary-600 dark:text-faint-foreground uppercase tracking-wider">Confirmation</p>
               <p className="text-sm font-medium text-primary-900 dark:text-foreground font-mono">{boardingInfo.confirmationNumber}</p>
             </div>
             <div>
-              <p className="text-[10px] text-primary-400 dark:text-faint-foreground uppercase tracking-wider">Gate</p>
+              <p className="text-[10px] text-primary-600 dark:text-faint-foreground uppercase tracking-wider">Gate</p>
               <p className="text-sm font-medium text-primary-900 dark:text-foreground">{boardingInfo.gate} · {boardingInfo.terminal}</p>
             </div>
             <div>
-              <p className="text-[10px] text-primary-400 dark:text-faint-foreground uppercase tracking-wider">Status</p>
+              <p className="text-[10px] text-primary-600 dark:text-faint-foreground uppercase tracking-wider">Status</p>
               <p className="text-sm font-medium text-primary-900 dark:text-foreground capitalize">
                 {boardingInfo.status.replace('_', ' ')}
               </p>

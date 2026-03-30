@@ -94,7 +94,7 @@ export default function FamilyHubPage() {
             {family.familyName}
           </h1>
         </div>
-        <p className="text-sm text-primary-500 dark:text-faint-foreground">
+        <p className="text-sm text-primary-600 dark:text-faint-foreground">
           {family.members.length} members
         </p>
 
@@ -111,7 +111,7 @@ export default function FamilyHubPage() {
             <span className="text-sm font-medium text-primary-900 dark:text-foreground">
               {family.tripName}
             </span>
-            <span className="text-xs text-primary-500 dark:text-faint-foreground ml-2">
+            <span className="text-xs text-primary-600 dark:text-faint-foreground ml-2">
               {family.tripDates}
             </span>
           </div>

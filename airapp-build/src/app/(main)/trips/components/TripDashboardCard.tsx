@@ -23,7 +23,7 @@ const STATUS_STYLES: Record<string, { bg: string; text: string; label: string }>
   },
   completed: {
     bg: 'bg-surface-200 dark:bg-input',
-    text: 'text-primary-500 dark:text-faint-foreground',
+    text: 'text-primary-600 dark:text-faint-foreground',
     label: 'Completed',
   },
   cancelled: {
@@ -76,12 +76,12 @@ export function TripDashboardCard({ trip, onClick, persona }: TripDashboardCardP
             <span className="text-lg font-bold text-primary-900 dark:text-foreground">
               {trip.departure.airport}
             </span>
-            <ArrowRight className="w-4 h-4 text-primary-400" />
+            <ArrowRight className="w-4 h-4 text-primary-500 dark:text-primary-400" />
             <span className="text-lg font-bold text-primary-900 dark:text-foreground">
               {trip.arrival.airport}
             </span>
           </div>
-          <p className="text-sm text-primary-600 dark:text-caption-foreground mt-0.5">
+          <p className="text-sm text-primary-700 dark:text-caption-foreground mt-0.5">
             {trip.name}
           </p>
         </div>
@@ -94,12 +94,12 @@ export function TripDashboardCard({ trip, onClick, persona }: TripDashboardCardP
       {flight && (
         <div className="flex items-center gap-4 mb-3 pb-3 border-b border-surface-200 dark:border-input">
           <div className="flex items-center gap-1.5 text-sm text-primary-700 dark:text-soft-foreground">
-            <Plane className="w-3.5 h-3.5 text-primary-400" />
+            <Plane className="w-3.5 h-3.5 text-primary-500 dark:text-primary-400" />
             <span className="font-medium">{flight.flight.airline.name}</span>
-            <span className="text-primary-400">{flight.flight.flightNumber}</span>
+            <span className="text-primary-600 dark:text-faint-foreground">{flight.flight.flightNumber}</span>
           </div>
           {flight.seat && (
-            <div className="flex items-center gap-1 text-xs text-primary-500 dark:text-faint-foreground">
+            <div className="flex items-center gap-1 text-xs text-primary-600 dark:text-faint-foreground">
               <MapPin className="w-3 h-3" />
               Seat {flight.seat}
             </div>
@@ -109,11 +109,11 @@ export function TripDashboardCard({ trip, onClick, persona }: TripDashboardCardP
 
       {/* Date + Passengers */}
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-1.5 text-sm text-primary-600 dark:text-caption-foreground">
-          <Clock className="w-3.5 h-3.5 text-primary-400" />
+        <div className="flex items-center gap-1.5 text-sm text-primary-700 dark:text-caption-foreground">
+          <Clock className="w-3.5 h-3.5 text-primary-500 dark:text-primary-400" />
           {formatDate(trip.departure.date)} – {formatDate(trip.arrival.date)}
         </div>
-        <div className="flex items-center gap-1.5 text-sm text-primary-500 dark:text-faint-foreground">
+        <div className="flex items-center gap-1.5 text-sm text-primary-600 dark:text-faint-foreground">
           <Users className="w-3.5 h-3.5" />
           {paxCount} traveler{paxCount !== 1 ? 's' : ''}
         </div>
@@ -129,7 +129,7 @@ export function TripDashboardCard({ trip, onClick, persona }: TripDashboardCardP
 
       {/* Total Cost */}
       <div className="mt-3 flex items-center justify-between">
-        <span className="text-xs text-primary-400 dark:text-faint-foreground">
+        <span className="text-xs text-primary-600 dark:text-faint-foreground">
           Confirmation: {trip.confirmationNumber}
         </span>
         <span className="text-base font-bold text-primary-900 dark:text-foreground tabular-nums">

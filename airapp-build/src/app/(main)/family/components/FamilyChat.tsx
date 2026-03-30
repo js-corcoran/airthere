@@ -44,7 +44,7 @@ export function FamilyChat({ messages }: FamilyChatProps) {
               <span className="text-xs font-semibold text-primary-700 dark:text-muted-foreground">
                 {msg.sender}
               </span>
-              <span className="text-xs text-primary-400 dark:text-faint-foreground">
+              <span className="text-xs text-primary-600 dark:text-faint-foreground">
                 {msg.timestamp}
               </span>
             </div>
@@ -68,7 +68,7 @@ export function FamilyChat({ messages }: FamilyChatProps) {
               'bg-background border-surface-300',
               'dark:bg-background dark:border-muted',
               'text-primary-900 dark:text-foreground',
-              'placeholder:text-primary-400 dark:placeholder:text-faint-foreground',
+              'placeholder:text-primary-500 dark:placeholder:text-faint-foreground',
               'focus:outline-none focus:ring-2 focus:ring-primary-500',
               'min-h-[var(--touch-min)]'
             )}

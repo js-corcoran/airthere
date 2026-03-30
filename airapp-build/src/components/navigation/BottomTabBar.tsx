@@ -58,7 +58,7 @@ export function BottomTabBar() {
                 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 rounded-md',
                 isActive
                   ? 'text-secondary-500 dark:text-secondary-400'
-                  : 'text-primary-400 dark:text-caption-foreground hover:text-primary-500'
+                  : 'text-primary-600 dark:text-caption-foreground hover:text-primary-500'
               )}
             >
               <div className="relative">

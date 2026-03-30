@@ -114,7 +114,7 @@ export default function DocumentVaultPage() {
             <span>Unlocked</span>
           </div>
         </div>
-        <p className="text-sm text-primary-500 dark:text-faint-foreground">
+        <p className="text-sm text-primary-600 dark:text-faint-foreground">
           Secure, encrypted storage for travel documents
         </p>
 

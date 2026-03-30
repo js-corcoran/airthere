@@ -33,7 +33,7 @@ export function SelectRow({
         {description && (
           <p
             id={descriptionId}
-            className="text-xs text-primary-500 dark:text-caption-foreground mt-0.5 leading-snug"
+            className="text-xs text-primary-700 dark:text-caption-foreground mt-0.5 leading-snug"
           >
             {description}
           </p>
@@ -66,7 +66,7 @@ export function SelectRow({
           ))}
         </select>
         <ChevronDown
-          className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-primary-500 dark:text-caption-foreground pointer-events-none"
+          className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-primary-700 dark:text-caption-foreground pointer-events-none"
           aria-hidden="true"
         />
       </div>

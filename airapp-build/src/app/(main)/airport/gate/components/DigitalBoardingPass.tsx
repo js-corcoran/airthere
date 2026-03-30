@@ -96,7 +96,7 @@ function SingleBoardingPass({
           <span>{route.from}</span>
           <div className="flex-1 flex items-center justify-center px-3">
             <div className="h-px flex-1 bg-primary-200 dark:bg-muted" />
-            <span className="px-2 text-xs font-normal text-primary-500 dark:text-caption-foreground">
+            <span className="px-2 text-xs font-normal text-primary-700 dark:text-caption-foreground">
               {flightNumber}
             </span>
             <div className="h-px flex-1 bg-primary-200 dark:bg-muted" />
@@ -107,25 +107,25 @@ function SingleBoardingPass({
         {/* Details grid */}
         <div className="grid grid-cols-3 gap-3 mb-4">
           <div>
-            <p className="text-[10px] text-primary-400 dark:text-faint-foreground uppercase tracking-wider">Seat</p>
+            <p className="text-[10px] text-primary-600 dark:text-faint-foreground uppercase tracking-wider">Seat</p>
             <p className="text-xl font-bold text-primary-900 dark:text-foreground">{pass.seat}</p>
           </div>
           <div>
-            <p className="text-[10px] text-primary-400 dark:text-faint-foreground uppercase tracking-wider">Group</p>
+            <p className="text-[10px] text-primary-600 dark:text-faint-foreground uppercase tracking-wider">Group</p>
             <p className="text-xs font-semibold text-primary-900 dark:text-foreground mt-1">{pass.boardingGroup}</p>
           </div>
           <div>
-            <p className="text-[10px] text-primary-400 dark:text-faint-foreground uppercase tracking-wider">Departs</p>
+            <p className="text-[10px] text-primary-600 dark:text-faint-foreground uppercase tracking-wider">Departs</p>
             <p className="text-xs font-semibold text-primary-900 dark:text-foreground mt-1">{departureTime}</p>
           </div>
         </div>
 
         {/* QR code */}
         <QRCodePlaceholder size="sm" />
-        <p className="text-center text-[10px] text-primary-400 dark:text-faint-foreground mt-2">
+        <p className="text-center text-[10px] text-primary-600 dark:text-faint-foreground mt-2">
           Tap to expand · Show to gate agent
         </p>
-        <p className="text-center text-[10px] text-primary-500 dark:text-caption-foreground mt-1 font-medium">
+        <p className="text-center text-[10px] text-primary-700 dark:text-caption-foreground mt-1 font-medium">
           Confirmation: {pass.confirmationNumber}
         </p>
       </div>
@@ -193,17 +193,17 @@ export function DigitalBoardingPass({
                 <p className="text-2xl font-bold text-primary-900 dark:text-foreground">
                   {route.from} → {route.to}
                 </p>
-                <p className="text-sm text-primary-500 dark:text-caption-foreground">
+                <p className="text-sm text-primary-700 dark:text-caption-foreground">
                   {flightNumber} · Seat {passes[expandedIndex].seat}
                 </p>
               </div>
 
               <QRCodePlaceholder size="lg" />
 
-              <p className="text-center text-xs text-primary-500 dark:text-caption-foreground mt-3">
+              <p className="text-center text-xs text-primary-700 dark:text-caption-foreground mt-3">
                 Show this QR code to the gate agent
               </p>
-              <p className="text-center text-xs text-primary-400 dark:text-faint-foreground mt-1">
+              <p className="text-center text-xs text-primary-600 dark:text-faint-foreground mt-1">
                 {passes[expandedIndex].confirmationNumber}
               </p>
             </div>

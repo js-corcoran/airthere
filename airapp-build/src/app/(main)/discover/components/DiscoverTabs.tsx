@@ -41,7 +41,7 @@ export function DiscoverTabs({ activeTab, onTabChange, wishlistCount }: Discover
               'min-h-[var(--touch-min)]',
               isActive
                 ? 'text-primary-900 dark:text-foreground bg-primary-50 dark:bg-input'
-                : 'text-primary-500 dark:text-caption-foreground hover:text-primary-700 dark:hover:text-muted-foreground'
+                : 'text-primary-700 dark:text-caption-foreground hover:text-primary-700 dark:hover:text-muted-foreground'
             )}
           >
             {tab.label}

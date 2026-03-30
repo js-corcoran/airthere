@@ -70,10 +70,10 @@ export function WellnessFeatures({ data, flightDurationMinutes }: WellnessFeatur
               <p className="text-sm font-medium text-primary-900 dark:text-foreground">
                 {label}
               </p>
-              <p className="text-xs text-primary-600 dark:text-caption-foreground">
+              <p className="text-xs text-primary-700 dark:text-caption-foreground">
                 {description}
               </p>
-              <p className="text-[10px] text-primary-400 dark:text-faint-foreground mt-0.5">
+              <p className="text-[10px] text-primary-600 dark:text-faint-foreground mt-0.5">
                 {detail}
               </p>
             </div>
@@ -130,7 +130,7 @@ export function WellnessFeatures({ data, flightDurationMinutes }: WellnessFeatur
             </button>
           </div>
         </div>
-        <p className="text-xs text-primary-600 dark:text-caption-foreground">
+        <p className="text-xs text-primary-700 dark:text-caption-foreground">
           Arrival in local time: 7:55 AM. Recommended sleep: {data.recommendedSleep}h
         </p>
       </div>

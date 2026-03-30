@@ -88,7 +88,7 @@ export function RebookingOptions({ alternatives, onSelect, selectedId }: Rebooki
         )}
       </div>
 
-      <p className="text-xs text-primary-400 dark:text-primary-500 text-center">
+      <p className="text-xs text-primary-600 dark:text-primary-400 text-center">
         Monitoring availability — more options may appear
       </p>
     </section>
@@ -140,9 +140,9 @@ function FlightOptionCard({
         </div>
 
         <div className="flex flex-col items-center gap-0.5 px-2">
-          <Plane className="w-3.5 h-3.5 text-primary-400 dark:text-primary-500 rotate-90" aria-hidden="true" />
+          <Plane className="w-3.5 h-3.5 text-primary-600 dark:text-primary-400 rotate-90" aria-hidden="true" />
           <div className="w-12 h-px bg-primary-200 dark:bg-primary-700" aria-hidden="true" />
-          <span className="text-[10px] text-primary-400 dark:text-primary-500">
+          <span className="text-[10px] text-primary-600 dark:text-primary-400">
             {flight.stops === 0 ? 'Nonstop' : `${flight.stops} stop`}
           </span>
         </div>

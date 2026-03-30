@@ -77,7 +77,7 @@ export function MemoriesCarousel({ memories }: MemoriesCarouselProps) {
         </h3>
         <div className="flex flex-col items-center justify-center py-10 bg-surface dark:bg-card rounded-[var(--radius-lg)] border border-surface-300 dark:border-muted">
           <Images className="w-8 h-8 text-primary-300 dark:text-faint-foreground mb-2" aria-hidden="true" />
-          <p className="text-sm text-primary-500 dark:text-caption-foreground">
+          <p className="text-sm text-primary-700 dark:text-caption-foreground">
             No photos from this trip yet.
           </p>
         </div>
@@ -175,7 +175,7 @@ export function MemoriesCarousel({ memories }: MemoriesCarouselProps) {
               }`}
             />
           ))}
-          <span className="ml-2 text-xs text-primary-500 dark:text-caption-foreground">
+          <span className="ml-2 text-xs text-primary-700 dark:text-caption-foreground">
             {currentIndex + 1} of {memories.length}
           </span>
         </div>

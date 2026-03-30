@@ -117,7 +117,7 @@ export function WayfindingSection({ destinations, gateNumber }: WayfindingSectio
         <h2 className="text-lg font-semibold text-primary-900 dark:text-foreground">
           Airport Navigation
         </h2>
-        <p className="text-xs text-primary-500 dark:text-caption-foreground mt-0.5">
+        <p className="text-xs text-primary-700 dark:text-caption-foreground mt-0.5">
           Find your way around the terminal
         </p>
       </div>
@@ -137,7 +137,7 @@ export function WayfindingSection({ destinations, gateNumber }: WayfindingSectio
             <p className="text-sm font-medium text-primary-900 dark:text-foreground">
               {selected.name}
             </p>
-            <div className="flex items-center gap-3 text-xs text-primary-500 dark:text-caption-foreground mt-0.5">
+            <div className="flex items-center gap-3 text-xs text-primary-700 dark:text-caption-foreground mt-0.5">
               <span className="flex items-center gap-1">
                 <Footprints className="w-3 h-3" aria-hidden="true" />
                 {selected.distanceMeters}m
@@ -181,7 +181,7 @@ export function WayfindingSection({ destinations, gateNumber }: WayfindingSectio
                 <p className="text-sm font-medium text-primary-900 dark:text-foreground truncate">
                   {dest.name}
                 </p>
-                <p className="text-xs text-primary-500 dark:text-caption-foreground">
+                <p className="text-xs text-primary-700 dark:text-caption-foreground">
                   {dest.distanceMeters}m · {dest.walkingTimeMinutes} min walk
                 </p>
               </div>

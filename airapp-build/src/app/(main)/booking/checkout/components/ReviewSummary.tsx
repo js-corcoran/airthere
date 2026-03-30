@@ -39,7 +39,7 @@ export function ReviewSummary({
         <h2 className="text-lg font-semibold text-primary-900 dark:text-foreground">
           Review Your Booking
         </h2>
-        <p className="text-sm text-primary-500 dark:text-faint-foreground mt-0.5">
+        <p className="text-sm text-primary-600 dark:text-faint-foreground mt-0.5">
           Please confirm all details before completing your booking
         </p>
       </div>
@@ -56,7 +56,7 @@ export function ReviewSummary({
         <p className="text-sm text-primary-600 dark:text-soft-foreground">
           {flight.departure.airport} → {flight.arrival.airport} · {formatTime(flight.departure.time)} – {formatTime(flight.arrival.time)}
         </p>
-        <p className="text-xs text-primary-400 dark:text-faint-foreground">
+        <p className="text-xs text-primary-600 dark:text-faint-foreground">
           {cabinClass.replace('-', ' ')} · {bundleName} fare
           {selectedSeats.length > 0 && ` · Seat${selectedSeats.length > 1 ? 's' : ''} ${selectedSeats.join(', ')}`}
         </p>
@@ -73,7 +73,7 @@ export function ReviewSummary({
             <span className="text-primary-900 dark:text-foreground">
               {pax.firstName} {pax.lastName}
             </span>
-            <span className="text-primary-400 dark:text-faint-foreground">{pax.email}</span>
+            <span className="text-primary-600 dark:text-faint-foreground">{pax.email}</span>
           </div>
         ))}
       </div>

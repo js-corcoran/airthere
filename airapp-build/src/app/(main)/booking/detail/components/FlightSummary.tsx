@@ -48,7 +48,7 @@ export function FlightSummary({ flight, cabinClass, passengerCount, persona }: F
           <p className="text-sm font-semibold text-primary-900 dark:text-foreground">
             {flight.airline.name} {flight.flightNumber}
           </p>
-          <p className="text-xs text-primary-500 dark:text-faint-foreground">
+          <p className="text-xs text-primary-600 dark:text-faint-foreground">
             {flight.aircraft} · {cabinClass.replace('-', ' ')}
           </p>
         </div>
@@ -57,7 +57,7 @@ export function FlightSummary({ flight, cabinClass, passengerCount, persona }: F
             ${totalPrice.toLocaleString()}
           </p>
           {passengerCount > 1 && (
-            <p className="text-xs text-primary-500 dark:text-faint-foreground">
+            <p className="text-xs text-primary-600 dark:text-faint-foreground">
               ${price}/person
             </p>
           )}
@@ -73,19 +73,19 @@ export function FlightSummary({ flight, cabinClass, passengerCount, persona }: F
           <p className="text-sm font-medium text-primary-600 dark:text-soft-foreground">
             {flight.departure.airport}
           </p>
-          <p className="text-xs text-primary-400 dark:text-faint-foreground">
+          <p className="text-xs text-primary-600 dark:text-faint-foreground">
             {flight.departure.city}
           </p>
         </div>
 
         <div className="flex-1 flex flex-col items-center gap-1">
-          <div className="flex items-center gap-1 text-xs text-primary-500 dark:text-faint-foreground">
+          <div className="flex items-center gap-1 text-xs text-primary-600 dark:text-faint-foreground">
             <Clock className="w-3 h-3" />
             {formatDuration(flight.duration)}
           </div>
           <div className="w-full flex items-center">
             <div className="flex-1 h-px bg-surface-300 dark:bg-muted" />
-            <Plane className="w-4 h-4 text-primary-400 mx-1" />
+            <Plane className="w-4 h-4 text-primary-500 dark:text-primary-400 mx-1" />
             <div className="flex-1 h-px bg-surface-300 dark:bg-muted" />
           </div>
           <p className={cn(
@@ -105,7 +105,7 @@ export function FlightSummary({ flight, cabinClass, passengerCount, persona }: F
           <p className="text-sm font-medium text-primary-600 dark:text-soft-foreground">
             {flight.arrival.airport}
           </p>
-          <p className="text-xs text-primary-400 dark:text-faint-foreground">
+          <p className="text-xs text-primary-600 dark:text-faint-foreground">
             {flight.arrival.city}
           </p>
         </div>

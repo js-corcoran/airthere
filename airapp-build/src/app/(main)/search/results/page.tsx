@@ -184,12 +184,12 @@ function SearchResultsContent() {
           <span className="font-semibold text-primary-900 dark:text-foreground">
             {fromAirport?.city ?? from}
           </span>
-          <ArrowRight className="w-4 h-4 text-primary-400" />
+          <ArrowRight className="w-4 h-4 text-primary-500 dark:text-primary-400" />
           <span className="font-semibold text-primary-900 dark:text-foreground">
             {toAirport?.city ?? to}
           </span>
         </div>
-        <p className="text-xs text-primary-500 dark:text-faint-foreground mt-0.5">
+        <p className="text-xs text-primary-600 dark:text-faint-foreground mt-0.5">
           {passengerCount} passenger{passengerCount !== 1 ? 's' : ''} · {cabinClass.replace('-', ' ')}
         </p>
       </div>

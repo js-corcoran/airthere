@@ -45,14 +45,14 @@ export function BookingConfirmation({
         <h1 className="text-2xl font-bold text-primary-900 dark:text-foreground">
           Booking Confirmed!
         </h1>
-        <p className="text-sm text-primary-500 dark:text-faint-foreground mt-1">
+        <p className="text-sm text-primary-600 dark:text-faint-foreground mt-1">
           Your trip has been successfully booked
         </p>
       </div>
 
       {/* Confirmation Number */}
       <div className="inline-block px-4 py-2 rounded-lg bg-surface-100 dark:bg-surface-elevated border border-surface-200 dark:border-input">
-        <p className="text-xs text-primary-500 dark:text-faint-foreground">Confirmation Number</p>
+        <p className="text-xs text-primary-600 dark:text-faint-foreground">Confirmation Number</p>
         <p className="text-lg font-mono font-bold text-primary-900 dark:text-foreground tracking-wider">
           {confirmationNumber}
         </p>
@@ -67,18 +67,18 @@ export function BookingConfirmation({
           <p className="text-sm text-primary-600 dark:text-soft-foreground">
             {flight.departure.city} ({flight.departure.airport}) → {flight.arrival.city} ({flight.arrival.airport})
           </p>
-          <p className="text-xs text-primary-400 dark:text-faint-foreground mt-1">
+          <p className="text-xs text-primary-600 dark:text-faint-foreground mt-1">
             {formatDate(flight.departure.time)} · {formatTime(flight.departure.time)} – {formatTime(flight.arrival.time)}
           </p>
           {selectedSeats.length > 0 && (
-            <p className="text-xs text-primary-400 dark:text-faint-foreground">
+            <p className="text-xs text-primary-600 dark:text-faint-foreground">
               Seat{selectedSeats.length > 1 ? 's' : ''}: {selectedSeats.join(', ')}
             </p>
           )}
         </div>
 
         <div className="border-t border-surface-200 dark:border-input pt-2">
-          <p className="text-xs text-primary-500 dark:text-faint-foreground">Passengers</p>
+          <p className="text-xs text-primary-600 dark:text-faint-foreground">Passengers</p>
           {passengers.map((pax, i) => (
             <p key={i} className="text-sm text-primary-900 dark:text-foreground">
               {pax.firstName} {pax.lastName}
@@ -95,7 +95,7 @@ export function BookingConfirmation({
       </div>
 
       {/* Confirmation email */}
-      <p className="text-xs text-primary-500 dark:text-faint-foreground">
+      <p className="text-xs text-primary-600 dark:text-faint-foreground">
         Confirmation sent to {passengers[0]?.email}
       </p>
 

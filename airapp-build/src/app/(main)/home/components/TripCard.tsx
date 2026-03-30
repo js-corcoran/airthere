@@ -63,7 +63,7 @@ export function TripCard({ trip, className }: TripCardProps) {
 
       {/* Price */}
       <div className="mt-3 pt-3 border-t border-surface-300 dark:border-muted flex items-center justify-between">
-        <span className="text-xs text-primary-500 dark:text-caption-foreground">Total cost</span>
+        <span className="text-xs text-primary-700 dark:text-caption-foreground">Total cost</span>
         <span className="text-sm font-semibold text-primary-900 dark:text-foreground font-mono">
           ${trip.totalCost.toLocaleString()}
         </span>

@@ -174,7 +174,7 @@ export default function DiscoverPage() {
                   <h2 className="text-lg font-semibold text-primary-900 dark:text-foreground">
                     {sectionTitle.heading}
                   </h2>
-                  <p className="text-xs text-primary-500 dark:text-caption-foreground mt-0.5">
+                  <p className="text-xs text-primary-700 dark:text-caption-foreground mt-0.5">
                     {sectionTitle.subtitle}
                   </p>
                 </div>
@@ -248,7 +248,7 @@ export default function DiscoverPage() {
                           ? 'Business Class Offers'
                           : 'Family Deals'}
                     </h2>
-                    <p className="text-xs text-primary-500 dark:text-caption-foreground mt-0.5">
+                    <p className="text-xs text-primary-700 dark:text-caption-foreground mt-0.5">
                       {filteredDeals.length} deals available · prices updated live
                     </p>
                   </div>
@@ -296,7 +296,7 @@ export default function DiscoverPage() {
                   <h2 className="text-lg font-semibold text-primary-900 dark:text-foreground">
                     Saved Destinations
                   </h2>
-                  <p className="text-xs text-primary-500 dark:text-caption-foreground mt-0.5">
+                  <p className="text-xs text-primary-700 dark:text-caption-foreground mt-0.5">
                     {wishlistDestinations.length} destination{wishlistDestinations.length !== 1 ? 's' : ''} saved
                   </p>
                 </div>

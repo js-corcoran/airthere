@@ -72,7 +72,7 @@ export function FamilyMemberCard({ member, onEdit }: FamilyMemberCardProps) {
 
           {/* Dietary */}
           {member.dietary && (
-            <p className="text-xs text-primary-600 dark:text-caption-foreground mt-1">
+            <p className="text-xs text-primary-700 dark:text-caption-foreground mt-1">
               Dietary: {member.dietary}
             </p>
           )}
@@ -103,7 +103,7 @@ export function FamilyMemberCard({ member, onEdit }: FamilyMemberCardProps) {
 
           {/* Document status */}
           <div className="flex items-center gap-2 mt-2">
-            <FileCheck className="w-3.5 h-3.5 text-primary-500 dark:text-faint-foreground" aria-hidden="true" />
+            <FileCheck className="w-3.5 h-3.5 text-primary-600 dark:text-faint-foreground" aria-hidden="true" />
             <span className={cn('text-xs px-2 py-0.5 rounded-full font-medium', passport.className)}>
               Passport: {passport.label}
               {member.documents.passportExpiry && ` (${member.documents.passportExpiry.slice(0, 4)})`}
@@ -116,7 +116,7 @@ export function FamilyMemberCard({ member, onEdit }: FamilyMemberCardProps) {
           onClick={() => onEdit(member.id)}
           className={cn(
             'shrink-0 p-2 rounded-md',
-            'text-primary-500 hover:bg-surface-200 dark:hover:bg-input',
+            'text-primary-500 dark:text-primary-400 hover:bg-surface-200 dark:hover:bg-input',
             'transition-colors duration-[--duration-micro]',
             'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
             'min-w-[var(--touch-min)] min-h-[var(--touch-min)] flex items-center justify-center'

@@ -33,7 +33,7 @@ export function DiscoverSearchBar({
           )}
         >
           <Search
-            className="w-4 h-4 text-primary-400 dark:text-faint-foreground shrink-0"
+            className="w-4 h-4 text-primary-600 dark:text-faint-foreground shrink-0"
             aria-hidden="true"
           />
           <input
@@ -44,7 +44,7 @@ export function DiscoverSearchBar({
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
             className="flex-1 bg-transparent text-sm text-primary-900 dark:text-foreground
-                       placeholder:text-primary-400 dark:placeholder:text-faint-foreground
+                       placeholder:text-primary-500 dark:placeholder:text-faint-foreground
                        outline-none"
             aria-label="Search destinations"
           />

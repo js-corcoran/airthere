@@ -16,7 +16,7 @@ export function GateAmenitiesSection({ amenities, gate, terminal }: GateAmenitie
         <h3 id="amenities-heading" className="text-base font-semibold text-primary-900 dark:text-foreground">
           Near Gate {gate}
         </h3>
-        <span className="text-xs text-primary-500 dark:text-caption-foreground">
+        <span className="text-xs text-primary-700 dark:text-caption-foreground">
           {terminal}
         </span>
       </div>
@@ -36,7 +36,7 @@ export function GateAmenitiesSection({ amenities, gate, terminal }: GateAmenitie
               <p className="text-xs font-medium text-primary-900 dark:text-foreground truncate">
                 {amenity.name}
               </p>
-              <p className="text-[10px] text-primary-500 dark:text-caption-foreground">
+              <p className="text-[10px] text-primary-700 dark:text-caption-foreground">
                 {amenity.distance}
               </p>
             </div>

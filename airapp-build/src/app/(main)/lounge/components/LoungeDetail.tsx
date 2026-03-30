@@ -143,7 +143,7 @@ export function LoungeDetail({ lounge, onClose }: LoungeDetailProps) {
             <span className="text-sm font-semibold text-primary-900 dark:text-foreground">
               {lounge.rating}
             </span>
-            <span className="text-xs text-primary-500 dark:text-caption-foreground">
+            <span className="text-xs text-primary-700 dark:text-caption-foreground">
               ({lounge.reviewCount.toLocaleString()} reviews)
             </span>
           </div>
@@ -157,7 +157,7 @@ export function LoungeDetail({ lounge, onClose }: LoungeDetailProps) {
                   ? 'text-success-600 dark:text-success-500'
                   : lounge.access.type === 'upgrade'
                     ? 'text-info-600 dark:text-info-400'
-                    : 'text-primary-400 dark:text-faint-foreground'
+                    : 'text-primary-600 dark:text-faint-foreground'
               )}
               aria-hidden="true"
             />
@@ -168,7 +168,7 @@ export function LoungeDetail({ lounge, onClose }: LoungeDetailProps) {
                   ? 'text-success-700 dark:text-success-400'
                   : lounge.access.type === 'upgrade'
                     ? 'text-info-700 dark:text-info-300'
-                    : 'text-primary-500 dark:text-faint-foreground'
+                    : 'text-primary-600 dark:text-faint-foreground'
               )}
             >
               {lounge.access.type === 'included' && 'Access included'}
@@ -204,7 +204,7 @@ export function LoungeDetail({ lounge, onClose }: LoungeDetailProps) {
               <p className="text-sm font-medium text-primary-900 dark:text-foreground">
                 Operating Hours
               </p>
-              <p className="text-xs text-primary-500 dark:text-caption-foreground">
+              <p className="text-xs text-primary-700 dark:text-caption-foreground">
                 {lounge.hours.open} - {lounge.hours.close}
               </p>
             </div>
@@ -222,7 +222,7 @@ export function LoungeDetail({ lounge, onClose }: LoungeDetailProps) {
               )}
             >
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs text-primary-500 dark:text-caption-foreground">
+                <span className="text-xs text-primary-700 dark:text-caption-foreground">
                   {lounge.capacity.current} / {lounge.capacity.max} seats occupied
                 </span>
                 <span
@@ -301,7 +301,7 @@ export function LoungeDetail({ lounge, onClose }: LoungeDetailProps) {
               <p className="text-sm font-medium text-primary-900 dark:text-foreground">
                 Guest Policy
               </p>
-              <p className="text-xs text-primary-500 dark:text-caption-foreground">
+              <p className="text-xs text-primary-700 dark:text-caption-foreground">
                 {lounge.guestPolicy.allowed
                   ? `Up to ${lounge.guestPolicy.maxGuests} guest${lounge.guestPolicy.maxGuests !== 1 ? 's' : ''} allowed`
                   : 'No guests permitted'}
@@ -328,10 +328,10 @@ export function LoungeDetail({ lounge, onClose }: LoungeDetailProps) {
               </p>
               <div className="flex items-center gap-1 mt-0.5">
                 <Footprints
-                  className="w-3 h-3 text-primary-500 dark:text-caption-foreground"
+                  className="w-3 h-3 text-primary-700 dark:text-caption-foreground"
                   aria-hidden="true"
                 />
-                <span className="text-xs text-primary-500 dark:text-caption-foreground">
+                <span className="text-xs text-primary-700 dark:text-caption-foreground">
                   {lounge.walkingDistance} from your gate
                 </span>
               </div>

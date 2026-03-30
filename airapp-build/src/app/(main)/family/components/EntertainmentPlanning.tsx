@@ -49,7 +49,7 @@ export function EntertainmentPlanning({ recommendations }: EntertainmentPlanning
                   {rec.memberName}
                 </span>
                 {rec.age < 18 && (
-                  <span className="text-xs text-primary-500 dark:text-faint-foreground">
+                  <span className="text-xs text-primary-600 dark:text-faint-foreground">
                     ({rec.age}y)
                   </span>
                 )}

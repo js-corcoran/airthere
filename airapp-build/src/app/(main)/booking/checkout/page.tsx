@@ -268,7 +268,7 @@ function CheckoutContent() {
                   Trip Protection
                 </h2>
               </div>
-              <p className="text-sm text-primary-500 dark:text-faint-foreground mt-1">
+              <p className="text-sm text-primary-600 dark:text-faint-foreground mt-1">
                 Protect your trip with optional coverage — select any that apply
               </p>
             </div>
@@ -317,7 +317,7 @@ function CheckoutContent() {
                             ${option.price}
                           </span>
                         </div>
-                        <p className="text-xs text-primary-500 dark:text-faint-foreground mt-1 leading-relaxed">
+                        <p className="text-xs text-primary-600 dark:text-faint-foreground mt-1 leading-relaxed">
                           {option.description}
                         </p>
                       </div>
@@ -343,13 +343,13 @@ function CheckoutContent() {
                 </span>
               </div>
               {protectionTotal > 0 && (
-                <p className="text-xs text-primary-500 dark:text-faint-foreground mt-1">
+                <p className="text-xs text-primary-600 dark:text-faint-foreground mt-1">
                   Added to your booking total
                 </p>
               )}
             </div>
 
-            <p className="text-xs text-primary-400 dark:text-faint-foreground text-center">
+            <p className="text-xs text-primary-600 dark:text-faint-foreground text-center">
               You can skip this step — protection can be added later from your trip details
             </p>
           </div>
@@ -395,7 +395,7 @@ function CheckoutContent() {
           )}
           <div className="flex-1" />
           <div className="text-right mr-3">
-            <p className="text-xs text-primary-500 dark:text-faint-foreground">Total</p>
+            <p className="text-xs text-primary-600 dark:text-faint-foreground">Total</p>
             <p className="text-lg font-bold text-primary-900 dark:text-foreground tabular-nums">
               ${totalPrice.toLocaleString()}
             </p>

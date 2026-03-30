@@ -64,10 +64,10 @@ export function ConnectionWarningCard({ connection }: ConnectionWarningCardProps
           {/* Next flight details */}
           <div className="flex items-center gap-2 mb-2 text-sm text-primary-900 dark:text-foreground font-medium">
             <span>{connection.nextFlight.from}</span>
-            <ArrowRight className="w-3.5 h-3.5 text-primary-400 dark:text-faint-foreground" aria-label="to" />
+            <ArrowRight className="w-3.5 h-3.5 text-primary-600 dark:text-faint-foreground" aria-label="to" />
             <span>{connection.nextFlight.to}</span>
-            <span className="text-primary-500 dark:text-caption-foreground">·</span>
-            <span className="text-primary-500 dark:text-caption-foreground">{connection.nextFlight.flightNumber}</span>
+            <span className="text-primary-700 dark:text-caption-foreground">·</span>
+            <span className="text-primary-700 dark:text-caption-foreground">{connection.nextFlight.flightNumber}</span>
           </div>
 
           <div className="flex items-center gap-4 text-xs text-primary-600 dark:text-soft-foreground mb-2">

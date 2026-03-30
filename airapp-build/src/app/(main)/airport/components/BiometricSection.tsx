@@ -30,7 +30,7 @@ export function BiometricSection({ status, flightNumber, persona }: BiometricSec
         <h2 className="text-lg font-semibold text-primary-900 dark:text-foreground">
           Biometric Check-In
         </h2>
-        <p className="text-xs text-primary-500 dark:text-caption-foreground mt-0.5">
+        <p className="text-xs text-primary-700 dark:text-caption-foreground mt-0.5">
           {status.enrolled
             ? 'Use facial recognition for seamless boarding'
             : 'Enroll for contactless boarding'}
@@ -64,7 +64,7 @@ export function BiometricSection({ status, flightNumber, persona }: BiometricSec
           >
             Get Started
           </button>
-          <p className="text-[10px] text-primary-400 dark:text-faint-foreground mt-3 flex items-center justify-center gap-1">
+          <p className="text-[10px] text-primary-600 dark:text-faint-foreground mt-3 flex items-center justify-center gap-1">
             <Shield className="w-3 h-3" aria-hidden="true" />
             Your biometric data is encrypted and never stored permanently
           </p>
@@ -135,7 +135,7 @@ export function BiometricSection({ status, flightNumber, persona }: BiometricSec
               </div>
             </div>
             <div className="p-4">
-              <p className="text-xs text-primary-500 dark:text-caption-foreground mb-1">Flight</p>
+              <p className="text-xs text-primary-700 dark:text-caption-foreground mb-1">Flight</p>
               <p className="text-lg font-bold text-primary-900 dark:text-foreground mb-3">
                 {flightNumber}
               </p>
@@ -157,7 +157,7 @@ export function BiometricSection({ status, flightNumber, persona }: BiometricSec
                   ))}
                 </div>
               </div>
-              <p className="text-center text-[10px] text-primary-400 dark:text-faint-foreground">
+              <p className="text-center text-[10px] text-primary-600 dark:text-faint-foreground">
                 Scan at gate for boarding
               </p>
             </div>

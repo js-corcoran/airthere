@@ -71,7 +71,7 @@ export function FrequentFlyerPrograms({ programs }: FrequentFlyerProgramsProps) 
               </p>
             </div>
 
-            <ChevronRight className="w-4 h-4 text-primary-400 dark:text-primary-500 shrink-0" aria-hidden="true" />
+            <ChevronRight className="w-4 h-4 text-primary-600 dark:text-primary-400 shrink-0" aria-hidden="true" />
           </button>
         ))}
       </div>

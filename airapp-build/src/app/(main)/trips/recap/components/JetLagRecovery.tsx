@@ -39,7 +39,7 @@ export function JetLagRecovery({ jetlag }: JetLagRecoveryProps) {
             <p className="text-sm font-semibold text-primary-900 dark:text-foreground">
               +{jetlag.shift}h time zone shift
             </p>
-            <p className="text-xs text-primary-500 dark:text-caption-foreground">
+            <p className="text-xs text-primary-700 dark:text-caption-foreground">
               Traveled {jetlag.direction} &mdash; expect {Math.ceil(jetlag.shift / 2)}&ndash;{jetlag.shift} days to fully adjust
             </p>
           </div>
@@ -48,7 +48,7 @@ export function JetLagRecovery({ jetlag }: JetLagRecoveryProps) {
         {/* Recovery progress bar */}
         <div className="space-y-1">
           <div className="flex items-center justify-between">
-            <span className="text-xs text-primary-500 dark:text-caption-foreground">Recovery progress</span>
+            <span className="text-xs text-primary-700 dark:text-caption-foreground">Recovery progress</span>
             <span className="text-xs font-medium text-primary-700 dark:text-muted-foreground">Day 1 of ~{jetlag.shift}</span>
           </div>
           <div className="h-2 rounded-full bg-surface-200 dark:bg-input overflow-hidden">
@@ -77,7 +77,7 @@ export function JetLagRecovery({ jetlag }: JetLagRecoveryProps) {
                   <p className="text-sm font-medium text-primary-900 dark:text-foreground">
                     {tip.title}
                   </p>
-                  <p className="text-xs text-primary-500 dark:text-caption-foreground mt-0.5 leading-relaxed">
+                  <p className="text-xs text-primary-700 dark:text-caption-foreground mt-0.5 leading-relaxed">
                     {tip.description}
                   </p>
                 </div>

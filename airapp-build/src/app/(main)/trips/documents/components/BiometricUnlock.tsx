@@ -56,7 +56,7 @@ export function BiometricUnlock({ isLocked, onUnlock }: BiometricUnlockProps) {
       <h2 className="text-lg font-bold text-primary-900 dark:text-foreground mb-2">
         Document Vault Locked
       </h2>
-      <p className="text-sm text-primary-600 dark:text-caption-foreground text-center mb-6 max-w-xs">
+      <p className="text-sm text-primary-700 dark:text-caption-foreground text-center mb-6 max-w-xs">
         Your documents are encrypted and secure. Authenticate to access them.
       </p>
 
@@ -77,7 +77,7 @@ export function BiometricUnlock({ isLocked, onUnlock }: BiometricUnlockProps) {
         {authenticating ? 'Authenticating...' : 'Unlock with Biometrics'}
       </button>
 
-      <div className="flex items-center gap-1.5 mt-4 text-xs text-primary-400 dark:text-faint-foreground">
+      <div className="flex items-center gap-1.5 mt-4 text-xs text-primary-600 dark:text-faint-foreground">
         <ShieldCheck className="w-3.5 h-3.5" aria-hidden="true" />
         <span>AES-256 encrypted</span>
       </div>

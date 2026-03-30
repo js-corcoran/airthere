@@ -83,7 +83,7 @@ export function DocumentUploadModal({ documentType, onUpload, onClose }: Documen
                 style={{ width: `${progress}%` }}
               />
             </div>
-            <p className="text-xs text-primary-500 dark:text-faint-foreground mt-1">
+            <p className="text-xs text-primary-600 dark:text-faint-foreground mt-1">
               {progress}%
             </p>
           </div>
@@ -104,7 +104,7 @@ export function DocumentUploadModal({ documentType, onUpload, onClose }: Documen
                   'bg-background border-surface-300',
                   'dark:bg-card dark:border-muted',
                   'text-primary-900 dark:text-foreground',
-                  'placeholder:text-primary-400 dark:placeholder:text-faint-foreground',
+                  'placeholder:text-primary-500 dark:placeholder:text-faint-foreground',
                   'focus:outline-none focus:ring-2 focus:ring-primary-500',
                   'min-h-[var(--touch-min)]'
                 )}

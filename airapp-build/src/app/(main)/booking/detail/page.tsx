@@ -188,7 +188,7 @@ function BookingDetailContent() {
       <div className="fixed bottom-16 left-0 right-0 z-30 px-4 py-3 bg-background/95 dark:bg-background/95 backdrop-blur-sm border-t border-surface-200 dark:border-input">
         <div className="max-w-[640px] mx-auto flex items-center gap-3">
           <div className="flex-1">
-            <p className="text-xs text-primary-500 dark:text-faint-foreground">Total</p>
+            <p className="text-xs text-primary-600 dark:text-faint-foreground">Total</p>
             <p className="text-xl font-bold text-primary-900 dark:text-foreground tabular-nums">
               ${grandTotal.toLocaleString()}
             </p>

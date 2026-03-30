@@ -41,7 +41,7 @@ export function FlexibleDateBar({ selectedDate, onDateChange }: FlexibleDateBarP
           >
             <span className={cn(
               'text-[10px] font-medium uppercase',
-              isSelected ? 'text-white/80' : 'text-primary-400 dark:text-faint-foreground'
+              isSelected ? 'text-white/80' : 'text-primary-600 dark:text-faint-foreground'
             )}>
               {format(date, 'EEE')}
             </span>
@@ -53,7 +53,7 @@ export function FlexibleDateBar({ selectedDate, onDateChange }: FlexibleDateBarP
             </span>
             <span className={cn(
               'text-[10px]',
-              isSelected ? 'text-white/80' : 'text-primary-400 dark:text-faint-foreground'
+              isSelected ? 'text-white/80' : 'text-primary-600 dark:text-faint-foreground'
             )}>
               {format(date, 'MMM')}
             </span>

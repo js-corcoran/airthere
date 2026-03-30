@@ -68,7 +68,7 @@ export function DestinationCard({ destination, persona }: DestinationCardProps) 
         <h3 className="text-sm font-semibold text-primary-900 dark:text-foreground mb-1">
           {destination.city}
         </h3>
-        <p className="text-xs text-primary-500 dark:text-caption-foreground mb-2">
+        <p className="text-xs text-primary-700 dark:text-caption-foreground mb-2">
           {destination.country}
         </p>
 

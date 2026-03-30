@@ -39,7 +39,7 @@ const heatColors = {
 
 const sentimentIcons = {
   rising: { icon: TrendingUp, className: 'text-success-500 dark:text-success-500', label: 'Rising' },
-  stable: { icon: Minus, className: 'text-primary-400 dark:text-faint-foreground', label: 'Stable' },
+  stable: { icon: Minus, className: 'text-primary-600 dark:text-faint-foreground', label: 'Stable' },
   falling: { icon: TrendingDown, className: 'text-error-500 dark:text-error-400', label: 'Falling' },
 };
 
@@ -66,7 +66,7 @@ function TrendingDestinationRow({ dest }: { dest: TrendingDestinationSummary }) 
         <p className="text-sm font-medium text-primary-900 dark:text-foreground truncate">
           {dest.city}
         </p>
-        <p className="text-xs text-primary-500 dark:text-caption-foreground">
+        <p className="text-xs text-primary-700 dark:text-caption-foreground">
           {dest.country}
         </p>
       </div>
@@ -108,7 +108,7 @@ function RegionCard({ region, isExpanded, onToggle }: { region: TrendingRegion; 
             <h3 className="text-base font-semibold text-primary-900 dark:text-foreground">
               {region.name}
             </h3>
-            <p className="text-xs text-primary-500 dark:text-caption-foreground">
+            <p className="text-xs text-primary-700 dark:text-caption-foreground">
               {region.destinations.length} destinations · {(region.searchVolume / 1000).toFixed(0)}k searches
             </p>
           </div>
@@ -119,7 +119,7 @@ function RegionCard({ region, isExpanded, onToggle }: { region: TrendingRegion; 
           </span>
           <ChevronRight
             className={cn(
-              'w-5 h-5 text-primary-400 dark:text-faint-foreground transition-transform duration-[--duration-short]',
+              'w-5 h-5 text-primary-600 dark:text-faint-foreground transition-transform duration-[--duration-short]',
               isExpanded && 'rotate-90'
             )}
             aria-hidden="true"
@@ -156,7 +156,7 @@ export function TrendingSection({ regions, persona }: TrendingSectionProps) {
           <h2 className="text-lg font-semibold text-primary-900 dark:text-foreground">
             {persona === 'business' ? 'Trending Business Routes' : 'Trending Destinations'}
           </h2>
-          <p className="text-xs text-primary-500 dark:text-caption-foreground mt-0.5">
+          <p className="text-xs text-primary-700 dark:text-caption-foreground mt-0.5">
             Based on search trends this week
           </p>
         </div>

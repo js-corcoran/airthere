@@ -180,7 +180,7 @@ export default function SettingsPage() {
           <h1 className="text-lg font-semibold text-primary-900 dark:text-foreground">
             Settings &amp; Preferences
           </h1>
-          <p className="text-sm text-primary-500 dark:text-caption-foreground mt-1">
+          <p className="text-sm text-primary-700 dark:text-caption-foreground mt-1">
             Customize your AirThere experience
           </p>
         </header>
@@ -532,7 +532,7 @@ export default function SettingsPage() {
               value={settings.account.email}
               readOnly
               aria-readonly="true"
-              className="w-full px-3 py-2.5 rounded-[var(--radius-md)] border border-surface-300 dark:border-muted bg-surface-100 dark:bg-background text-sm text-primary-500 dark:text-caption-foreground min-h-[var(--touch-min)] cursor-not-allowed"
+              className="w-full px-3 py-2.5 rounded-[var(--radius-md)] border border-surface-300 dark:border-muted bg-surface-100 dark:bg-background text-sm text-primary-700 dark:text-caption-foreground min-h-[var(--touch-min)] cursor-not-allowed"
             />
           </div>
 
@@ -597,7 +597,7 @@ export default function SettingsPage() {
           title="Demo Persona"
           icon={<Users className="w-5 h-5" />}
         >
-          <p className="text-xs text-primary-500 dark:text-caption-foreground mb-3">
+          <p className="text-xs text-primary-700 dark:text-caption-foreground mb-3">
             Switch persona to preview different traveler experiences.
           </p>
           <div className="flex gap-2">
@@ -628,7 +628,7 @@ export default function SettingsPage() {
                 }`}>
                   {p.label}
                 </span>
-                <span className="block text-[10px] text-primary-400 dark:text-faint-foreground mt-0.5">
+                <span className="block text-[10px] text-primary-600 dark:text-faint-foreground mt-0.5">
                   {p.sub}
                 </span>
               </button>
@@ -646,7 +646,7 @@ export default function SettingsPage() {
             <span className="text-sm text-primary-800 dark:text-subtle-foreground">
               Version
             </span>
-            <span className="text-sm text-primary-500 dark:text-caption-foreground">
+            <span className="text-sm text-primary-700 dark:text-caption-foreground">
               AirThere v2.1.0
             </span>
           </div>
@@ -658,7 +658,7 @@ export default function SettingsPage() {
           <AboutLink label="Contact Support" />
           <AboutLink label="Send Feedback" />
 
-          <p className="text-xs text-center text-primary-400 dark:text-faint-foreground pt-3">
+          <p className="text-xs text-center text-primary-600 dark:text-faint-foreground pt-3">
             Made with care for travelers
           </p>
         </SettingsSection>
@@ -723,7 +723,7 @@ function AboutLink({ label }: { label: string }) {
       "
     >
       {label}
-      <ExternalLink className="w-4 h-4 text-primary-400 dark:text-faint-foreground" aria-hidden="true" />
+      <ExternalLink className="w-4 h-4 text-primary-600 dark:text-faint-foreground" aria-hidden="true" />
     </a>
   );
 }

@@ -49,17 +49,17 @@ export function AutomaticRebooking({ rebooking, onApprove, onDecline, isProcessi
               <p className="text-xs text-primary-500 dark:text-primary-400">
                 {recommendedFlight.departure.airport}
               </p>
-              <p className="text-xs text-primary-400 dark:text-primary-500">
+              <p className="text-xs text-primary-600 dark:text-primary-400">
                 {recommendedFlight.departure.date}
               </p>
             </div>
 
             <div className="flex flex-col items-center gap-1 px-2">
-              <Plane className="w-4 h-4 text-primary-400 dark:text-primary-500 rotate-90" aria-hidden="true" />
-              <span className="text-xs text-primary-400 dark:text-primary-500">
+              <Plane className="w-4 h-4 text-primary-600 dark:text-primary-400 rotate-90" aria-hidden="true" />
+              <span className="text-xs text-primary-600 dark:text-primary-400">
                 {Math.floor(recommendedFlight.duration / 60)}h {recommendedFlight.duration % 60}m
               </span>
-              <span className="text-xs text-primary-400 dark:text-primary-500">
+              <span className="text-xs text-primary-600 dark:text-primary-400">
                 {recommendedFlight.stops === 0 ? 'Nonstop' : `${recommendedFlight.stops} stop`}
               </span>
             </div>
@@ -71,7 +71,7 @@ export function AutomaticRebooking({ rebooking, onApprove, onDecline, isProcessi
               <p className="text-xs text-primary-500 dark:text-primary-400">
                 {recommendedFlight.arrival.airport}
               </p>
-              <p className="text-xs text-primary-400 dark:text-primary-500">
+              <p className="text-xs text-primary-600 dark:text-primary-400">
                 {recommendedFlight.arrival.date}
               </p>
             </div>

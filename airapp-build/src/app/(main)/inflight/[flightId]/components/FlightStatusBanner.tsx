@@ -45,7 +45,7 @@ export function FlightStatusBanner({ flight }: FlightStatusBannerProps) {
       {stats.map(({ icon: Icon, label, value }, i) => (
         <div key={label} className="flex flex-col items-center text-center gap-1 opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]" style={{ animationDelay: `${i * 60}ms` }}>
           <Icon className="w-4 h-4 text-primary-500 dark:text-primary-400" aria-hidden="true" />
-          <span className="text-[10px] text-primary-500 dark:text-faint-foreground leading-none">
+          <span className="text-[10px] text-primary-600 dark:text-faint-foreground leading-none">
             {label}
           </span>
           <span className="text-xs font-semibold text-primary-900 dark:text-foreground font-mono">

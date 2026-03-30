@@ -21,7 +21,7 @@ const SORT_OPTIONS: { value: SortOption; label: string }[] = [
 export function SortControl({ value, onChange, totalResults }: SortControlProps) {
   return (
     <div className="flex items-center gap-3">
-      <span className="text-xs text-primary-500 dark:text-faint-foreground whitespace-nowrap shrink-0">
+      <span className="text-xs text-primary-600 dark:text-faint-foreground whitespace-nowrap shrink-0">
         {totalResults} flight{totalResults !== 1 ? 's' : ''}
       </span>
       <div className="flex gap-1 overflow-x-auto scrollbar-hide" role="radiogroup" aria-label="Sort flights by">

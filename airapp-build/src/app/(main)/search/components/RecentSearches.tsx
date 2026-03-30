@@ -70,14 +70,14 @@ export function RecentSearches({ onSelect }: RecentSearchesProps) {
       <div className="flex items-center justify-between mb-2">
         <h3
           id="recent-searches-heading"
-          className="text-xs font-medium text-primary-500 dark:text-dimmed-foreground uppercase tracking-wider flex items-center gap-1.5"
+          className="text-xs font-medium text-primary-600 dark:text-dimmed-foreground uppercase tracking-wider flex items-center gap-1.5"
         >
           <Clock className="w-3.5 h-3.5" />
           Recent Searches
         </h3>
         <button
           onClick={handleClear}
-          className="text-xs text-primary-400 dark:text-faint-foreground hover:text-primary-600 transition-colors
+          className="text-xs text-primary-600 dark:text-faint-foreground hover:text-primary-600 transition-colors
                      min-h-[var(--touch-min)] flex items-center"
         >
           Clear all
@@ -104,10 +104,10 @@ export function RecentSearches({ onSelect }: RecentSearchesProps) {
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 text-sm font-semibold text-primary-900 dark:text-foreground">
                   <span>{search.from}</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-primary-400 shrink-0" />
+                  <ArrowRight className="w-3.5 h-3.5 text-primary-500 dark:text-primary-400 shrink-0" />
                   <span>{search.to}</span>
                 </div>
-                <p className="text-xs text-primary-500 dark:text-dimmed-foreground mt-0.5">
+                <p className="text-xs text-primary-600 dark:text-dimmed-foreground mt-0.5">
                   {search.departDate} · {total} pax · {search.cabinClass}
                 </p>
               </div>

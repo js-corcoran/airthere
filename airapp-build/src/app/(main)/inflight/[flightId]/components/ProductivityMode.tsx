@@ -71,7 +71,7 @@ export function ProductivityMode({ data, timeRemainingMinutes }: ProductivityMod
             <span className="text-sm font-medium text-success-700 dark:text-success-300">
               WiFi Connected
             </span>
-            <span className="text-xs text-primary-500 dark:text-faint-foreground">
+            <span className="text-xs text-primary-600 dark:text-faint-foreground">
               ({data.wifiBandwidth} Mbps)
             </span>
           </>
@@ -211,7 +211,7 @@ export function ProductivityMode({ data, timeRemainingMinutes }: ProductivityMod
             'text-xs text-center mt-2',
             isFocusMode
               ? 'text-white/70'
-              : 'text-primary-500 dark:text-faint-foreground'
+              : 'text-primary-600 dark:text-faint-foreground'
           )}
         >
           Productive time remaining: {hoursRemaining}h {minsRemaining}m

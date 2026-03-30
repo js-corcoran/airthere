@@ -93,21 +93,21 @@ export default function ProfilePage() {
             className="flex items-center justify-between px-4 py-3 rounded-[var(--radius-lg)] bg-surface dark:bg-card border border-surface-300 dark:border-muted min-h-[var(--touch-preferred)] transition-colors hover:bg-surface-200 dark:hover:bg-surface-elevated"
           >
             <span className="text-sm font-medium text-primary-800 dark:text-subtle-foreground">Settings & Preferences</span>
-            <span className="text-primary-400 dark:text-faint-foreground" aria-hidden="true">&rsaquo;</span>
+            <span className="text-primary-600 dark:text-faint-foreground" aria-hidden="true">&rsaquo;</span>
           </Link>
           <Link
             href="/notifications"
             className="flex items-center justify-between px-4 py-3 rounded-[var(--radius-lg)] bg-surface dark:bg-card border border-surface-300 dark:border-muted min-h-[var(--touch-preferred)] transition-colors hover:bg-surface-200 dark:hover:bg-surface-elevated"
           >
             <span className="text-sm font-medium text-primary-800 dark:text-subtle-foreground">Notifications</span>
-            <span className="text-primary-400 dark:text-faint-foreground" aria-hidden="true">&rsaquo;</span>
+            <span className="text-primary-600 dark:text-faint-foreground" aria-hidden="true">&rsaquo;</span>
           </Link>
           <Link
             href="/trips/documents"
             className="flex items-center justify-between px-4 py-3 rounded-[var(--radius-lg)] bg-surface dark:bg-card border border-surface-300 dark:border-muted min-h-[var(--touch-preferred)] transition-colors hover:bg-surface-200 dark:hover:bg-surface-elevated"
           >
             <span className="text-sm font-medium text-primary-800 dark:text-subtle-foreground">Document Vault</span>
-            <span className="text-primary-400 dark:text-faint-foreground" aria-hidden="true">&rsaquo;</span>
+            <span className="text-primary-600 dark:text-faint-foreground" aria-hidden="true">&rsaquo;</span>
           </Link>
         </section>
 

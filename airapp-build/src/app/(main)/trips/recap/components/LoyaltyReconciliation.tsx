@@ -38,7 +38,7 @@ export function LoyaltyReconciliation({ loyalty, persona }: LoyaltyReconciliatio
             <p className="text-sm font-semibold text-primary-900 dark:text-foreground">
               {isPosted ? 'Points Posted' : 'Points Pending'}
             </p>
-            <p className="text-xs text-primary-500 dark:text-caption-foreground">
+            <p className="text-xs text-primary-700 dark:text-caption-foreground">
               {isPosted ? loyalty.program : 'Typically posts within 24\u201348 hours'}
             </p>
           </div>

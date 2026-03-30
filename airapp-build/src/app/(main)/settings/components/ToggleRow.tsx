@@ -32,7 +32,7 @@ export function ToggleRow({
         {description && (
           <p
             id={descriptionId}
-            className="text-xs text-primary-500 dark:text-caption-foreground mt-0.5 leading-snug"
+            className="text-xs text-primary-700 dark:text-caption-foreground mt-0.5 leading-snug"
           >
             {description}
           </p>

@@ -152,7 +152,7 @@ function SearchPageInner() {
             Search Flights
           </h1>
         </div>
-        <p className="text-sm text-primary-500 dark:text-dimmed-foreground">
+        <p className="text-sm text-primary-600 dark:text-dimmed-foreground">
           {persona === 'premium'
             ? 'Find your next premium experience'
             : persona === 'business'
@@ -195,7 +195,7 @@ function SearchPageInner() {
                   'focus-visible:outline-2 focus-visible:outline-primary-500',
                   'min-h-[var(--touch-min)] min-w-[var(--touch-min)] flex items-center justify-center',
                   from || to
-                    ? 'border-primary-300 text-primary-500 hover:bg-primary-50 dark:border-primary-500 dark:hover:bg-input'
+                    ? 'border-primary-300 text-primary-500 dark:text-primary-400 hover:bg-primary-50 dark:border-primary-500 dark:hover:bg-input'
                     : 'border-surface-300 text-surface-300 cursor-not-allowed dark:border-muted dark:text-faint-foreground'
                 )}
                 aria-label="Swap departure and arrival airports"

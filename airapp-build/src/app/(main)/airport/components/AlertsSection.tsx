@@ -72,7 +72,7 @@ export function AlertsSection({ alerts }: AlertsSectionProps) {
                   {alert.message}
                 </p>
               </div>
-              <span className="text-[10px] text-primary-400 dark:text-faint-foreground shrink-0 mt-0.5">
+              <span className="text-[10px] text-primary-600 dark:text-faint-foreground shrink-0 mt-0.5">
                 {alert.timestamp}
               </span>
             </div>

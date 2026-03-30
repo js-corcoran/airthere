@@ -23,7 +23,7 @@ export function AccessSummary({ accessibleCount, reason }: AccessSummaryProps) {
         <p className="text-sm font-medium text-primary-700 dark:text-muted-foreground">
           No included lounge access
         </p>
-        <p className="text-xs text-primary-500 dark:text-caption-foreground mt-0.5">
+        <p className="text-xs text-primary-700 dark:text-caption-foreground mt-0.5">
           Upgrade options available below
         </p>
       </div>

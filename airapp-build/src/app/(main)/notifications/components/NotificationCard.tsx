@@ -76,7 +76,7 @@ function getIconColor(type: AppNotification['type']): string {
     case 'family':
       return 'text-primary-600 dark:text-primary-400';
     default:
-      return 'text-primary-500';
+      return 'text-primary-500 dark:text-primary-400';
   }
 }
 
@@ -178,7 +178,7 @@ export function NotificationCard({
               {/* Timestamp */}
               <time
                 dateTime={notification.timestamp}
-                className="text-xs text-primary-500 dark:text-caption-foreground whitespace-nowrap"
+                className="text-xs text-primary-700 dark:text-caption-foreground whitespace-nowrap"
               >
                 {formatRelativeTime(notification.timestamp)}
               </time>
@@ -189,7 +189,7 @@ export function NotificationCard({
             className={cn(
               'text-xs leading-relaxed mt-1',
               notification.isRead
-                ? 'text-primary-500 dark:text-caption-foreground'
+                ? 'text-primary-700 dark:text-caption-foreground'
                 : 'text-primary-700 dark:text-muted-foreground',
             )}
           >

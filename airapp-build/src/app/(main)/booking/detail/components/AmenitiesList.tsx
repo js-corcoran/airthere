@@ -40,7 +40,7 @@ export function AmenitiesList({ amenities }: AmenitiesListProps) {
                 <p className="text-sm font-medium text-primary-900 dark:text-foreground">
                   {config.label}
                 </p>
-                <p className="text-[11px] text-primary-400 dark:text-faint-foreground">
+                <p className="text-[11px] text-primary-600 dark:text-faint-foreground">
                   {config.desc}
                 </p>
               </div>

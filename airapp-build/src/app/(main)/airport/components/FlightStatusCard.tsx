@@ -68,7 +68,7 @@ export function FlightStatusCard({ flight }: FlightStatusCardProps) {
         <div>
           <div className="flex items-center gap-2 mb-1">
             <Plane className="w-4 h-4 text-primary-500 dark:text-primary-400" aria-hidden="true" />
-            <span className="text-xs text-primary-500 dark:text-caption-foreground">
+            <span className="text-xs text-primary-700 dark:text-caption-foreground">
               {flight.airline}
             </span>
           </div>
@@ -87,7 +87,7 @@ export function FlightStatusCard({ flight }: FlightStatusCardProps) {
           <p className="text-2xl font-bold text-primary-900 dark:text-foreground">
             {flight.route.from}
           </p>
-          <p className="text-xs text-primary-500 dark:text-caption-foreground">
+          <p className="text-xs text-primary-700 dark:text-caption-foreground">
             {flight.departureTime}
           </p>
         </div>
@@ -100,7 +100,7 @@ export function FlightStatusCard({ flight }: FlightStatusCardProps) {
           <p className="text-2xl font-bold text-primary-900 dark:text-foreground">
             {flight.route.to}
           </p>
-          <p className="text-xs text-primary-500 dark:text-caption-foreground">
+          <p className="text-xs text-primary-700 dark:text-caption-foreground">
             {flight.arrivalTime}
           </p>
         </div>
@@ -108,13 +108,13 @@ export function FlightStatusCard({ flight }: FlightStatusCardProps) {
 
       {/* Countdown */}
       <div className="text-center py-3 mb-4 border-y border-primary-200 dark:border-primary">
-        <p className="text-xs text-primary-500 dark:text-caption-foreground mb-1">
+        <p className="text-xs text-primary-700 dark:text-caption-foreground mb-1">
           {flight.status === 'boarding' ? 'Boarding Now' : 'Departs in'}
         </p>
         <p className="text-4xl font-bold text-primary-900 dark:text-foreground tracking-tight">
           {countdown}
         </p>
-        <p className="text-xs text-primary-500 dark:text-caption-foreground mt-1">
+        <p className="text-xs text-primary-700 dark:text-caption-foreground mt-1">
           Boarding starts {flight.gate.boardingStartTime}
         </p>
       </div>
@@ -122,7 +122,7 @@ export function FlightStatusCard({ flight }: FlightStatusCardProps) {
       {/* Gate + seat info */}
       <div className="grid grid-cols-3 gap-3 mb-4">
         <div className="text-center p-2 rounded-lg bg-white/50 dark:bg-surface-primary">
-          <p className="text-[10px] text-primary-500 dark:text-caption-foreground uppercase tracking-wider">Gate</p>
+          <p className="text-[10px] text-primary-700 dark:text-caption-foreground uppercase tracking-wider">Gate</p>
           <p className="text-lg font-bold text-primary-900 dark:text-foreground">
             {flight.gate.number}
           </p>
@@ -133,13 +133,13 @@ export function FlightStatusCard({ flight }: FlightStatusCardProps) {
           )}
         </div>
         <div className="text-center p-2 rounded-lg bg-white/50 dark:bg-surface-primary">
-          <p className="text-[10px] text-primary-500 dark:text-caption-foreground uppercase tracking-wider">Terminal</p>
+          <p className="text-[10px] text-primary-700 dark:text-caption-foreground uppercase tracking-wider">Terminal</p>
           <p className="text-lg font-bold text-primary-900 dark:text-foreground">
             {flight.terminal}
           </p>
         </div>
         <div className="text-center p-2 rounded-lg bg-white/50 dark:bg-surface-primary">
-          <p className="text-[10px] text-primary-500 dark:text-caption-foreground uppercase tracking-wider">Seat</p>
+          <p className="text-[10px] text-primary-700 dark:text-caption-foreground uppercase tracking-wider">Seat</p>
           <p className="text-lg font-bold text-primary-900 dark:text-foreground">
             {flight.seatNumber ?? '—'}
           </p>
@@ -153,7 +153,7 @@ export function FlightStatusCard({ flight }: FlightStatusCardProps) {
             <span className="text-primary-700 dark:text-soft-foreground font-medium">
               Your group: {flight.boardingGroup}
             </span>
-            <span className="text-primary-500 dark:text-caption-foreground">
+            <span className="text-primary-700 dark:text-caption-foreground">
               {flight.gate.boardingProgress}% boarded
             </span>
           </div>
@@ -172,7 +172,7 @@ export function FlightStatusCard({ flight }: FlightStatusCardProps) {
       )}
 
       {/* Walking time */}
-      <div className="flex items-center gap-2 text-xs text-primary-500 dark:text-caption-foreground">
+      <div className="flex items-center gap-2 text-xs text-primary-700 dark:text-caption-foreground">
         <Clock className="w-3.5 h-3.5" aria-hidden="true" />
         <span>{flight.gate.walkingTimeMinutes} min walk to gate</span>
       </div>

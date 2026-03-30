@@ -31,7 +31,7 @@ export function OnboardingProgress({ currentStep, totalSteps }: OnboardingProgre
         />
       </div>
       <div className="text-center py-2">
-        <span className="text-xs text-primary-500 dark:text-caption-foreground font-medium">
+        <span className="text-xs text-primary-700 dark:text-caption-foreground font-medium">
           Step {currentStep} of {totalSteps}
         </span>
       </div>

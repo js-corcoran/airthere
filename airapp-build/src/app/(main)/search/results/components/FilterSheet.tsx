@@ -60,7 +60,7 @@ function CheckboxItem({
       <div>
         <span className="text-sm text-primary-900 dark:text-foreground">{label}</span>
         {sublabel && (
-          <span className="text-xs text-primary-400 dark:text-faint-foreground ml-1">{sublabel}</span>
+          <span className="text-xs text-primary-600 dark:text-faint-foreground ml-1">{sublabel}</span>
         )}
       </div>
     </label>
@@ -156,7 +156,7 @@ export function FilterSheet({ filters, onChange, availableAirlines, maxPriceLimi
                   className="p-1.5 rounded-full hover:bg-surface-100 dark:hover:bg-input transition-colors"
                   aria-label="Close filters"
                 >
-                  <X className="w-5 h-5 text-primary-500" />
+                  <X className="w-5 h-5 text-primary-500 dark:text-primary-400" />
                 </button>
               </div>
             </div>

@@ -24,7 +24,7 @@ function CounterRow({ label, description, value, min, max, onChange }: CounterRo
     <div className="flex items-center justify-between py-3">
       <div>
         <span className="text-sm font-medium text-primary-900 dark:text-foreground">{label}</span>
-        <p className="text-xs text-primary-500 dark:text-caption-foreground">{description}</p>
+        <p className="text-xs text-primary-700 dark:text-caption-foreground">{description}</p>
       </div>
       <div className="flex items-center gap-3">
         <button
@@ -36,7 +36,7 @@ function CounterRow({ label, description, value, min, max, onChange }: CounterRo
             'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
             value <= min
               ? 'border-surface-300 text-surface-300 cursor-not-allowed dark:border-muted dark:text-faint-foreground'
-              : 'border-primary-300 text-primary-500 hover:bg-primary-50 dark:border-primary-500 dark:hover:bg-input'
+              : 'border-primary-300 text-primary-500 dark:text-primary-400 hover:bg-primary-50 dark:border-primary-500 dark:hover:bg-input'
           )}
           aria-label={`Decrease ${label}`}
         >
@@ -58,7 +58,7 @@ function CounterRow({ label, description, value, min, max, onChange }: CounterRo
             'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
             value >= max
               ? 'border-surface-300 text-surface-300 cursor-not-allowed dark:border-muted dark:text-faint-foreground'
-              : 'border-primary-300 text-primary-500 hover:bg-primary-50 dark:border-primary-500 dark:hover:bg-input'
+              : 'border-primary-300 text-primary-500 dark:text-primary-400 hover:bg-primary-50 dark:border-primary-500 dark:hover:bg-input'
           )}
           aria-label={`Increase ${label}`}
         >
@@ -93,7 +93,7 @@ export function PassengerSelector({ value, onChange }: PassengerSelectorProps) {
         aria-expanded={isOpen}
         aria-label={`${total} passenger${total !== 1 ? 's' : ''}`}
       >
-        <Users className="w-4 h-4 text-primary-400" aria-hidden="true" />
+        <Users className="w-4 h-4 text-primary-500 dark:text-primary-400" aria-hidden="true" />
         <span>
           {total} passenger{total !== 1 ? 's' : ''}
         </span>

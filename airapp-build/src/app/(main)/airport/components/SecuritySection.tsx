@@ -56,11 +56,11 @@ export function SecuritySection({ checkpoints }: SecuritySectionProps) {
               </div>
               <div className="text-right shrink-0">
                 <div className="flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5 text-primary-400 dark:text-faint-foreground" aria-hidden="true" />
+                  <Clock className="w-3.5 h-3.5 text-primary-600 dark:text-faint-foreground" aria-hidden="true" />
                   <span className="text-lg font-bold text-primary-900 dark:text-foreground">
                     {cp.waitTimeMinutes}
                   </span>
-                  <span className="text-xs text-primary-500 dark:text-caption-foreground">min</span>
+                  <span className="text-xs text-primary-700 dark:text-caption-foreground">min</span>
                 </div>
                 <span className={cn('text-[10px] font-medium', status.className)}>
                   {status.label}

@@ -19,10 +19,10 @@ export function DateSelector({ label, value, onChange, minDate, optional }: Date
   return (
     <div>
       <label className="block text-xs font-medium text-primary-700 dark:text-muted-foreground mb-1.5 uppercase tracking-wider">
-        {label} {optional && <span className="text-primary-400 normal-case">(optional)</span>}
+        {label} {optional && <span className="text-primary-600 dark:text-faint-foreground normal-case">(optional)</span>}
       </label>
       <div className="relative">
-        <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-primary-400 pointer-events-none" aria-hidden="true" />
+        <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-primary-500 dark:text-primary-400 pointer-events-none" aria-hidden="true" />
         <input
           type="date"
           value={value}

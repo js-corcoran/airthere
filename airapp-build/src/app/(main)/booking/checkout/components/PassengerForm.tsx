@@ -52,7 +52,7 @@ function FormField({
           'focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500',
           'dark:bg-card dark:text-foreground',
           'min-h-[var(--touch-min)]',
-          'placeholder:text-primary-400 dark:placeholder:text-faint-foreground disabled:opacity-50 disabled:cursor-not-allowed',
+          'placeholder:text-primary-500 dark:placeholder:text-faint-foreground disabled:opacity-50 disabled:cursor-not-allowed',
           error
             ? 'border-error-400 dark:border-error-600'
             : 'border-surface-300 dark:border-muted'
@@ -80,7 +80,7 @@ export function PassengerForm({ passengers, onChange, errors, persona }: Passeng
         <h2 className="text-lg font-semibold text-primary-900 dark:text-foreground">
           Passenger Details
         </h2>
-        <p className="text-sm text-primary-500 dark:text-faint-foreground mt-0.5">
+        <p className="text-sm text-primary-600 dark:text-faint-foreground mt-0.5">
           Enter details as they appear on travel documents
         </p>
       </div>

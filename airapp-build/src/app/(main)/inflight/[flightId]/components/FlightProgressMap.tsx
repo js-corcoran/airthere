@@ -116,7 +116,7 @@ export function FlightProgressMap({ flight }: FlightProgressMapProps) {
           />
         </div>
         <div className="flex items-center justify-between mt-1.5">
-          <span className="text-xs text-primary-500 dark:text-faint-foreground">
+          <span className="text-xs text-primary-600 dark:text-faint-foreground">
             {flight.progress.percentComplete}% complete
           </span>
           <span className="text-xs font-medium text-primary-900 dark:text-foreground">

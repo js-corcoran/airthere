@@ -42,7 +42,7 @@ export function AirportTabs({ activeTab, onTabChange }: AirportTabsProps) {
               'min-h-[var(--touch-min)]',
               isActive
                 ? 'text-primary-900 dark:text-foreground bg-primary-50 dark:bg-input'
-                : 'text-primary-400 dark:text-faint-foreground hover:text-primary-700 dark:hover:text-muted-foreground'
+                : 'text-primary-600 dark:text-faint-foreground hover:text-primary-700 dark:hover:text-muted-foreground'
             )}
           >
             <Icon className={cn('w-5 h-5', isActive && 'stroke-[2.5]')} aria-hidden="true" />

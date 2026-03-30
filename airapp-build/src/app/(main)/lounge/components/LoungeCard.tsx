@@ -131,7 +131,7 @@ export function LoungeCard({ lounge, onSelect }: LoungeCardProps) {
   return (
     <article
       className={cn(
-        'rounded-[var(--radius-lg)] border overflow-hidden',
+        'rounded-xl border overflow-hidden',
         'bg-surface dark:bg-card',
         'shadow-[var(--shadow-sm)]',
         'transition-colors duration-[--duration-micro]',

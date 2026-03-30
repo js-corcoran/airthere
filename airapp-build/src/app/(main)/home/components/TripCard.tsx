@@ -20,7 +20,7 @@ export function TripCard({ trip, className }: TripCardProps) {
     <Link
       href={ROUTES.TRIPS}
       className={cn(
-        'block min-w-[280px] rounded-lg bg-surface dark:bg-card',
+        'block min-w-[280px] rounded-xl bg-surface dark:bg-card',
         'border border-surface-300 dark:border-muted',
         'p-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-[--duration-short]',
         'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',

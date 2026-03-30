@@ -28,7 +28,7 @@ export function DestinationCard({ destination, persona }: DestinationCardProps) 
   return (
     <div
       className={cn(
-        'rounded-lg overflow-hidden bg-surface dark:bg-card',
+        'rounded-xl overflow-hidden bg-surface dark:bg-card',
         'border border-surface-300 dark:border-muted',
         'shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-[--duration-short]'
       )}

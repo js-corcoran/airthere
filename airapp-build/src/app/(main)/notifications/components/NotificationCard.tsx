@@ -129,7 +129,7 @@ export function NotificationCard({
     <div
       role="listitem"
       className={cn(
-        'relative rounded-[var(--radius-lg)] p-3.5 cursor-pointer',
+        'relative rounded-xl p-3.5 cursor-pointer',
         'transition-colors duration-[--duration-micro]',
         priorityStyles,
         !notification.isRead && 'ring-1 ring-primary-200 dark:ring-muted',

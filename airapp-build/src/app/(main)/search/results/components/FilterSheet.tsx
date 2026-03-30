@@ -235,7 +235,7 @@ export function FilterSheet({ filters, onChange, availableAirlines, maxPriceLimi
             </div>
 
             {/* Apply Button */}
-            <div className="sticky bottom-0 px-4 py-3 bg-background dark:bg-background border-t border-surface-200 dark:border-input">
+            <div className="sticky bottom-0 px-4 py-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] bg-background dark:bg-background border-t border-surface-200 dark:border-input">
               <button
                 onClick={() => setIsOpen(false)}
                 className="w-full py-3 rounded-lg font-semibold text-sm bg-primary-500 text-white

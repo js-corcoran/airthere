@@ -15,7 +15,7 @@ export function FloatingActionButton({ onClick, isOpen }: FloatingActionButtonPr
     <button
       onClick={onClick}
       className={cn(
-        'fixed bottom-20 right-4 z-40',
+        'fixed bottom-24 right-4 z-40',
         'w-14 h-14 rounded-full',
         'bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-400',
         'text-white shadow-lg',

@@ -44,7 +44,7 @@ export function DocumentUploadModal({ documentType, onUpload, onClose }: Documen
     >
       <div
         className={cn(
-          'w-full max-h-[80vh] overflow-y-auto rounded-t-2xl p-5',
+          'w-full max-h-[80vh] overflow-y-auto rounded-t-2xl p-5 pb-24',
           'bg-background dark:bg-background',
           'animate-[slideUp_var(--duration-short)_var(--ease-in-out)]'
         )}

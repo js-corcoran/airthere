@@ -143,7 +143,7 @@ function SearchPageInner() {
   };
 
   return (
-    <div className="pb-8">
+    <div className="pb-24">
       {/* Hero Banner */}
       <div className="px-4 pt-2 pb-4 bg-gradient-to-b from-primary-50 to-background dark:from-surface-primary dark:to-background">
         <div className="flex items-center gap-2 mb-1">

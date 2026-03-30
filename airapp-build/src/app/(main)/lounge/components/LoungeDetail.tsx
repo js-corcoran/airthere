@@ -181,7 +181,7 @@ export function LoungeDetail({ lounge, onClose }: LoungeDetailProps) {
           </div>
         </div>
 
-        <div className="px-4 pb-8 space-y-5">
+        <div className="px-4 pb-24 space-y-5">
           {/* Description */}
           <p className="text-sm leading-relaxed text-primary-700 dark:text-muted-foreground">
             {lounge.description}

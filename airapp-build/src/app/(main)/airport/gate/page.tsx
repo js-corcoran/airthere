@@ -77,7 +77,7 @@ export default function GateBoardingPage() {
   const flightId = flightIdMap[persona] ?? 'FL-JFK-SIN-DEMO';
 
   return (
-    <div className="pb-4">
+    <div className="pb-24">
       {/* Journey Breadcrumb */}
       <JourneyBreadcrumb currentStep="gate" flightId={flightId} />
 

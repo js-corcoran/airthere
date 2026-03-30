@@ -106,7 +106,7 @@ export default function AirportLivePage() {
   const flightId = flightIdMap[persona] ?? 'FL-JFK-SIN-DEMO';
 
   return (
-    <div className="pb-4">
+    <div className="pb-24">
       {/* Journey Breadcrumb */}
       <JourneyBreadcrumb currentStep="airport" flightId={flightId} />
 

@@ -170,7 +170,7 @@ export function AICopilotSheet({ isOpen, onClose, embedded }: AICopilotSheetProp
 
       {/* Messages area */}
       <div
-        className="flex-1 overflow-y-auto p-4 space-y-1"
+        className="flex-1 overflow-y-auto p-4 pb-20 space-y-1"
         role="log"
         aria-live="polite"
         aria-label="Conversation history"
@@ -226,7 +226,7 @@ export function AICopilotSheet({ isOpen, onClose, embedded }: AICopilotSheetProp
       <ChatInput onSend={handleSend} isLoading={isLoading} />
 
       {/* Footer trust level */}
-      <div className="px-4 py-2 border-t border-surface-300 dark:border-muted shrink-0">
+      <div className="px-4 py-2 pb-[calc(0.5rem+env(safe-area-inset-bottom))] border-t border-surface-300 dark:border-muted shrink-0">
         <TrustIndicator level={trustLevel} />
       </div>
     </div>

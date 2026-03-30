@@ -7,7 +7,7 @@ export default function AICopilotPage() {
     <main
       role="main"
       aria-label="AI Copilot"
-      className="h-[calc(100vh-8rem)] bg-background dark:bg-background"
+      className="h-[calc(100vh-10rem)] bg-background dark:bg-background"
     >
       <AICopilotSheet isOpen={true} onClose={() => {}} embedded />
     </main>

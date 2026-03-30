@@ -75,7 +75,7 @@ export default function InflightPage() {
   );
 
   return (
-    <div className="pb-4">
+    <div className="pb-24">
       {/* Cabin Header */}
       <div
         className={cn(

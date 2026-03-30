@@ -65,7 +65,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className="pb-4">
+    <div className="pb-24">
       {/* Demo Mode Pill - top right of Home screen */}
       <div className="fixed top-3 right-3 z-40">
         <button
@@ -88,7 +88,7 @@ export default function HomePage() {
         <div className="fixed inset-0 z-50" role="dialog" aria-modal="true" aria-label="Switch persona"
              onKeyDown={(e) => { if (e.key === 'Escape') setShowDemoSheet(false); }}>
           <div className="absolute inset-0 bg-overlay-dark" onClick={() => setShowDemoSheet(false)} aria-hidden="true" />
-          <div className="absolute bottom-0 left-0 right-0 bg-background dark:bg-card rounded-t-2xl p-5 pb-8 shadow-xl">
+          <div className="absolute bottom-0 left-0 right-0 bg-background dark:bg-card rounded-t-2xl p-5 pb-24 shadow-xl">
             <h2 className="text-base font-semibold text-primary-900 dark:text-foreground mb-1">
               Switch Persona
             </h2>

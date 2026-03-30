@@ -10,7 +10,7 @@ export default function MainLayout({ children }: { children: ReactNode }) {
     <AICopilotProvider>
       <div className="min-h-screen flex flex-col bg-background">
         <ContextualHeader />
-        <main className="flex-1 overflow-y-auto pb-20">
+        <main className="flex-1 overflow-y-auto pb-24 pb-[calc(6rem+env(safe-area-inset-bottom))]">
           {children}
         </main>
         <BottomTabBar />

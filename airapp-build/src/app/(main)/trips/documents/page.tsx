@@ -99,7 +99,7 @@ export default function DocumentVaultPage() {
   const allRequiredUploaded = requiredCount === uploadedRequiredCount;
 
   return (
-    <div className="pb-4">
+    <div className="pb-24">
       {/* Header */}
       <div className="px-4 pt-2 pb-4">
         <div className="flex items-center justify-between mb-1">

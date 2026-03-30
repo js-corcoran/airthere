@@ -49,7 +49,7 @@ export default function TripsPage() {
   if (loading) return <PageSkeleton />;
 
   return (
-    <div className="pb-4">
+    <div className="pb-24">
       {/* Header */}
       <div className="px-4 pt-2 pb-3">
         <div className="flex items-center gap-2 mb-1">

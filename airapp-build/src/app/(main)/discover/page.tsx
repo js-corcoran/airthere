@@ -142,7 +142,7 @@ export default function DiscoverPage() {
   }
 
   return (
-    <div className="pb-4">
+    <div className="pb-24">
       {/* Search bar */}
       <DiscoverSearchBar
         value={searchQuery}

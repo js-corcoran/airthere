@@ -70,7 +70,7 @@ export function TripDetailSheet({ trip, onClose, persona }: TripDetailSheetProps
           </button>
         </div>
 
-        <div className="px-4 py-4 space-y-5 pb-8 max-w-[640px] mx-auto">
+        <div className="px-4 py-4 space-y-5 pb-28 max-w-[640px] mx-auto">
           {/* Route Hero */}
           <div className="text-center py-4">
             <div className="flex items-center justify-center gap-3 mb-2">

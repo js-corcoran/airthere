@@ -137,7 +137,7 @@ export default function HomePage() {
 
       {/* Persona-specific Alert Banners */}
       {hasDisruptedTrip && (
-        <div className="px-4 mb-4">
+        <div className="px-4 mt-4 mb-4">
           <Link
             href="/irops/FL-JFK-SIN-DEMO"
             className="block p-4 rounded-xl bg-error-50 dark:bg-surface-error border border-error-200 dark:border-error shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-[--duration-short]"
@@ -162,7 +162,7 @@ export default function HomePage() {
       )}
 
       {persona === 'business' && (
-        <div className="px-4 mb-4">
+        <div className="px-4 mt-4 mb-4">
           <Link
             href="/airport"
             className="block p-4 rounded-xl bg-info-50 dark:bg-surface-info border border-info-200 dark:border-info shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-[--duration-short]"
@@ -187,7 +187,7 @@ export default function HomePage() {
       )}
 
       {persona === 'family' && (
-        <div className="px-4 mb-4">
+        <div className="px-4 mt-4 mb-4">
           <Link
             href="/trips"
             className="block p-4 rounded-xl bg-success-50 dark:bg-surface-success border border-success-100 dark:border-success shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-[--duration-short]"
@@ -213,7 +213,7 @@ export default function HomePage() {
 
       {/* Airport Mode Banner — all personas, when upcoming/active trip exists */}
       {travelDayTrip && (travelDayTrip.status === 'upcoming' || travelDayTrip.status === 'active' || travelDayTrip.status === 'disrupted') && (
-        <div className="px-4 mb-4">
+        <div className="px-4 mt-4 mb-4">
           <Link
             href="/airport"
             className="block p-4 rounded-xl bg-primary-50 dark:bg-surface-primary border border-primary-200 dark:border-primary shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-[--duration-short]"

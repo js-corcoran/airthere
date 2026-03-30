@@ -3,6 +3,7 @@
 import { useState, useEffect, ReactNode } from 'react';
 import { PersonaType, UserProfile } from '@/lib/types/user';
 import { PersonaContext } from './usePersonaStore';
+import { getMockUserForPersona } from '@/lib/mock-data/users';
 
 interface PersonaProviderProps {
   children: ReactNode;
@@ -33,7 +34,12 @@ export function PersonaProvider({ children }: PersonaProviderProps) {
 
   const setPersona = (p: PersonaType) => {
     setPersonaState(p);
-    if (mounted) localStorage.setItem('airthere-persona', p);
+    const newUser = getMockUserForPersona(p);
+    setUser(newUser);
+    if (mounted) {
+      localStorage.setItem('airthere-persona', p);
+      localStorage.setItem('airthere-user', JSON.stringify(newUser));
+    }
   };
 
   const setOnboardedValue = (val: boolean) => {

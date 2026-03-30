@@ -4,8 +4,8 @@ import type { PersonaType } from '@/lib/types/user';
 // ─── Welcome messages per persona ──────────────────────────────────
 const WELCOME_MESSAGES: Record<PersonaType, string> = {
   premium: "Good evening, Alexandra. I'm your personal travel concierge. How may I assist you today?",
-  business: "Hi Marcus. I'm ready to help you find the fastest option. What do you need?",
-  family: "Hi there! I'm your family travel assistant. Ask me anything about flights, hotels, or your upcoming trips.",
+  business: "Hi Marcus. I'm ready to optimize your travel schedule. Your Chicago flight departs tomorrow — anything you need to prep?",
+  family: "Hi Wei! I'm your family travel assistant. Hawaii is just 5 days away — the whole family is going to love it!",
 };
 
 // ─── Suggested prompts per persona ─────────────────────────────────
@@ -17,16 +17,16 @@ export const SUGGESTED_PROMPTS: Record<PersonaType, SuggestionChipData[]> = {
     { id: 'sp-4', label: 'Delay options', icon: '⚠', value: 'What are my options for the delayed SQ25 flight?' },
   ],
   business: [
-    { id: 'sp-1', label: 'Quick flight search', icon: '✈', value: 'Find me flights to London next Friday, business class' },
-    { id: 'sp-2', label: 'Trip status', icon: '📋', value: 'Check my trip status' },
-    { id: 'sp-3', label: 'Policy check', icon: '✓', value: 'Is my London booking policy-compliant?' },
-    { id: 'sp-4', label: 'Expense summary', icon: '💼', value: 'Show me my travel expense summary' },
+    { id: 'sp-1', label: 'Trip status', icon: '✈', value: 'What\'s the status of my Chicago flight?' },
+    { id: 'sp-2', label: 'Earlier flight', icon: '⬆', value: 'Can I get on an earlier flight to ORD?' },
+    { id: 'sp-3', label: 'Lounge Wi-Fi', icon: '📶', value: 'How fast is the United Club Wi-Fi?' },
+    { id: 'sp-4', label: 'Expense summary', icon: '💼', value: 'Summarize my Seattle trip expenses' },
   ],
   family: [
-    { id: 'sp-1', label: 'Family flights', icon: '✈', value: 'Find flights to Orlando for a family of 4' },
-    { id: 'sp-2', label: 'Total trip cost', icon: '💰', value: 'What will our London trip cost in total?' },
-    { id: 'sp-3', label: 'Family seating', icon: '👨‍👩‍👧‍👦', value: 'Can we sit together on our next flight?' },
-    { id: 'sp-4', label: 'Packing tips', icon: '🧳', value: 'Help me prepare for our family trip' },
+    { id: 'sp-1', label: 'Kid restaurants', icon: '🍽', value: 'Kid-friendly restaurants near our hotel in Waikiki' },
+    { id: 'sp-2', label: 'Snorkel rental', icon: '🤿', value: 'Where can we rent snorkel gear for kids in Honolulu?' },
+    { id: 'sp-3', label: 'Stroller policy', icon: '👶', value: 'What\'s Hawaiian Airlines\' stroller policy?' },
+    { id: 'sp-4', label: 'Packing help', icon: '🧳', value: 'What should we pack for Hawaii with two young kids?' },
   ],
 };
 
@@ -219,6 +219,83 @@ export const DEMO_CONVERSATIONS: Record<string, ConversationFlow> = {
             details: { route: 'JFK → SIN', time: '10:40 AM +1', duration: '18h 40m', stops: 0, price: 0, currency: 'USD', highlights: ['TWA Hotel tonight', 'Fresh start tomorrow', 'Same aircraft type'] },
             confidence: 82,
           },
+        ],
+      },
+    ],
+  },
+  'business-demo': {
+    id: 'business-demo',
+    name: 'Business Travel Assistant',
+    description: 'AI copilot helping Marcus with his Chicago trip',
+    messages: [
+      {
+        id: 'bd-1',
+        role: 'system' as const,
+        content: 'Marcus has a 25-minute delay on UA456 SFO→ORD tomorrow. He has a 2 PM meeting in Chicago.',
+        timestamp: new Date(Date.now() - 20 * 60 * 1000).toISOString(),
+      },
+      {
+        id: 'bd-2',
+        role: 'assistant' as const,
+        content: 'Your UA456 is delayed 25 minutes — new departure 7:40 AM, arrival 1:47 PM. Your 2 PM meeting at The Langham is still achievable with 13 minutes buffer. I recommend taking a Lyft from O\'Hare — estimated 22 minutes to downtown. Want me to pre-book the car?',
+        timestamp: new Date(Date.now() - 19 * 60 * 1000).toISOString(),
+        suggestions: [
+          { id: 'bd-s1', label: 'Pre-book Lyft', icon: '🚗', value: 'Pre-book Lyft' },
+          { id: 'bd-s2', label: 'Check earlier flights', icon: '✈', value: 'Check earlier flights' },
+          { id: 'bd-s3', label: 'Notify meeting attendees', icon: '📧', value: 'Notify meeting attendees' },
+        ],
+      },
+      {
+        id: 'bd-3',
+        role: 'user' as const,
+        content: 'How fast is the United Club Wi-Fi? I need to do a video call before boarding.',
+        timestamp: new Date(Date.now() - 17 * 60 * 1000).toISOString(),
+      },
+      {
+        id: 'bd-4',
+        role: 'assistant' as const,
+        content: 'SFO Terminal 3 United Club averages 280 Mbps download, 45 Mbps upload — more than enough for HD video calls. The quiet zone near the back windows has the most reliable signal. Club opens at 5:30 AM, so you\'ll have about an hour before boarding.',
+        timestamp: new Date(Date.now() - 16 * 60 * 1000).toISOString(),
+      },
+    ],
+  },
+  'family-demo': {
+    id: 'family-demo',
+    name: 'Family Hawaii Trip Assistant',
+    description: 'AI copilot helping the Chen family plan their Hawaii trip',
+    messages: [
+      {
+        id: 'fd-1',
+        role: 'system' as const,
+        content: 'The Chen family (Wei, Lin, Sophie 8, Lucas 5) is flying to Honolulu in 5 days on HA11.',
+        timestamp: new Date(Date.now() - 30 * 60 * 1000).toISOString(),
+      },
+      {
+        id: 'fd-2',
+        role: 'assistant' as const,
+        content: 'Aloha! Your Hawaii trip is coming up in 5 days. Here\'s what I\'ve prepped:\n\n\u2022 Seats confirmed: Row 24A-D (family block)\n\u2022 Kids meals: Sophie gets chicken nuggets, Lucas gets mac & cheese\n\u2022 Packing checklist: 60% done — sunscreen and swim floaties still needed\n\nWould you like restaurant suggestions near the Hilton Hawaiian Village?',
+        timestamp: new Date(Date.now() - 29 * 60 * 1000).toISOString(),
+        suggestions: [
+          { id: 'fd-s1', label: 'Kid-friendly restaurants', icon: '🍽', value: 'Kid-friendly restaurants' },
+          { id: 'fd-s2', label: 'Beach gear rentals', icon: '🏖', value: 'Beach gear rentals' },
+          { id: 'fd-s3', label: 'Stroller policy', icon: '👶', value: 'Stroller policy' },
+        ],
+      },
+      {
+        id: 'fd-3',
+        role: 'user' as const,
+        content: 'Kid-friendly restaurants near our hotel in Waikiki',
+        timestamp: new Date(Date.now() - 27 * 60 * 1000).toISOString(),
+      },
+      {
+        id: 'fd-4',
+        role: 'assistant' as const,
+        content: 'Great picks near the Hilton Hawaiian Village:\n\n1. **Duke\'s Waikiki** — Right on the beach, keiki menu with fish tacos and grilled cheese. High chairs available. $$\n2. **Eggs \'n Things** — Famous pancakes, 5 min walk. Kids eat free on Tuesdays. $\n3. **Marukame Udon** — Fresh udon noodles, Sophie and Lucas will love watching them made. Quick & affordable. $\n4. **Teddy\'s Bigger Burgers** — Classic burgers with a kids combo. Outdoor seating. $$\n\nAll are within a 10-minute walk. Want me to save these to your trip?',
+        timestamp: new Date(Date.now() - 26 * 60 * 1000).toISOString(),
+        suggestions: [
+          { id: 'fd-s4', label: 'Save to trip', icon: '💾', value: 'Save to trip' },
+          { id: 'fd-s5', label: 'More restaurants', icon: '🍽', value: 'More restaurants' },
+          { id: 'fd-s6', label: 'Beach activities', icon: '🏄', value: 'Beach activities' },
         ],
       },
     ],

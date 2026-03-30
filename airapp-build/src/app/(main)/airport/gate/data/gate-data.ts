@@ -31,19 +31,19 @@ export function getGateBoardingInfo(persona: PersonaType): GateBoardingInfo {
       };
     case 'business':
       return {
-        flightNumber: 'UA 901',
+        flightNumber: 'UA0456',
         airline: 'United Airlines',
-        route: { from: 'SFO', to: 'LHR', fromCity: 'San Francisco', toCity: 'London' },
-        departureTime: '3:15 PM',
-        estimatedTime: '3:15 PM',
-        arrivalTime: '9:30 AM +1',
-        status: 'on_time',
-        delayMinutes: 0,
-        gate: 'C15',
-        terminal: 'T3',
-        aircraft: 'Boeing 787-9',
-        seatNumber: '5A',
-        boardingGroup: 'Group 2 (Business)',
+        route: { from: 'SFO', to: 'ORD', fromCity: 'San Francisco', toCity: 'Chicago' },
+        departureTime: '7:15 AM',
+        estimatedTime: '7:40 AM',
+        arrivalTime: '1:47 PM',
+        status: 'delayed',
+        delayMinutes: 25,
+        gate: 'F14',
+        terminal: 'Terminal 3',
+        aircraft: 'Boeing 737 MAX 9',
+        seatNumber: '8C',
+        boardingGroup: 'Group 2 (Economy Plus)',
         confirmationNumber: 'UA8M4P',
         currentPhase: 'gate_assigned',
         boardingProgress: 0,
@@ -51,20 +51,20 @@ export function getGateBoardingInfo(persona: PersonaType): GateBoardingInfo {
     case 'family':
     default:
       return {
-        flightNumber: 'AA 180',
-        airline: 'American Airlines',
-        route: { from: 'JFK', to: 'LHR', fromCity: 'New York', toCity: 'London' },
-        departureTime: '7:00 PM',
-        estimatedTime: '7:25 PM',
-        arrivalTime: '7:40 AM +1',
-        status: 'delayed',
-        delayMinutes: 25,
-        gate: 'B22',
-        terminal: 'T8',
-        aircraft: 'Boeing 777-300ER',
-        seatNumber: '32A-D',
+        flightNumber: 'HA0011',
+        airline: 'Hawaiian Airlines',
+        route: { from: 'LAX', to: 'HNL', fromCity: 'Los Angeles', toCity: 'Honolulu' },
+        departureTime: '8:30 AM',
+        estimatedTime: '8:30 AM',
+        arrivalTime: '11:45 AM',
+        status: 'on_time',
+        delayMinutes: 0,
+        gate: '51A',
+        terminal: 'Terminal 5',
+        aircraft: 'Airbus A321neo',
+        seatNumber: '24A-D',
         boardingGroup: 'Families w/ children',
-        confirmationNumber: 'AA3R7X',
+        confirmationNumber: 'HA5R2K',
         currentPhase: 'gate_assigned',
         boardingProgress: 0,
       };
@@ -95,19 +95,19 @@ export function getBoardingPhases(currentPhase: BoardingPhase, persona: PersonaT
     },
     business: {
       gate_assigned: 'Gate Assigned',
-      pre_boarding: 'Pre-Board (1K, GS)',
-      group_1: 'Group 1 (Polaris)',
-      group_2: 'Group 2 (Business)',
+      pre_boarding: 'Pre-Board (1K/GS)',
+      group_1: 'Group 1 (First)',
+      group_2: 'Group 2 (Econ Plus)',
       group_3: 'Groups 3-5',
       boarding_complete: 'Boarding Complete',
       doors_closed: 'Doors Closed',
     },
     family: {
       gate_assigned: 'Gate Assigned',
-      pre_boarding: 'Families w/ children',
-      group_1: 'Group 1 (First/Business)',
-      group_2: 'Group 2',
-      group_3: 'Groups 3-5',
+      pre_boarding: 'Pre-Board',
+      group_1: 'Families w/ Children',
+      group_2: 'Group A',
+      group_3: 'Groups B-C',
       boarding_complete: 'Boarding Complete',
       doors_closed: 'Doors Closed',
     },
@@ -122,7 +122,7 @@ export function getBoardingPhases(currentPhase: BoardingPhase, persona: PersonaT
 }
 
 export function getConnectionInfo(persona: PersonaType): ConnectionInfo {
-  if (persona === 'business') {
+  if (persona === 'premium') {
     return {
       hasConnection: true,
       nextFlight: {
@@ -137,21 +137,7 @@ export function getConnectionInfo(persona: PersonaType): ConnectionInfo {
       recommendedAction: 'Comfortable connection time. Your bags are automatically transferred.',
     };
   }
-  if (persona === 'family') {
-    return {
-      hasConnection: true,
-      nextFlight: {
-        flightNumber: 'BA 794',
-        departure: '10:15 AM +1',
-        from: 'LHR',
-        to: 'EDI',
-        gate: 'TBD',
-      },
-      connectionMinutes: 155,
-      riskLevel: 'medium',
-      recommendedAction: 'Monitor delay — inform gate agent if delay exceeds 30 minutes.',
-    };
-  }
+  // Business (SFO→ORD) and Family (LAX→HNL) are direct — no connections
   return { hasConnection: false };
 }
 
@@ -172,15 +158,17 @@ export function getGateAmenities(persona: PersonaType): GateAmenity[] {
       return [
         ...common,
         { type: 'food', name: 'Peet\'s Coffee', distance: '1 min walk', icon: '☕' },
-        { type: 'food', name: 'Napa Farms Market', distance: '2 min walk', icon: '🥗' },
+        { type: 'lounge', name: 'United Club', distance: '3 min walk', icon: '✨' },
+        { type: 'food', name: 'CNN Newsstand', distance: '1 min walk', icon: '📰' },
       ];
     case 'family':
     default:
       return [
-        { type: 'family', name: 'Family Restroom', distance: '2 min walk', icon: '👶' },
+        { type: 'family', name: 'Family Restroom', distance: '1 min walk', icon: '👶' },
         ...common,
-        { type: 'food', name: 'McDonald\'s', distance: '3 min walk', icon: '🍔' },
-        { type: 'food', name: 'Starbucks', distance: '2 min walk', icon: '☕' },
+        { type: 'food', name: 'McDonald\'s', distance: '2 min walk', icon: '🍔' },
+        { type: 'food', name: 'Hudson News (kids books)', distance: '2 min walk', icon: '📚' },
+        { type: 'family', name: 'Play Area', distance: '3 min walk', icon: '🎮' },
       ];
   }
 }
@@ -193,15 +181,15 @@ export function getBoardingPasses(persona: PersonaType): PassengerBoardingPass[]
       ];
     case 'business':
       return [
-        { name: 'Marcus Rodriguez', seat: '5A', boardingGroup: 'Group 2 (Business)', confirmationNumber: 'UA8M4P' },
+        { name: 'Marcus Webb', seat: '8C', boardingGroup: 'Group 2 (Economy Plus)', confirmationNumber: 'UA8M4P' },
       ];
     case 'family':
     default:
       return [
-        { name: 'David Chen', seat: '32A', boardingGroup: 'Families w/ children', confirmationNumber: 'AA3R7X' },
-        { name: 'Mei Chen', seat: '32B', boardingGroup: 'Families w/ children', confirmationNumber: 'AA3R7X' },
-        { name: 'Lily Chen', seat: '32C', boardingGroup: 'Families w/ children', confirmationNumber: 'AA3R7X', isChild: true },
-        { name: 'James Chen', seat: '32D', boardingGroup: 'Families w/ children', confirmationNumber: 'AA3R7X', isChild: true },
+        { name: 'Wei Chen', seat: '24A', boardingGroup: 'Families w/ children', confirmationNumber: 'HA5R2K' },
+        { name: 'Lin Chen', seat: '24B', boardingGroup: 'Families w/ children', confirmationNumber: 'HA5R2K' },
+        { name: 'Sophie Chen', seat: '24C', boardingGroup: 'Families w/ children', confirmationNumber: 'HA5R2K', isChild: true },
+        { name: 'Lucas Chen', seat: '24D', boardingGroup: 'Families w/ children', confirmationNumber: 'HA5R2K', isChild: true },
       ];
   }
 }

@@ -36,49 +36,48 @@ export function getAirportFlightInfo(persona: PersonaType): AirportFlightInfo {
       };
     case 'business':
       return {
-        flightNumber: 'UA 901',
+        flightNumber: 'UA0456',
         airline: 'United Airlines',
-        route: { from: 'SFO', to: 'LHR', fromCity: 'San Francisco', toCity: 'London' },
-        departureTime: '3:15 PM',
-        arrivalTime: '9:30 AM +1',
-        status: 'on-time',
+        route: { from: 'SFO', to: 'ORD', fromCity: 'San Francisco', toCity: 'Chicago' },
+        departureTime: '7:15 AM',
+        arrivalTime: '1:22 PM',
+        status: 'delayed',
         gate: {
-          number: 'C15',
+          number: 'F14',
           terminal: 'Terminal 3',
-          boardingStartTime: '2:30 PM',
-          boardingGroups: ['Group 1 (Pre)', 'Group 2 (Business)', 'Group 3', 'Group 4', 'Group 5'],
+          boardingStartTime: '6:45 AM',
+          boardingGroups: ['Pre-Board (1K/GS)', 'Group 1 (First)', 'Group 2 (Economy Plus)', 'Group 3', 'Group 4', 'Group 5'],
           currentBoardingGroup: null,
           boardingProgress: 0,
-          previousGate: 'C10',
           walkingTimeMinutes: 5,
         },
-        terminal: 'T3',
-        aircraft: 'Boeing 787-9',
-        boardingGroup: 'Group 2 (Business)',
-        seatNumber: '5A',
+        terminal: 'Terminal 3',
+        aircraft: 'Boeing 737 MAX 9',
+        boardingGroup: 'Group 2 (Economy Plus)',
+        seatNumber: '8C',
       };
     case 'family':
     default:
       return {
-        flightNumber: 'AA 180',
-        airline: 'American Airlines',
-        route: { from: 'JFK', to: 'LHR', fromCity: 'New York', toCity: 'London' },
-        departureTime: '7:00 PM',
-        arrivalTime: '7:15 AM +1',
-        status: 'delayed',
+        flightNumber: 'HA0011',
+        airline: 'Hawaiian Airlines',
+        route: { from: 'LAX', to: 'HNL', fromCity: 'Los Angeles', toCity: 'Honolulu' },
+        departureTime: '8:30 AM',
+        arrivalTime: '11:45 AM',
+        status: 'on-time',
         gate: {
-          number: 'B22',
-          terminal: 'Terminal 8',
-          boardingStartTime: '6:30 PM',
-          boardingGroups: ['Families w/ children', 'Group 1', 'Group 2', 'Group 3', 'Group 4', 'Group 5'],
+          number: '51A',
+          terminal: 'Terminal 5',
+          boardingStartTime: '7:50 AM',
+          boardingGroups: ['Pre-Board', 'Families w/ children', 'Group A', 'Group B', 'Group C'],
           currentBoardingGroup: null,
           boardingProgress: 0,
-          walkingTimeMinutes: 12,
+          walkingTimeMinutes: 8,
         },
-        terminal: 'T8',
-        aircraft: 'Boeing 777-300ER',
-        boardingGroup: 'Families w/ children',
-        seatNumber: '32A-D',
+        terminal: 'Terminal 5',
+        aircraft: 'Airbus A321neo',
+        boardingGroup: 'Families with children (pre-board)',
+        seatNumber: '24A-D',
       };
   }
 }
@@ -116,45 +115,38 @@ export function getAirportAlerts(persona: PersonaType): AirportAlert[] {
     case 'business':
       return [
         {
-          id: 'alert-gate-change',
+          id: 'alert-delay',
           type: 'warning',
-          title: 'Gate Changed',
-          message: 'Your gate has changed from C10 to C15. Walking time: 5 min.',
-          timestamp: '2 min ago',
+          title: '25-Minute Delay',
+          message: 'UA0456 is delayed 25 minutes due to late inbound aircraft. New departure: 7:40 AM.',
+          timestamp: '3 min ago',
         },
         ...common,
         {
-          id: 'alert-wifi',
-          type: 'info',
-          title: 'WiFi Available',
-          message: 'Connect to "SFO-Free-WiFi" for complimentary internet access.',
-          timestamp: '20 min ago',
+          id: 'alert-lounge',
+          type: 'success',
+          title: 'United Club Access',
+          message: 'Your MileagePlus Platinum status includes United Club access — 3 min walk from Gate F14.',
+          timestamp: '10 min ago',
         },
       ];
     case 'family':
     default:
       return [
         {
-          id: 'alert-delay',
-          type: 'warning',
-          title: 'Slight Delay',
-          message: 'Your flight is delayed 25 minutes. New departure: 7:25 PM.',
-          timestamp: '3 min ago',
+          id: 'alert-early-board',
+          type: 'info',
+          title: 'Early Boarding Reminder',
+          message: 'Families with children under 6 board after Pre-Board. Have all 4 boarding passes ready.',
+          timestamp: '5 min ago',
         },
         ...common,
         {
-          id: 'alert-family',
+          id: 'alert-kids-area',
           type: 'info',
-          title: 'Family Restroom',
-          message: 'Family restrooms available near Gate B20 — 2 min walk from your gate.',
+          title: 'Kids Areas Near Gate',
+          message: 'Play area and family restroom available near Gate 51A in Terminal 5.',
           timestamp: '10 min ago',
-        },
-        {
-          id: 'alert-play-area',
-          type: 'info',
-          title: 'Kids Play Area',
-          message: 'Children\'s play area open at Terminal 8, near Gate B18.',
-          timestamp: '15 min ago',
         },
       ];
   }
@@ -175,8 +167,8 @@ export function getSecurityCheckpoints(persona: PersonaType): SecurityCheckpoint
     ];
   }
   return [
-    { id: 'sec-family', name: 'Family / Accessible Lane', terminal: 'T8', waitTimeMinutes: 20, status: 'moderate', hasTSAPrecheck: false, hasClear: false },
-    { id: 'sec-main', name: 'Standard Checkpoint', terminal: 'T8', waitTimeMinutes: 45, status: 'high', hasTSAPrecheck: true, hasClear: true },
+    { id: 'sec-family', name: 'Family / Accessible Lane', terminal: 'Terminal 5', waitTimeMinutes: 20, status: 'moderate', hasTSAPrecheck: false, hasClear: false },
+    { id: 'sec-main', name: 'Standard Checkpoint', terminal: 'Terminal 5', waitTimeMinutes: 45, status: 'high', hasTSAPrecheck: true, hasClear: true },
   ];
 }
 
@@ -220,65 +212,50 @@ export function getAirportLounges(persona: PersonaType): AirportLounge[] {
         {
           id: 'lounge-united-club',
           name: 'United Club',
-          terminal: 'T3',
-          nearGate: 'C15',
+          terminal: 'Terminal 3',
+          nearGate: 'F14',
           distanceMeters: 80,
-          walkingTimeMinutes: 2,
+          walkingTimeMinutes: 3,
           hours: { open: '5:00 AM', close: '11:00 PM' },
           amenities: ['WiFi', 'Food', 'Bar', 'Shower'],
           queueTimeMinutes: 10,
           capacity: { current: 45, max: 60 },
           accessLevel: 'membership',
-          accessReason: 'United Club membership',
+          accessReason: 'MileagePlus Platinum — United Club included',
           hasAccess: true,
         },
         {
-          id: 'lounge-united-polaris',
-          name: 'United Polaris Lounge',
-          terminal: 'T3',
-          nearGate: 'C12',
-          distanceMeters: 150,
-          walkingTimeMinutes: 3,
-          hours: { open: '6:00 AM', close: '10:30 PM' },
-          amenities: ['Fine Dining', 'Shower', 'WiFi', 'Quiet Zone', 'Bar', 'Nap Pods'],
+          id: 'lounge-amex-centurion',
+          name: 'Amex Centurion Lounge',
+          terminal: 'Terminal 3',
+          nearGate: 'E2',
+          distanceMeters: 200,
+          walkingTimeMinutes: 5,
+          hours: { open: '6:00 AM', close: '10:00 PM' },
+          amenities: ['Fine Dining', 'Shower', 'WiFi', 'Spa', 'Bar'],
           queueTimeMinutes: 5,
-          capacity: { current: 30, max: 50 },
-          accessLevel: 'elite',
-          accessReason: 'Business class ticket on UA 901',
-          hasAccess: true,
+          capacity: { current: 30, max: 80 },
+          accessLevel: 'paid',
+          accessReason: 'Upgrade available — $50',
+          hasAccess: false,
         },
       ];
     case 'family':
     default:
       return [
         {
-          id: 'lounge-admirals',
-          name: 'Admirals Club',
-          terminal: 'T8',
-          nearGate: 'B24',
-          distanceMeters: 100,
-          walkingTimeMinutes: 2,
-          hours: { open: '5:30 AM', close: '10:00 PM' },
-          amenities: ['WiFi', 'Food', 'Kids Area', 'Family Room'],
-          queueTimeMinutes: 20,
-          capacity: { current: 55, max: 70 },
-          accessLevel: 'paid',
-          accessReason: 'Day pass available — $59/person',
-          hasAccess: false,
-        },
-        {
-          id: 'lounge-priority',
-          name: 'Priority Pass Lounge',
-          terminal: 'T8',
-          nearGate: 'B30',
-          distanceMeters: 250,
-          walkingTimeMinutes: 5,
+          id: 'lounge-uso',
+          name: 'USO Lounge',
+          terminal: 'Terminal 5',
+          nearGate: '51A',
+          distanceMeters: 150,
+          walkingTimeMinutes: 3,
           hours: { open: '6:00 AM', close: '9:00 PM' },
-          amenities: ['WiFi', 'Snacks', 'Drinks'],
-          queueTimeMinutes: 25,
-          capacity: { current: 40, max: 45 },
+          amenities: ['WiFi', 'Snacks', 'Kids Area', 'Family Room'],
+          queueTimeMinutes: 10,
+          capacity: { current: 25, max: 50 },
           accessLevel: 'paid',
-          accessReason: 'Day pass — $35/person',
+          accessReason: 'No lounge access included. Day passes available from $25.',
           hasAccess: false,
         },
       ];
@@ -327,6 +304,6 @@ export function getAirportWeather(persona: PersonaType): AirportWeather {
       return { temperature: 65, unit: 'F', condition: 'Sunny', icon: '☀️' };
     case 'family':
     default:
-      return { temperature: 58, unit: 'F', condition: 'Clear', icon: '🌤️' };
+      return { temperature: 72, unit: 'F', condition: 'Sunny', icon: '☀️' };
   }
 }

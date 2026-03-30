@@ -141,8 +141,8 @@ const businessSettings: UserSettings = {
     screenReaderOptimized: false,
   },
   account: {
-    displayName: 'Marcus Johnson',
-    email: 'marcus.johnson@acmecorp.com',
+    displayName: 'Marcus Webb',
+    email: 'marcus.webb@venturecapital.com',
     phone: '+1 (212) 555-0847',
     currency: 'USD',
     language: 'en',

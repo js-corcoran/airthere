@@ -13,6 +13,9 @@ export const AIRLINES: Record<string, Airline> = {
   NH: { code: 'NH', name: 'ANA', logo: '/images/logos/ana.svg' },
   JL: { code: 'JL', name: 'Japan Airlines', logo: '/images/logos/jal.svg' },
   AF: { code: 'AF', name: 'Air France', logo: '/images/logos/airfrance.svg' },
+  HA: { code: 'HA', name: 'Hawaiian Airlines', logo: '/images/logos/hawaiian.svg' },
+  AS: { code: 'AS', name: 'Alaska Airlines', logo: '/images/logos/alaska.svg' },
+  WN: { code: 'WN', name: 'Southwest Airlines', logo: '/images/logos/southwest.svg' },
 };
 
 export const AIRLINE_LIST = Object.values(AIRLINES);

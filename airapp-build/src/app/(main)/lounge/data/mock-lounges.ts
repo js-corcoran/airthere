@@ -232,11 +232,11 @@ export function getLoungesForPersona(persona: PersonaType): Lounge[] {
         break;
 
       case 'business':
-        // Business persona gets United Club, can upgrade for others
+        // Business persona: SFO Terminal 3 focus — MileagePlus Platinum
         if (lounge.id === 'lounge-united-club') {
-          adjusted.access = { type: 'included', reason: 'United Gold Elite member' };
+          adjusted.access = { type: 'included', reason: 'MileagePlus Platinum — United Club included' };
         } else if (lounge.id === 'lounge-amex-centurion') {
-          adjusted.access = { type: 'upgrade', reason: 'Day pass available', upgradePrice: 65 };
+          adjusted.access = { type: 'upgrade', reason: 'Upgrade available', upgradePrice: 50 };
         } else if (lounge.id === 'lounge-sfo-intl-first') {
           adjusted.access = { type: 'not_available', reason: 'First Class ticket required' };
         } else if (lounge.id === 'lounge-admirals-club') {
@@ -249,17 +249,17 @@ export function getLoungesForPersona(persona: PersonaType): Lounge[] {
         break;
 
       case 'family':
-        // Family persona gets The Sanctuary, limited access elsewhere
+        // Family persona: LAX Terminal 5 — no included lounges (basic tier)
         if (lounge.id === 'lounge-sanctuary-family') {
-          adjusted.access = { type: 'included', reason: 'Family travel pass' };
+          adjusted.access = { type: 'upgrade', reason: 'Family day pass — $40/adult, $25/child', upgradePrice: 40 };
         } else if (lounge.id === 'lounge-united-club') {
-          adjusted.access = { type: 'upgrade', reason: 'Family day pass', upgradePrice: 35 };
+          adjusted.access = { type: 'not_available', reason: 'No lounge access included. Day passes available from $25.' };
         } else if (lounge.id === 'lounge-amex-centurion') {
           adjusted.access = { type: 'not_available', reason: 'Amex Platinum Card required' };
         } else if (lounge.id === 'lounge-sfo-intl-first') {
           adjusted.access = { type: 'not_available', reason: 'First Class ticket required' };
         } else if (lounge.id === 'lounge-admirals-club') {
-          adjusted.access = { type: 'upgrade', reason: 'Family day pass', upgradePrice: 50 };
+          adjusted.access = { type: 'not_available', reason: 'No lounge access included' };
         } else if (lounge.id === 'lounge-sky-club') {
           adjusted.access = { type: 'not_available', reason: 'Delta SkyMiles membership required' };
         }
@@ -316,8 +316,8 @@ export function getAccessReason(persona: PersonaType): string {
     case 'premium':
       return 'United Gold Elite + Business Class + Amex Platinum';
     case 'business':
-      return 'United Gold Elite member';
+      return 'MileagePlus Platinum — United Club included';
     case 'family':
-      return 'Family travel pass holder';
+      return 'No lounge access included. Day passes available from $25.';
   }
 }

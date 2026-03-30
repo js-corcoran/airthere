@@ -11,16 +11,14 @@ const PROGRAMS_PREMIUM: FrequentFlyerProgram[] = [
 ];
 
 const PROGRAMS_BUSINESS: FrequentFlyerProgram[] = [
-  { id: 'ffp-001', airline: 'United Airlines', airlineCode: 'UA', programName: 'MileagePlus', accountNumber: 'MP-A1234567', balance: 48500, unit: 'miles', eliteStatus: 'Gold', lastActivity: '2026-03-15' },
-  { id: 'ffp-002', airline: 'American Airlines', airlineCode: 'AA', programName: 'AAdvantage', accountNumber: 'AA-8832190', balance: 32200, unit: 'miles', eliteStatus: 'Platinum', lastActivity: '2026-03-01' },
-  { id: 'ffp-003', airline: 'Delta Air Lines', airlineCode: 'DL', programName: 'SkyMiles', accountNumber: 'SM-5567234', balance: 28750, unit: 'miles', eliteStatus: 'Gold', lastActivity: '2026-02-18' },
-  { id: 'ffp-004', airline: 'British Airways', airlineCode: 'BA', programName: 'Executive Club', accountNumber: 'BA-4412899', balance: 18000, unit: 'points', eliteStatus: 'Silver', lastActivity: '2026-01-20' },
+  { id: 'ffp-001', airline: 'United Airlines', airlineCode: 'UA', programName: 'MileagePlus', accountNumber: 'MP-W8823456', balance: 82300, unit: 'miles', eliteStatus: 'Platinum', lastActivity: '2026-03-25' },
+  { id: 'ffp-002', airline: 'Alaska Airlines', airlineCode: 'AS', programName: 'Mileage Plan', accountNumber: 'AS-6614782', balance: 18400, unit: 'miles', eliteStatus: 'MVP', lastActivity: '2026-03-10' },
+  { id: 'ffp-003', airline: 'Delta Air Lines', airlineCode: 'DL', programName: 'SkyMiles', accountNumber: 'SM-5567234', balance: 9200, unit: 'miles', lastActivity: '2026-01-15' },
 ];
 
 const PROGRAMS_FAMILY: FrequentFlyerProgram[] = [
-  { id: 'ffp-001', airline: 'United Airlines', airlineCode: 'UA', programName: 'MileagePlus', accountNumber: 'MP-C7721045', balance: 22400, unit: 'miles', lastActivity: '2026-02-28' },
-  { id: 'ffp-002', airline: 'Southwest Airlines', airlineCode: 'WN', programName: 'Rapid Rewards', accountNumber: 'RR-9981234', balance: 35600, unit: 'points', lastActivity: '2026-03-10' },
-  { id: 'ffp-003', airline: 'JetBlue', airlineCode: 'B6', programName: 'TrueBlue', accountNumber: 'TB-4423011', balance: 12800, unit: 'points', lastActivity: '2026-01-15' },
+  { id: 'ffp-001', airline: 'Hawaiian Airlines', airlineCode: 'HA', programName: 'HawaiianMiles', accountNumber: 'HM-C4412089', balance: 12400, unit: 'miles', lastActivity: '2026-03-01' },
+  { id: 'ffp-002', airline: 'Southwest Airlines', airlineCode: 'WN', programName: 'Rapid Rewards', accountNumber: 'RR-9981234', balance: 8200, unit: 'points', lastActivity: '2026-02-10' },
 ];
 
 // ─── Travel Stats ──────────────────────────────────────────────────
@@ -35,22 +33,22 @@ const STATS_PREMIUM: TravelStats = {
 };
 
 const STATS_BUSINESS: TravelStats = {
-  totalTrips: 94,
-  totalFlights: 187,
-  totalMiles: 340000,
-  countriesVisited: 22,
+  totalTrips: 78,
+  totalFlights: 156,
+  totalMiles: 198000,
+  countriesVisited: 18,
   favoriteAirline: 'United Airlines',
-  favoriteRoute: 'SFO — LHR',
+  favoriteRoute: 'SFO — ORD',
   yearToDate: { trips: 6, miles: 48000, spent: 32000 },
 };
 
 const STATS_FAMILY: TravelStats = {
-  totalTrips: 18,
-  totalFlights: 42,
-  totalMiles: 68000,
-  countriesVisited: 8,
-  favoriteAirline: 'Southwest Airlines',
-  favoriteRoute: 'SFO — MCO',
+  totalTrips: 12,
+  totalFlights: 28,
+  totalMiles: 42000,
+  countriesVisited: 6,
+  favoriteAirline: 'Hawaiian Airlines',
+  favoriteRoute: 'LAX — HNL',
   yearToDate: { trips: 2, miles: 8400, spent: 7200 },
 };
 
@@ -114,47 +112,50 @@ const PROFILE_BUSINESS: ProfileData = {
   user: {
     id: 'USR-002',
     firstName: 'Marcus',
-    lastName: 'Chen',
-    email: 'marcus.chen@techcorp.com',
+    lastName: 'Webb',
+    email: 'marcus.webb@venturecapital.com',
     phone: '+1 (628) 555-0200',
     persona: 'business',
     memberSince: '2021-01-10',
     biometric: { faceIdEnrolled: true, fingerprintEnrolled: false },
   },
   loyalty: {
-    eliteTier: 'Gold',
-    totalPoints: 127450,
-    pointsToNextTier: 22550,
-    nextTier: 'Platinum',
+    eliteTier: 'MileagePlus Platinum',
+    totalPoints: 82300,
+    pointsToNextTier: 17700,
+    nextTier: '1K',
     qualifiedFlights: 4,
     flightsToNextTier: 1,
     tierExpiry: '2027-03-31',
     programs: PROGRAMS_BUSINESS,
     benefits: [
-      'Free checked baggage (1 bag)',
+      'Free checked baggage (2 bags)',
       'Economy Plus access',
       'Priority boarding (Group 2)',
-      '25% bonus miles',
+      '80% bonus miles',
       'Complimentary same-day standby',
+      'Complimentary Premier upgrades',
     ],
   },
   documents: {
     passport: { number: '****4567', country: 'United States', expiryDate: '2034-05-15', status: 'valid' },
-    visas: [],
-    insurance: { provider: 'Corporate Travel Shield', policyNumber: 'CTS-445218', status: 'active', expiryDate: '2026-12-31' },
+    visas: [
+      { country: 'Global Entry', type: 'Trusted Traveler', expiryDate: '2031-08-12', status: 'valid' },
+    ],
+    insurance: { provider: 'Corporate Travel Policy', policyNumber: 'CTP-882104', status: 'active', expiryDate: '2026-12-31' },
   },
   preferences: {
-    dietary: 'Vegetarian',
+    dietary: 'No restrictions',
     accessibility: [],
     communication: ['email', 'push'],
     language: 'English',
     seatPreference: 'Aisle',
-    mealPreference: 'Vegetarian',
+    mealPreference: 'Standard',
   },
   security: {
-    email: 'marcus.chen@techcorp.com',
+    email: 'marcus.webb@venturecapital.com',
     phone: '+1 (628) 555-0200',
-    passwordLastChanged: '2026-02-28',
+    passwordLastChanged: '2026-03-20',
     twoFactorEnabled: true,
     twoFactorMethod: 'app',
   },
@@ -164,19 +165,19 @@ const PROFILE_BUSINESS: ProfileData = {
 const PROFILE_FAMILY: ProfileData = {
   user: {
     id: 'USR-003',
-    firstName: 'John',
+    firstName: 'Wei',
     lastName: 'Chen',
-    email: 'john.chen@family.com',
-    phone: '+1 (510) 555-0300',
+    email: 'wei.chen@gmail.com',
+    phone: '+1 (310) 555-0300',
     persona: 'family',
     memberSince: '2022-08-20',
     biometric: { faceIdEnrolled: false, fingerprintEnrolled: false },
   },
   loyalty: {
-    eliteTier: 'Member',
-    totalPoints: 70800,
-    pointsToNextTier: 29200,
-    nextTier: 'Silver',
+    eliteTier: 'HawaiianMiles Member',
+    totalPoints: 12400,
+    pointsToNextTier: 12600,
+    nextTier: 'Pualani Gold',
     qualifiedFlights: 6,
     flightsToNextTier: 4,
     tierExpiry: '2027-03-31',
@@ -189,8 +190,12 @@ const PROFILE_FAMILY: ProfileData = {
   },
   documents: {
     passport: { number: '****1234', country: 'United States', expiryDate: '2034-05-15', status: 'valid' },
-    visas: [],
-    insurance: { provider: 'Family Travel Guard', policyNumber: 'FTG-221045', status: 'active', expiryDate: '2026-10-01' },
+    visas: [
+      { country: 'United States', type: 'Passport — Lin Chen', expiryDate: '2033-11-20', status: 'valid' },
+      { country: 'United States', type: 'Passport — Sophie Chen', expiryDate: '2035-02-10', status: 'valid' },
+      { country: 'United States', type: 'Passport — Lucas Chen', expiryDate: '2035-07-05', status: 'valid' },
+    ],
+    insurance: { provider: 'Family Travel Guard', policyNumber: 'FTG-889234', status: 'active', expiryDate: '2026-10-01' },
   },
   preferences: {
     dietary: 'No restrictions',
@@ -201,8 +206,8 @@ const PROFILE_FAMILY: ProfileData = {
     mealPreference: 'Standard + Kids meals',
   },
   security: {
-    email: 'john.chen@family.com',
-    phone: '+1 (510) 555-0300',
+    email: 'wei.chen@gmail.com',
+    phone: '+1 (310) 555-0300',
     passwordLastChanged: '2026-01-10',
     twoFactorEnabled: false,
   },

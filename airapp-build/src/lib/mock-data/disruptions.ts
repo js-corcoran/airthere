@@ -357,6 +357,65 @@ export const diversionScenario: DisruptionScenario = {
   contactMethods: CONTACT_METHODS,
 };
 
+// ─── Business persona: minor 25-min delay ──────────────────────────
+export const businessMinorDelayScenario: DisruptionScenario = {
+  disruption: {
+    id: 'dis-biz-001',
+    flightId: 'UA0456',
+    type: 'delay',
+    severity: 'low',
+    detectedAt: '2026-04-03T06:50:00Z',
+    rootCause: {
+      type: 'mechanical',
+      description: 'Late inbound aircraft',
+      expectedResolution: '2026-04-03T07:35:00Z',
+    },
+    impact: {
+      originalDeparture: '2026-04-03T07:15:00Z',
+      estimatedDeparture: '2026-04-03T07:40:00Z',
+      delayMinutes: 25,
+      isCancelled: false,
+    },
+    affectedFlight: {
+      flightNumber: 'UA0456',
+      airline: 'United Airlines',
+      route: 'SFO → ORD',
+      cabinClass: 'economy',
+    },
+  },
+  alternatives: [],
+  contactMethods: CONTACT_METHODS,
+};
+
+// ─── Family persona: no disruption — clean trip ─────────────────────
+export const familyNoDisruptionScenario: DisruptionScenario = {
+  disruption: {
+    id: 'dis-fam-clean',
+    flightId: 'HA0011',
+    type: 'delay',
+    severity: 'low',
+    detectedAt: '2026-04-03T07:00:00Z',
+    rootCause: {
+      type: 'unknown',
+      description: 'All your flights are running on time. No action needed.',
+    },
+    impact: {
+      originalDeparture: '2026-04-03T08:30:00Z',
+      estimatedDeparture: '2026-04-03T08:30:00Z',
+      delayMinutes: 0,
+      isCancelled: false,
+    },
+    affectedFlight: {
+      flightNumber: 'HA0011',
+      airline: 'Hawaiian Airlines',
+      route: 'LAX → HNL',
+      cabinClass: 'economy',
+    },
+  },
+  alternatives: [],
+  contactMethods: CONTACT_METHODS,
+};
+
 // ─── Persona-specific data getters ──────────────────────────────────
 export function getDisruptionScenario(
   scenarioId: string,
@@ -367,6 +426,8 @@ export function getDisruptionScenario(
     'major-delay': majorDelayScenario,
     'minor-delay': minorDelayScenario,
     diversion: diversionScenario,
+    'business-delay': businessMinorDelayScenario,
+    'family-clean': familyNoDisruptionScenario,
   };
 
   const scenario = baseScenarios[scenarioId] ?? cancellationScenario;
@@ -397,5 +458,13 @@ export function getDisruptionScenario(
 }
 
 export function getDefaultScenarioForPersona(persona: PersonaType): DisruptionScenario {
-  return getDisruptionScenario('cancellation', persona);
+  switch (persona) {
+    case 'premium':
+      return getDisruptionScenario('cancellation', 'premium');
+    case 'business':
+      return businessMinorDelayScenario;
+    case 'family':
+    default:
+      return familyNoDisruptionScenario;
+  }
 }

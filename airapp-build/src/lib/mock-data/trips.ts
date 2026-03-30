@@ -115,6 +115,42 @@ export const MOCK_TRIPS: Trip[] = [
     confirmationNumber: 'AT-BA-5N2H8K',
     createdAt: '2026-03-20',
   },
+  // Demo Trip 4: JFK → CDG — UPCOMING (10 days out)
+  {
+    id: 'trip-demo-004',
+    name: 'Paris Art & Design Week',
+    status: 'upcoming' as const,
+    departure: { airport: 'JFK', city: 'New York', date: '2026-04-08' },
+    arrival: { airport: 'CDG', city: 'Paris', date: '2026-04-09' },
+    flights: [
+      {
+        id: 'tf-demo-004',
+        flight: {
+          id: 'FL-JFK-CDG-DEMO',
+          airline: AIRLINES.AF,
+          flightNumber: 'AF0007',
+          departure: { airport: 'JFK', city: 'New York', time: '2026-04-08T19:00:00Z', terminal: '1', gate: 'A14' },
+          arrival: { airport: 'CDG', city: 'Paris', time: '2026-04-09T08:30:00Z', terminal: '2E' },
+          duration: 450,
+          stops: 0,
+          aircraft: 'Airbus A350-900',
+          amenities: ['wifi', 'entertainment', 'meals', 'flatbed', 'lounge-access'] as const,
+          pricing: { economy: 980, premiumEconomy: 1680, business: 5800, first: 9400, currency: 'USD' },
+          seatsAvailable: 18,
+          operationalStatus: 'on-time' as const,
+        },
+        status: 'on-time' as const,
+        seat: '3A',
+        checkedIn: false,
+      },
+    ],
+    passengers: [{ id: 'p-demo-6', name: 'Alexandra Sterling', type: 'adult' as const, seat: '3A', meal: 'French Tasting' }],
+    hotel: { name: 'Le Bristol Paris', city: 'Paris', checkIn: '2026-04-09', checkOut: '2026-04-13', confirmationNumber: 'BRS-492183' },
+    totalCost: 12400,
+    currency: 'USD',
+    confirmationNumber: 'AT-AF-7K3M9R',
+    createdAt: '2026-03-22',
+  },
   // Original trip-001 (kept for reference)
   {
     id: 'trip-001',
@@ -338,7 +374,7 @@ export const MOCK_TRIPS: Trip[] = [
 export function getTripsForPersona(persona: 'premium' | 'business' | 'family'): Trip[] {
   switch (persona) {
     case 'premium':
-      return MOCK_TRIPS.filter(t => ['trip-demo-001', 'trip-demo-002', 'trip-demo-003'].includes(t.id));
+      return MOCK_TRIPS.filter(t => ['trip-demo-001', 'trip-demo-002', 'trip-demo-003', 'trip-demo-004'].includes(t.id));
     case 'business':
       return MOCK_TRIPS.filter(t => ['trip-003', 'trip-005'].includes(t.id)); // upcoming NY + completed Chicago
     case 'family':

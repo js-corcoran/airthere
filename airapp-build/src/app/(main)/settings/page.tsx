@@ -20,6 +20,7 @@ import {
   Download,
   Trash2,
   Check,
+  Users,
 } from 'lucide-react';
 
 type LoadingState = 'loading' | 'success' | 'error';
@@ -89,7 +90,7 @@ function CheckboxGroup({
 
 /* ───── Main page ───── */
 export default function SettingsPage() {
-  const { persona } = usePersona();
+  const { persona, setPersona } = usePersona();
   const [state, setState] = useState<LoadingState>('loading');
   const [settings, setSettings] = useState<UserSettings | null>(null);
   const [showToast, setShowToast] = useState(false);
@@ -590,7 +591,52 @@ export default function SettingsPage() {
           />
         </SettingsSection>
 
-        {/* ── 7. About ── */}
+        {/* ── 7. Demo Persona ── */}
+        <SettingsSection
+          id="persona"
+          title="Demo Persona"
+          icon={<Users className="w-5 h-5" />}
+        >
+          <p className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)] mb-3">
+            Switch persona to preview different traveler experiences.
+          </p>
+          <div className="flex gap-2">
+            {([
+              { key: 'premium' as const, label: 'Premium', sub: 'Alexandra' },
+              { key: 'business' as const, label: 'Business', sub: 'Marcus' },
+              { key: 'family' as const, label: 'Family', sub: 'Chen' },
+            ]).map((p) => (
+              <button
+                key={p.key}
+                onClick={() => setPersona(p.key)}
+                className={`
+                  flex-1 px-3 py-2.5 rounded-[var(--radius-md)] border text-center
+                  transition-colors duration-[--duration-micro]
+                  min-h-[var(--touch-preferred)]
+                  focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500
+                  ${persona === p.key
+                    ? 'border-primary-500 bg-primary-50 dark:bg-[oklch(22%_0.02_262)] dark:border-primary-400'
+                    : 'border-surface-300 dark:border-[oklch(32%_0.008_50)] hover:bg-surface-100 dark:hover:bg-[oklch(22%_0.005_50)]'
+                  }
+                `}
+                aria-pressed={persona === p.key}
+              >
+                <span className={`block text-sm font-medium ${
+                  persona === p.key
+                    ? 'text-primary-700 dark:text-primary-300'
+                    : 'text-primary-600 dark:text-[oklch(75%_0.005_50)]'
+                }`}>
+                  {p.label}
+                </span>
+                <span className="block text-[10px] text-primary-400 dark:text-[oklch(60%_0.005_50)] mt-0.5">
+                  {p.sub}
+                </span>
+              </button>
+            ))}
+          </div>
+        </SettingsSection>
+
+        {/* ── 8. About ── */}
         <SettingsSection
           id="about"
           title="About"

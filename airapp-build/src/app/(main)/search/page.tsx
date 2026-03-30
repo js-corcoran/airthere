@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useCallback } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useCallback, Suspense } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { usePersona } from '@/stores/usePersonaStore';
 import { cn } from '@/lib/utils/cn';
 import { ROUTES } from '@/lib/constants/routes';
@@ -52,13 +52,22 @@ interface FormErrors {
 }
 
 export default function SearchPage() {
+  return (
+    <Suspense>
+      <SearchPageInner />
+    </Suspense>
+  );
+}
+
+function SearchPageInner() {
   const { persona } = usePersona();
   const router = useRouter();
+  const searchParams = useSearchParams();
   const defaults = getPersonaDefaults(persona);
 
   const [tripType, setTripType] = useState<FlightSearchParams['tripType']>('round-trip');
   const [from, setFrom] = useState('');
-  const [to, setTo] = useState('');
+  const [to, setTo] = useState(searchParams.get('to') ?? '');
   const [departDate, setDepartDate] = useState('');
   const [returnDate, setReturnDate] = useState('');
   const [passengers, setPassengers] = useState<PassengerCount>(defaults.passengers);

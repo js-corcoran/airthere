@@ -142,7 +142,7 @@ export function DiscoverDestinationCard({
             )}
           </div>
           <Link
-            href={ROUTES.SEARCH}
+            href={`${ROUTES.SEARCH}?to=${encodeURIComponent(destination.city)}`}
             className="flex items-center gap-1 text-xs font-medium text-primary-500 dark:text-[oklch(65%_0.194_262)]
                        hover:text-primary-600 transition-colors duration-[--duration-micro]
                        min-h-[var(--touch-min)] min-w-[var(--touch-min)] justify-end"

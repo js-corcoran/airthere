@@ -5,7 +5,7 @@ import { useParams } from 'next/navigation';
 import { usePersona } from '@/stores/usePersonaStore';
 import { cn } from '@/lib/utils/cn';
 import { InflightData } from '@/lib/types/inflight';
-import { MOCK_INFLIGHT_DATA } from '@/lib/mock-data/inflight';
+import { getInflightDataForPersona } from '@/lib/mock-data/inflight';
 import { PageSkeleton } from '@/components/shared/LoadingSkeleton';
 import { ErrorState } from '@/components/shared/ErrorState';
 import { JourneyBreadcrumb } from '@/components/navigation/JourneyBreadcrumb';
@@ -41,14 +41,14 @@ export default function InflightPage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       try {
-        setData(MOCK_INFLIGHT_DATA);
+        setData(getInflightDataForPersona(persona));
         setState('success');
       } catch {
         setState('error');
       }
     }, 600);
     return () => clearTimeout(timer);
-  }, [params.flightId]);
+  }, [params.flightId, persona]);
 
   if (state === 'loading') return <PageSkeleton />;
 
@@ -59,7 +59,7 @@ export default function InflightPage() {
         onRetry={() => {
           setState('loading');
           setTimeout(() => {
-            setData(MOCK_INFLIGHT_DATA);
+            setData(getInflightDataForPersona(persona));
             setState('success');
           }, 600);
         }}

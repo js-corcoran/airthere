@@ -148,3 +148,184 @@ export const MOCK_INFLIGHT_DATA: InflightData = {
   serviceRequests: MOCK_SERVICE_REQUESTS,
   flightFacts: MOCK_FLIGHT_FACTS,
 };
+
+/* ── Persona-aware In-Flight Data ── */
+
+const PREMIUM_FLIGHT: FlightProgress = {
+  flightNumber: 'SQ 25',
+  aircraft: 'Airbus A380-800',
+  route: { from: 'JFK', fromCity: 'New York', to: 'SIN', toCity: 'Singapore' },
+  current: { latitude: 28.5, longitude: 68.2, altitude: 38000, groundSpeed: 528, outsideTemp: -62 },
+  progress: { percentComplete: 42, timeElapsed: 28800, timeRemaining: 39600 },
+  status: 'cruise',
+  destinationWeather: { condition: 'Thunderstorms', temperature: 31 },
+  departureTime: '10:25 PM EST',
+  arrivalTime: '5:05 PM SGT+1',
+  cabinTemp: 21,
+  wifiStrength: 5,
+  destinationLocalTime: '10:42 AM',
+};
+
+const PREMIUM_MEAL: MealService = {
+  type: 'dinner',
+  estimatedTime: '1:00 AM EST',
+  minutesUntil: 30,
+  options: [
+    { id: 'PM001', name: 'Lobster Thermidor', description: 'Maine lobster in cognac cream sauce, truffle mashed potato, asparagus', dietary: 'standard', allergens: ['shellfish', 'dairy'], calories: 680 },
+    { id: 'PM002', name: 'Wagyu Beef Tenderloin', description: 'A5 wagyu, foie gras jus, roasted root vegetables, red wine reduction', dietary: 'standard', allergens: ['dairy'], calories: 720 },
+    { id: 'PM003', name: 'Seared Tofu Katsu', description: 'Crispy tofu in panko crust with miso glaze, edamame, jasmine rice', dietary: 'vegetarian', allergens: ['soy', 'gluten'], calories: 410 },
+    { id: 'PM004', name: 'Book the Cook: Peranakan Laksa', description: 'Pre-ordered Singapore-style laksa with tiger prawns and rice noodles', dietary: 'standard', allergens: ['shellfish', 'gluten'], calories: 550 },
+  ],
+  passengerDietary: 'standard',
+  passengerAllergies: [],
+  previousChoice: 'Lobster Thermidor',
+};
+
+const BUSINESS_FLIGHT: FlightProgress = {
+  flightNumber: 'UA 456',
+  aircraft: 'Boeing 737 MAX 9',
+  route: { from: 'SFO', fromCity: 'San Francisco', to: 'ORD', toCity: 'Chicago' },
+  current: { latitude: 40.8, longitude: -102.3, altitude: 36000, groundSpeed: 485, outsideTemp: -54 },
+  progress: { percentComplete: 55, timeElapsed: 7200, timeRemaining: 5400 },
+  status: 'cruise',
+  destinationWeather: { condition: 'Clear', temperature: 8 },
+  departureTime: '7:40 AM PST',
+  arrivalTime: '1:47 PM CST',
+  cabinTemp: 22,
+  wifiStrength: 3,
+  destinationLocalTime: '11:42 AM',
+};
+
+const BUSINESS_MEAL: MealService = {
+  type: 'snack',
+  estimatedTime: '10:30 AM PST',
+  minutesUntil: 20,
+  options: [
+    { id: 'BM001', name: 'Bistro Box', description: 'Artisan cheese, crackers, dried fruit, dark chocolate, mixed nuts', dietary: 'vegetarian', allergens: ['dairy', 'nuts', 'gluten'], calories: 420 },
+    { id: 'BM002', name: 'Turkey & Avocado Wrap', description: 'Smoked turkey, avocado, pepper jack, chipotle aioli on wheat tortilla', dietary: 'standard', allergens: ['dairy', 'gluten'], calories: 380 },
+  ],
+  passengerDietary: 'standard',
+  passengerAllergies: [],
+};
+
+const BUSINESS_PRODUCTIVITY: ProductivityData = {
+  wifiConnected: true,
+  wifiBandwidth: 75,
+  focusSessionMinutes: 25,
+  documents: [
+    { id: 'DOC-B1', name: 'Strategy Deck Q2.pptx', type: 'pptx', cached: true },
+    { id: 'DOC-B2', name: 'Meeting Agenda — Chicago.pdf', type: 'pdf', cached: true },
+    { id: 'DOC-B3', name: 'Client Proposal Draft.docx', type: 'docx', cached: false },
+  ],
+};
+
+const FAMILY_FLIGHT: FlightProgress = {
+  flightNumber: 'HA 11',
+  aircraft: 'Airbus A321neo',
+  route: { from: 'LAX', fromCity: 'Los Angeles', to: 'HNL', toCity: 'Honolulu' },
+  current: { latitude: 27.1, longitude: -142.5, altitude: 34000, groundSpeed: 498, outsideTemp: -49 },
+  progress: { percentComplete: 60, timeElapsed: 14400, timeRemaining: 9000 },
+  status: 'cruise',
+  destinationWeather: { condition: 'Sunny', temperature: 28 },
+  departureTime: '8:30 AM PST',
+  arrivalTime: '11:45 AM HST',
+  cabinTemp: 23,
+  wifiStrength: 2,
+  destinationLocalTime: '9:15 AM',
+};
+
+const FAMILY_MEAL: MealService = {
+  type: 'lunch',
+  estimatedTime: '11:00 AM PST',
+  minutesUntil: 35,
+  options: [
+    { id: 'FM001', name: 'Kids Mac & Cheese', description: 'Creamy mac & cheese with steamed broccoli and apple slices', dietary: 'vegetarian', allergens: ['dairy', 'gluten'], calories: 340 },
+    { id: 'FM002', name: 'Chicken Teriyaki Bowl', description: 'Grilled chicken, steamed rice, edamame, teriyaki sauce', dietary: 'standard', allergens: ['soy'], calories: 450 },
+    { id: 'FM003', name: 'Hawaiian Poke Bowl', description: 'Fresh ahi tuna, sushi rice, seaweed salad, mango, sesame', dietary: 'standard', allergens: ['fish', 'soy', 'sesame'], calories: 480 },
+    { id: 'FM004', name: 'PB&J Snack Pack', description: 'Peanut butter & jelly sandwich, animal crackers, fruit cup, juice box', dietary: 'standard', allergens: ['peanuts', 'gluten'], calories: 310 },
+  ],
+  passengerDietary: 'standard',
+  passengerAllergies: [],
+};
+
+const FAMILY_WELLNESS: WellnessData = {
+  hydrationInterval: 45,
+  hydrationCount: 4,
+  movementInterval: 90,
+  movementCount: 2,
+  recommendedSleep: 0,
+  jetLagTips: [
+    'Hawaii is 3 hours behind LA — minimal jet lag expected!',
+    'Keep kids hydrated with water instead of sugary drinks',
+    'Pack a small activity bag for the last hour of flight',
+    'Apply reef-safe sunscreen before landing for beach time',
+  ],
+  timezoneShift: 3,
+};
+
+export function getInflightDataForPersona(persona: string): InflightData {
+  switch (persona) {
+    case 'premium':
+      return {
+        flight: PREMIUM_FLIGHT,
+        meal: PREMIUM_MEAL,
+        entertainment: MOCK_ENTERTAINMENT,
+        wellness: MOCK_WELLNESS,
+        productivity: MOCK_PRODUCTIVITY,
+        serviceRequests: [
+          { id: 'SVC-P1', type: 'water', label: 'Champagne', icon: 'wine' },
+          { id: 'SVC-P2', type: 'blanket', label: 'Turn-Down', icon: 'bed-single' },
+          { id: 'SVC-P3', type: 'other', label: 'Amenity Kit', icon: 'gift' },
+          { id: 'SVC-P4', type: 'other', label: 'Cabin Crew', icon: 'message-circle' },
+        ],
+        flightFacts: [
+          { label: 'Aircraft', value: 'Airbus A380-800 (Suites Class)' },
+          { label: 'Cruising Speed', value: '528 knots (608 mph)' },
+          { label: 'Current Altitude', value: '38,000 ft' },
+          { label: 'Outside Temperature', value: '-62°C (-80°F)' },
+          { label: 'Distance Remaining', value: '5,840 nautical miles' },
+          { label: 'Route', value: 'Polar Route via Arctic' },
+        ],
+      };
+    case 'business':
+      return {
+        flight: BUSINESS_FLIGHT,
+        meal: BUSINESS_MEAL,
+        entertainment: MOCK_ENTERTAINMENT,
+        wellness: { ...MOCK_WELLNESS, timezoneShift: 2, jetLagTips: ['Chicago is 2 hours ahead — minimal adjustment needed', 'Arrive refreshed for your 2 PM meeting', 'Light snack on landing, save appetite for client dinner'] },
+        productivity: BUSINESS_PRODUCTIVITY,
+        serviceRequests: MOCK_SERVICE_REQUESTS,
+        flightFacts: [
+          { label: 'Aircraft', value: 'Boeing 737 MAX 9' },
+          { label: 'Cruising Speed', value: '485 knots (558 mph)' },
+          { label: 'Current Altitude', value: '36,000 ft' },
+          { label: 'Outside Temperature', value: '-54°C (-65°F)' },
+          { label: 'Distance Remaining', value: '820 nautical miles' },
+          { label: 'Route', value: 'Direct SFO–ORD' },
+        ],
+      };
+    case 'family':
+    default:
+      return {
+        flight: FAMILY_FLIGHT,
+        meal: FAMILY_MEAL,
+        entertainment: MOCK_ENTERTAINMENT,
+        wellness: FAMILY_WELLNESS,
+        productivity: { wifiConnected: true, wifiBandwidth: 40, focusSessionMinutes: 15, documents: [] },
+        serviceRequests: [
+          { id: 'SVC-F1', type: 'water', label: 'Juice Box', icon: 'cup-soda' },
+          { id: 'SVC-F2', type: 'blanket', label: 'Blanket', icon: 'bed-single' },
+          { id: 'SVC-F3', type: 'other', label: 'Activity Pack', icon: 'palette' },
+          { id: 'SVC-F4', type: 'other', label: 'Cabin Crew', icon: 'message-circle' },
+        ],
+        flightFacts: [
+          { label: 'Aircraft', value: 'Airbus A321neo' },
+          { label: 'Cruising Speed', value: '498 knots (573 mph)' },
+          { label: 'Current Altitude', value: '34,000 ft' },
+          { label: 'Outside Temperature', value: '-49°C (-56°F)' },
+          { label: 'Distance Remaining', value: '1,020 nautical miles' },
+          { label: 'Route', value: 'Pacific — LAX to HNL' },
+        ],
+      };
+  }
+}

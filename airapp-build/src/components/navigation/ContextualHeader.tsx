@@ -37,7 +37,11 @@ export function ContextualHeader({ title, showBack, className }: ContextualHeade
   const resolvedTitle = TITLE_MAP[pathname ?? '']
     ?? (pathname?.startsWith('/inflight') ? 'In-Flight Experience' : undefined);
   const displayTitle = title ?? resolvedTitle ?? 'AirThere';
-  const isSubPage = showBack ?? (pathname?.split('/').filter(Boolean).length ?? 0) > 1;
+  const ALWAYS_SHOW_BACK = ['/airport', '/lounge', '/family'];
+  const isSubPage = showBack ?? (
+    ALWAYS_SHOW_BACK.includes(pathname ?? '')
+    || (pathname?.split('/').filter(Boolean).length ?? 0) > 1
+  );
 
   return (
     <header

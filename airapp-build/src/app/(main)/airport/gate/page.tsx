@@ -95,6 +95,25 @@ export default function GateBoardingPage() {
         {/* Countdown hero card */}
         <GateCountdownHero info={boardingInfo} />
 
+        {/* Next Step CTA — visible without scrolling */}
+        <Link
+          href={`/inflight/${flightId}`}
+          className="flex items-center justify-between p-3 rounded-lg
+                     bg-secondary-50 dark:bg-surface-primary
+                     border border-secondary-200 dark:border-primary
+                     hover:bg-secondary-100 dark:hover:bg-surface-elevated
+                     transition-colors min-h-[var(--touch-min)]"
+          aria-label="Continue to in-flight experience after boarding"
+        >
+          <div className="flex items-center gap-2">
+            <Plane className="w-4 h-4 text-secondary-500 dark:text-secondary-400" aria-hidden="true" />
+            <span className="text-sm font-medium text-secondary-700 dark:text-soft-foreground">
+              Next: In-Flight Experience
+            </span>
+          </div>
+          <span className="text-xs text-secondary-500 dark:text-faint-foreground">After boarding →</span>
+        </Link>
+
         {/* Gate change alert (business persona) */}
         {persona === 'business' && boardingInfo.gate === 'C15' && (
           <div

@@ -1,5 +1,5 @@
 {
-  "installCommand": "npm install --prefix airapp-build",
+  "installCommand": "npm install && npm install --prefix airapp-build",
   "buildCommand": "npm run build --prefix airapp-build",
   "outputDirectory": "airapp-build/.next",
   "framework": "nextjs"

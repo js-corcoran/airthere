@@ -1,0 +1,6 @@
+{
+  "framework": "nextjs",
+  "installCommand": "cd airapp-build && npm install",
+  "buildCommand": "cd airapp-build && npm run build",
+  "outputDirectory": "airapp-build/.next"
+}

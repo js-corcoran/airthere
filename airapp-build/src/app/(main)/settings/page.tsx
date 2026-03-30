@@ -21,7 +21,11 @@ import {
   Trash2,
   Check,
   Users,
+  Sun,
+  Moon,
+  Monitor,
 } from 'lucide-react';
+import { useTheme, type ThemeMode } from '@/stores/useThemeStore';
 
 type LoadingState = 'loading' | 'success' | 'error';
 
@@ -91,6 +95,7 @@ function CheckboxGroup({
 /* ───── Main page ───── */
 export default function SettingsPage() {
   const { persona, setPersona } = usePersona();
+  const { mode: themeMode, setMode: setThemeMode, isDark } = useTheme();
   const [state, setState] = useState<LoadingState>('loading');
   const [settings, setSettings] = useState<UserSettings | null>(null);
   const [showToast, setShowToast] = useState(false);
@@ -184,6 +189,95 @@ export default function SettingsPage() {
             Customize your AirThere experience
           </p>
         </header>
+
+        {/* ── Appearance ── */}
+        <SettingsSection
+          id="appearance"
+          title="Appearance"
+          icon={<Sun className="w-5 h-5" />}
+          defaultOpen
+        >
+          <div className="flex items-center justify-between py-2">
+            <div className="flex items-center gap-3">
+              {isDark ? (
+                <Moon className="w-5 h-5 text-primary-500 dark:text-primary-400" aria-hidden="true" />
+              ) : (
+                <Sun className="w-5 h-5 text-secondary-500" aria-hidden="true" />
+              )}
+              <div>
+                <p className="text-sm font-medium text-primary-900 dark:text-foreground">
+                  {isDark ? 'Dark' : 'Light'} Mode
+                </p>
+                <p className="text-xs text-primary-600 dark:text-faint-foreground">
+                  {themeMode === 'system' ? 'Following system preference' : `Manually set to ${themeMode}`}
+                </p>
+              </div>
+            </div>
+            <button
+              role="switch"
+              aria-checked={isDark}
+              aria-label={`Dark mode: ${isDark ? 'on' : 'off'}`}
+              onClick={() => setThemeMode(isDark ? 'light' : 'dark')}
+              className={`
+                relative inline-flex h-7 w-[52px] shrink-0 rounded-full border-2 border-transparent
+                transition-colors duration-200 ease-in-out
+                focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500
+                ${isDark
+                  ? 'bg-primary-600 dark:bg-primary-500'
+                  : 'bg-surface-300 dark:bg-muted'
+                }
+              `}
+            >
+              <span
+                aria-hidden="true"
+                className={`
+                  pointer-events-none inline-flex h-6 w-6 items-center justify-center
+                  rounded-full bg-white shadow
+                  transform transition duration-200 ease-in-out
+                  ${isDark ? 'translate-x-[24px]' : 'translate-x-0'}
+                `}
+              >
+                {isDark ? (
+                  <Moon className="w-3.5 h-3.5 text-primary-600" />
+                ) : (
+                  <Sun className="w-3.5 h-3.5 text-secondary-500" />
+                )}
+              </span>
+            </button>
+          </div>
+
+          {/* Mode selector for System/Light/Dark */}
+          <div className="flex gap-2 mt-2">
+            {([
+              { key: 'system' as ThemeMode, label: 'System', icon: Monitor },
+              { key: 'light' as ThemeMode, label: 'Light', icon: Sun },
+              { key: 'dark' as ThemeMode, label: 'Dark', icon: Moon },
+            ]).map((opt) => {
+              const Icon = opt.icon;
+              return (
+                <button
+                  key={opt.key}
+                  onClick={() => setThemeMode(opt.key)}
+                  className={`
+                    flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5
+                    rounded-[var(--radius-md)] border text-xs font-medium
+                    transition-colors duration-[--duration-micro]
+                    min-h-[var(--touch-min)]
+                    focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500
+                    ${themeMode === opt.key
+                      ? 'border-primary-500 bg-primary-50 text-primary-700 dark:border-primary-400 dark:bg-surface-primary dark:text-primary-300'
+                      : 'border-surface-300 dark:border-muted text-primary-600 dark:text-soft-foreground hover:bg-surface-100 dark:hover:bg-surface-elevated'
+                    }
+                  `}
+                  aria-pressed={themeMode === opt.key}
+                >
+                  <Icon className="w-3.5 h-3.5" aria-hidden="true" />
+                  {opt.label}
+                </button>
+              );
+            })}
+          </div>
+        </SettingsSection>
 
         {/* ── 1. Travel Preferences ── */}
         <SettingsSection
@@ -576,18 +670,6 @@ export default function SettingsPage() {
               { label: 'Japanese', value: 'ja' },
             ]}
             onChange={(v) => update('account', 'language', v as never)}
-          />
-          <SelectRow
-            label="Theme"
-            value={settings.account.darkMode}
-            options={[
-              { label: 'System', value: 'system' },
-              { label: 'Light', value: 'light' },
-              { label: 'Dark', value: 'dark' },
-            ]}
-            onChange={(v) =>
-              update('account', 'darkMode', v as UserSettings['account']['darkMode'])
-            }
           />
         </SettingsSection>
 

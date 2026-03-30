@@ -16,9 +16,22 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
+const themeScript = `
+(function(){
+  try {
+    var m = localStorage.getItem('airthere-theme') || 'system';
+    var d = m === 'dark' || (m === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    if (d) document.documentElement.classList.add('dark');
+  } catch(e){}
+})();
+`;
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="bg-background text-foreground antialiased">
         <PersonaProvider>
           <div id="app-root">{children}</div>

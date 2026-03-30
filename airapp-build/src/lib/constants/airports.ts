@@ -21,6 +21,7 @@ export const AIRPORTS: Record<string, Airport> = {
   SEA: { code: 'SEA', name: 'Seattle-Tacoma International', city: 'Seattle', country: 'USA', timezone: 'America/Los_Angeles' },
   BOS: { code: 'BOS', name: 'Logan International', city: 'Boston', country: 'USA', timezone: 'America/New_York' },
   AMS: { code: 'AMS', name: 'Schiphol', city: 'Amsterdam', country: 'Netherlands', timezone: 'Europe/Amsterdam' },
+  HNL: { code: 'HNL', name: 'Daniel K. Inouye International', city: 'Honolulu', country: 'USA', timezone: 'Pacific/Honolulu' },
 };
 
 export const AIRPORT_LIST = Object.values(AIRPORTS);

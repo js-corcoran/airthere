@@ -16,9 +16,16 @@ export function TripCard({ trip, className }: TripCardProps) {
   const flight = trip.flights[0];
   const depDate = parseISO(trip.departure.date);
 
+  const searchParams = new URLSearchParams({
+    from: trip.departure.airport,
+    to: trip.arrival.airport,
+  });
+  if (trip.departure.date) searchParams.set('departDate', trip.departure.date);
+  if (flight) searchParams.set('airline', flight.flight.airline.name);
+
   return (
     <Link
-      href={ROUTES.TRIPS}
+      href={`${ROUTES.SEARCH}?${searchParams.toString()}`}
       className={cn(
         'block min-w-[280px] rounded-xl bg-surface dark:bg-card',
         'border border-surface-300 dark:border-muted',

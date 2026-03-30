@@ -15,6 +15,7 @@ import { DateSelector } from './components/DateSelector';
 import { PassengerSelector } from './components/PassengerSelector';
 import { CabinClassSelector } from './components/CabinClassSelector';
 import { RecentSearches, RecentSearch, saveSearch } from './components/RecentSearches';
+import { cityToAirportCode } from '@/lib/utils/cityToAirport';
 
 function getPersonaDefaults(persona: string): {
   cabinClass: CabinClass;
@@ -65,11 +66,17 @@ function SearchPageInner() {
   const searchParams = useSearchParams();
   const defaults = getPersonaDefaults(persona);
 
+  // Resolve query params — support both airport codes and city names
+  const paramFrom = searchParams.get('from') ?? '';
+  const paramTo = searchParams.get('to') ?? '';
+  const resolvedFrom = cityToAirportCode(paramFrom) || paramFrom;
+  const resolvedTo = cityToAirportCode(paramTo) || paramTo;
+
   const [tripType, setTripType] = useState<FlightSearchParams['tripType']>('round-trip');
-  const [from, setFrom] = useState('');
-  const [to, setTo] = useState(searchParams.get('to') ?? '');
-  const [departDate, setDepartDate] = useState('');
-  const [returnDate, setReturnDate] = useState('');
+  const [from, setFrom] = useState(resolvedFrom);
+  const [to, setTo] = useState(resolvedTo);
+  const [departDate, setDepartDate] = useState(searchParams.get('departDate') ?? '');
+  const [returnDate, setReturnDate] = useState(searchParams.get('returnDate') ?? '');
   const [passengers, setPassengers] = useState<PassengerCount>(defaults.passengers);
   const [cabinClass, setCabinClass] = useState<CabinClass>(defaults.cabinClass);
   const [errors, setErrors] = useState<FormErrors>({});

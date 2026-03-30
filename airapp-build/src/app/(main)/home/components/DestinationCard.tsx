@@ -6,6 +6,7 @@ import { Heart, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { ROUTES } from '@/lib/constants/routes';
 import { PersonaType } from '@/lib/types/user';
+import { cityToAirportCode } from '@/lib/utils/cityToAirport';
 
 export interface Destination {
   id: string;
@@ -89,7 +90,7 @@ export function DestinationCard({ destination, persona }: DestinationCardProps) 
             From ${destination.priceFrom.toLocaleString()}
           </span>
           <Link
-            href={`${ROUTES.SEARCH}?to=${encodeURIComponent(destination.city)}`}
+            href={`${ROUTES.SEARCH}?to=${cityToAirportCode(destination.city) || encodeURIComponent(destination.city)}`}
             className="flex items-center gap-1 text-xs font-medium text-primary-500 dark:text-primary-400
                        hover:text-primary-600 transition-colors duration-[--duration-micro]
                        min-h-[var(--touch-min)] min-w-[var(--touch-min)] justify-end"

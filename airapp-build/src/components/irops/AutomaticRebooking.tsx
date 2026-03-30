@@ -1,17 +1,17 @@
 'use client';
 
-import { CheckCircle, ArrowRight, Clock, Plane, DollarSign, Users } from 'lucide-react';
+import { CheckCircle, ArrowRight, Clock, Plane, DollarSign, Users, RefreshCw } from 'lucide-react';
 import { cn } from '@/lib/utils/cn';
 import type { AutomaticRebookingOption } from '@/lib/types/disruption';
 
 interface AutomaticRebookingProps {
   rebooking: AutomaticRebookingOption;
-  onApprove: () => void;
+  onSelect: () => void;
   onDecline: () => void;
-  isProcessing: boolean;
+  isSelected: boolean;
 }
 
-export function AutomaticRebooking({ rebooking, onApprove, onDecline, isProcessing }: AutomaticRebookingProps) {
+export function AutomaticRebooking({ rebooking, onSelect, onDecline, isSelected }: AutomaticRebookingProps) {
   const { recommendedFlight, comparison, noAdditionalCost, familyIntegrityMaintained } = rebooking;
 
   return (
@@ -22,7 +22,12 @@ export function AutomaticRebooking({ rebooking, onApprove, onDecline, isProcessi
       >
         Recommended Rebooking
       </h3>
-      <div className="bg-success-50 dark:bg-surface-success rounded-[var(--radius-lg)] p-4 border-2 border-success-400 dark:border-success-600">
+      <div className={cn(
+        'rounded-[var(--radius-lg)] p-4 border-2 transition-all duration-[--duration-micro]',
+        isSelected
+          ? 'bg-success-50 dark:bg-surface-success border-success-500 dark:border-success-400'
+          : 'bg-success-50 dark:bg-surface-success border-success-400 dark:border-success-600'
+      )}>
         <div className="flex items-center gap-2 mb-4">
           <CheckCircle className="w-5 h-5 text-success-600 dark:text-success-400" aria-hidden="true" />
           <span className="font-bold text-success-800 dark:text-success-200">
@@ -104,49 +109,57 @@ export function AutomaticRebooking({ rebooking, onApprove, onDecline, isProcessi
           )}
         </div>
 
-        {/* Action buttons */}
-        <div className="flex flex-col sm:flex-row gap-3">
-          <button
-            onClick={onApprove}
-            disabled={isProcessing}
-            className={cn(
-              'flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-[var(--radius-md)]',
-              'bg-success-600 hover:bg-success-700 dark:bg-success-500 dark:hover:bg-success-600',
-              'text-white font-bold text-sm',
-              'transition-colors duration-[--duration-micro]',
-              'min-h-[var(--touch-preferred)]',
-              'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-success-500',
-              'disabled:opacity-50 disabled:cursor-not-allowed'
-            )}
-            aria-label="Approve automatic rebooking"
-          >
-            {isProcessing ? (
-              <span className="animate-pulse">Processing...</span>
-            ) : (
-              <>
-                <CheckCircle className="w-4 h-4" aria-hidden="true" />
-                Approve Rebooking
-              </>
-            )}
-          </button>
-          <button
-            onClick={onDecline}
-            disabled={isProcessing}
-            className={cn(
-              'flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-[var(--radius-md)]',
-              'bg-transparent border border-primary-300 dark:border-primary-600',
-              'text-primary-700 dark:text-primary-300 font-medium text-sm',
-              'hover:bg-primary-50 dark:hover:bg-surface-elevated',
-              'transition-colors duration-[--duration-micro]',
-              'min-h-[var(--touch-preferred)]',
-              'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
-              'disabled:opacity-50 disabled:cursor-not-allowed'
-            )}
-          >
-            <ArrowRight className="w-4 h-4" aria-hidden="true" />
-            View Other Options
-          </button>
-        </div>
+        {/* Action buttons — change based on selection state */}
+        {isSelected ? (
+          <div className="flex items-center justify-between p-3 rounded-[var(--radius-md)] bg-success-100 dark:bg-success-900/40 border border-success-300 dark:border-success-700">
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-5 h-5 text-success-600 dark:text-success-400" aria-hidden="true" />
+              <span className="text-sm font-bold text-success-700 dark:text-success-300">
+                Flight Selected
+              </span>
+            </div>
+            <button
+              onClick={onDecline}
+              className="flex items-center gap-1.5 text-xs font-medium text-primary-600 dark:text-primary-300 hover:text-primary-700 dark:hover:text-primary-200 transition-colors min-h-[var(--touch-min)]"
+            >
+              <RefreshCw className="w-3.5 h-3.5" aria-hidden="true" />
+              Change
+            </button>
+          </div>
+        ) : (
+          <div className="flex flex-col sm:flex-row gap-3">
+            <button
+              onClick={onSelect}
+              className={cn(
+                'flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-[var(--radius-md)]',
+                'bg-success-600 hover:bg-success-700 dark:bg-success-500 dark:hover:bg-success-600',
+                'text-white font-bold text-sm',
+                'transition-colors duration-[--duration-micro]',
+                'min-h-[var(--touch-preferred)]',
+                'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-success-500',
+              )}
+              aria-label="Select this flight"
+            >
+              <CheckCircle className="w-4 h-4" aria-hidden="true" />
+              Select This Flight
+            </button>
+            <button
+              onClick={onDecline}
+              className={cn(
+                'flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-[var(--radius-md)]',
+                'bg-transparent border border-primary-300 dark:border-primary-600',
+                'text-primary-700 dark:text-primary-300 font-medium text-sm',
+                'hover:bg-primary-50 dark:hover:bg-surface-elevated',
+                'transition-colors duration-[--duration-micro]',
+                'min-h-[var(--touch-preferred)]',
+                'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
+              )}
+            >
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              View Other Options
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

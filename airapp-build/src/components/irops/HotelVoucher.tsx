@@ -161,13 +161,14 @@ function HotelCard({
 
       <button
         onClick={onSelect}
+        aria-pressed={isSelected}
         className={cn(
           'w-full flex items-center justify-center gap-2 px-4 py-2 rounded-[var(--radius-md)] text-sm font-medium',
           'transition-colors duration-[--duration-micro]',
           'min-h-[var(--touch-min)]',
           'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
           isSelected
-            ? 'bg-success-600 text-white'
+            ? 'bg-success-100 dark:bg-success-900/40 text-success-700 dark:text-success-300 border border-success-300 dark:border-success-700'
             : 'bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-400 text-white'
         )}
       >
@@ -177,7 +178,7 @@ function HotelCard({
             Selected
           </>
         ) : (
-          'Book This Hotel'
+          'Select'
         )}
       </button>
     </div>

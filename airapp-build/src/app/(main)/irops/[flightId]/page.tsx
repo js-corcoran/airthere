@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation';
 import { usePersona } from '@/stores/usePersonaStore';
 import { getDefaultScenarioForPersona } from '@/lib/mock-data/disruptions';
 import type { DisruptionScenario, RebookingFlight } from '@/lib/types/disruption';
+import { Plane, Building2, Car } from 'lucide-react';
 
 import { DisruptionSeverityBanner } from '@/components/irops/DisruptionSeverityBanner';
 import { RootCauseExplanation } from '@/components/irops/RootCauseExplanation';
@@ -36,6 +37,10 @@ export default function IROPSRecoveryPage() {
   const [selectedHotel, setSelectedHotel] = useState<string | null>(null);
   const [selectedTransport, setSelectedTransport] = useState<string | undefined>(undefined);
 
+  // Unified flow state
+  const [selectedFlight, setSelectedFlight] = useState<string | null>(null);
+  const [flightSelectionMode, setFlightSelectionMode] = useState<'auto' | 'alternatives' | null>('auto');
+
   useEffect(() => {
     const timer = setTimeout(() => {
       try {
@@ -49,7 +54,8 @@ export default function IROPSRecoveryPage() {
     return () => clearTimeout(timer);
   }, [persona, params.flightId]);
 
-  const handleApproveRebooking = () => {
+  // Unified confirmation — all selections at once
+  const handleConfirmAll = () => {
     setIsProcessing(true);
     setTimeout(() => {
       setRebookingApproved(true);
@@ -57,12 +63,16 @@ export default function IROPSRecoveryPage() {
     }, 1500);
   };
 
-  const handleDeclineRebooking = () => {
+  const handleDeclineAuto = () => {
+    setSelectedFlight(null);
+    setFlightSelectionMode('alternatives');
     setShowAlternatives(true);
   };
 
   const handleSelectAlternative = (flight: RebookingFlight) => {
+    setSelectedFlight(flight.id);
     setSelectedAlternative(flight.id);
+    setFlightSelectionMode('alternatives');
   };
 
   const handleFamilyConfirm = () => {
@@ -81,6 +91,12 @@ export default function IROPSRecoveryPage() {
   }
 
   const { disruption, automaticRebooking, alternatives, familyInfo, hotelVoucher, transportOptions, contactMethods, loyaltyCompensation } = scenario;
+
+  // Compute whether all required selections are made
+  const allSelectionsComplete =
+    selectedFlight !== null &&
+    (!hotelVoucher || selectedHotel !== null) &&
+    (!transportOptions?.length || selectedTransport !== undefined);
 
   // Persona-specific messaging
   const personaBanner = persona === 'premium'
@@ -102,7 +118,7 @@ export default function IROPSRecoveryPage() {
         <DisruptionSeverityBanner disruption={disruption} />
       </div>
 
-      {/* Success state */}
+      {/* Success state — unified confirmation */}
       {rebookingApproved && (
         <div className="px-4 mt-4">
           <div
@@ -110,10 +126,31 @@ export default function IROPSRecoveryPage() {
             className="bg-success-50 dark:bg-surface-success border border-success-400 dark:border-success-600 rounded-[var(--radius-lg)] p-4 text-center"
           >
             <p className="text-lg font-bold text-success-700 dark:text-success-300 mb-1">
-              Rebooking Confirmed
+              Recovery Package Confirmed
             </p>
-            <p className="text-sm text-success-600 dark:text-success-400">
-              Your itinerary has been updated. Check your Trip Dashboard for the latest details.
+            <p className="text-sm text-success-600 dark:text-success-400 mb-3">
+              Your complete recovery plan has been booked.
+            </p>
+            <div className="flex flex-col gap-1.5 text-xs text-success-700 dark:text-success-300">
+              <span className="flex items-center justify-center gap-1.5">
+                <Plane className="w-3.5 h-3.5" aria-hidden="true" />
+                New flight confirmed
+              </span>
+              {hotelVoucher && selectedHotel && (
+                <span className="flex items-center justify-center gap-1.5">
+                  <Building2 className="w-3.5 h-3.5" aria-hidden="true" />
+                  Hotel accommodation booked
+                </span>
+              )}
+              {transportOptions && transportOptions.length > 0 && selectedTransport && (
+                <span className="flex items-center justify-center gap-1.5">
+                  <Car className="w-3.5 h-3.5" aria-hidden="true" />
+                  Ground transport arranged
+                </span>
+              )}
+            </div>
+            <p className="text-xs text-success-600 dark:text-success-400 mt-3">
+              Check your Trip Dashboard for the latest details.
             </p>
           </div>
         </div>
@@ -138,9 +175,12 @@ export default function IROPSRecoveryPage() {
         {automaticRebooking && !rebookingApproved && !showAlternatives && (
           <AutomaticRebooking
             rebooking={automaticRebooking}
-            onApprove={handleApproveRebooking}
-            onDecline={handleDeclineRebooking}
-            isProcessing={isProcessing}
+            onSelect={() => {
+              setSelectedFlight(automaticRebooking.recommendedFlight.id);
+              setFlightSelectionMode('auto');
+            }}
+            onDecline={handleDeclineAuto}
+            isSelected={flightSelectionMode === 'auto' && selectedFlight !== null}
           />
         )}
 
@@ -179,6 +219,60 @@ export default function IROPSRecoveryPage() {
             onSelect={(id) => setSelectedTransport(id)}
             selectedId={selectedTransport}
           />
+        )}
+
+        {/* Unified Confirmation CTA — only shows when all available selections are made */}
+        {allSelectionsComplete && !rebookingApproved && (
+          <div className="sticky bottom-20 z-10">
+            <div className="bg-surface dark:bg-card rounded-[var(--radius-lg)] p-4 border-2 border-primary-500 dark:border-primary-400 shadow-lg">
+              <div className="text-center mb-3">
+                <p className="text-sm font-bold text-primary-900 dark:text-foreground">
+                  Recovery Package Ready
+                </p>
+                <p className="text-xs text-primary-600 dark:text-primary-400 mt-1">
+                  {hotelVoucher && transportOptions?.length
+                    ? 'Flight, hotel, and transport selected'
+                    : hotelVoucher
+                      ? 'Flight and hotel selected'
+                      : transportOptions?.length
+                        ? 'Flight and transport selected'
+                        : 'Flight selected'
+                  }
+                </p>
+              </div>
+
+              <div className="flex items-center justify-center gap-3 mb-3 text-xs text-primary-600 dark:text-primary-400">
+                <span className="flex items-center gap-1">
+                  <Plane className="w-3.5 h-3.5" aria-hidden="true" />
+                  Flight
+                </span>
+                {hotelVoucher && selectedHotel && (
+                  <span className="flex items-center gap-1">
+                    <Building2 className="w-3.5 h-3.5" aria-hidden="true" />
+                    Hotel
+                  </span>
+                )}
+                {transportOptions && transportOptions.length > 0 && selectedTransport && (
+                  <span className="flex items-center gap-1">
+                    <Car className="w-3.5 h-3.5" aria-hidden="true" />
+                    Transport
+                  </span>
+                )}
+              </div>
+
+              <button
+                onClick={handleConfirmAll}
+                disabled={isProcessing}
+                className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-[var(--radius-md)] bg-success-600 hover:bg-success-700 dark:bg-success-500 dark:hover:bg-success-600 text-white font-bold text-base transition-colors duration-[--duration-micro] min-h-[var(--touch-preferred)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-success-500 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isProcessing ? (
+                  <span className="animate-pulse">Processing...</span>
+                ) : (
+                  'Confirm Recovery Package'
+                )}
+              </button>
+            </div>
+          </div>
         )}
 
         {/* Loyalty compensation */}

@@ -86,7 +86,7 @@ export function GateCountdownHero({ info }: GateCountdownHeroProps) {
         <p className="text-xs uppercase tracking-widest opacity-70 mb-1">
           {info.status === 'boarding' ? 'Boarding in progress' : 'Departs in'}
         </p>
-        <p className="text-5xl font-bold tracking-tight font-mono">
+        <p className="text-5xl font-bold tracking-tight">
           {countdown}
         </p>
         {info.delayMinutes > 0 && (

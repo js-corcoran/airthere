@@ -1,0 +1,13 @@
+{
+  "name": "airthere-monorepo",
+  "private": true,
+  "scripts": {
+    "build": "cd airapp-build && npm run build",
+    "dev": "cd airapp-build && npm run dev",
+    "start": "cd airapp-build && npm run start",
+    "install:app": "cd airapp-build && npm install"
+  },
+  "dependencies": {
+    "next": "^14.2.35"
+  }
+}

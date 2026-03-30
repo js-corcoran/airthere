@@ -15,32 +15,32 @@ interface TrendingSectionProps {
 
 const heatColors = {
   hot: {
-    bg: 'bg-error-50 dark:bg-[oklch(20%_0.008_25)]',
-    border: 'border-error-200 dark:border-[oklch(35%_0.060_25)]',
-    text: 'text-error-600 dark:text-[oklch(68%_0.200_25)]',
+    bg: 'bg-error-50 dark:bg-surface-error',
+    border: 'border-error-200 dark:border-error',
+    text: 'text-error-600 dark:text-error-400',
     badge: 'bg-error-500 text-white',
     label: 'Hot',
   },
   warm: {
-    bg: 'bg-warning-50 dark:bg-[oklch(20%_0.005_60)]',
-    border: 'border-warning-200 dark:border-[oklch(35%_0.040_60)]',
-    text: 'text-warning-600 dark:text-[oklch(58%_0.165_60)]',
+    bg: 'bg-warning-50 dark:bg-surface-warning',
+    border: 'border-warning-200 dark:border-warning-800',
+    text: 'text-warning-600 dark:text-warning-600',
     badge: 'bg-warning-500 text-white',
     label: 'Warm',
   },
   cool: {
-    bg: 'bg-info-50 dark:bg-[oklch(20%_0.002_240)]',
-    border: 'border-info-200 dark:border-[oklch(35%_0.020_240)]',
-    text: 'text-info-600 dark:text-[oklch(55%_0.160_240)]',
+    bg: 'bg-info-50 dark:bg-surface-info',
+    border: 'border-info-200 dark:border-info',
+    text: 'text-info-600 dark:text-info-600',
     badge: 'bg-info-500 text-white',
     label: 'Cool',
   },
 };
 
 const sentimentIcons = {
-  rising: { icon: TrendingUp, className: 'text-success-500 dark:text-[oklch(62%_0.165_142)]', label: 'Rising' },
-  stable: { icon: Minus, className: 'text-primary-400 dark:text-[oklch(60%_0.005_50)]', label: 'Stable' },
-  falling: { icon: TrendingDown, className: 'text-error-500 dark:text-[oklch(68%_0.200_25)]', label: 'Falling' },
+  rising: { icon: TrendingUp, className: 'text-success-500 dark:text-success-500', label: 'Rising' },
+  stable: { icon: Minus, className: 'text-primary-400 dark:text-faint-foreground', label: 'Stable' },
+  falling: { icon: TrendingDown, className: 'text-error-500 dark:text-error-400', label: 'Falling' },
 };
 
 function TrendingDestinationRow({ dest }: { dest: TrendingDestinationSummary }) {
@@ -51,7 +51,7 @@ function TrendingDestinationRow({ dest }: { dest: TrendingDestinationSummary }) 
     <Link
       href={ROUTES.SEARCH}
       className="flex items-center gap-3 py-2.5 px-3 rounded-md
-                 hover:bg-surface-200 dark:hover:bg-[oklch(25%_0.005_50)]
+                 hover:bg-surface-200 dark:hover:bg-input
                  transition-colors duration-[--duration-micro]
                  min-h-[var(--touch-min)]
                  focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
@@ -63,19 +63,19 @@ function TrendingDestinationRow({ dest }: { dest: TrendingDestinationSummary }) 
         aria-hidden="true"
       />
       <div className="flex-1 min-w-0">
-        <p className="text-sm font-medium text-primary-900 dark:text-[oklch(95%_0.002_50)] truncate">
+        <p className="text-sm font-medium text-primary-900 dark:text-foreground truncate">
           {dest.city}
         </p>
-        <p className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)]">
+        <p className="text-xs text-primary-500 dark:text-caption-foreground">
           {dest.country}
         </p>
       </div>
       <div className="flex items-center gap-2 shrink-0">
         <SentimentIcon className={cn('w-4 h-4', sentiment.className)} aria-hidden="true" />
-        <span className="text-sm font-semibold text-secondary-600 dark:text-[oklch(72%_0.158_50)]">
+        <span className="text-sm font-semibold text-secondary-600 dark:text-secondary-400">
           ${dest.priceFrom.toLocaleString()}
         </span>
-        <ChevronRight className="w-4 h-4 text-primary-300 dark:text-[oklch(50%_0.005_50)]" aria-hidden="true" />
+        <ChevronRight className="w-4 h-4 text-primary-300 dark:text-faint-foreground" aria-hidden="true" />
       </div>
     </Link>
   );
@@ -105,10 +105,10 @@ function RegionCard({ region, isExpanded, onToggle }: { region: TrendingRegion; 
         <div className="flex items-center gap-3">
           <span className="text-2xl" aria-hidden="true">{region.icon}</span>
           <div className="text-left">
-            <h3 className="text-base font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+            <h3 className="text-base font-semibold text-primary-900 dark:text-foreground">
               {region.name}
             </h3>
-            <p className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)]">
+            <p className="text-xs text-primary-500 dark:text-caption-foreground">
               {region.destinations.length} destinations · {(region.searchVolume / 1000).toFixed(0)}k searches
             </p>
           </div>
@@ -119,7 +119,7 @@ function RegionCard({ region, isExpanded, onToggle }: { region: TrendingRegion; 
           </span>
           <ChevronRight
             className={cn(
-              'w-5 h-5 text-primary-400 dark:text-[oklch(60%_0.005_50)] transition-transform duration-[--duration-short]',
+              'w-5 h-5 text-primary-400 dark:text-faint-foreground transition-transform duration-[--duration-short]',
               isExpanded && 'rotate-90'
             )}
             aria-hidden="true"
@@ -132,7 +132,7 @@ function RegionCard({ region, isExpanded, onToggle }: { region: TrendingRegion; 
           id={`region-${region.id}`}
           role="region"
           aria-label={`${region.name} trending destinations`}
-          className="px-2 pb-2 border-t border-surface-300/50 dark:border-[oklch(32%_0.008_50)]/50"
+          className="px-2 pb-2 border-t border-surface-300/50 dark:border-muted/50"
         >
           {region.destinations.map((dest) => (
             <TrendingDestinationRow key={dest.city} dest={dest} />
@@ -153,10 +153,10 @@ export function TrendingSection({ regions, persona }: TrendingSectionProps) {
       {/* Trending header */}
       <div className="flex items-center justify-between px-4">
         <div>
-          <h2 className="text-lg font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+          <h2 className="text-lg font-semibold text-primary-900 dark:text-foreground">
             {persona === 'business' ? 'Trending Business Routes' : 'Trending Destinations'}
           </h2>
-          <p className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)] mt-0.5">
+          <p className="text-xs text-primary-500 dark:text-caption-foreground mt-0.5">
             Based on search trends this week
           </p>
         </div>

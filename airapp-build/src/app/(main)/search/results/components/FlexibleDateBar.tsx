@@ -35,13 +35,13 @@ export function FlexibleDateBar({ selectedDate, onDateChange }: FlexibleDateBarP
               'focus-visible:outline-2 focus-visible:outline-primary-500',
               'min-h-[var(--touch-min)] min-w-[52px]',
               isSelected
-                ? 'bg-primary-500 text-white dark:bg-[oklch(55%_0.194_262)]'
-                : 'bg-surface-50 dark:bg-[oklch(20%_0.003_50)] text-primary-700 dark:text-[oklch(80%_0.005_50)] hover:bg-surface-100 dark:hover:bg-[oklch(25%_0.005_50)]'
+                ? 'bg-primary-500 text-white dark:bg-primary-500'
+                : 'bg-surface-50 dark:bg-surface-100 text-primary-700 dark:text-soft-foreground hover:bg-surface-100 dark:hover:bg-input'
             )}
           >
             <span className={cn(
               'text-[10px] font-medium uppercase',
-              isSelected ? 'text-white/80' : 'text-primary-400 dark:text-[oklch(55%_0.005_50)]'
+              isSelected ? 'text-white/80' : 'text-primary-400 dark:text-faint-foreground'
             )}>
               {format(date, 'EEE')}
             </span>
@@ -53,7 +53,7 @@ export function FlexibleDateBar({ selectedDate, onDateChange }: FlexibleDateBarP
             </span>
             <span className={cn(
               'text-[10px]',
-              isSelected ? 'text-white/80' : 'text-primary-400 dark:text-[oklch(55%_0.005_50)]'
+              isSelected ? 'text-white/80' : 'text-primary-400 dark:text-faint-foreground'
             )}>
               {format(date, 'MMM')}
             </span>

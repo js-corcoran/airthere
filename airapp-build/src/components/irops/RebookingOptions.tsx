@@ -61,7 +61,7 @@ export function RebookingOptions({ alternatives, onSelect, selectedId }: Rebooki
               'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
               filter === tab.id
                 ? 'bg-primary-600 text-white dark:bg-primary-500'
-                : 'bg-surface-200 dark:bg-[oklch(25%_0.005_50)] text-primary-600 dark:text-primary-300 hover:bg-surface-300 dark:hover:bg-[oklch(30%_0.005_50)]',
+                : 'bg-surface-200 dark:bg-input text-primary-600 dark:text-primary-300 hover:bg-surface-300 dark:hover:bg-muted',
             )}
           >
             {tab.label}
@@ -113,13 +113,13 @@ function FlightOptionCard({
         'border transition-all duration-[--duration-micro]',
         'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
         isSelected
-          ? 'border-primary-500 bg-primary-50 dark:bg-[oklch(20%_0.01_262)] dark:border-primary-400 shadow-md'
-          : 'border-surface-300 dark:border-[oklch(32%_0.008_50)] bg-surface dark:bg-[oklch(18%_0.003_50)] hover:shadow-sm hover:-translate-y-0.5',
+          ? 'border-primary-500 bg-primary-50 dark:bg-surface-primary dark:border-primary-400 shadow-md'
+          : 'border-surface-300 dark:border-muted bg-surface dark:bg-card hover:shadow-sm hover:-translate-y-0.5',
       )}
     >
       <div className="flex items-start justify-between mb-3">
         <div>
-          <span className="text-sm font-bold text-primary-800 dark:text-[oklch(90%_0.002_50)]">
+          <span className="text-sm font-bold text-primary-800 dark:text-subtle-foreground">
             {flight.flightNumber}
           </span>
           <span className="text-xs text-primary-500 dark:text-primary-400 ml-2">
@@ -131,7 +131,7 @@ function FlightOptionCard({
 
       <div className="flex items-center gap-3 text-sm mb-3">
         <div className="flex-1">
-          <p className="font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+          <p className="font-semibold text-primary-900 dark:text-foreground">
             {flight.departure.time}
           </p>
           <p className="text-xs text-primary-500 dark:text-primary-400">
@@ -148,7 +148,7 @@ function FlightOptionCard({
         </div>
 
         <div className="flex-1 text-right">
-          <p className="font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+          <p className="font-semibold text-primary-900 dark:text-foreground">
             {flight.arrival.time}
           </p>
           <p className="text-xs text-primary-500 dark:text-primary-400">

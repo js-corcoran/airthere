@@ -26,14 +26,14 @@ export function SelectRow({
       <div className="flex-1 min-w-0">
         <label
           htmlFor={id}
-          className="text-sm text-primary-800 dark:text-[oklch(90%_0.002_50)]"
+          className="text-sm text-primary-800 dark:text-subtle-foreground"
         >
           {label}
         </label>
         {description && (
           <p
             id={descriptionId}
-            className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)] mt-0.5 leading-snug"
+            className="text-xs text-primary-500 dark:text-caption-foreground mt-0.5 leading-snug"
           >
             {description}
           </p>
@@ -49,13 +49,14 @@ export function SelectRow({
             appearance-none
             pl-3 pr-8 py-2
             rounded-[var(--radius-md)]
-            border border-surface-300 dark:border-[oklch(32%_0.008_50)]
-            bg-surface dark:bg-[oklch(22%_0.005_50)]
-            text-sm text-primary-800 dark:text-[oklch(90%_0.002_50)]
+            border border-surface-300 dark:border-muted
+            bg-surface dark:bg-surface-elevated
+            text-sm text-primary-800 dark:text-subtle-foreground
             focus:outline-none focus:ring-1 focus:ring-primary-300 dark:focus:ring-primary-600
             min-h-[var(--touch-min)]
             cursor-pointer
             transition-colors duration-[--duration-micro]
+            disabled:opacity-50 disabled:cursor-not-allowed
           "
         >
           {options.map((opt) => (
@@ -65,7 +66,7 @@ export function SelectRow({
           ))}
         </select>
         <ChevronDown
-          className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-primary-500 dark:text-[oklch(70%_0.008_50)] pointer-events-none"
+          className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-primary-500 dark:text-caption-foreground pointer-events-none"
           aria-hidden="true"
         />
       </div>

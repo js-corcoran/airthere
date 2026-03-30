@@ -49,11 +49,11 @@ export function DisruptionTimeline({ disruption }: DisruptionTimelineProps) {
       >
         Timeline
       </h3>
-      <div className="bg-surface dark:bg-[oklch(18%_0.003_50)] rounded-[var(--radius-lg)] p-4 border border-surface-300 dark:border-[oklch(32%_0.008_50)]">
+      <div className="bg-surface dark:bg-card rounded-[var(--radius-lg)] p-4 border border-surface-300 dark:border-muted">
         <div className="grid grid-cols-2 gap-4 text-sm mb-4">
           <div>
             <p className="text-xs text-primary-500 dark:text-primary-400 mb-0.5">Original Departure</p>
-            <p className="font-semibold text-primary-800 dark:text-[oklch(85%_0.005_50)]">
+            <p className="font-semibold text-primary-800 dark:text-muted-foreground">
               {formatTime(disruption.impact.originalDeparture)}
             </p>
             <p className="text-xs text-primary-500 dark:text-primary-400">
@@ -85,7 +85,7 @@ export function DisruptionTimeline({ disruption }: DisruptionTimelineProps) {
             <span>{disruption.rootCause.expectedResolution ? 'Resolution' : 'Investigating'}</span>
           </div>
           <div
-            className="h-2 rounded-full bg-surface-200 dark:bg-[oklch(25%_0.005_50)] overflow-hidden"
+            className="h-2 rounded-full bg-surface-200 dark:bg-input overflow-hidden"
             role="progressbar"
             aria-valuenow={progress}
             aria-valuemin={0}

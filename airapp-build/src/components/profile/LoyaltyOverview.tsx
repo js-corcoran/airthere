@@ -21,10 +21,10 @@ export function LoyaltyOverview({ loyalty }: LoyaltyOverviewProps) {
       >
         Loyalty Points
       </h3>
-      <div className="bg-surface dark:bg-[oklch(18%_0.003_50)] rounded-[var(--radius-lg)] p-4 border border-surface-300 dark:border-[oklch(32%_0.008_50)]">
+      <div className="bg-surface dark:bg-card rounded-[var(--radius-lg)] p-4 border border-surface-300 dark:border-muted">
         <div className="flex items-center justify-between mb-3">
           <div>
-            <p className="text-2xl font-bold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+            <p className="text-2xl font-bold text-primary-900 dark:text-foreground">
               {loyalty.totalPoints.toLocaleString()}
             </p>
             <p className="text-xs text-primary-500 dark:text-primary-400">
@@ -46,7 +46,7 @@ export function LoyaltyOverview({ loyalty }: LoyaltyOverviewProps) {
               </span>
             </div>
             <div
-              className="h-2 rounded-full bg-surface-200 dark:bg-[oklch(25%_0.005_50)] overflow-hidden"
+              className="h-2 rounded-full bg-surface-200 dark:bg-input overflow-hidden"
               role="progressbar"
               aria-valuenow={progress}
               aria-valuemin={0}

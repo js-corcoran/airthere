@@ -14,7 +14,7 @@ export function ResultsSkeleton() {
       {[1, 2, 3, 4, 5].map((i) => (
         <div
           key={i}
-          className="p-4 rounded-xl border border-surface-200 dark:border-[oklch(25%_0.005_50)] space-y-3"
+          className="p-4 rounded-xl border border-surface-200 dark:border-input space-y-3"
         >
           <div className="flex justify-between">
             <div className="flex items-center gap-2">
@@ -31,7 +31,7 @@ export function ResultsSkeleton() {
             <Skeleton className="h-3 w-20" />
             <Skeleton className="h-5 w-16" />
           </div>
-          <div className="flex justify-between pt-2 border-t border-surface-100 dark:border-[oklch(22%_0.003_50)]">
+          <div className="flex justify-between pt-2 border-t border-surface-100 dark:border-input">
             <div className="flex gap-2">
               {[1, 2, 3].map((j) => (
                 <Skeleton key={j} className="w-4 h-4 rounded" />

@@ -27,7 +27,7 @@ function AccessBadge({ access }: { access: Lounge['access'] }) {
           className={cn(
             'inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full',
             'bg-success-50 text-success-700',
-            'dark:bg-[oklch(18%_0.01_142)] dark:text-success-400'
+            'dark:bg-surface-success dark:text-success-400'
           )}
         >
           <CheckCircle className="w-3.5 h-3.5" aria-hidden="true" />
@@ -40,7 +40,7 @@ function AccessBadge({ access }: { access: Lounge['access'] }) {
           className={cn(
             'inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full',
             'bg-info-50 text-info-700',
-            'dark:bg-[oklch(18%_0.01_252)] dark:text-[oklch(75%_0.12_252)]'
+            'dark:bg-surface-info dark:text-info-300'
           )}
         >
           <ArrowUpCircle className="w-3.5 h-3.5" aria-hidden="true" />
@@ -53,7 +53,7 @@ function AccessBadge({ access }: { access: Lounge['access'] }) {
           className={cn(
             'inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full',
             'bg-surface-200 text-primary-500',
-            'dark:bg-[oklch(25%_0.005_50)] dark:text-[oklch(60%_0.005_50)]'
+            'dark:bg-input dark:text-faint-foreground'
           )}
         >
           <XCircle className="w-3.5 h-3.5" aria-hidden="true" />
@@ -70,22 +70,22 @@ function CapacityBar({ capacity }: { capacity: Lounge['capacity'] }) {
   return (
     <div className="w-full">
       <div className="flex items-center justify-between text-[10px] mb-1">
-        <span className="text-primary-500 dark:text-[oklch(70%_0.008_50)]">Capacity</span>
+        <span className="text-primary-500 dark:text-caption-foreground">Capacity</span>
         <span
           className={cn(
             'font-medium',
             isBusy
-              ? 'text-error-600 dark:text-[oklch(55%_0.215_25)]'
+              ? 'text-error-600 dark:text-error-600'
               : isModerate
-                ? 'text-warning-600 dark:text-[oklch(58%_0.165_60)]'
-                : 'text-success-600 dark:text-[oklch(65%_0.160_142)]'
+                ? 'text-warning-600 dark:text-warning-600'
+                : 'text-success-600 dark:text-success-400'
           )}
         >
           {capacity.percentage}% full
         </span>
       </div>
       <div
-        className="h-1.5 bg-surface-200 dark:bg-[oklch(25%_0.005_50)] rounded-full overflow-hidden"
+        className="h-1.5 bg-surface-200 dark:bg-input rounded-full overflow-hidden"
         role="progressbar"
         aria-valuenow={capacity.percentage}
         aria-valuemin={0}
@@ -115,10 +115,10 @@ function StarRating({ rating, reviewCount }: { rating: number; reviewCount: numb
       aria-label={`${rating} out of 5 stars, ${reviewCount} reviews`}
     >
       <Star className="w-3.5 h-3.5 text-warning-500 fill-warning-500" aria-hidden="true" />
-      <span className="text-xs font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+      <span className="text-xs font-semibold text-primary-900 dark:text-foreground">
         {rating}
       </span>
-      <span className="text-[10px] text-primary-500 dark:text-[oklch(70%_0.008_50)]">
+      <span className="text-[10px] text-primary-500 dark:text-caption-foreground">
         ({reviewCount.toLocaleString()})
       </span>
     </div>
@@ -132,27 +132,27 @@ export function LoungeCard({ lounge, onSelect }: LoungeCardProps) {
     <article
       className={cn(
         'rounded-[var(--radius-lg)] border overflow-hidden',
-        'bg-surface dark:bg-[oklch(18%_0.003_50)]',
+        'bg-surface dark:bg-card',
         'shadow-[var(--shadow-sm)]',
         'transition-colors duration-[--duration-micro]',
         lounge.access.type === 'included'
-          ? 'border-success-200 dark:border-[oklch(35%_0.040_142)]'
-          : 'border-surface-300 dark:border-[oklch(32%_0.008_50)]'
+          ? 'border-success-200 dark:border-success'
+          : 'border-surface-300 dark:border-muted'
       )}
     >
       <div className="p-4">
         {/* Header row: name + access badge */}
         <div className="flex items-start justify-between gap-2 mb-2">
           <div className="flex-1 min-w-0">
-            <h3 className="text-base font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)] truncate">
+            <h3 className="text-base font-semibold text-primary-900 dark:text-foreground truncate">
               {lounge.name}
             </h3>
             <div className="flex items-center gap-1.5 mt-1">
               <MapPin
-                className="w-3 h-3 text-primary-500 dark:text-[oklch(70%_0.008_50)] flex-shrink-0"
+                className="w-3 h-3 text-primary-500 dark:text-caption-foreground flex-shrink-0"
                 aria-hidden="true"
               />
-              <span className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)]">
+              <span className="text-xs text-primary-500 dark:text-caption-foreground">
                 {lounge.terminal}, {lounge.gateArea}
               </span>
             </div>
@@ -165,17 +165,17 @@ export function LoungeCard({ lounge, onSelect }: LoungeCardProps) {
           <StarRating rating={lounge.rating} reviewCount={lounge.reviewCount} />
           <div className="flex items-center gap-1">
             <Clock
-              className="w-3 h-3 text-primary-500 dark:text-[oklch(70%_0.008_50)]"
+              className="w-3 h-3 text-primary-500 dark:text-caption-foreground"
               aria-hidden="true"
             />
             <span
               className={cn(
                 'text-xs font-medium',
                 lounge.waitTime === 0
-                  ? 'text-success-600 dark:text-[oklch(65%_0.160_142)]'
+                  ? 'text-success-600 dark:text-success-400'
                   : lounge.waitTime <= 10
-                    ? 'text-warning-600 dark:text-[oklch(58%_0.165_60)]'
-                    : 'text-error-600 dark:text-[oklch(55%_0.215_25)]'
+                    ? 'text-warning-600 dark:text-warning-600'
+                    : 'text-error-600 dark:text-error-600'
               )}
             >
               {lounge.waitTime === 0 ? 'No wait' : `${lounge.waitTime} min wait`}
@@ -201,13 +201,13 @@ export function LoungeCard({ lounge, onSelect }: LoungeCardProps) {
         </div>
 
         {/* Footer: walking distance + CTA */}
-        <div className="flex items-center justify-between pt-2 border-t border-surface-200 dark:border-[oklch(28%_0.005_50)]">
+        <div className="flex items-center justify-between pt-2 border-t border-surface-200 dark:border-input">
           <div className="flex items-center gap-1.5">
             <Footprints
-              className="w-3.5 h-3.5 text-primary-500 dark:text-[oklch(70%_0.008_50)]"
+              className="w-3.5 h-3.5 text-primary-500 dark:text-caption-foreground"
               aria-hidden="true"
             />
-            <span className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)]">
+            <span className="text-xs text-primary-500 dark:text-caption-foreground">
               {lounge.walkingDistance}
             </span>
           </div>
@@ -215,8 +215,8 @@ export function LoungeCard({ lounge, onSelect }: LoungeCardProps) {
             onClick={() => onSelect(lounge)}
             className={cn(
               'inline-flex items-center gap-1 text-xs font-medium px-3 py-2 rounded-[var(--radius-md)]',
-              'text-primary-600 dark:text-[oklch(80%_0.005_50)]',
-              'hover:bg-surface-200 dark:hover:bg-[oklch(25%_0.005_50)]',
+              'text-primary-600 dark:text-soft-foreground',
+              'hover:bg-surface-200 dark:hover:bg-input',
               'transition-colors duration-[--duration-micro]',
               'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
               'min-h-[var(--touch-min)]'

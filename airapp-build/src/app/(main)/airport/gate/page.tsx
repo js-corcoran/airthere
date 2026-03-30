@@ -71,8 +71,8 @@ export default function GateBoardingPage() {
       {/* Live status pill */}
       <div className="px-4 py-2 flex items-center justify-center">
         <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium
-                         bg-primary-100 dark:bg-[oklch(25%_0.010_262)]
-                         text-primary-700 dark:text-[oklch(80%_0.005_50)]">
+                         bg-primary-100 dark:bg-surface-primary
+                         text-primary-700 dark:text-soft-foreground">
           <span className="w-1.5 h-1.5 rounded-full bg-success-500 animate-pulse" aria-hidden="true" />
           Live · Updates every 30 seconds
         </span>
@@ -86,16 +86,16 @@ export default function GateBoardingPage() {
         {persona === 'business' && boardingInfo.gate === 'C15' && (
           <div
             className="flex items-start gap-3 p-3 rounded-lg
-                       bg-warning-50 dark:bg-[oklch(20%_0.005_60)]
-                       border border-warning-200 dark:border-[oklch(35%_0.040_60)]"
+                       bg-warning-50 dark:bg-surface-warning
+                       border border-warning-200 dark:border-warning-800"
             role="alert"
           >
-            <span className="text-warning-500 dark:text-[oklch(67%_0.175_60)] mt-0.5 shrink-0">⚠️</span>
+            <span className="text-warning-500 dark:text-warning-500 mt-0.5 shrink-0">⚠️</span>
             <div>
-              <p className="text-sm font-medium text-warning-800 dark:text-[oklch(58%_0.165_60)]">
+              <p className="text-sm font-medium text-warning-800 dark:text-warning-600">
                 Gate Changed
               </p>
-              <p className="text-xs text-warning-700 dark:text-[oklch(50%_0.145_60)] mt-0.5">
+              <p className="text-xs text-warning-700 dark:text-warning-700 mt-0.5">
                 Your gate has changed from C10 to C15. Updated 2 minutes ago.
               </p>
             </div>
@@ -106,16 +106,16 @@ export default function GateBoardingPage() {
         {boardingInfo.delayMinutes > 0 && (
           <div
             className="flex items-start gap-3 p-3 rounded-lg
-                       bg-warning-50 dark:bg-[oklch(20%_0.005_60)]
-                       border border-warning-200 dark:border-[oklch(35%_0.040_60)]"
+                       bg-warning-50 dark:bg-surface-warning
+                       border border-warning-200 dark:border-warning-800"
             role="alert"
           >
             <span className="text-warning-500 mt-0.5 shrink-0">⏳</span>
             <div>
-              <p className="text-sm font-medium text-warning-800 dark:text-[oklch(58%_0.165_60)]">
+              <p className="text-sm font-medium text-warning-800 dark:text-warning-600">
                 Flight Delayed {boardingInfo.delayMinutes} Minutes
               </p>
-              <p className="text-xs text-warning-700 dark:text-[oklch(50%_0.145_60)] mt-0.5">
+              <p className="text-xs text-warning-700 dark:text-warning-700 mt-0.5">
                 New estimated departure: {boardingInfo.estimatedTime}. We&apos;ll keep you updated.
               </p>
             </div>
@@ -140,27 +140,27 @@ export default function GateBoardingPage() {
         <ConnectionWarningCard connection={connection} />
 
         {/* Flight details */}
-        <section className="rounded-lg border border-surface-300 dark:border-[oklch(32%_0.008_50)]
-                            bg-surface dark:bg-[oklch(18%_0.003_50)] p-4">
-          <h3 className="text-base font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)] mb-3">
+        <section className="rounded-lg border border-surface-300 dark:border-muted
+                            bg-surface dark:bg-card p-4">
+          <h3 className="text-base font-semibold text-primary-900 dark:text-foreground mb-3">
             Flight Details
           </h3>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <p className="text-[10px] text-primary-400 dark:text-[oklch(60%_0.005_50)] uppercase tracking-wider">Aircraft</p>
-              <p className="text-sm font-medium text-primary-900 dark:text-[oklch(95%_0.002_50)]">{boardingInfo.aircraft}</p>
+              <p className="text-[10px] text-primary-400 dark:text-faint-foreground uppercase tracking-wider">Aircraft</p>
+              <p className="text-sm font-medium text-primary-900 dark:text-foreground">{boardingInfo.aircraft}</p>
             </div>
             <div>
-              <p className="text-[10px] text-primary-400 dark:text-[oklch(60%_0.005_50)] uppercase tracking-wider">Confirmation</p>
-              <p className="text-sm font-medium text-primary-900 dark:text-[oklch(95%_0.002_50)] font-mono">{boardingInfo.confirmationNumber}</p>
+              <p className="text-[10px] text-primary-400 dark:text-faint-foreground uppercase tracking-wider">Confirmation</p>
+              <p className="text-sm font-medium text-primary-900 dark:text-foreground font-mono">{boardingInfo.confirmationNumber}</p>
             </div>
             <div>
-              <p className="text-[10px] text-primary-400 dark:text-[oklch(60%_0.005_50)] uppercase tracking-wider">Gate</p>
-              <p className="text-sm font-medium text-primary-900 dark:text-[oklch(95%_0.002_50)]">{boardingInfo.gate} · {boardingInfo.terminal}</p>
+              <p className="text-[10px] text-primary-400 dark:text-faint-foreground uppercase tracking-wider">Gate</p>
+              <p className="text-sm font-medium text-primary-900 dark:text-foreground">{boardingInfo.gate} · {boardingInfo.terminal}</p>
             </div>
             <div>
-              <p className="text-[10px] text-primary-400 dark:text-[oklch(60%_0.005_50)] uppercase tracking-wider">Status</p>
-              <p className="text-sm font-medium text-primary-900 dark:text-[oklch(95%_0.002_50)] capitalize">
+              <p className="text-[10px] text-primary-400 dark:text-faint-foreground uppercase tracking-wider">Status</p>
+              <p className="text-sm font-medium text-primary-900 dark:text-foreground capitalize">
                 {boardingInfo.status.replace('_', ' ')}
               </p>
             </div>
@@ -176,11 +176,11 @@ export default function GateBoardingPage() {
 
         {/* Family-specific reminder */}
         {persona === 'family' && (
-          <div className="p-3 rounded-lg bg-info-50 dark:bg-[oklch(20%_0.002_240)] border border-info-200 dark:border-[oklch(35%_0.020_240)]">
-            <p className="text-xs text-info-700 dark:text-[oklch(70%_0.125_240)] font-medium">
+          <div className="p-3 rounded-lg bg-info-50 dark:bg-surface-info border border-info-200 dark:border-info">
+            <p className="text-xs text-info-700 dark:text-info-400 font-medium">
               🎒 Family Boarding Tip
             </p>
-            <p className="text-xs text-info-600 dark:text-[oklch(55%_0.160_240)] mt-1">
+            <p className="text-xs text-info-600 dark:text-info-600 mt-1">
               Families with children under 6 can board during the pre-boarding phase.
               Have all family boarding passes ready at the gate. Children&apos;s entertainment bags can
               go in the overhead bin — the crew will help you get settled.

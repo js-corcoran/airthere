@@ -21,21 +21,21 @@ const TRUST_CONFIG: Record<TrustLevel, {
     label: 'Copilot',
     description: 'I recommend, you decide',
     color: 'text-info-600 dark:text-info-400',
-    bg: 'bg-info-50 dark:bg-[oklch(18%_0.02_240)]',
+    bg: 'bg-info-50 dark:bg-surface-info',
   },
   curator: {
     icon: Eye,
     label: 'Curator',
     description: 'I handle routine, you approve big decisions',
     color: 'text-secondary-600 dark:text-secondary-400',
-    bg: 'bg-secondary-50 dark:bg-[oklch(18%_0.02_50)]',
+    bg: 'bg-secondary-50 dark:bg-card',
   },
   autonomous: {
     icon: Zap,
     label: 'Autonomous',
     description: 'I act on your behalf within your preferences',
     color: 'text-success-600 dark:text-success-400',
-    bg: 'bg-success-50 dark:bg-[oklch(18%_0.02_142)]',
+    bg: 'bg-success-50 dark:bg-surface-success',
   },
 };
 

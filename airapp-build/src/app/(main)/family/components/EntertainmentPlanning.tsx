@@ -19,14 +19,14 @@ export function EntertainmentPlanning({ recommendations }: EntertainmentPlanning
     <section
       className={cn(
         'rounded-lg border shadow-sm p-4',
-        'bg-surface dark:bg-[oklch(18%_0.003_50)]',
-        'border-surface-300 dark:border-[oklch(32%_0.008_50)]'
+        'bg-surface dark:bg-card',
+        'border-surface-300 dark:border-muted'
       )}
       aria-label="In-flight entertainment planning"
     >
       <div className="flex items-center gap-2 mb-3">
-        <Tv className="w-5 h-5 text-secondary-500 dark:text-[oklch(72%_0.158_50)]" aria-hidden="true" />
-        <h2 className="text-base font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+        <Tv className="w-5 h-5 text-secondary-500 dark:text-secondary-400" aria-hidden="true" />
+        <h2 className="text-base font-semibold text-primary-900 dark:text-foreground">
           Entertainment Planning
         </h2>
       </div>
@@ -39,17 +39,17 @@ export function EntertainmentPlanning({ recommendations }: EntertainmentPlanning
               key={rec.memberId}
               className={cn(
                 'rounded-md p-3 border',
-                'bg-background dark:bg-[oklch(15%_0.002_50)]',
-                'border-surface-300 dark:border-[oklch(32%_0.008_50)]'
+                'bg-background dark:bg-background',
+                'border-surface-300 dark:border-muted'
               )}
             >
               <div className="flex items-center gap-2 mb-2">
-                <Icon className="w-4 h-4 text-secondary-600 dark:text-[oklch(72%_0.158_50)]" aria-hidden="true" />
-                <span className="text-sm font-medium text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+                <Icon className="w-4 h-4 text-secondary-600 dark:text-secondary-400" aria-hidden="true" />
+                <span className="text-sm font-medium text-primary-900 dark:text-foreground">
                   {rec.memberName}
                 </span>
                 {rec.age < 18 && (
-                  <span className="text-xs text-primary-500 dark:text-[oklch(60%_0.005_50)]">
+                  <span className="text-xs text-primary-500 dark:text-faint-foreground">
                     ({rec.age}y)
                   </span>
                 )}
@@ -58,7 +58,7 @@ export function EntertainmentPlanning({ recommendations }: EntertainmentPlanning
                 {rec.recommendations.map((item) => (
                   <span
                     key={item}
-                    className="text-xs px-2.5 py-1 rounded-full bg-surface-200 text-primary-700 dark:bg-[oklch(25%_0.005_50)] dark:text-[oklch(85%_0.005_50)]"
+                    className="text-xs px-2.5 py-1 rounded-full bg-surface-200 text-primary-700 dark:bg-input dark:text-muted-foreground"
                   >
                     {item}
                   </span>
@@ -70,10 +70,10 @@ export function EntertainmentPlanning({ recommendations }: EntertainmentPlanning
       </div>
 
       {/* Shared activities */}
-      <div className="mt-4 pt-3 border-t border-surface-300 dark:border-[oklch(32%_0.008_50)]">
+      <div className="mt-4 pt-3 border-t border-surface-300 dark:border-muted">
         <div className="flex items-center gap-2 mb-2">
-          <Users className="w-4 h-4 text-primary-500 dark:text-[oklch(65%_0.194_262)]" aria-hidden="true" />
-          <span className="text-sm font-medium text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+          <Users className="w-4 h-4 text-primary-500 dark:text-primary-400" aria-hidden="true" />
+          <span className="text-sm font-medium text-primary-900 dark:text-foreground">
             Shared Activities
           </span>
         </div>
@@ -84,8 +84,8 @@ export function EntertainmentPlanning({ recommendations }: EntertainmentPlanning
               className={cn(
                 'text-xs px-3 py-1.5 rounded-full font-medium',
                 'bg-secondary-100 text-secondary-700',
-                'dark:bg-[oklch(25%_0.020_50)] dark:text-[oklch(85%_0.110_50)]',
-                'hover:bg-secondary-200 dark:hover:bg-[oklch(30%_0.030_50)]',
+                'dark:bg-input dark:text-muted-foreground',
+                'hover:bg-secondary-200 dark:hover:bg-muted',
                 'transition-colors duration-[--duration-micro]',
                 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
                 'min-h-[var(--touch-min)] flex items-center'

@@ -28,7 +28,7 @@ export function TransportVoucher({ options, onSelect, selectedId }: TransportVou
       >
         Ground Transport
       </h3>
-      <div className="bg-surface dark:bg-[oklch(18%_0.003_50)] rounded-[var(--radius-lg)] p-4 border border-surface-300 dark:border-[oklch(32%_0.008_50)]">
+      <div className="bg-surface dark:bg-card rounded-[var(--radius-lg)] p-4 border border-surface-300 dark:border-muted">
         <div className="space-y-2">
           {options.map((option, i) => {
             const Icon = TYPE_ICONS[option.type] ?? Car;
@@ -47,15 +47,15 @@ export function TransportVoucher({ options, onSelect, selectedId }: TransportVou
                   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
                   'opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]',
                   isSelected
-                    ? 'border-primary-500 bg-primary-50 dark:bg-[oklch(20%_0.01_262)] dark:border-primary-400'
-                    : 'border-surface-300 dark:border-[oklch(32%_0.008_50)] hover:bg-surface-200 dark:hover:bg-[oklch(22%_0.005_50)]',
+                    ? 'border-primary-500 bg-primary-50 dark:bg-surface-primary dark:border-primary-400'
+                    : 'border-surface-300 dark:border-muted hover:bg-surface-200 dark:hover:bg-surface-elevated',
                 )}
               >
                 <div className={cn(
                   'w-10 h-10 rounded-[var(--radius-md)] flex items-center justify-center shrink-0',
                   isSelected
                     ? 'bg-primary-100 dark:bg-primary-800'
-                    : 'bg-surface-200 dark:bg-[oklch(25%_0.005_50)]'
+                    : 'bg-surface-200 dark:bg-input'
                 )}>
                   <Icon
                     className={cn(
@@ -69,7 +69,7 @@ export function TransportVoucher({ options, onSelect, selectedId }: TransportVou
                 </div>
 
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-semibold text-primary-800 dark:text-[oklch(90%_0.002_50)]">
+                  <p className="text-sm font-semibold text-primary-800 dark:text-subtle-foreground">
                     {option.name}
                   </p>
                   <p className="text-xs text-primary-500 dark:text-primary-400">

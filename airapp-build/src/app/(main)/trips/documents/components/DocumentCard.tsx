@@ -21,11 +21,11 @@ const TYPE_ICONS: Record<string, typeof FileText> = {
 };
 
 const TYPE_COLORS: Record<string, string> = {
-  passport: 'text-primary-600 dark:text-[oklch(70%_0.125_262)]',
+  passport: 'text-primary-600 dark:text-primary-400',
   visa: 'text-info-600 dark:text-info-400',
   insurance: 'text-success-600 dark:text-success-400',
-  booking: 'text-secondary-600 dark:text-[oklch(72%_0.158_50)]',
-  custom: 'text-primary-500 dark:text-[oklch(60%_0.005_50)]',
+  booking: 'text-secondary-600 dark:text-secondary-400',
+  custom: 'text-primary-500 dark:text-faint-foreground',
 };
 
 function getExpirationInfo(expirationDate?: string): { label: string; variant: 'ok' | 'warning' | 'expired' } | null {
@@ -52,10 +52,10 @@ export function DocumentCard({ document: doc, onView, onDelete, onShare, onUploa
         'rounded-lg p-4 border shadow-sm',
         'transition-all duration-[--duration-micro] hover:shadow-md hover:-translate-y-0.5',
         doc.status === 'expired'
-          ? 'bg-error-50 border-error-300 dark:bg-[oklch(18%_0.008_25)] dark:border-error-800'
+          ? 'bg-error-50 border-error-300 dark:bg-surface-error dark:border-error-800'
           : doc.status === 'expiring-soon'
-            ? 'bg-warning-50 border-warning-300 dark:bg-[oklch(18%_0.005_60)] dark:border-warning-800'
-            : 'bg-surface border-surface-300 dark:bg-[oklch(18%_0.003_50)] dark:border-[oklch(32%_0.008_50)]'
+            ? 'bg-warning-50 border-warning-300 dark:bg-card dark:border-warning-800'
+            : 'bg-surface border-surface-300 dark:bg-card dark:border-muted'
       )}
       role="article"
       aria-label={`${doc.name}${doc.holderName ? ` for ${doc.holderName}` : ''}, ${doc.status}`}
@@ -70,11 +70,11 @@ export function DocumentCard({ document: doc, onView, onDelete, onShare, onUploa
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-2">
             <div className="min-w-0">
-              <h3 className="text-sm font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)] truncate">
+              <h3 className="text-sm font-semibold text-primary-900 dark:text-foreground truncate">
                 {doc.name}
               </h3>
               {doc.holderName && (
-                <p className="text-xs text-primary-500 dark:text-[oklch(60%_0.005_50)]">
+                <p className="text-xs text-primary-500 dark:text-faint-foreground">
                   {doc.holderName}
                 </p>
               )}
@@ -82,7 +82,7 @@ export function DocumentCard({ document: doc, onView, onDelete, onShare, onUploa
 
             {/* Status badge */}
             {doc.required && (
-              <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-primary-100 text-primary-600 dark:bg-[oklch(25%_0.010_262)] dark:text-[oklch(70%_0.010_262)] shrink-0 font-medium">
+              <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-primary-100 text-primary-600 dark:bg-surface-primary dark:text-primary-400 shrink-0 font-medium">
                 Required
               </span>
             )}
@@ -123,7 +123,7 @@ export function DocumentCard({ document: doc, onView, onDelete, onShare, onUploa
 
           {/* Document number */}
           {doc.metadata.documentNumber && (
-            <p className="text-[10px] text-primary-400 dark:text-[oklch(50%_0.005_50)] mt-1 font-mono">
+            <p className="text-[10px] text-primary-400 dark:text-faint-foreground mt-1 font-mono">
               {doc.metadata.documentNumber}
             </p>
           )}
@@ -131,8 +131,8 @@ export function DocumentCard({ document: doc, onView, onDelete, onShare, onUploa
           {/* Encryption badge */}
           {doc.encrypted && !isNotUploaded && (
             <div className="flex items-center gap-1 mt-1">
-              <Shield className="w-3 h-3 text-primary-400 dark:text-[oklch(50%_0.005_50)]" aria-hidden="true" />
-              <span className="text-[10px] text-primary-400 dark:text-[oklch(50%_0.005_50)]">
+              <Shield className="w-3 h-3 text-primary-400 dark:text-faint-foreground" aria-hidden="true" />
+              <span className="text-[10px] text-primary-400 dark:text-faint-foreground">
                 Encrypted
               </span>
             </div>
@@ -162,8 +162,8 @@ export function DocumentCard({ document: doc, onView, onDelete, onShare, onUploa
                   className={cn(
                     'flex items-center gap-1 px-3 py-1.5 text-xs font-medium rounded-md',
                     'bg-surface-200 text-primary-700',
-                    'dark:bg-[oklch(25%_0.005_50)] dark:text-[oklch(85%_0.005_50)]',
-                    'hover:bg-surface-300 dark:hover:bg-[oklch(30%_0.008_50)]',
+                    'dark:bg-input dark:text-muted-foreground',
+                    'hover:bg-surface-300 dark:hover:bg-muted',
                     'transition-colors duration-[--duration-micro]',
                     'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
                     'min-h-[var(--touch-min)]'
@@ -178,8 +178,8 @@ export function DocumentCard({ document: doc, onView, onDelete, onShare, onUploa
                   className={cn(
                     'flex items-center gap-1 px-3 py-1.5 text-xs font-medium rounded-md',
                     'bg-surface-200 text-primary-700',
-                    'dark:bg-[oklch(25%_0.005_50)] dark:text-[oklch(85%_0.005_50)]',
-                    'hover:bg-surface-300 dark:hover:bg-[oklch(30%_0.008_50)]',
+                    'dark:bg-input dark:text-muted-foreground',
+                    'hover:bg-surface-300 dark:hover:bg-muted',
                     'transition-colors duration-[--duration-micro]',
                     'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
                     'min-h-[var(--touch-min)]'
@@ -194,7 +194,7 @@ export function DocumentCard({ document: doc, onView, onDelete, onShare, onUploa
                   className={cn(
                     'flex items-center gap-1 px-3 py-1.5 text-xs font-medium rounded-md',
                     'text-error-600 hover:bg-error-50',
-                    'dark:text-error-400 dark:hover:bg-[oklch(20%_0.008_25)]',
+                    'dark:text-error-400 dark:hover:bg-surface-error',
                     'transition-colors duration-[--duration-micro]',
                     'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
                     'min-h-[var(--touch-min)]'

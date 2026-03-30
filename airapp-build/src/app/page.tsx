@@ -22,7 +22,7 @@ export default function RootPage() {
         <div className="w-12 h-12 rounded-xl bg-secondary-500 flex items-center justify-center">
           <span className="text-white font-bold text-xl">A</span>
         </div>
-        <span className="text-sm text-primary-500 dark:text-[oklch(70%_0.008_50)] animate-pulse">
+        <span className="text-sm text-primary-500 dark:text-caption-foreground animate-pulse">
           Loading...
         </span>
       </div>

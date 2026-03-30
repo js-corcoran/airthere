@@ -18,7 +18,7 @@ export function DateSelector({ label, value, onChange, minDate, optional }: Date
 
   return (
     <div>
-      <label className="block text-xs font-medium text-primary-700 dark:text-[oklch(85%_0.005_50)] mb-1.5 uppercase tracking-wider">
+      <label className="block text-xs font-medium text-primary-700 dark:text-muted-foreground mb-1.5 uppercase tracking-wider">
         {label} {optional && <span className="text-primary-400 normal-case">(optional)</span>}
       </label>
       <div className="relative">
@@ -32,8 +32,8 @@ export function DateSelector({ label, value, onChange, minDate, optional }: Date
             'w-full pl-10 pr-4 py-3 border rounded-md text-base bg-background',
             'transition-colors duration-[--duration-short]',
             'focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500',
-            'dark:bg-[oklch(18%_0.003_50)] dark:text-[oklch(95%_0.002_50)]',
-            'border-surface-300 dark:border-[oklch(32%_0.008_50)]',
+            'dark:bg-card dark:text-foreground',
+            'border-surface-300 dark:border-muted',
             'min-h-[var(--touch-preferred)]',
             '[color-scheme:light] dark:[color-scheme:dark]'
           )}

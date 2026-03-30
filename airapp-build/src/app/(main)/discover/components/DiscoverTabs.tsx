@@ -19,8 +19,8 @@ const TABS: { id: DiscoverTab; label: string }[] = [
 export function DiscoverTabs({ activeTab, onTabChange, wishlistCount }: DiscoverTabsProps) {
   return (
     <div
-      className="flex gap-1 px-4 py-2 border-b border-surface-300 dark:border-[oklch(32%_0.008_50)]
-                 bg-surface dark:bg-[oklch(18%_0.003_50)]"
+      className="flex gap-1 px-4 py-2 border-b border-surface-300 dark:border-muted
+                 bg-surface dark:bg-card"
       role="tablist"
       aria-label="Discover tabs"
     >
@@ -40,8 +40,8 @@ export function DiscoverTabs({ activeTab, onTabChange, wishlistCount }: Discover
               'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
               'min-h-[var(--touch-min)]',
               isActive
-                ? 'text-primary-900 dark:text-[oklch(95%_0.002_50)] bg-primary-50 dark:bg-[oklch(25%_0.005_50)]'
-                : 'text-primary-500 dark:text-[oklch(70%_0.008_50)] hover:text-primary-700 dark:hover:text-[oklch(85%_0.005_50)]'
+                ? 'text-primary-900 dark:text-foreground bg-primary-50 dark:bg-input'
+                : 'text-primary-500 dark:text-caption-foreground hover:text-primary-700 dark:hover:text-muted-foreground'
             )}
           >
             {tab.label}
@@ -62,7 +62,7 @@ export function DiscoverTabs({ activeTab, onTabChange, wishlistCount }: Discover
             )}
             {isActive && (
               <span
-                className="absolute bottom-0 left-2 right-2 h-0.5 bg-secondary-500 dark:bg-[oklch(72%_0.158_50)] rounded-full"
+                className="absolute bottom-0 left-2 right-2 h-0.5 bg-secondary-500 dark:bg-secondary-400 rounded-full"
                 aria-hidden="true"
               />
             )}

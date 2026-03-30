@@ -89,12 +89,12 @@ export default function FamilyHubPage() {
       {/* Header */}
       <div className="px-4 pt-2 pb-4">
         <div className="flex items-center gap-2 mb-1">
-          <Users className="w-5 h-5 text-secondary-500 dark:text-[oklch(72%_0.158_50)]" aria-hidden="true" />
-          <h1 className="text-xl font-bold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+          <Users className="w-5 h-5 text-secondary-500 dark:text-secondary-400" aria-hidden="true" />
+          <h1 className="text-xl font-bold text-primary-900 dark:text-foreground">
             {family.familyName}
           </h1>
         </div>
-        <p className="text-sm text-primary-500 dark:text-[oklch(60%_0.005_50)]">
+        <p className="text-sm text-primary-500 dark:text-faint-foreground">
           {family.members.length} members
         </p>
 
@@ -103,15 +103,15 @@ export default function FamilyHubPage() {
           className={cn(
             'mt-3 px-3 py-2.5 rounded-md flex items-center gap-2',
             'bg-secondary-50 border border-secondary-200',
-            'dark:bg-[oklch(18%_0.010_50)] dark:border-[oklch(32%_0.020_50)]'
+            'dark:bg-card dark:border-muted'
           )}
         >
-          <Plane className="w-4 h-4 text-secondary-600 dark:text-[oklch(72%_0.158_50)]" aria-hidden="true" />
+          <Plane className="w-4 h-4 text-secondary-600 dark:text-secondary-400" aria-hidden="true" />
           <div>
-            <span className="text-sm font-medium text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+            <span className="text-sm font-medium text-primary-900 dark:text-foreground">
               {family.tripName}
             </span>
-            <span className="text-xs text-primary-500 dark:text-[oklch(60%_0.005_50)] ml-2">
+            <span className="text-xs text-primary-500 dark:text-faint-foreground ml-2">
               {family.tripDates}
             </span>
           </div>
@@ -128,8 +128,8 @@ export default function FamilyHubPage() {
               className={cn(
                 'flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-md',
                 'border border-primary-300 text-primary-700',
-                'dark:border-[oklch(40%_0.030_262)] dark:text-[oklch(85%_0.005_50)]',
-                'hover:bg-surface-200 dark:hover:bg-[oklch(25%_0.005_50)]',
+                'dark:border-primary dark:text-muted-foreground',
+                'hover:bg-surface-200 dark:hover:bg-input',
                 'transition-colors duration-[--duration-micro]',
                 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
                 'min-h-[var(--touch-min)]'
@@ -146,7 +146,7 @@ export default function FamilyHubPage() {
       <div className="px-4 space-y-4">
         {/* Family Members */}
         <section aria-label="Family members">
-          <h2 className="text-sm font-semibold text-primary-700 dark:text-[oklch(85%_0.005_50)] uppercase tracking-wider mb-2">
+          <h2 className="text-sm font-semibold text-primary-700 dark:text-muted-foreground uppercase tracking-wider mb-2">
             Family Members
           </h2>
           <div className="space-y-3">

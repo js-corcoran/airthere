@@ -64,7 +64,7 @@ export default function TripRecapPage() {
     <main
       role="main"
       aria-label="Trip recap"
-      className="min-h-screen bg-background dark:bg-[oklch(12%_0.002_50)] pb-24"
+      className="min-h-screen bg-background dark:bg-background pb-24"
     >
       <div className="px-4 pt-4 space-y-6">
         {/* Trip Summary Hero */}

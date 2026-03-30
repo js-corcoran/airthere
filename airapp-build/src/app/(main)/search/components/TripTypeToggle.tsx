@@ -19,7 +19,7 @@ const TRIP_TYPES: { value: TripType; label: string }[] = [
 export function TripTypeToggle({ value, onChange }: TripTypeToggleProps) {
   return (
     <div
-      className="flex rounded-lg bg-surface-100 dark:bg-[oklch(15%_0.003_50)] p-1 gap-1"
+      className="flex rounded-lg bg-surface-100 dark:bg-background p-1 gap-1"
       role="radiogroup"
       aria-label="Trip type"
     >
@@ -35,8 +35,8 @@ export function TripTypeToggle({ value, onChange }: TripTypeToggleProps) {
             'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
             'min-h-[var(--touch-min)]',
             value === option.value
-              ? 'bg-background text-primary-900 shadow-sm dark:bg-[oklch(25%_0.005_50)] dark:text-[oklch(95%_0.002_50)]'
-              : 'text-primary-500 dark:text-[oklch(65%_0.005_50)] hover:text-primary-700 dark:hover:text-[oklch(80%_0.005_50)]'
+              ? 'bg-background text-primary-900 shadow-sm dark:bg-input dark:text-foreground'
+              : 'text-primary-500 dark:text-dimmed-foreground hover:text-primary-700 dark:hover:text-soft-foreground'
           )}
         >
           {option.label}

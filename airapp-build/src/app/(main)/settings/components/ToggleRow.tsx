@@ -25,14 +25,14 @@ export function ToggleRow({
       <div className="flex-1 min-w-0">
         <label
           id={id}
-          className="text-sm text-primary-800 dark:text-[oklch(90%_0.002_50)] cursor-pointer"
+          className="text-sm text-primary-800 dark:text-subtle-foreground cursor-pointer"
         >
           {label}
         </label>
         {description && (
           <p
             id={descriptionId}
-            className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)] mt-0.5 leading-snug"
+            className="text-xs text-primary-500 dark:text-caption-foreground mt-0.5 leading-snug"
           >
             {description}
           </p>
@@ -56,7 +56,7 @@ export function ToggleRow({
           ${
             checked
               ? 'bg-primary-600 dark:bg-primary-500'
-              : 'bg-surface-300 dark:bg-[oklch(32%_0.008_50)]'
+              : 'bg-surface-300 dark:bg-muted'
           }
         `}
       >

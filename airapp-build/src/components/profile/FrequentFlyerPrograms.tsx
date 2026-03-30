@@ -39,8 +39,8 @@ export function FrequentFlyerPrograms({ programs }: FrequentFlyerProgramsProps) 
             style={{ animationDelay: `${i * 60}ms` }}
             className={cn(
               'w-full flex items-center gap-3 p-3 rounded-[var(--radius-lg)] text-left',
-              'bg-surface dark:bg-[oklch(18%_0.003_50)]',
-              'border border-surface-300 dark:border-[oklch(32%_0.008_50)]',
+              'bg-surface dark:bg-card',
+              'border border-surface-300 dark:border-muted',
               'hover:shadow-sm hover:-translate-y-0.5 transition-all duration-[--duration-micro]',
               'min-h-[var(--touch-preferred)]',
               'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
@@ -57,7 +57,7 @@ export function FrequentFlyerPrograms({ programs }: FrequentFlyerProgramsProps) 
 
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2">
-                <p className="text-sm font-semibold text-primary-800 dark:text-[oklch(90%_0.002_50)] truncate">
+                <p className="text-sm font-semibold text-primary-800 dark:text-subtle-foreground truncate">
                   {program.programName}
                 </p>
                 {program.eliteStatus && (
@@ -84,7 +84,7 @@ export function FrequentFlyerPrograms({ programs }: FrequentFlyerProgramsProps) 
               'flex-1 flex items-center justify-center gap-1 px-4 py-2.5 rounded-[var(--radius-md)]',
               'text-xs font-medium text-primary-600 dark:text-primary-300',
               'border border-primary-200 dark:border-primary-700',
-              'hover:bg-primary-50 dark:hover:bg-[oklch(22%_0.005_50)]',
+              'hover:bg-primary-50 dark:hover:bg-surface-elevated',
               'transition-colors duration-[--duration-micro]',
               'min-h-[var(--touch-min)]',
               'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
@@ -98,7 +98,7 @@ export function FrequentFlyerPrograms({ programs }: FrequentFlyerProgramsProps) 
             'flex-1 flex items-center justify-center gap-1 px-4 py-2.5 rounded-[var(--radius-md)]',
             'text-xs font-medium text-primary-600 dark:text-primary-300',
             'border border-dashed border-primary-300 dark:border-primary-600',
-            'hover:bg-primary-50 dark:hover:bg-[oklch(22%_0.005_50)]',
+            'hover:bg-primary-50 dark:hover:bg-surface-elevated',
             'transition-colors duration-[--duration-micro]',
             'min-h-[var(--touch-min)]',
             'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',

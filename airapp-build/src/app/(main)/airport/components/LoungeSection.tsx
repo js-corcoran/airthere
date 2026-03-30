@@ -48,21 +48,21 @@ function LoungeCard({ lounge, persona }: { lounge: AirportLounge; persona: Perso
     <div
       className={cn(
         'rounded-lg border overflow-hidden',
-        'bg-surface dark:bg-[oklch(18%_0.003_50)]',
+        'bg-surface dark:bg-card',
         lounge.hasAccess
-          ? 'border-success-200 dark:border-[oklch(35%_0.040_142)]'
-          : 'border-surface-300 dark:border-[oklch(32%_0.008_50)]'
+          ? 'border-success-200 dark:border-success'
+          : 'border-surface-300 dark:border-muted'
       )}
     >
       {/* Access indicator */}
       {lounge.hasAccess && (
-        <div className="flex items-center gap-1.5 px-4 py-1.5 bg-success-50 dark:bg-[oklch(20%_0.008_142)]">
-          <CheckCircle className="w-3.5 h-3.5 text-success-500 dark:text-[oklch(62%_0.165_142)]" aria-hidden="true" />
-          <span className="text-xs font-medium text-success-700 dark:text-[oklch(65%_0.160_142)]">
+        <div className="flex items-center gap-1.5 px-4 py-1.5 bg-success-50 dark:bg-surface-success">
+          <CheckCircle className="w-3.5 h-3.5 text-success-500 dark:text-success-500" aria-hidden="true" />
+          <span className="text-xs font-medium text-success-700 dark:text-success-400">
             You have access
           </span>
           {lounge.accessReason && (
-            <span className="text-[10px] text-success-600 dark:text-[oklch(55%_0.155_142)]">
+            <span className="text-[10px] text-success-600 dark:text-success-600">
               — {lounge.accessReason}
             </span>
           )}
@@ -73,10 +73,10 @@ function LoungeCard({ lounge, persona }: { lounge: AirportLounge; persona: Perso
         {/* Header */}
         <div className="flex items-start justify-between mb-3">
           <div>
-            <h4 className="text-base font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+            <h4 className="text-base font-semibold text-primary-900 dark:text-foreground">
               {lounge.name}
             </h4>
-            <div className="flex items-center gap-2 mt-1 text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)]">
+            <div className="flex items-center gap-2 mt-1 text-xs text-primary-500 dark:text-caption-foreground">
               <MapPin className="w-3 h-3" aria-hidden="true" />
               <span>{lounge.terminal}, near Gate {lounge.nearGate}</span>
               <span aria-hidden="true">·</span>
@@ -84,7 +84,7 @@ function LoungeCard({ lounge, persona }: { lounge: AirportLounge; persona: Perso
             </div>
           </div>
           {!lounge.hasAccess && (
-            <span className="flex items-center gap-1 text-xs font-medium text-primary-500 dark:text-[oklch(70%_0.008_50)]">
+            <span className="flex items-center gap-1 text-xs font-medium text-primary-500 dark:text-caption-foreground">
               <Lock className="w-3 h-3" aria-hidden="true" />
               {lounge.accessReason}
             </span>
@@ -93,17 +93,17 @@ function LoungeCard({ lounge, persona }: { lounge: AirportLounge; persona: Perso
 
         {/* Hours + queue */}
         <div className="flex items-center gap-4 mb-3 text-xs">
-          <span className="flex items-center gap-1 text-primary-700 dark:text-[oklch(80%_0.005_50)]">
+          <span className="flex items-center gap-1 text-primary-700 dark:text-soft-foreground">
             <Clock className="w-3 h-3" aria-hidden="true" />
             {lounge.hours.open} — {lounge.hours.close}
           </span>
           <span className={cn(
             'flex items-center gap-1 font-medium',
             lounge.queueTimeMinutes <= 5
-              ? 'text-success-600 dark:text-[oklch(65%_0.160_142)]'
+              ? 'text-success-600 dark:text-success-400'
               : lounge.queueTimeMinutes <= 15
-                ? 'text-warning-600 dark:text-[oklch(58%_0.165_60)]'
-                : 'text-error-600 dark:text-[oklch(55%_0.215_25)]'
+                ? 'text-warning-600 dark:text-warning-600'
+                : 'text-error-600 dark:text-error-600'
           )}>
             Queue: {lounge.queueTimeMinutes} min
           </span>
@@ -112,17 +112,17 @@ function LoungeCard({ lounge, persona }: { lounge: AirportLounge; persona: Perso
         {/* Capacity bar */}
         <div className="mb-3">
           <div className="flex items-center justify-between text-[10px] mb-1">
-            <span className="text-primary-500 dark:text-[oklch(70%_0.008_50)]">Capacity</span>
+            <span className="text-primary-500 dark:text-caption-foreground">Capacity</span>
             <span className={cn(
               'font-medium',
               isBusy
-                ? 'text-error-600 dark:text-[oklch(55%_0.215_25)]'
-                : 'text-primary-600 dark:text-[oklch(75%_0.005_50)]'
+                ? 'text-error-600 dark:text-error-600'
+                : 'text-primary-600 dark:text-soft-foreground'
             )}>
               {lounge.capacity.current}/{lounge.capacity.max}
             </span>
           </div>
-          <div className="h-1.5 bg-surface-200 dark:bg-[oklch(25%_0.005_50)] rounded-full overflow-hidden">
+          <div className="h-1.5 bg-surface-200 dark:bg-input rounded-full overflow-hidden">
             <div
               className={cn(
                 'h-full rounded-full transition-all duration-[--duration-normal]',
@@ -144,8 +144,8 @@ function LoungeCard({ lounge, persona }: { lounge: AirportLounge; persona: Perso
             return (
               <span
                 key={amenity}
-                className="flex items-center gap-1 text-[10px] text-primary-600 dark:text-[oklch(75%_0.005_50)]
-                           bg-surface-200 dark:bg-[oklch(25%_0.005_50)] px-2 py-1 rounded-full"
+                className="flex items-center gap-1 text-[10px] text-primary-600 dark:text-soft-foreground
+                           bg-surface-200 dark:bg-input px-2 py-1 rounded-full"
               >
                 <Icon className="w-3 h-3" aria-hidden="true" />
                 {amenity}
@@ -165,10 +165,10 @@ export function LoungeSection({ lounges, persona }: LoungeSectionProps) {
   return (
     <section className="space-y-4">
       <div>
-        <h2 className="text-lg font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+        <h2 className="text-lg font-semibold text-primary-900 dark:text-foreground">
           {persona === 'premium' ? 'Your Premium Lounges' : 'Airport Lounges'}
         </h2>
-        <p className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)] mt-0.5">
+        <p className="text-xs text-primary-500 dark:text-caption-foreground mt-0.5">
           {accessibleLounges.length > 0
             ? `You have access to ${accessibleLounges.length} lounge${accessibleLounges.length !== 1 ? 's' : ''}`
             : 'Explore available lounges'}
@@ -189,7 +189,7 @@ export function LoungeSection({ lounges, persona }: LoungeSectionProps) {
       {/* Other lounges */}
       {otherLounges.length > 0 && (
         <div className="space-y-3">
-          <h3 className="text-sm font-medium text-primary-700 dark:text-[oklch(80%_0.005_50)]">
+          <h3 className="text-sm font-medium text-primary-700 dark:text-soft-foreground">
             {accessibleLounges.length > 0 ? 'Other Lounges (Paid)' : 'Available Lounges'}
           </h3>
           {otherLounges.map((lounge, i) => (
@@ -203,7 +203,7 @@ export function LoungeSection({ lounges, persona }: LoungeSectionProps) {
       {/* Link to full Lounge Finder */}
       <Link
         href="/lounge"
-        className="flex items-center justify-center gap-2 w-full py-3 rounded-[var(--radius-md)] border border-primary-300 dark:border-primary-600 text-primary-600 dark:text-primary-300 text-sm font-medium hover:bg-primary-50 dark:hover:bg-[oklch(22%_0.005_50)] transition-colors min-h-[var(--touch-preferred)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
+        className="flex items-center justify-center gap-2 w-full py-3 rounded-[var(--radius-md)] border border-primary-300 dark:border-primary-600 text-primary-600 dark:text-primary-300 text-sm font-medium hover:bg-primary-50 dark:hover:bg-surface-elevated transition-colors min-h-[var(--touch-preferred)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
       >
         Explore All Lounges
       </Link>

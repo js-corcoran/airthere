@@ -70,14 +70,14 @@ export function RecentSearches({ onSelect }: RecentSearchesProps) {
       <div className="flex items-center justify-between mb-2">
         <h3
           id="recent-searches-heading"
-          className="text-xs font-medium text-primary-500 dark:text-[oklch(65%_0.005_50)] uppercase tracking-wider flex items-center gap-1.5"
+          className="text-xs font-medium text-primary-500 dark:text-dimmed-foreground uppercase tracking-wider flex items-center gap-1.5"
         >
           <Clock className="w-3.5 h-3.5" />
           Recent Searches
         </h3>
         <button
           onClick={handleClear}
-          className="text-xs text-primary-400 dark:text-[oklch(55%_0.005_50)] hover:text-primary-600 transition-colors
+          className="text-xs text-primary-400 dark:text-faint-foreground hover:text-primary-600 transition-colors
                      min-h-[var(--touch-min)] flex items-center"
         >
           Clear all
@@ -93,21 +93,21 @@ export function RecentSearches({ onSelect }: RecentSearchesProps) {
               onClick={() => onSelect(search)}
               className={cn(
                 'w-full flex items-center gap-3 px-3 py-3 rounded-lg text-left opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]',
-                'bg-surface-50 dark:bg-[oklch(18%_0.003_50)]',
-                'border border-surface-200 dark:border-[oklch(28%_0.005_50)]',
-                'hover:bg-surface-100 dark:hover:bg-[oklch(22%_0.003_50)]',
+                'bg-surface-50 dark:bg-card',
+                'border border-surface-200 dark:border-input',
+                'hover:bg-surface-100 dark:hover:bg-surface-elevated',
                 'transition-colors duration-[--duration-micro]',
                 'focus-visible:outline-2 focus-visible:outline-primary-500',
                 'min-h-[var(--touch-min)]'
               )}
             >
               <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 text-sm font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+                <div className="flex items-center gap-2 text-sm font-semibold text-primary-900 dark:text-foreground">
                   <span>{search.from}</span>
                   <ArrowRight className="w-3.5 h-3.5 text-primary-400 shrink-0" />
                   <span>{search.to}</span>
                 </div>
-                <p className="text-xs text-primary-500 dark:text-[oklch(65%_0.005_50)] mt-0.5">
+                <p className="text-xs text-primary-500 dark:text-dimmed-foreground mt-0.5">
                   {search.departDate} · {total} pax · {search.cabinClass}
                 </p>
               </div>

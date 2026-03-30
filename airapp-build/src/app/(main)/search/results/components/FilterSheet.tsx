@@ -47,7 +47,7 @@ function CheckboxItem({
     <label
       className={cn(
         'flex items-center gap-3 py-2 px-1 cursor-pointer rounded-md',
-        'hover:bg-surface-50 dark:hover:bg-[oklch(22%_0.003_50)]',
+        'hover:bg-surface-50 dark:hover:bg-surface-elevated',
         'min-h-[var(--touch-min)]'
       )}
     >
@@ -58,9 +58,9 @@ function CheckboxItem({
         className="w-4 h-4 rounded border-surface-300 text-primary-500 focus:ring-primary-500"
       />
       <div>
-        <span className="text-sm text-primary-900 dark:text-[oklch(92%_0.002_50)]">{label}</span>
+        <span className="text-sm text-primary-900 dark:text-foreground">{label}</span>
         {sublabel && (
-          <span className="text-xs text-primary-400 dark:text-[oklch(55%_0.005_50)] ml-1">{sublabel}</span>
+          <span className="text-xs text-primary-400 dark:text-faint-foreground ml-1">{sublabel}</span>
         )}
       </div>
     </label>
@@ -111,8 +111,8 @@ export function FilterSheet({ filters, onChange, availableAirlines, maxPriceLimi
           'focus-visible:outline-2 focus-visible:outline-primary-500',
           'min-h-[var(--touch-min)]',
           activeFilterCount > 0
-            ? 'bg-primary-100 text-primary-700 dark:bg-[oklch(25%_0.03_262)] dark:text-[oklch(80%_0.1_262)]'
-            : 'bg-surface-100 text-primary-600 dark:bg-[oklch(22%_0.003_50)] dark:text-[oklch(75%_0.005_50)]'
+            ? 'bg-primary-100 text-primary-700 dark:bg-surface-primary dark:text-primary-200'
+            : 'bg-surface-100 text-primary-600 dark:bg-surface-elevated dark:text-soft-foreground'
         )}
       >
         <SlidersHorizontal className="w-3.5 h-3.5" />
@@ -133,27 +133,27 @@ export function FilterSheet({ filters, onChange, availableAirlines, maxPriceLimi
             aria-hidden="true"
           />
           <div
-            className="fixed bottom-0 left-0 right-0 z-50 bg-background dark:bg-[oklch(16%_0.003_50)]
+            className="fixed bottom-0 left-0 right-0 z-50 bg-background dark:bg-background
                         rounded-t-2xl shadow-2xl max-h-[80vh] overflow-y-auto
                         animate-[slideUp_0.3s_ease-out]"
             role="dialog"
             aria-label="Flight filters"
           >
             {/* Sheet Header */}
-            <div className="sticky top-0 bg-background dark:bg-[oklch(16%_0.003_50)] px-4 py-3 border-b border-surface-200 dark:border-[oklch(25%_0.005_50)] flex items-center justify-between z-10">
-              <h3 className="text-base font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+            <div className="sticky top-0 bg-background dark:bg-background px-4 py-3 border-b border-surface-200 dark:border-input flex items-center justify-between z-10">
+              <h3 className="text-base font-semibold text-primary-900 dark:text-foreground">
                 Filters
               </h3>
               <div className="flex items-center gap-3">
                 <button
                   onClick={resetFilters}
-                  className="text-xs font-medium text-primary-500 dark:text-[oklch(65%_0.194_262)] min-h-[var(--touch-min)] flex items-center"
+                  className="text-xs font-medium text-primary-500 dark:text-primary-400 min-h-[var(--touch-min)] flex items-center"
                 >
                   Reset
                 </button>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-1.5 rounded-full hover:bg-surface-100 dark:hover:bg-[oklch(25%_0.005_50)] transition-colors"
+                  className="p-1.5 rounded-full hover:bg-surface-100 dark:hover:bg-input transition-colors"
                   aria-label="Close filters"
                 >
                   <X className="w-5 h-5 text-primary-500" />
@@ -164,7 +164,7 @@ export function FilterSheet({ filters, onChange, availableAirlines, maxPriceLimi
             <div className="px-4 py-4 space-y-6">
               {/* Price */}
               <div>
-                <h4 className="text-xs font-medium text-primary-700 dark:text-[oklch(80%_0.005_50)] uppercase tracking-wider mb-2">
+                <h4 className="text-xs font-medium text-primary-700 dark:text-soft-foreground uppercase tracking-wider mb-2">
                   Max Price
                 </h4>
                 <div className="flex items-center gap-3">
@@ -178,7 +178,7 @@ export function FilterSheet({ filters, onChange, availableAirlines, maxPriceLimi
                     className="flex-1 accent-primary-500"
                     aria-label="Maximum price"
                   />
-                  <span className="text-sm font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)] tabular-nums w-16 text-right">
+                  <span className="text-sm font-semibold text-primary-900 dark:text-foreground tabular-nums w-16 text-right">
                     ${filters.maxPrice.toLocaleString()}
                   </span>
                 </div>
@@ -186,7 +186,7 @@ export function FilterSheet({ filters, onChange, availableAirlines, maxPriceLimi
 
               {/* Stops */}
               <div>
-                <h4 className="text-xs font-medium text-primary-700 dark:text-[oklch(80%_0.005_50)] uppercase tracking-wider mb-2">
+                <h4 className="text-xs font-medium text-primary-700 dark:text-soft-foreground uppercase tracking-wider mb-2">
                   Stops
                 </h4>
                 {STOP_OPTIONS.map((opt) => (
@@ -202,7 +202,7 @@ export function FilterSheet({ filters, onChange, availableAirlines, maxPriceLimi
               {/* Airlines */}
               {availableAirlines.length > 0 && (
                 <div>
-                  <h4 className="text-xs font-medium text-primary-700 dark:text-[oklch(80%_0.005_50)] uppercase tracking-wider mb-2">
+                  <h4 className="text-xs font-medium text-primary-700 dark:text-soft-foreground uppercase tracking-wider mb-2">
                     Airlines
                   </h4>
                   {availableAirlines.map((airline) => (
@@ -219,7 +219,7 @@ export function FilterSheet({ filters, onChange, availableAirlines, maxPriceLimi
 
               {/* Time of Day */}
               <div>
-                <h4 className="text-xs font-medium text-primary-700 dark:text-[oklch(80%_0.005_50)] uppercase tracking-wider mb-2">
+                <h4 className="text-xs font-medium text-primary-700 dark:text-soft-foreground uppercase tracking-wider mb-2">
                   Departure Time
                 </h4>
                 {TIME_OPTIONS.map((opt) => (
@@ -235,14 +235,14 @@ export function FilterSheet({ filters, onChange, availableAirlines, maxPriceLimi
             </div>
 
             {/* Apply Button */}
-            <div className="sticky bottom-0 px-4 py-3 bg-background dark:bg-[oklch(16%_0.003_50)] border-t border-surface-200 dark:border-[oklch(25%_0.005_50)]">
+            <div className="sticky bottom-0 px-4 py-3 bg-background dark:bg-background border-t border-surface-200 dark:border-input">
               <button
                 onClick={() => setIsOpen(false)}
                 className="w-full py-3 rounded-lg font-semibold text-sm bg-primary-500 text-white
                            hover:bg-primary-600 transition-colors duration-[--duration-short]
                            focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500
                            min-h-[var(--touch-preferred)]
-                           dark:bg-[oklch(55%_0.194_262)] dark:hover:bg-[oklch(60%_0.194_262)]"
+                           dark:bg-primary-500 dark:hover:bg-primary-400"
               >
                 Show Results
               </button>

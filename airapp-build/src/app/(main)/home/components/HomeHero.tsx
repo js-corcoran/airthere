@@ -59,7 +59,7 @@ export function HomeHero({ persona, isTravelDay, userName, nextDepartureTime }: 
               'text-xl font-bold tracking-[-0.25px]',
               isTravelDay
                 ? 'text-white'
-                : 'text-primary-900 dark:text-[oklch(95%_0.002_50)]'
+                : 'text-primary-900 dark:text-foreground'
             )}
           >
             {getGreeting()}, {firstName}
@@ -69,7 +69,7 @@ export function HomeHero({ persona, isTravelDay, userName, nextDepartureTime }: 
               'text-sm mt-0.5',
               isTravelDay
                 ? 'text-primary-100'
-                : 'text-primary-500 dark:text-[oklch(70%_0.008_50)]'
+                : 'text-primary-500 dark:text-caption-foreground'
             )}
           >
             {getPersonaSubtext(persona, isTravelDay)}
@@ -80,7 +80,7 @@ export function HomeHero({ persona, isTravelDay, userName, nextDepartureTime }: 
             'text-sm font-medium tabular-nums',
             isTravelDay
               ? 'text-primary-200'
-              : 'text-primary-400 dark:text-[oklch(70%_0.008_50)]'
+              : 'text-primary-400 dark:text-caption-foreground'
           )}
         >
           {time}

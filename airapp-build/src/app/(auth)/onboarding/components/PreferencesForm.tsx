@@ -60,24 +60,24 @@ export function PreferencesForm({ onComplete }: PreferencesFormProps) {
     'w-full px-4 py-3 border rounded-md text-base bg-background',
     'transition-colors duration-[--duration-short]',
     'focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500',
-    'dark:bg-[oklch(18%_0.003_50)] dark:text-[oklch(95%_0.002_50)]',
+    'dark:bg-card dark:text-foreground',
     'min-h-[var(--touch-preferred)]'
   );
 
   return (
     <div className="min-h-[100dvh] flex flex-col items-center justify-center px-4 py-8">
       <div className="flex-1 flex flex-col items-center justify-start max-w-md w-full pt-8 md:pt-0 md:justify-center">
-        <h2 className="text-2xl md:text-[28px] font-bold text-primary-900 dark:text-[oklch(95%_0.002_50)] mb-2 text-center tracking-[-0.25px]">
+        <h2 className="text-2xl md:text-[28px] font-bold text-primary-900 dark:text-foreground mb-2 text-center tracking-[-0.25px]">
           Create Your Profile
         </h2>
-        <p className="text-base text-primary-700 dark:text-[oklch(85%_0.005_50)] mb-8 text-center max-w-sm leading-relaxed">
+        <p className="text-base text-primary-700 dark:text-muted-foreground mb-8 text-center max-w-sm leading-relaxed">
           A few details to personalize your travel experience.
         </p>
 
         <div className="w-full space-y-5">
           {/* Name */}
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-primary-900 dark:text-[oklch(95%_0.002_50)] mb-1.5">
+            <label htmlFor="name" className="block text-sm font-medium text-primary-900 dark:text-foreground mb-1.5">
               Full Name <span className="text-error-500">*</span>
             </label>
             <input
@@ -91,7 +91,7 @@ export function PreferencesForm({ onComplete }: PreferencesFormProps) {
                 inputBase,
                 errors.name
                   ? 'border-error-500 focus:ring-error-500'
-                  : 'border-surface-300 dark:border-[oklch(32%_0.008_50)]'
+                  : 'border-surface-300 dark:border-muted'
               )}
             />
             {errors.name && (
@@ -101,7 +101,7 @@ export function PreferencesForm({ onComplete }: PreferencesFormProps) {
 
           {/* Email */}
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-primary-900 dark:text-[oklch(95%_0.002_50)] mb-1.5">
+            <label htmlFor="email" className="block text-sm font-medium text-primary-900 dark:text-foreground mb-1.5">
               Email Address <span className="text-error-500">*</span>
             </label>
             <input
@@ -115,7 +115,7 @@ export function PreferencesForm({ onComplete }: PreferencesFormProps) {
                 inputBase,
                 errors.email
                   ? 'border-error-500 focus:ring-error-500'
-                  : 'border-surface-300 dark:border-[oklch(32%_0.008_50)]'
+                  : 'border-surface-300 dark:border-muted'
               )}
             />
             {errors.email && (
@@ -125,14 +125,14 @@ export function PreferencesForm({ onComplete }: PreferencesFormProps) {
 
           {/* Preferred Airline */}
           <div>
-            <label htmlFor="airline" className="block text-sm font-medium text-primary-900 dark:text-[oklch(95%_0.002_50)] mb-1.5">
+            <label htmlFor="airline" className="block text-sm font-medium text-primary-900 dark:text-foreground mb-1.5">
               Preferred Airline
             </label>
             <select
               id="airline"
               value={formData.preferredAirline}
               onChange={(e) => updateField('preferredAirline', e.target.value)}
-              className={cn(inputBase, 'border-surface-300 dark:border-[oklch(32%_0.008_50)]')}
+              className={cn(inputBase, 'border-surface-300 dark:border-muted')}
             >
               <option value="">Select an airline (optional)</option>
               {AIRLINE_LIST.map((airline) => (
@@ -145,7 +145,7 @@ export function PreferencesForm({ onComplete }: PreferencesFormProps) {
 
           {/* Frequent Flyer */}
           <div>
-            <label htmlFor="ffn" className="block text-sm font-medium text-primary-900 dark:text-[oklch(95%_0.002_50)] mb-1.5">
+            <label htmlFor="ffn" className="block text-sm font-medium text-primary-900 dark:text-foreground mb-1.5">
               Frequent Flyer Number
             </label>
             <input
@@ -154,7 +154,7 @@ export function PreferencesForm({ onComplete }: PreferencesFormProps) {
               value={formData.frequentFlyerNumber}
               onChange={(e) => updateField('frequentFlyerNumber', e.target.value)}
               placeholder="Optional"
-              className={cn(inputBase, 'border-surface-300 dark:border-[oklch(32%_0.008_50)]')}
+              className={cn(inputBase, 'border-surface-300 dark:border-muted')}
             />
           </div>
 
@@ -168,11 +168,11 @@ export function PreferencesForm({ onComplete }: PreferencesFormProps) {
               className="mt-1 h-5 w-5 rounded border-surface-300 text-primary-500 focus:ring-primary-500
                          cursor-pointer accent-primary-500 shrink-0"
             />
-            <label htmlFor="terms" className="text-xs text-primary-700 dark:text-[oklch(80%_0.005_50)] leading-relaxed cursor-pointer">
+            <label htmlFor="terms" className="text-xs text-primary-700 dark:text-soft-foreground leading-relaxed cursor-pointer">
               I agree to the{' '}
-              <span className="text-primary-600 dark:text-[oklch(65%_0.194_262)] underline">Terms of Service</span>{' '}
+              <span className="text-primary-600 dark:text-primary-400 underline">Terms of Service</span>{' '}
               and{' '}
-              <span className="text-primary-600 dark:text-[oklch(65%_0.194_262)] underline">Privacy Policy</span>.
+              <span className="text-primary-600 dark:text-primary-400 underline">Privacy Policy</span>.
               Your data is handled with care per GDPR and CCPA requirements.
             </label>
           </div>

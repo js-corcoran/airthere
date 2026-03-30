@@ -24,22 +24,22 @@ export function JetLagRecovery({ jetlag }: JetLagRecoveryProps) {
     <section aria-labelledby="jetlag-heading" className="space-y-3">
       <h3
         id="jetlag-heading"
-        className="text-lg font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]"
+        className="text-lg font-semibold text-primary-900 dark:text-foreground"
       >
         Jet Lag Recovery
       </h3>
 
-      <div className="bg-surface dark:bg-[oklch(18%_0.003_50)] rounded-[var(--radius-lg)] border border-surface-300 dark:border-[oklch(32%_0.008_50)] p-4 space-y-4">
+      <div className="bg-surface dark:bg-card rounded-[var(--radius-lg)] border border-surface-300 dark:border-muted p-4 space-y-4">
         {/* Time zone shift indicator */}
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 rounded-full bg-warning-50 dark:bg-warning-900/30 flex items-center justify-center flex-shrink-0">
             <Clock className="w-6 h-6 text-warning-600 dark:text-warning-400" aria-hidden="true" />
           </div>
           <div>
-            <p className="text-sm font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+            <p className="text-sm font-semibold text-primary-900 dark:text-foreground">
               +{jetlag.shift}h time zone shift
             </p>
-            <p className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)]">
+            <p className="text-xs text-primary-500 dark:text-caption-foreground">
               Traveled {jetlag.direction} &mdash; expect {Math.ceil(jetlag.shift / 2)}&ndash;{jetlag.shift} days to fully adjust
             </p>
           </div>
@@ -48,10 +48,10 @@ export function JetLagRecovery({ jetlag }: JetLagRecoveryProps) {
         {/* Recovery progress bar */}
         <div className="space-y-1">
           <div className="flex items-center justify-between">
-            <span className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)]">Recovery progress</span>
-            <span className="text-xs font-medium text-primary-700 dark:text-[oklch(85%_0.005_50)]">Day 1 of ~{jetlag.shift}</span>
+            <span className="text-xs text-primary-500 dark:text-caption-foreground">Recovery progress</span>
+            <span className="text-xs font-medium text-primary-700 dark:text-muted-foreground">Day 1 of ~{jetlag.shift}</span>
           </div>
-          <div className="h-2 rounded-full bg-surface-200 dark:bg-[oklch(25%_0.005_50)] overflow-hidden">
+          <div className="h-2 rounded-full bg-surface-200 dark:bg-input overflow-hidden">
             <div
               className="h-full rounded-full bg-gradient-to-r from-warning-400 to-success-500 transition-all duration-[--duration-normal]"
               style={{ width: `${Math.round((1 / jetlag.shift) * 100)}%` }}
@@ -70,14 +70,14 @@ export function JetLagRecovery({ jetlag }: JetLagRecoveryProps) {
             const Icon = TIP_ICONS[tip.icon] || Sun;
             return (
               <li key={tip.title} className="flex gap-3 opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]" style={{ animationDelay: `${i * 60}ms` }}>
-                <div className="w-9 h-9 rounded-[var(--radius-md)] bg-primary-50 dark:bg-[oklch(20%_0.01_262)] flex items-center justify-center flex-shrink-0 mt-0.5">
+                <div className="w-9 h-9 rounded-[var(--radius-md)] bg-primary-50 dark:bg-surface-primary flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Icon className="w-4 h-4 text-primary-600 dark:text-primary-400" aria-hidden="true" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+                  <p className="text-sm font-medium text-primary-900 dark:text-foreground">
                     {tip.title}
                   </p>
-                  <p className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)] mt-0.5 leading-relaxed">
+                  <p className="text-xs text-primary-500 dark:text-caption-foreground mt-0.5 leading-relaxed">
                     {tip.description}
                   </p>
                 </div>

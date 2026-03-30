@@ -19,8 +19,8 @@ const TABS: { id: AirportTab; label: string; icon: typeof Plane }[] = [
 export function AirportTabs({ activeTab, onTabChange }: AirportTabsProps) {
   return (
     <div
-      className="flex gap-1 px-4 py-2 border-b border-surface-300 dark:border-[oklch(32%_0.008_50)]
-                 bg-surface dark:bg-[oklch(18%_0.003_50)]"
+      className="flex gap-1 px-4 py-2 border-b border-surface-300 dark:border-muted
+                 bg-surface dark:bg-card"
       role="tablist"
       aria-label="Airport experience tabs"
     >
@@ -41,15 +41,15 @@ export function AirportTabs({ activeTab, onTabChange }: AirportTabsProps) {
               'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
               'min-h-[var(--touch-min)]',
               isActive
-                ? 'text-primary-900 dark:text-[oklch(95%_0.002_50)] bg-primary-50 dark:bg-[oklch(25%_0.005_50)]'
-                : 'text-primary-400 dark:text-[oklch(60%_0.005_50)] hover:text-primary-700 dark:hover:text-[oklch(85%_0.005_50)]'
+                ? 'text-primary-900 dark:text-foreground bg-primary-50 dark:bg-input'
+                : 'text-primary-400 dark:text-faint-foreground hover:text-primary-700 dark:hover:text-muted-foreground'
             )}
           >
             <Icon className={cn('w-5 h-5', isActive && 'stroke-[2.5]')} aria-hidden="true" />
             <span className="text-[10px] font-medium">{tab.label}</span>
             {isActive && (
               <span
-                className="absolute bottom-0 left-2 right-2 h-0.5 bg-secondary-500 dark:bg-[oklch(72%_0.158_50)] rounded-full"
+                className="absolute bottom-0 left-2 right-2 h-0.5 bg-secondary-500 dark:bg-secondary-400 rounded-full"
                 aria-hidden="true"
               />
             )}

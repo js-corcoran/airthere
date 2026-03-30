@@ -95,7 +95,7 @@ export default function IROPSRecoveryPage() {
     <main
       role="main"
       aria-label="Flight disruption recovery"
-      className="min-h-screen bg-background dark:bg-[oklch(12%_0.002_50)] pb-24"
+      className="min-h-screen bg-background dark:bg-background pb-24"
     >
       {/* Severity banner */}
       <div className="px-4 pt-4">
@@ -107,7 +107,7 @@ export default function IROPSRecoveryPage() {
         <div className="px-4 mt-4">
           <div
             role="status"
-            className="bg-success-50 dark:bg-[oklch(18%_0.03_142)] border border-success-400 dark:border-success-600 rounded-[var(--radius-lg)] p-4 text-center"
+            className="bg-success-50 dark:bg-surface-success border border-success-400 dark:border-success-600 rounded-[var(--radius-lg)] p-4 text-center"
           >
             <p className="text-lg font-bold text-success-700 dark:text-success-300 mb-1">
               Rebooking Confirmed
@@ -122,7 +122,7 @@ export default function IROPSRecoveryPage() {
       {/* Persona banner */}
       {personaBanner && !rebookingApproved && (
         <div className="px-4 mt-3">
-          <p className="text-xs text-primary-600 dark:text-primary-300 bg-primary-50 dark:bg-[oklch(18%_0.01_262)] rounded-[var(--radius-md)] px-3 py-2 border border-primary-100 dark:border-primary-800">
+          <p className="text-xs text-primary-600 dark:text-primary-300 bg-primary-50 dark:bg-surface-primary rounded-[var(--radius-md)] px-3 py-2 border border-primary-100 dark:border-primary-800">
             {personaBanner}
           </p>
         </div>

@@ -104,8 +104,8 @@ export default function DocumentVaultPage() {
       <div className="px-4 pt-2 pb-4">
         <div className="flex items-center justify-between mb-1">
           <div className="flex items-center gap-2">
-            <FileText className="w-5 h-5 text-primary-500 dark:text-[oklch(65%_0.194_262)]" aria-hidden="true" />
-            <h1 className="text-xl font-bold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+            <FileText className="w-5 h-5 text-primary-500 dark:text-primary-400" aria-hidden="true" />
+            <h1 className="text-xl font-bold text-primary-900 dark:text-foreground">
               Document Vault
             </h1>
           </div>
@@ -114,7 +114,7 @@ export default function DocumentVaultPage() {
             <span>Unlocked</span>
           </div>
         </div>
-        <p className="text-sm text-primary-500 dark:text-[oklch(60%_0.005_50)]">
+        <p className="text-sm text-primary-500 dark:text-faint-foreground">
           Secure, encrypted storage for travel documents
         </p>
 
@@ -123,13 +123,13 @@ export default function DocumentVaultPage() {
           className={cn(
             'mt-3 px-3 py-2.5 rounded-md flex items-center justify-between',
             allRequiredUploaded
-              ? 'bg-success-50 border border-success-200 dark:bg-[oklch(15%_0.008_142)] dark:border-success-800'
-              : 'bg-warning-50 border border-warning-200 dark:bg-[oklch(18%_0.005_60)] dark:border-warning-800'
+              ? 'bg-success-50 border border-success-200 dark:bg-surface-success dark:border-success-800'
+              : 'bg-warning-50 border border-warning-200 dark:bg-card dark:border-warning-800'
           )}
         >
           <div className="flex items-center gap-2">
-            <Plane className="w-4 h-4 text-primary-600 dark:text-[oklch(70%_0.125_262)]" aria-hidden="true" />
-            <span className="text-sm font-medium text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+            <Plane className="w-4 h-4 text-primary-600 dark:text-primary-400" aria-hidden="true" />
+            <span className="text-sm font-medium text-primary-900 dark:text-foreground">
               {tripLabel}
             </span>
           </div>
@@ -151,7 +151,7 @@ export default function DocumentVaultPage() {
         {/* Trip documents */}
         <section aria-label="Trip documents">
           <div className="flex items-center justify-between mb-2">
-            <h2 className="text-sm font-semibold text-primary-700 dark:text-[oklch(85%_0.005_50)] uppercase tracking-wider">
+            <h2 className="text-sm font-semibold text-primary-700 dark:text-muted-foreground uppercase tracking-wider">
               Trip Documents
             </h2>
             <button
@@ -200,7 +200,7 @@ export default function DocumentVaultPage() {
         {/* General documents */}
         {generalDocuments.length > 0 && (
           <section aria-label="General documents">
-            <h2 className="text-sm font-semibold text-primary-700 dark:text-[oklch(85%_0.005_50)] uppercase tracking-wider mb-2">
+            <h2 className="text-sm font-semibold text-primary-700 dark:text-muted-foreground uppercase tracking-wider mb-2">
               General Documents
             </h2>
             <ul className="space-y-3" role="list" aria-label="General documents">

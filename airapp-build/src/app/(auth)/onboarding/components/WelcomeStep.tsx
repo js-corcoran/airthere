@@ -14,7 +14,7 @@ export function WelcomeStep({ onGetStarted, onSkip }: WelcomeStepProps) {
       <div
         className="absolute inset-0 z-0
                     bg-gradient-to-b from-primary-100 via-primary-50 to-background
-                    dark:from-primary-900 dark:via-[oklch(18%_0.003_50)] dark:to-[oklch(12%_0.002_50)]"
+                    dark:from-primary-900 dark:via-card dark:to-background"
         aria-hidden="true"
       />
 
@@ -33,13 +33,13 @@ export function WelcomeStep({ onGetStarted, onSkip }: WelcomeStepProps) {
           <span className="text-white font-bold text-2xl tracking-tight">A</span>
         </div>
 
-        <h1 className="text-[28px] md:text-[32px] font-bold text-primary-900 dark:text-[oklch(95%_0.002_50)] leading-tight mb-3 tracking-[-0.5px]">
+        <h1 className="text-[28px] md:text-[32px] font-bold text-primary-900 dark:text-foreground leading-tight mb-3 tracking-[-0.5px]">
           Where Every Journey
           <br />
           Begins With Calm
         </h1>
 
-        <p className="text-base text-primary-700 dark:text-[oklch(85%_0.005_50)] mb-8 leading-relaxed max-w-xs">
+        <p className="text-base text-primary-700 dark:text-muted-foreground mb-8 leading-relaxed max-w-xs">
           AirThere is your travel operating system — one identity, unified experience,
           anticipatory calm.
         </p>
@@ -60,8 +60,8 @@ export function WelcomeStep({ onGetStarted, onSkip }: WelcomeStepProps) {
 
           <button
             onClick={onSkip}
-            className="w-full py-3 px-6 text-primary-600 dark:text-[oklch(65%_0.194_262)] font-medium rounded-md text-base
-                       hover:text-primary-700 hover:bg-surface-200 dark:hover:bg-[oklch(25%_0.005_50)]
+            className="w-full py-3 px-6 text-primary-600 dark:text-primary-400 font-medium rounded-md text-base
+                       hover:text-primary-700 hover:bg-surface-200 dark:hover:bg-input
                        active:bg-surface-300
                        transition-colors duration-[--duration-short]
                        focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500

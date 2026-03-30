@@ -21,7 +21,7 @@ const SORT_OPTIONS: { value: SortOption; label: string }[] = [
 export function SortControl({ value, onChange, totalResults }: SortControlProps) {
   return (
     <div className="flex items-center gap-3">
-      <span className="text-xs text-primary-500 dark:text-[oklch(60%_0.005_50)] whitespace-nowrap shrink-0">
+      <span className="text-xs text-primary-500 dark:text-faint-foreground whitespace-nowrap shrink-0">
         {totalResults} flight{totalResults !== 1 ? 's' : ''}
       </span>
       <div className="flex gap-1 overflow-x-auto scrollbar-hide" role="radiogroup" aria-label="Sort flights by">
@@ -37,8 +37,8 @@ export function SortControl({ value, onChange, totalResults }: SortControlProps)
               'focus-visible:outline-2 focus-visible:outline-primary-500',
               'min-h-[var(--touch-min)]',
               value === option.value
-                ? 'bg-primary-500 text-white dark:bg-[oklch(55%_0.194_262)]'
-                : 'bg-surface-100 text-primary-600 dark:bg-[oklch(22%_0.003_50)] dark:text-[oklch(75%_0.005_50)] hover:bg-surface-200 dark:hover:bg-[oklch(28%_0.005_50)]'
+                ? 'bg-primary-500 text-white dark:bg-primary-500'
+                : 'bg-surface-100 text-primary-600 dark:bg-surface-elevated dark:text-soft-foreground hover:bg-surface-200 dark:hover:bg-input'
             )}
           >
             {option.label}

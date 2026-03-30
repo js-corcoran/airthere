@@ -76,7 +76,7 @@ export default function LoungeFinderPage() {
     <main
       role="main"
       aria-label="Airport Lounge Finder"
-      className="min-h-screen bg-background dark:bg-[oklch(12%_0.002_50)] pb-24"
+      className="min-h-screen bg-background dark:bg-background pb-24"
     >
       {/* Header */}
       <header className="px-4 pt-4 pb-3">
@@ -85,11 +85,11 @@ export default function LoungeFinderPage() {
             className="w-5 h-5 text-primary-600 dark:text-primary-400"
             aria-hidden="true"
           />
-          <h1 className="text-xl font-bold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+          <h1 className="text-xl font-bold text-primary-900 dark:text-foreground">
             Airport Lounges
           </h1>
         </div>
-        <p className="text-sm text-primary-500 dark:text-[oklch(70%_0.008_50)]">
+        <p className="text-sm text-primary-500 dark:text-caption-foreground">
           SFO — San Francisco International, Terminal 3
         </p>
       </header>
@@ -104,7 +104,7 @@ export default function LoungeFinderPage() {
           <div
             className={cn(
               'inline-flex rounded-[var(--radius-md)] overflow-hidden',
-              'border border-surface-300 dark:border-[oklch(32%_0.008_50)]'
+              'border border-surface-300 dark:border-muted'
             )}
             role="radiogroup"
             aria-label="View mode"
@@ -120,7 +120,7 @@ export default function LoungeFinderPage() {
                 'min-h-[var(--touch-min)]',
                 viewMode === 'list'
                   ? 'bg-primary-600 text-white dark:bg-primary-500'
-                  : 'bg-surface dark:bg-[oklch(18%_0.003_50)] text-primary-700 dark:text-[oklch(85%_0.005_50)]'
+                  : 'bg-surface dark:bg-card text-primary-700 dark:text-muted-foreground'
               )}
             >
               <List className="w-3.5 h-3.5" aria-hidden="true" />
@@ -137,7 +137,7 @@ export default function LoungeFinderPage() {
                 'min-h-[var(--touch-min)]',
                 viewMode === 'map'
                   ? 'bg-primary-600 text-white dark:bg-primary-500'
-                  : 'bg-surface dark:bg-[oklch(18%_0.003_50)] text-primary-700 dark:text-[oklch(85%_0.005_50)]'
+                  : 'bg-surface dark:bg-card text-primary-700 dark:text-muted-foreground'
               )}
             >
               <Map className="w-3.5 h-3.5" aria-hidden="true" />
@@ -147,7 +147,7 @@ export default function LoungeFinderPage() {
 
           {/* Accessible-only toggle */}
           <label className="flex items-center gap-2 cursor-pointer min-h-[var(--touch-min)]">
-            <span className="text-xs font-medium text-primary-700 dark:text-[oklch(85%_0.005_50)]">
+            <span className="text-xs font-medium text-primary-700 dark:text-muted-foreground">
               Accessible only
             </span>
             <button
@@ -159,7 +159,7 @@ export default function LoungeFinderPage() {
                 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
                 showAccessibleOnly
                   ? 'bg-primary-600 dark:bg-primary-500'
-                  : 'bg-surface-300 dark:bg-[oklch(32%_0.008_50)]'
+                  : 'bg-surface-300 dark:bg-muted'
               )}
             >
               <span
@@ -191,7 +191,7 @@ export default function LoungeFinderPage() {
               ))
             ) : (
               <div className="py-12 text-center">
-                <p className="text-sm text-primary-500 dark:text-[oklch(70%_0.008_50)]">
+                <p className="text-sm text-primary-500 dark:text-caption-foreground">
                   No lounges match your filter. Try showing all lounges.
                 </p>
                 <button
@@ -216,8 +216,8 @@ export default function LoungeFinderPage() {
             <div
               className={cn(
                 'relative rounded-[var(--radius-lg)] overflow-hidden',
-                'bg-surface dark:bg-[oklch(18%_0.003_50)]',
-                'border border-surface-300 dark:border-[oklch(32%_0.008_50)]',
+                'bg-surface dark:bg-card',
+                'border border-surface-300 dark:border-muted',
                 'shadow-[var(--shadow-sm)]',
                 'h-[400px]'
               )}
@@ -236,7 +236,7 @@ export default function LoungeFinderPage() {
                   width="340"
                   height="280"
                   rx="16"
-                  className="fill-surface-100 dark:fill-[oklch(22%_0.003_50)] stroke-surface-300 dark:stroke-[oklch(32%_0.008_50)]"
+                  className="fill-surface-100 dark:fill-surface-elevated stroke-surface-300 dark:stroke-muted"
                   strokeWidth="2"
                 />
 
@@ -245,7 +245,7 @@ export default function LoungeFinderPage() {
                   x="200"
                   y="70"
                   textAnchor="middle"
-                  className="fill-primary-400 dark:fill-[oklch(50%_0.005_50)] text-xs"
+                  className="fill-primary-400 dark:fill-faint-foreground text-xs"
                   fontSize="12"
                   fontWeight="600"
                 >
@@ -259,14 +259,14 @@ export default function LoungeFinderPage() {
                   width="120"
                   height="60"
                   rx="8"
-                  className="fill-surface-200 dark:fill-[oklch(25%_0.005_50)] stroke-surface-300 dark:stroke-[oklch(32%_0.008_50)]"
+                  className="fill-surface-200 dark:fill-input stroke-surface-300 dark:stroke-muted"
                   strokeWidth="1"
                 />
                 <text
                   x="110"
                   y="120"
                   textAnchor="middle"
-                  className="fill-primary-500 dark:fill-[oklch(60%_0.005_50)]"
+                  className="fill-primary-500 dark:fill-faint-foreground"
                   fontSize="10"
                 >
                   Gates B1-B8
@@ -278,14 +278,14 @@ export default function LoungeFinderPage() {
                   width="120"
                   height="60"
                   rx="8"
-                  className="fill-surface-200 dark:fill-[oklch(25%_0.005_50)] stroke-surface-300 dark:stroke-[oklch(32%_0.008_50)]"
+                  className="fill-surface-200 dark:fill-input stroke-surface-300 dark:stroke-muted"
                   strokeWidth="1"
                 />
                 <text
                   x="290"
                   y="120"
                   textAnchor="middle"
-                  className="fill-primary-500 dark:fill-[oklch(60%_0.005_50)]"
+                  className="fill-primary-500 dark:fill-faint-foreground"
                   fontSize="10"
                 >
                   Gates C1-C16
@@ -298,13 +298,13 @@ export default function LoungeFinderPage() {
                   width="300"
                   height="30"
                   rx="4"
-                  className="fill-surface-200/50 dark:fill-[oklch(28%_0.003_50)]"
+                  className="fill-surface-200/50 dark:fill-input"
                 />
                 <text
                   x="200"
                   y="185"
                   textAnchor="middle"
-                  className="fill-primary-400 dark:fill-[oklch(50%_0.005_50)]"
+                  className="fill-primary-400 dark:fill-faint-foreground"
                   fontSize="9"
                 >
                   Main Concourse
@@ -325,7 +325,7 @@ export default function LoungeFinderPage() {
                         ? 'fill-success-500'
                         : l.access.type === 'upgrade'
                           ? 'fill-info-500'
-                          : 'fill-primary-300 dark:fill-[oklch(40%_0.005_50)]';
+                          : 'fill-primary-300 dark:fill-muted';
 
                     return (
                       <g key={l.id}>
@@ -340,7 +340,7 @@ export default function LoungeFinderPage() {
                           cx={pos.cx}
                           cy={pos.cy}
                           r="12"
-                          className="fill-transparent stroke-white dark:stroke-[oklch(95%_0.002_50)]"
+                          className="fill-transparent stroke-white dark:stroke-foreground"
                           strokeWidth="2"
                         />
                         <text
@@ -357,7 +357,7 @@ export default function LoungeFinderPage() {
                           x={pos.cx}
                           y={pos.cy + 26}
                           textAnchor="middle"
-                          className="fill-primary-700 dark:fill-[oklch(85%_0.005_50)]"
+                          className="fill-primary-700 dark:fill-muted-foreground"
                           fontSize="8"
                           fontWeight="500"
                         >
@@ -374,7 +374,7 @@ export default function LoungeFinderPage() {
                   width="300"
                   height="90"
                   rx="8"
-                  className="fill-surface-200/30 dark:fill-[oklch(20%_0.003_50)] stroke-surface-300 dark:stroke-[oklch(32%_0.008_50)]"
+                  className="fill-surface-200/30 dark:fill-surface-100 stroke-surface-300 dark:stroke-muted"
                   strokeWidth="1"
                   strokeDasharray="4 2"
                 />
@@ -382,7 +382,7 @@ export default function LoungeFinderPage() {
                   x="200"
                   y="240"
                   textAnchor="middle"
-                  className="fill-primary-400 dark:fill-[oklch(50%_0.005_50)]"
+                  className="fill-primary-400 dark:fill-faint-foreground"
                   fontSize="10"
                 >
                   Other Terminals
@@ -398,7 +398,7 @@ export default function LoungeFinderPage() {
                         ? 'fill-success-500'
                         : l.access.type === 'upgrade'
                           ? 'fill-info-500'
-                          : 'fill-primary-300 dark:fill-[oklch(40%_0.005_50)]';
+                          : 'fill-primary-300 dark:fill-muted';
                     return (
                       <g key={l.id}>
                         <circle
@@ -429,7 +429,7 @@ export default function LoungeFinderPage() {
                           x={cx}
                           y={cy + 22}
                           textAnchor="middle"
-                          className="fill-primary-600 dark:fill-[oklch(75%_0.005_50)]"
+                          className="fill-primary-600 dark:fill-soft-foreground"
                           fontSize="7"
                           fontWeight="500"
                         >
@@ -442,18 +442,18 @@ export default function LoungeFinderPage() {
                 {/* Legend */}
                 <g transform="translate(50, 330)">
                   <circle cx="6" cy="0" r="4" className="fill-success-500" />
-                  <text x="14" y="3" className="fill-primary-500 dark:fill-[oklch(60%_0.005_50)]" fontSize="8">
+                  <text x="14" y="3" className="fill-primary-500 dark:fill-faint-foreground" fontSize="8">
                     Included
                   </text>
                   <circle cx="76" cy="0" r="4" className="fill-info-500" />
-                  <text x="84" y="3" className="fill-primary-500 dark:fill-[oklch(60%_0.005_50)]" fontSize="8">
+                  <text x="84" y="3" className="fill-primary-500 dark:fill-faint-foreground" fontSize="8">
                     Upgrade
                   </text>
-                  <circle cx="146" cy="0" r="4" className="fill-primary-300 dark:fill-[oklch(40%_0.005_50)]" />
+                  <circle cx="146" cy="0" r="4" className="fill-primary-300 dark:fill-muted" />
                   <text
                     x="154"
                     y="3"
-                    className="fill-primary-500 dark:fill-[oklch(60%_0.005_50)]"
+                    className="fill-primary-500 dark:fill-faint-foreground"
                     fontSize="8"
                   >
                     Not available
@@ -464,7 +464,7 @@ export default function LoungeFinderPage() {
 
             {/* List below map for quick tap */}
             <div className="space-y-2">
-              <h3 className="text-xs font-semibold text-primary-700 dark:text-[oklch(85%_0.005_50)] uppercase tracking-wider">
+              <h3 className="text-xs font-semibold text-primary-700 dark:text-muted-foreground uppercase tracking-wider">
                 Tap a lounge for details
               </h3>
               {filteredLounges.map((lounge) => (
@@ -473,9 +473,9 @@ export default function LoungeFinderPage() {
                   onClick={() => handleSelectLounge(lounge)}
                   className={cn(
                     'w-full flex items-center justify-between px-3 py-2.5 rounded-[var(--radius-md)]',
-                    'bg-surface dark:bg-[oklch(18%_0.003_50)]',
-                    'border border-surface-300 dark:border-[oklch(32%_0.008_50)]',
-                    'hover:bg-surface-200 dark:hover:bg-[oklch(22%_0.003_50)]',
+                    'bg-surface dark:bg-card',
+                    'border border-surface-300 dark:border-muted',
+                    'hover:bg-surface-200 dark:hover:bg-surface-elevated',
                     'transition-colors duration-[--duration-micro]',
                     'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
                     'min-h-[var(--touch-min)]',
@@ -484,10 +484,10 @@ export default function LoungeFinderPage() {
                   aria-label={`${lounge.name}, ${lounge.terminal}. ${lounge.access.type === 'included' ? 'Access included' : lounge.access.type === 'upgrade' ? 'Upgrade available' : 'Not available'}`}
                 >
                   <div>
-                    <span className="text-sm font-medium text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+                    <span className="text-sm font-medium text-primary-900 dark:text-foreground">
                       {lounge.name}
                     </span>
-                    <span className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)] ml-2">
+                    <span className="text-xs text-primary-500 dark:text-caption-foreground ml-2">
                       {lounge.terminal}
                     </span>
                   </div>
@@ -498,7 +498,7 @@ export default function LoungeFinderPage() {
                         ? 'bg-success-500'
                         : lounge.access.type === 'upgrade'
                           ? 'bg-info-500'
-                          : 'bg-primary-300 dark:bg-[oklch(40%_0.005_50)]'
+                          : 'bg-primary-300 dark:bg-muted'
                     )}
                     aria-hidden="true"
                   />

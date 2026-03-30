@@ -49,7 +49,7 @@ export function HotelVoucher({ voucherValue, checkIn, checkOut, options, onSelec
       >
         Hotel Accommodation
       </h3>
-      <div className="bg-info-50 dark:bg-[oklch(18%_0.02_240)] rounded-[var(--radius-lg)] p-4 border border-info-200 dark:border-info-700">
+      <div className="bg-info-50 dark:bg-surface-info rounded-[var(--radius-lg)] p-4 border border-info-200 dark:border-info-700">
         <div className="flex items-center gap-2 mb-3">
           <Building2 className="w-5 h-5 text-info-600 dark:text-info-400" aria-hidden="true" />
           <span className="font-bold text-sm text-info-800 dark:text-info-200">
@@ -109,13 +109,13 @@ function HotelCard({
         'rounded-[var(--radius-md)] p-3 transition-all duration-[--duration-micro]',
         'border',
         isSelected
-          ? 'border-primary-500 bg-white dark:bg-[oklch(22%_0.005_50)] shadow-sm'
-          : 'border-info-200 dark:border-info-700 bg-white/60 dark:bg-[oklch(20%_0.003_50)]'
+          ? 'border-primary-500 bg-surface dark:bg-surface-elevated shadow-sm'
+          : 'border-info-200 dark:border-info-700 bg-white/60 dark:bg-surface-100'
       )}
     >
       <div className="flex items-start justify-between mb-2">
         <div>
-          <h4 className="text-sm font-semibold text-primary-800 dark:text-[oklch(90%_0.002_50)]">
+          <h4 className="text-sm font-semibold text-primary-800 dark:text-subtle-foreground">
             {hotel.name}
           </h4>
           <div className="flex items-center gap-1 mt-0.5">
@@ -150,7 +150,7 @@ function HotelCard({
           return (
             <span
               key={amenity}
-              className="flex items-center gap-1 text-[10px] text-primary-500 dark:text-primary-400 bg-surface-200 dark:bg-[oklch(25%_0.005_50)] px-2 py-0.5 rounded-full"
+              className="flex items-center gap-1 text-[10px] text-primary-500 dark:text-primary-400 bg-surface-200 dark:bg-input px-2 py-0.5 rounded-full"
             >
               {Icon && <Icon className="w-2.5 h-2.5" aria-hidden="true" />}
               {amenity}

@@ -104,8 +104,8 @@ export function AICopilotSheet({ isOpen, onClose, embedded }: AICopilotSheetProp
     ? 'flex flex-col h-full'
     : cn(
         'fixed inset-x-0 bottom-0 z-50',
-        'bg-background dark:bg-[oklch(12%_0.002_50)]',
-        'rounded-t-2xl shadow-xl border-t border-surface-300 dark:border-[oklch(32%_0.008_50)]',
+        'bg-background dark:bg-background',
+        'rounded-t-2xl shadow-xl border-t border-surface-300 dark:border-muted',
         'transition-all duration-[--duration-normal] ease-[--ease-in-out]',
         expanded ? 'top-0' : 'top-[35%]',
         'flex flex-col',
@@ -119,13 +119,13 @@ export function AICopilotSheet({ isOpen, onClose, embedded }: AICopilotSheetProp
       aria-modal={!embedded}
     >
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-surface-300 dark:border-[oklch(32%_0.008_50)] shrink-0">
+      <div className="flex items-center justify-between px-4 py-3 border-b border-surface-300 dark:border-muted shrink-0">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-full bg-primary-100 dark:bg-primary-800 flex items-center justify-center">
             <span className="text-xs font-bold text-primary-600 dark:text-primary-300">AT</span>
           </div>
           <div>
-            <h2 className="text-sm font-semibold text-primary-800 dark:text-[oklch(90%_0.002_50)]">
+            <h2 className="text-sm font-semibold text-primary-800 dark:text-subtle-foreground">
               AirThere Copilot
             </h2>
             <TrustIndicator level={trustLevel} compact />
@@ -139,7 +139,7 @@ export function AICopilotSheet({ isOpen, onClose, embedded }: AICopilotSheetProp
               className={cn(
                 'flex items-center justify-center w-[var(--touch-min)] h-[var(--touch-min)]',
                 'rounded-md transition-colors duration-[--duration-micro]',
-                'hover:bg-surface-200 dark:hover:bg-[oklch(25%_0.005_50)]',
+                'hover:bg-surface-200 dark:hover:bg-input',
                 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
               )}
               aria-label={expanded ? 'Minimize' : 'Expand to full screen'}
@@ -157,7 +157,7 @@ export function AICopilotSheet({ isOpen, onClose, embedded }: AICopilotSheetProp
               className={cn(
                 'flex items-center justify-center w-[var(--touch-min)] h-[var(--touch-min)]',
                 'rounded-md transition-colors duration-[--duration-micro]',
-                'hover:bg-surface-200 dark:hover:bg-[oklch(25%_0.005_50)]',
+                'hover:bg-surface-200 dark:hover:bg-input',
                 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
               )}
               aria-label="Close copilot"
@@ -203,9 +203,9 @@ export function AICopilotSheet({ isOpen, onClose, embedded }: AICopilotSheetProp
                   className={cn(
                     'flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-medium',
                     'border border-primary-200 dark:border-primary-700',
-                    'bg-surface dark:bg-[oklch(18%_0.003_50)]',
+                    'bg-surface dark:bg-card',
                     'text-primary-700 dark:text-primary-300',
-                    'hover:bg-primary-50 dark:hover:bg-[oklch(22%_0.01_262)]',
+                    'hover:bg-primary-50 dark:hover:bg-surface-primary',
                     'transition-colors duration-[--duration-micro]',
                     'min-h-[var(--touch-min)]',
                     'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
@@ -226,7 +226,7 @@ export function AICopilotSheet({ isOpen, onClose, embedded }: AICopilotSheetProp
       <ChatInput onSend={handleSend} isLoading={isLoading} />
 
       {/* Footer trust level */}
-      <div className="px-4 py-2 border-t border-surface-300 dark:border-[oklch(32%_0.008_50)] shrink-0">
+      <div className="px-4 py-2 border-t border-surface-300 dark:border-muted shrink-0">
         <TrustIndicator level={trustLevel} />
       </div>
     </div>

@@ -19,10 +19,10 @@ const CABIN_OPTIONS: { value: CabinClass; label: string; shortLabel: string }[] 
 export function CabinClassSelector({ value, onChange }: CabinClassSelectorProps) {
   return (
     <div>
-      <label className="block text-xs font-medium text-primary-700 dark:text-[oklch(85%_0.005_50)] mb-1.5 uppercase tracking-wider">
+      <label className="block text-xs font-medium text-primary-700 dark:text-muted-foreground mb-1.5 uppercase tracking-wider">
         Cabin Class
       </label>
-      <div className="flex rounded-md border border-surface-300 dark:border-[oklch(32%_0.008_50)] overflow-hidden" role="radiogroup" aria-label="Cabin class">
+      <div className="flex rounded-md border border-surface-300 dark:border-muted overflow-hidden" role="radiogroup" aria-label="Cabin class">
         {CABIN_OPTIONS.map((option) => (
           <button
             key={option.value}
@@ -34,8 +34,8 @@ export function CabinClassSelector({ value, onChange }: CabinClassSelectorProps)
               'focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-primary-500',
               'min-h-[var(--touch-min)]',
               value === option.value
-                ? 'bg-primary-500 text-white dark:bg-[oklch(65%_0.194_262)]'
-                : 'bg-background text-primary-600 dark:bg-[oklch(18%_0.003_50)] dark:text-[oklch(80%_0.005_50)] hover:bg-surface-200 dark:hover:bg-[oklch(25%_0.005_50)]'
+                ? 'bg-primary-500 text-white dark:bg-primary-400'
+                : 'bg-background text-primary-600 dark:bg-card dark:text-soft-foreground hover:bg-surface-200 dark:hover:bg-input'
             )}
           >
             <span className="hidden sm:inline">{option.label}</span>

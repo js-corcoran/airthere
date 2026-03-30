@@ -15,7 +15,7 @@ export function OnboardingProgress({ currentStep, totalSteps }: OnboardingProgre
   return (
     <div className="fixed top-0 left-0 right-0 z-50 pt-[env(safe-area-inset-top)]">
       <div
-        className="h-1 bg-surface-200 dark:bg-[oklch(25%_0.005_50)]"
+        className="h-1 bg-surface-200 dark:bg-input"
         role="progressbar"
         aria-valuenow={currentStep}
         aria-valuemin={0}
@@ -24,14 +24,14 @@ export function OnboardingProgress({ currentStep, totalSteps }: OnboardingProgre
       >
         <div
           className={cn(
-            'h-full bg-primary-500 dark:bg-[oklch(65%_0.194_262)]',
+            'h-full bg-primary-500 dark:bg-primary-400',
             'transition-[width] duration-[--duration-short] ease-[--ease-in-out]'
           )}
           style={{ width: `${progress}%` }}
         />
       </div>
       <div className="text-center py-2">
-        <span className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)] font-medium">
+        <span className="text-xs text-primary-500 dark:text-caption-foreground font-medium">
           Step {currentStep} of {totalSteps}
         </span>
       </div>

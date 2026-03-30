@@ -55,7 +55,7 @@ export function GateCountdownHero({ info }: GateCountdownHeroProps) {
   return (
     <div
       className="bg-gradient-to-b from-primary-600 to-primary-800
-                 dark:from-[oklch(35%_0.180_262)] dark:to-[oklch(22%_0.140_262)]
+                 dark:from-primary-800 dark:to-primary-900
                  rounded-xl p-6 text-white shadow-lg"
       role="status"
       aria-live="polite"

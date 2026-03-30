@@ -171,10 +171,10 @@ export default function DiscoverPage() {
             {filteredDestinations.length > 0 ? (
               <div className="px-4 pt-3">
                 <div className="mb-3">
-                  <h2 className="text-lg font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+                  <h2 className="text-lg font-semibold text-primary-900 dark:text-foreground">
                     {sectionTitle.heading}
                   </h2>
-                  <p className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)] mt-0.5">
+                  <p className="text-xs text-primary-500 dark:text-caption-foreground mt-0.5">
                     {sectionTitle.subtitle}
                   </p>
                 </div>
@@ -241,14 +241,14 @@ export default function DiscoverPage() {
               <div className="px-4 pt-3 space-y-3">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h2 className="text-lg font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+                    <h2 className="text-lg font-semibold text-primary-900 dark:text-foreground">
                       {persona === 'premium'
                         ? 'Premium Deals'
                         : persona === 'business'
                           ? 'Business Class Offers'
                           : 'Family Deals'}
                     </h2>
-                    <p className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)] mt-0.5">
+                    <p className="text-xs text-primary-500 dark:text-caption-foreground mt-0.5">
                       {filteredDeals.length} deals available · prices updated live
                     </p>
                   </div>
@@ -256,8 +256,8 @@ export default function DiscoverPage() {
 
                 {/* Deal alert banner for family */}
                 {persona === 'family' && (
-                  <div className="p-3 rounded-lg bg-success-50 dark:bg-[oklch(20%_0.008_142)] border border-success-200 dark:border-[oklch(35%_0.040_142)]">
-                    <p className="text-xs text-success-700 dark:text-[oklch(65%_0.160_142)] font-medium">
+                  <div className="p-3 rounded-lg bg-success-50 dark:bg-surface-success border border-success-200 dark:border-success">
+                    <p className="text-xs text-success-700 dark:text-success-400 font-medium">
                       Prices shown are per person. Multiply by your family size for total cost.
                     </p>
                   </div>
@@ -293,10 +293,10 @@ export default function DiscoverPage() {
             {wishlistDestinations.length > 0 ? (
               <div className="px-4 pt-3">
                 <div className="mb-3">
-                  <h2 className="text-lg font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+                  <h2 className="text-lg font-semibold text-primary-900 dark:text-foreground">
                     Saved Destinations
                   </h2>
-                  <p className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)] mt-0.5">
+                  <p className="text-xs text-primary-500 dark:text-caption-foreground mt-0.5">
                     {wishlistDestinations.length} destination{wishlistDestinations.length !== 1 ? 's' : ''} saved
                   </p>
                 </div>

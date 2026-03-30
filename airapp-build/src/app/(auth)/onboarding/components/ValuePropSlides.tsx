@@ -105,19 +105,19 @@ export function ValuePropSlides({ onComplete }: ValuePropSlidesProps) {
         </div>
 
         {/* Headline */}
-        <h2 className="text-2xl md:text-[28px] font-bold text-primary-900 dark:text-[oklch(95%_0.002_50)] mb-4 text-center tracking-[-0.25px]">
+        <h2 className="text-2xl md:text-[28px] font-bold text-primary-900 dark:text-foreground mb-4 text-center tracking-[-0.25px]">
           {slide.headline}
         </h2>
 
         {/* Body */}
-        <p className="text-base text-primary-700 dark:text-[oklch(85%_0.005_50)] mb-8 text-center leading-relaxed max-w-sm">
+        <p className="text-base text-primary-700 dark:text-muted-foreground mb-8 text-center leading-relaxed max-w-sm">
           {slide.body}
         </p>
 
         {/* Feature list */}
         <ul className="space-y-3 w-full max-w-sm mb-8" role="list">
           {slide.features.map((feature, idx) => (
-            <li key={idx} className="flex items-start gap-3 text-sm text-primary-800 dark:text-[oklch(85%_0.005_50)]">
+            <li key={idx} className="flex items-start gap-3 text-sm text-primary-800 dark:text-muted-foreground">
               <span className="text-success-500 font-bold mt-0.5 shrink-0" aria-hidden="true">
                 ✓
               </span>
@@ -140,8 +140,8 @@ export function ValuePropSlides({ onComplete }: ValuePropSlidesProps) {
               'h-2 rounded-full transition-all duration-[--duration-short] min-w-[8px]',
               'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
               idx === currentSlide
-                ? 'w-6 bg-primary-500 dark:bg-[oklch(65%_0.194_262)]'
-                : 'w-2 bg-surface-300 dark:bg-[oklch(32%_0.008_50)]'
+                ? 'w-6 bg-primary-500 dark:bg-primary-400'
+                : 'w-2 bg-surface-300 dark:bg-muted'
             )}
           />
         ))}
@@ -152,8 +152,8 @@ export function ValuePropSlides({ onComplete }: ValuePropSlidesProps) {
         {currentSlide > 0 && (
           <button
             onClick={goPrev}
-            className="flex-1 py-3 text-primary-600 dark:text-[oklch(65%_0.194_262)] font-medium rounded-md text-base
-                       hover:bg-surface-200 dark:hover:bg-[oklch(25%_0.005_50)]
+            className="flex-1 py-3 text-primary-600 dark:text-primary-400 font-medium rounded-md text-base
+                       hover:bg-surface-200 dark:hover:bg-input
                        transition-colors duration-[--duration-short]
                        focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500
                        min-h-[var(--touch-min)]"

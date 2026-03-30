@@ -30,12 +30,12 @@ export function CabinCrewAssistance({ requests }: CabinCrewAssistanceProps) {
     <section
       className={cn(
         'rounded-lg border shadow-sm p-4',
-        'bg-surface dark:bg-[oklch(18%_0.003_50)]',
-        'border-surface-300 dark:border-[oklch(32%_0.008_50)]'
+        'bg-surface dark:bg-card',
+        'border-surface-300 dark:border-muted'
       )}
       aria-label="Cabin crew assistance"
     >
-      <h2 className="text-base font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)] mb-3">
+      <h2 className="text-base font-semibold text-primary-900 dark:text-foreground mb-3">
         Service Requests
       </h2>
 
@@ -61,7 +61,7 @@ export function CabinCrewAssistance({ requests }: CabinCrewAssistanceProps) {
           className={cn(
             'flex items-center gap-2 p-3 rounded-md mb-3',
             'bg-success-50 border border-success-200',
-            'dark:bg-[oklch(15%_0.008_142)] dark:border-success-800'
+            'dark:bg-surface-success dark:border-success-800'
           )}
           role="status"
         >
@@ -90,9 +90,9 @@ export function CabinCrewAssistance({ requests }: CabinCrewAssistanceProps) {
               onClick={() => handleRequest(req.type)}
               className={cn(
                 'flex flex-col items-center justify-center gap-1.5 p-3 rounded-lg',
-                'bg-background dark:bg-[oklch(15%_0.002_50)]',
-                'border border-surface-300 dark:border-[oklch(32%_0.008_50)]',
-                'hover:bg-surface-200 dark:hover:bg-[oklch(22%_0.005_50)]',
+                'bg-background dark:bg-background',
+                'border border-surface-300 dark:border-muted',
+                'hover:bg-surface-200 dark:hover:bg-surface-elevated',
                 'transition-colors duration-[--duration-micro]',
                 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
                 'min-h-[var(--touch-min)]',
@@ -101,8 +101,8 @@ export function CabinCrewAssistance({ requests }: CabinCrewAssistanceProps) {
               style={{ animationDelay: `${i * 60}ms` }}
               aria-label={`Request ${req.label}`}
             >
-              <Icon className="w-5 h-5 text-primary-600 dark:text-[oklch(70%_0.125_262)]" aria-hidden="true" />
-              <span className="text-[10px] font-medium text-primary-700 dark:text-[oklch(85%_0.005_50)]">
+              <Icon className="w-5 h-5 text-primary-600 dark:text-primary-400" aria-hidden="true" />
+              <span className="text-[10px] font-medium text-primary-700 dark:text-muted-foreground">
                 {req.label}
               </span>
             </button>

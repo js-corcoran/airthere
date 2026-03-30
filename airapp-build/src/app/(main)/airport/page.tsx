@@ -111,7 +111,7 @@ export default function AirportLivePage() {
       <div className="px-4 py-3 flex gap-3">
         <Link
           href="/airport/gate"
-          className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-[var(--radius-lg)] bg-primary-600 hover:bg-primary-700 dark:bg-[oklch(55%_0.194_262)] dark:hover:bg-[oklch(60%_0.194_262)] text-white text-sm font-medium transition-colors min-h-[var(--touch-preferred)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
+          className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-[var(--radius-lg)] bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-400 text-white text-sm font-medium transition-colors min-h-[var(--touch-preferred)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
           aria-label="Gate and Boarding information"
         >
           <DoorOpen className="w-4 h-4" aria-hidden="true" />
@@ -119,7 +119,7 @@ export default function AirportLivePage() {
         </Link>
         <Link
           href="/lounge"
-          className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-[var(--radius-lg)] border border-primary-300 dark:border-[oklch(40%_0.06_262)] text-primary-700 dark:text-[oklch(80%_0.06_262)] hover:bg-primary-50 dark:hover:bg-[oklch(22%_0.015_262)] text-sm font-medium transition-colors min-h-[var(--touch-preferred)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
+          className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-[var(--radius-lg)] border border-primary-300 dark:border-primary text-primary-700 dark:text-primary-200 hover:bg-primary-50 dark:hover:bg-surface-primary text-sm font-medium transition-colors min-h-[var(--touch-preferred)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
           aria-label="Lounge Finder"
         >
           <Armchair className="w-4 h-4" aria-hidden="true" />

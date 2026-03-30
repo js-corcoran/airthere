@@ -67,10 +67,10 @@ export function FlightCard({ flight, cabinClass, passengerCount, onSelect, perso
       className={cn(
         'w-full text-left p-4 rounded-xl border bg-background',
         'transition-all duration-[--duration-short]',
-        'hover:shadow-md hover:-translate-y-0.5 hover:border-primary-300 dark:hover:border-[oklch(45%_0.1_262)]',
+        'hover:shadow-md hover:-translate-y-0.5 hover:border-primary-300 dark:hover:border-primary-500',
         'focus-visible:outline-2 focus-visible:outline-primary-500',
-        'border-surface-300 dark:border-[oklch(28%_0.005_50)]',
-        'dark:bg-[oklch(18%_0.003_50)]',
+        'border-surface-300 dark:border-input',
+        'dark:bg-card',
         'group'
       )}
       aria-label={`${flight.airline.name} ${flight.flightNumber}, ${formatTime(flight.departure.time)} to ${formatTime(flight.arrival.time)}, ${getStopsLabel(flight.stops)}, $${totalPrice}`}
@@ -78,24 +78,24 @@ export function FlightCard({ flight, cabinClass, passengerCount, onSelect, perso
       {/* Header: Airline + Price */}
       <div className="flex items-start justify-between mb-3">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-md bg-surface-100 dark:bg-[oklch(25%_0.005_50)] flex items-center justify-center text-xs font-bold text-primary-700 dark:text-[oklch(80%_0.005_50)]">
+          <div className="w-8 h-8 rounded-md bg-surface-100 dark:bg-input flex items-center justify-center text-xs font-bold text-primary-700 dark:text-soft-foreground">
             {flight.airline.code}
           </div>
           <div>
-            <p className="text-sm font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+            <p className="text-sm font-semibold text-primary-900 dark:text-foreground">
               {flight.airline.name}
             </p>
-            <p className="text-xs text-primary-500 dark:text-[oklch(60%_0.005_50)]">
+            <p className="text-xs text-primary-500 dark:text-faint-foreground">
               {flight.flightNumber} · {flight.aircraft}
             </p>
           </div>
         </div>
         <div className="text-right">
-          <p className="text-xl font-bold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+          <p className="text-xl font-bold text-primary-900 dark:text-foreground">
             ${totalPrice.toLocaleString()}
           </p>
           {passengerCount > 1 && (
-            <p className="text-xs text-primary-500 dark:text-[oklch(60%_0.005_50)]">
+            <p className="text-xs text-primary-500 dark:text-faint-foreground">
               ${price}/person
             </p>
           )}
@@ -105,27 +105,27 @@ export function FlightCard({ flight, cabinClass, passengerCount, onSelect, perso
       {/* Times Row */}
       <div className="flex items-center gap-3 mb-3">
         <div className="text-center">
-          <p className="text-lg font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)] tabular-nums">
+          <p className="text-lg font-semibold text-primary-900 dark:text-foreground tabular-nums">
             {formatTime(flight.departure.time)}
           </p>
-          <p className="text-xs font-medium text-primary-500 dark:text-[oklch(60%_0.005_50)]">
+          <p className="text-xs font-medium text-primary-500 dark:text-faint-foreground">
             {flight.departure.airport}
           </p>
         </div>
 
         {/* Duration line */}
         <div className="flex-1 flex flex-col items-center gap-1 px-2">
-          <p className="text-xs text-primary-500 dark:text-[oklch(60%_0.005_50)] flex items-center gap-1">
+          <p className="text-xs text-primary-500 dark:text-faint-foreground flex items-center gap-1">
             <Clock className="w-3 h-3" />
             {formatDuration(flight.duration)}
           </p>
           <div className="w-full flex items-center gap-1">
-            <div className="flex-1 h-px bg-surface-300 dark:bg-[oklch(35%_0.005_50)]" />
+            <div className="flex-1 h-px bg-surface-300 dark:bg-muted" />
             {flight.stops > 0 && (
               <>
                 <div className="w-1.5 h-1.5 rounded-full bg-warning-400" />
                 {flight.stops > 1 && <div className="w-1.5 h-1.5 rounded-full bg-warning-400" />}
-                <div className="flex-1 h-px bg-surface-300 dark:bg-[oklch(35%_0.005_50)]" />
+                <div className="flex-1 h-px bg-surface-300 dark:bg-muted" />
               </>
             )}
             <ArrowRight className="w-3 h-3 text-primary-400" />
@@ -133,12 +133,12 @@ export function FlightCard({ flight, cabinClass, passengerCount, onSelect, perso
           <p className={cn(
             'text-xs font-medium',
             flight.stops === 0
-              ? 'text-success-600 dark:text-[oklch(72%_0.15_155)]'
-              : 'text-warning-600 dark:text-[oklch(72%_0.15_75)]'
+              ? 'text-success-600 dark:text-success-300'
+              : 'text-warning-600 dark:text-warning-400'
           )}>
             {getStopsLabel(flight.stops)}
             {flight.stopoverAirports && flight.stopoverAirports.length > 0 && (
-              <span className="text-primary-400 dark:text-[oklch(55%_0.005_50)] font-normal">
+              <span className="text-primary-400 dark:text-faint-foreground font-normal">
                 {' '}via {flight.stopoverAirports.join(', ')}
               </span>
             )}
@@ -146,20 +146,20 @@ export function FlightCard({ flight, cabinClass, passengerCount, onSelect, perso
         </div>
 
         <div className="text-center">
-          <p className="text-lg font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)] tabular-nums">
+          <p className="text-lg font-semibold text-primary-900 dark:text-foreground tabular-nums">
             {formatTime(flight.arrival.time)}
             {dayDiff > 0 && (
               <span className="text-xs text-warning-500 font-normal ml-0.5">+{dayDiff}</span>
             )}
           </p>
-          <p className="text-xs font-medium text-primary-500 dark:text-[oklch(60%_0.005_50)]">
+          <p className="text-xs font-medium text-primary-500 dark:text-faint-foreground">
             {flight.arrival.airport}
           </p>
         </div>
       </div>
 
       {/* Footer: Amenities + Urgency */}
-      <div className="flex items-center justify-between pt-2 border-t border-surface-200 dark:border-[oklch(25%_0.005_50)]">
+      <div className="flex items-center justify-between pt-2 border-t border-surface-200 dark:border-input">
         <div className="flex items-center gap-2">
           {flight.amenities.slice(0, 4).map((amenity) => {
             const config = AMENITY_ICONS[amenity];
@@ -171,18 +171,18 @@ export function FlightCard({ flight, cabinClass, passengerCount, onSelect, perso
                 className="flex items-center gap-0.5"
                 title={config.label}
               >
-                <Icon className="w-3.5 h-3.5 text-primary-400 dark:text-[oklch(55%_0.005_50)]" aria-hidden="true" />
+                <Icon className="w-3.5 h-3.5 text-primary-400 dark:text-faint-foreground" aria-hidden="true" />
               </div>
             );
           })}
         </div>
         <div className="flex items-center gap-2">
           {isLowSeats && (
-            <span className="text-xs font-medium text-error-500 dark:text-[oklch(70%_0.18_25)]">
+            <span className="text-xs font-medium text-error-500 dark:text-error-400">
               {flight.seatsAvailable} left
             </span>
           )}
-          <span className="text-xs font-medium text-primary-500 dark:text-[oklch(65%_0.194_262)] group-hover:text-primary-600 transition-colors">
+          <span className="text-xs font-medium text-primary-500 dark:text-primary-400 group-hover:text-primary-600 transition-colors">
             Select →
           </span>
         </div>

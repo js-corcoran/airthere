@@ -24,10 +24,10 @@ export function PersonaSelector({ onSelect, selectedPersona }: PersonaSelectorPr
   return (
     <div className="min-h-[100dvh] flex flex-col items-center justify-center px-4 py-8">
       <div className="flex-1 flex flex-col items-center justify-center max-w-md w-full">
-        <h2 className="text-2xl md:text-[28px] font-bold text-primary-900 dark:text-[oklch(95%_0.002_50)] mb-2 text-center tracking-[-0.25px]">
+        <h2 className="text-2xl md:text-[28px] font-bold text-primary-900 dark:text-foreground mb-2 text-center tracking-[-0.25px]">
           Choose Your Experience
         </h2>
-        <p className="text-base text-primary-700 dark:text-[oklch(85%_0.005_50)] mb-8 text-center max-w-sm leading-relaxed">
+        <p className="text-base text-primary-700 dark:text-muted-foreground mb-8 text-center max-w-sm leading-relaxed">
           Personalization unlocks AirThere&apos;s full power. Select the profile that best matches your travel style.
         </p>
 
@@ -47,28 +47,28 @@ export function PersonaSelector({ onSelect, selectedPersona }: PersonaSelectorPr
                   'min-h-[var(--touch-preferred)]',
                   isSelected
                     ? 'border-primary-500 bg-primary-50 dark:bg-primary-900 shadow-md'
-                    : 'border-surface-300 dark:border-[oklch(32%_0.008_50)] bg-surface dark:bg-[oklch(18%_0.003_50)] hover:border-primary-300 hover:shadow-sm hover:-translate-y-0.5'
+                    : 'border-surface-300 dark:border-muted bg-surface dark:bg-card hover:border-primary-300 hover:shadow-sm hover:-translate-y-0.5'
                 )}
               >
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-2xl" aria-hidden="true">{persona.icon}</span>
                   <div>
-                    <h3 className="text-lg font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+                    <h3 className="text-lg font-semibold text-primary-900 dark:text-foreground">
                       {persona.name}
                     </h3>
-                    <p className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)] font-medium uppercase tracking-wider">
+                    <p className="text-xs text-primary-500 dark:text-caption-foreground font-medium uppercase tracking-wider">
                       {persona.tagline}
                     </p>
                   </div>
                 </div>
 
-                <p className="text-sm text-primary-700 dark:text-[oklch(85%_0.005_50)] mb-3 leading-relaxed">
+                <p className="text-sm text-primary-700 dark:text-muted-foreground mb-3 leading-relaxed">
                   {persona.description}
                 </p>
 
                 <ul className="space-y-1.5" role="list">
                   {persona.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-xs text-primary-700 dark:text-[oklch(80%_0.005_50)]">
+                    <li key={idx} className="flex items-start gap-2 text-xs text-primary-700 dark:text-soft-foreground">
                       <span
                         className={cn(
                           'font-bold mt-0.5 shrink-0',
@@ -99,7 +99,7 @@ export function PersonaSelector({ onSelect, selectedPersona }: PersonaSelectorPr
             'min-h-[var(--touch-preferred)]',
             selected
               ? 'bg-secondary-500 text-white hover:bg-secondary-600 active:bg-secondary-700 shadow-sm'
-              : 'bg-surface-300 text-surface-200 cursor-not-allowed dark:bg-[oklch(32%_0.008_50)] dark:text-[oklch(50%_0.005_50)]'
+              : 'bg-surface-300 text-surface-200 cursor-not-allowed dark:bg-muted dark:text-faint-foreground'
           )}
         >
           Continue

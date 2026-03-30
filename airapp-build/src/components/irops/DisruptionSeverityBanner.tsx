@@ -10,28 +10,28 @@ interface DisruptionSeverityBannerProps {
 
 const SEVERITY_CONFIG = {
   critical: {
-    bg: 'bg-error-100 dark:bg-[oklch(25%_0.06_25)]',
+    bg: 'bg-error-100 dark:bg-surface-error',
     border: 'border-error-500',
     text: 'text-error-800 dark:text-error-100',
     icon: AlertOctagon,
     iconColor: 'text-error-600 dark:text-error-300',
   },
   high: {
-    bg: 'bg-error-50 dark:bg-[oklch(22%_0.04_25)]',
+    bg: 'bg-error-50 dark:bg-surface-error',
     border: 'border-error-400',
     text: 'text-error-800 dark:text-error-200',
     icon: AlertTriangle,
     iconColor: 'text-error-500 dark:text-error-300',
   },
   medium: {
-    bg: 'bg-warning-50 dark:bg-[oklch(22%_0.04_60)]',
+    bg: 'bg-warning-50 dark:bg-surface-warning',
     border: 'border-warning-500',
     text: 'text-warning-900 dark:text-warning-100',
     icon: Clock,
     iconColor: 'text-warning-600 dark:text-warning-300',
   },
   low: {
-    bg: 'bg-info-50 dark:bg-[oklch(20%_0.03_240)]',
+    bg: 'bg-info-50 dark:bg-surface-info',
     border: 'border-info-400',
     text: 'text-info-800 dark:text-info-200',
     icon: Clock,

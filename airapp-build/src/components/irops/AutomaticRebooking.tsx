@@ -22,7 +22,7 @@ export function AutomaticRebooking({ rebooking, onApprove, onDecline, isProcessi
       >
         Recommended Rebooking
       </h3>
-      <div className="bg-success-50 dark:bg-[oklch(18%_0.03_142)] rounded-[var(--radius-lg)] p-4 border-2 border-success-400 dark:border-success-600">
+      <div className="bg-success-50 dark:bg-surface-success rounded-[var(--radius-lg)] p-4 border-2 border-success-400 dark:border-success-600">
         <div className="flex items-center gap-2 mb-4">
           <CheckCircle className="w-5 h-5 text-success-600 dark:text-success-400" aria-hidden="true" />
           <span className="font-bold text-success-800 dark:text-success-200">
@@ -31,9 +31,9 @@ export function AutomaticRebooking({ rebooking, onApprove, onDecline, isProcessi
         </div>
 
         {/* Flight details */}
-        <div className="bg-white/60 dark:bg-[oklch(22%_0.005_50)] rounded-[var(--radius-md)] p-3 mb-4">
+        <div className="bg-white/60 dark:bg-surface-elevated rounded-[var(--radius-md)] p-3 mb-4">
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-sm font-bold text-primary-800 dark:text-[oklch(90%_0.002_50)]">
+            <span className="text-sm font-bold text-primary-800 dark:text-subtle-foreground">
               {recommendedFlight.flightNumber}
             </span>
             <span className="text-xs text-primary-500 dark:text-primary-400">
@@ -43,7 +43,7 @@ export function AutomaticRebooking({ rebooking, onApprove, onDecline, isProcessi
 
           <div className="flex items-center gap-3 text-sm">
             <div className="flex-1">
-              <p className="font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+              <p className="font-semibold text-primary-900 dark:text-foreground">
                 {recommendedFlight.departure.time}
               </p>
               <p className="text-xs text-primary-500 dark:text-primary-400">
@@ -65,7 +65,7 @@ export function AutomaticRebooking({ rebooking, onApprove, onDecline, isProcessi
             </div>
 
             <div className="flex-1 text-right">
-              <p className="font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+              <p className="font-semibold text-primary-900 dark:text-foreground">
                 {recommendedFlight.arrival.time}
               </p>
               <p className="text-xs text-primary-500 dark:text-primary-400">
@@ -136,7 +136,7 @@ export function AutomaticRebooking({ rebooking, onApprove, onDecline, isProcessi
               'flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-[var(--radius-md)]',
               'bg-transparent border border-primary-300 dark:border-primary-600',
               'text-primary-700 dark:text-primary-300 font-medium text-sm',
-              'hover:bg-primary-50 dark:hover:bg-[oklch(22%_0.005_50)]',
+              'hover:bg-primary-50 dark:hover:bg-surface-elevated',
               'transition-colors duration-[--duration-micro]',
               'min-h-[var(--touch-preferred)]',
               'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
@@ -154,7 +154,7 @@ export function AutomaticRebooking({ rebooking, onApprove, onDecline, isProcessi
 
 function CompareBadge({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
-    <div className="flex items-center gap-2 bg-success-100 dark:bg-[oklch(22%_0.04_142)] px-3 py-2 rounded-[var(--radius-md)] text-success-800 dark:text-success-200">
+    <div className="flex items-center gap-2 bg-success-100 dark:bg-surface-success px-3 py-2 rounded-[var(--radius-md)] text-success-800 dark:text-success-200">
       {icon}
       <span className="text-xs font-medium capitalize">{text}</span>
     </div>

@@ -36,66 +36,66 @@ export function BookingConfirmation({
     <div className="text-center space-y-6 py-4">
       {/* Success Icon */}
       <div className="flex justify-center">
-        <div className="w-16 h-16 rounded-full bg-success-100 dark:bg-[oklch(25%_0.05_155)] flex items-center justify-center">
-          <Check className="w-8 h-8 text-success-600 dark:text-[oklch(72%_0.15_155)]" />
+        <div className="w-16 h-16 rounded-full bg-success-100 dark:bg-surface-success flex items-center justify-center">
+          <Check className="w-8 h-8 text-success-600 dark:text-success-300" />
         </div>
       </div>
 
       <div>
-        <h1 className="text-2xl font-bold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+        <h1 className="text-2xl font-bold text-primary-900 dark:text-foreground">
           Booking Confirmed!
         </h1>
-        <p className="text-sm text-primary-500 dark:text-[oklch(60%_0.005_50)] mt-1">
+        <p className="text-sm text-primary-500 dark:text-faint-foreground mt-1">
           Your trip has been successfully booked
         </p>
       </div>
 
       {/* Confirmation Number */}
-      <div className="inline-block px-4 py-2 rounded-lg bg-surface-100 dark:bg-[oklch(22%_0.003_50)] border border-surface-200 dark:border-[oklch(28%_0.005_50)]">
-        <p className="text-xs text-primary-500 dark:text-[oklch(60%_0.005_50)]">Confirmation Number</p>
-        <p className="text-lg font-mono font-bold text-primary-900 dark:text-[oklch(95%_0.002_50)] tracking-wider">
+      <div className="inline-block px-4 py-2 rounded-lg bg-surface-100 dark:bg-surface-elevated border border-surface-200 dark:border-input">
+        <p className="text-xs text-primary-500 dark:text-faint-foreground">Confirmation Number</p>
+        <p className="text-lg font-mono font-bold text-primary-900 dark:text-foreground tracking-wider">
           {confirmationNumber}
         </p>
       </div>
 
       {/* Flight Details */}
-      <div className="p-4 rounded-xl border border-surface-300 dark:border-[oklch(28%_0.005_50)] text-left space-y-3">
+      <div className="p-4 rounded-xl border border-surface-300 dark:border-input text-left space-y-3">
         <div>
-          <p className="text-sm font-semibold text-primary-900 dark:text-[oklch(92%_0.002_50)]">
+          <p className="text-sm font-semibold text-primary-900 dark:text-foreground">
             {flight.airline.name} {flight.flightNumber}
           </p>
-          <p className="text-sm text-primary-600 dark:text-[oklch(75%_0.005_50)]">
+          <p className="text-sm text-primary-600 dark:text-soft-foreground">
             {flight.departure.city} ({flight.departure.airport}) → {flight.arrival.city} ({flight.arrival.airport})
           </p>
-          <p className="text-xs text-primary-400 dark:text-[oklch(55%_0.005_50)] mt-1">
+          <p className="text-xs text-primary-400 dark:text-faint-foreground mt-1">
             {formatDate(flight.departure.time)} · {formatTime(flight.departure.time)} – {formatTime(flight.arrival.time)}
           </p>
           {selectedSeats.length > 0 && (
-            <p className="text-xs text-primary-400 dark:text-[oklch(55%_0.005_50)]">
+            <p className="text-xs text-primary-400 dark:text-faint-foreground">
               Seat{selectedSeats.length > 1 ? 's' : ''}: {selectedSeats.join(', ')}
             </p>
           )}
         </div>
 
-        <div className="border-t border-surface-200 dark:border-[oklch(25%_0.005_50)] pt-2">
-          <p className="text-xs text-primary-500 dark:text-[oklch(60%_0.005_50)]">Passengers</p>
+        <div className="border-t border-surface-200 dark:border-input pt-2">
+          <p className="text-xs text-primary-500 dark:text-faint-foreground">Passengers</p>
           {passengers.map((pax, i) => (
-            <p key={i} className="text-sm text-primary-900 dark:text-[oklch(92%_0.002_50)]">
+            <p key={i} className="text-sm text-primary-900 dark:text-foreground">
               {pax.firstName} {pax.lastName}
             </p>
           ))}
         </div>
 
-        <div className="flex justify-between pt-2 border-t border-surface-200 dark:border-[oklch(25%_0.005_50)]">
-          <span className="text-sm font-medium text-primary-700 dark:text-[oklch(80%_0.005_50)]">Total Paid</span>
-          <span className="text-lg font-bold text-success-600 dark:text-[oklch(72%_0.15_155)] tabular-nums">
+        <div className="flex justify-between pt-2 border-t border-surface-200 dark:border-input">
+          <span className="text-sm font-medium text-primary-700 dark:text-soft-foreground">Total Paid</span>
+          <span className="text-lg font-bold text-success-600 dark:text-success-300 tabular-nums">
             ${totalPrice.toLocaleString()}
           </span>
         </div>
       </div>
 
       {/* Confirmation email */}
-      <p className="text-xs text-primary-500 dark:text-[oklch(60%_0.005_50)]">
+      <p className="text-xs text-primary-500 dark:text-faint-foreground">
         Confirmation sent to {passengers[0]?.email}
       </p>
 
@@ -107,31 +107,31 @@ export function BookingConfirmation({
                      hover:bg-primary-600 transition-colors duration-[--duration-short]
                      focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500
                      min-h-[var(--touch-preferred)]
-                     dark:bg-[oklch(55%_0.194_262)] dark:hover:bg-[oklch(60%_0.194_262)]
+                     dark:bg-primary-500 dark:hover:bg-primary-400
                      flex items-center justify-center gap-2"
         >
           View My Trips
         </button>
 
         <div className="grid grid-cols-3 gap-2">
-          <button className="flex flex-col items-center gap-1.5 py-3 rounded-lg bg-surface-50 dark:bg-[oklch(20%_0.003_50)] border border-surface-200 dark:border-[oklch(25%_0.005_50)] hover:bg-surface-100 dark:hover:bg-[oklch(25%_0.005_50)] transition-colors min-h-[var(--touch-preferred)]">
-            <Calendar className="w-4 h-4 text-primary-500 dark:text-[oklch(65%_0.194_262)]" />
-            <span className="text-[11px] text-primary-600 dark:text-[oklch(75%_0.005_50)]">Calendar</span>
+          <button className="flex flex-col items-center gap-1.5 py-3 rounded-lg bg-surface-50 dark:bg-surface-100 border border-surface-200 dark:border-input hover:bg-surface-100 dark:hover:bg-input transition-colors min-h-[var(--touch-preferred)]">
+            <Calendar className="w-4 h-4 text-primary-500 dark:text-primary-400" />
+            <span className="text-[11px] text-primary-600 dark:text-soft-foreground">Calendar</span>
           </button>
-          <button className="flex flex-col items-center gap-1.5 py-3 rounded-lg bg-surface-50 dark:bg-[oklch(20%_0.003_50)] border border-surface-200 dark:border-[oklch(25%_0.005_50)] hover:bg-surface-100 dark:hover:bg-[oklch(25%_0.005_50)] transition-colors min-h-[var(--touch-preferred)]">
-            <Download className="w-4 h-4 text-primary-500 dark:text-[oklch(65%_0.194_262)]" />
-            <span className="text-[11px] text-primary-600 dark:text-[oklch(75%_0.005_50)]">Pass</span>
+          <button className="flex flex-col items-center gap-1.5 py-3 rounded-lg bg-surface-50 dark:bg-surface-100 border border-surface-200 dark:border-input hover:bg-surface-100 dark:hover:bg-input transition-colors min-h-[var(--touch-preferred)]">
+            <Download className="w-4 h-4 text-primary-500 dark:text-primary-400" />
+            <span className="text-[11px] text-primary-600 dark:text-soft-foreground">Pass</span>
           </button>
-          <button className="flex flex-col items-center gap-1.5 py-3 rounded-lg bg-surface-50 dark:bg-[oklch(20%_0.003_50)] border border-surface-200 dark:border-[oklch(25%_0.005_50)] hover:bg-surface-100 dark:hover:bg-[oklch(25%_0.005_50)] transition-colors min-h-[var(--touch-preferred)]">
-            <Bell className="w-4 h-4 text-primary-500 dark:text-[oklch(65%_0.194_262)]" />
-            <span className="text-[11px] text-primary-600 dark:text-[oklch(75%_0.005_50)]">Remind</span>
+          <button className="flex flex-col items-center gap-1.5 py-3 rounded-lg bg-surface-50 dark:bg-surface-100 border border-surface-200 dark:border-input hover:bg-surface-100 dark:hover:bg-input transition-colors min-h-[var(--touch-preferred)]">
+            <Bell className="w-4 h-4 text-primary-500 dark:text-primary-400" />
+            <span className="text-[11px] text-primary-600 dark:text-soft-foreground">Remind</span>
           </button>
         </div>
 
         <button
           onClick={() => router.push(ROUTES.HOME)}
-          className="w-full py-2.5 rounded-lg text-sm font-medium text-primary-500 dark:text-[oklch(65%_0.194_262)]
-                     hover:bg-surface-50 dark:hover:bg-[oklch(20%_0.003_50)] transition-colors
+          className="w-full py-2.5 rounded-lg text-sm font-medium text-primary-500 dark:text-primary-400
+                     hover:bg-surface-50 dark:hover:bg-surface-100 transition-colors
                      min-h-[var(--touch-min)] flex items-center justify-center gap-1.5"
         >
           <Home className="w-4 h-4" />

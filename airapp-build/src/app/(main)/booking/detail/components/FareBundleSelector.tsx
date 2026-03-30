@@ -15,15 +15,15 @@ function FeatureRow({ label, included }: { label: string; included: boolean }) {
   return (
     <div className="flex items-center gap-2 py-1">
       {included ? (
-        <Check className="w-3.5 h-3.5 text-success-500 dark:text-[oklch(72%_0.15_155)] shrink-0" />
+        <Check className="w-3.5 h-3.5 text-success-500 dark:text-success-300 shrink-0" />
       ) : (
-        <X className="w-3.5 h-3.5 text-surface-300 dark:text-[oklch(40%_0.005_50)] shrink-0" />
+        <X className="w-3.5 h-3.5 text-surface-300 dark:text-faint-foreground shrink-0" />
       )}
       <span className={cn(
         'text-xs',
         included
-          ? 'text-primary-700 dark:text-[oklch(82%_0.005_50)]'
-          : 'text-primary-400 dark:text-[oklch(50%_0.005_50)] line-through'
+          ? 'text-primary-700 dark:text-soft-foreground'
+          : 'text-primary-400 dark:text-faint-foreground line-through'
       )}>
         {label}
       </span>
@@ -34,7 +34,7 @@ function FeatureRow({ label, included }: { label: string; included: boolean }) {
 export function FareBundleSelector({ bundles, selectedId, basePrice, onChange }: FareBundleSelectorProps) {
   return (
     <div>
-      <h3 className="text-xs font-medium text-primary-700 dark:text-[oklch(80%_0.005_50)] uppercase tracking-wider mb-3">
+      <h3 className="text-xs font-medium text-primary-700 dark:text-soft-foreground uppercase tracking-wider mb-3">
         Choose Your Fare
       </h3>
       <div className="grid grid-cols-3 gap-2">
@@ -52,8 +52,8 @@ export function FareBundleSelector({ bundles, selectedId, basePrice, onChange }:
                 'transition-all duration-[--duration-short]',
                 'focus-visible:outline-2 focus-visible:outline-primary-500',
                 isSelected
-                  ? 'border-primary-500 bg-primary-50 dark:bg-[oklch(20%_0.015_262)] dark:border-[oklch(55%_0.194_262)] ring-1 ring-primary-500 dark:ring-[oklch(55%_0.194_262)]'
-                  : 'border-surface-300 dark:border-[oklch(28%_0.005_50)] bg-background dark:bg-[oklch(18%_0.003_50)] hover:border-primary-300 dark:hover:border-[oklch(40%_0.05_262)]'
+                  ? 'border-primary-500 bg-primary-50 dark:bg-surface-primary dark:border-primary-500 ring-1 ring-primary-500 dark:ring-primary-500'
+                  : 'border-surface-300 dark:border-input bg-background dark:bg-card hover:border-primary-300 dark:hover:border-primary'
               )}
             >
               {isRecommended && (
@@ -61,10 +61,10 @@ export function FareBundleSelector({ bundles, selectedId, basePrice, onChange }:
                   Best Value
                 </span>
               )}
-              <p className="text-sm font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)] mb-1">
+              <p className="text-sm font-semibold text-primary-900 dark:text-foreground mb-1">
                 {bundle.name}
               </p>
-              <p className="text-lg font-bold text-primary-900 dark:text-[oklch(95%_0.002_50)] mb-2 tabular-nums">
+              <p className="text-lg font-bold text-primary-900 dark:text-foreground mb-2 tabular-nums">
                 {bundle.price === 0 ? 'Included' : `+$${bundle.price}`}
               </p>
               <div className="space-y-0.5">

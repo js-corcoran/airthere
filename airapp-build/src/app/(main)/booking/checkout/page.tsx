@@ -245,7 +245,7 @@ function CheckoutContent() {
   return (
     <div className="pb-24">
       {/* Progress Bar */}
-      <div className="px-4 py-3 border-b border-surface-200 dark:border-[oklch(25%_0.005_50)]">
+      <div className="px-4 py-3 border-b border-surface-200 dark:border-input">
         <StepProgress currentStep={step} totalSteps={4} labels={STEP_LABELS} />
       </div>
 
@@ -263,12 +263,12 @@ function CheckoutContent() {
           <div className="space-y-5">
             <div>
               <div className="flex items-center gap-2">
-                <Shield className="w-5 h-5 text-primary-500 dark:text-[oklch(65%_0.194_262)]" />
-                <h2 className="text-lg font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+                <Shield className="w-5 h-5 text-primary-500 dark:text-primary-400" />
+                <h2 className="text-lg font-semibold text-primary-900 dark:text-foreground">
                   Trip Protection
                 </h2>
               </div>
-              <p className="text-sm text-primary-500 dark:text-[oklch(60%_0.005_50)] mt-1">
+              <p className="text-sm text-primary-500 dark:text-faint-foreground mt-1">
                 Protect your trip with optional coverage — select any that apply
               </p>
             </div>
@@ -294,30 +294,30 @@ function CheckoutContent() {
                       'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
                       'min-h-[var(--touch-preferred)]',
                       isSelected
-                        ? 'border-primary-500 bg-primary-50 dark:border-[oklch(55%_0.194_262)] dark:bg-[oklch(20%_0.015_262)]'
-                        : 'border-surface-300 bg-background hover:border-primary-300 dark:border-[oklch(28%_0.005_50)] dark:bg-[oklch(18%_0.003_50)] dark:hover:border-[oklch(40%_0.05_262)]'
+                        ? 'border-primary-500 bg-primary-50 dark:border-primary-500 dark:bg-surface-primary'
+                        : 'border-surface-300 bg-background hover:border-primary-300 dark:border-input dark:bg-card dark:hover:border-primary'
                     )}
                   >
                     <div className="flex items-start gap-3">
                       <div className={cn(
                         'mt-0.5 w-5 h-5 rounded-md border-2 flex items-center justify-center flex-shrink-0 transition-colors duration-[--duration-micro]',
                         isSelected
-                          ? 'bg-primary-500 border-primary-500 dark:bg-[oklch(55%_0.194_262)] dark:border-[oklch(55%_0.194_262)]'
-                          : 'border-surface-400 dark:border-[oklch(40%_0.005_50)]'
+                          ? 'bg-primary-500 border-primary-500 dark:bg-primary-500 dark:border-primary-500'
+                          : 'border-surface-400 dark:border-muted'
                       )}>
                         {isSelected && <Check className="w-3 h-3 text-white" />}
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between gap-2">
-                          <span className="text-sm font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+                          <span className="text-sm font-semibold text-primary-900 dark:text-foreground">
                             <span className="mr-1.5">{option.icon}</span>
                             {option.title}
                           </span>
-                          <span className="text-sm font-bold text-primary-900 dark:text-[oklch(95%_0.002_50)] tabular-nums flex-shrink-0">
+                          <span className="text-sm font-bold text-primary-900 dark:text-foreground tabular-nums flex-shrink-0">
                             ${option.price}
                           </span>
                         </div>
-                        <p className="text-xs text-primary-500 dark:text-[oklch(60%_0.005_50)] mt-1 leading-relaxed">
+                        <p className="text-xs text-primary-500 dark:text-faint-foreground mt-1 leading-relaxed">
                           {option.description}
                         </p>
                       </div>
@@ -331,25 +331,25 @@ function CheckoutContent() {
             <div className={cn(
               'p-4 rounded-xl border transition-colors duration-[--duration-short]',
               protectionTotal > 0
-                ? 'bg-primary-50 border-primary-200 dark:bg-[oklch(20%_0.015_262)] dark:border-[oklch(30%_0.05_262)]'
-                : 'bg-surface-50 border-surface-200 dark:bg-[oklch(16%_0.003_50)] dark:border-[oklch(25%_0.005_50)]'
+                ? 'bg-primary-50 border-primary-200 dark:bg-surface-primary dark:border-primary'
+                : 'bg-surface-50 border-surface-200 dark:bg-background dark:border-input'
             )}>
               <div className="flex justify-between items-center">
-                <span className="text-sm font-medium text-primary-700 dark:text-[oklch(80%_0.005_50)]">
+                <span className="text-sm font-medium text-primary-700 dark:text-soft-foreground">
                   Protection Total
                 </span>
-                <span className="text-lg font-bold text-primary-900 dark:text-[oklch(95%_0.002_50)] tabular-nums">
+                <span className="text-lg font-bold text-primary-900 dark:text-foreground tabular-nums">
                   {protectionTotal > 0 ? `+$${protectionTotal}` : '$0'}
                 </span>
               </div>
               {protectionTotal > 0 && (
-                <p className="text-xs text-primary-500 dark:text-[oklch(60%_0.005_50)] mt-1">
+                <p className="text-xs text-primary-500 dark:text-faint-foreground mt-1">
                   Added to your booking total
                 </p>
               )}
             </div>
 
-            <p className="text-xs text-primary-400 dark:text-[oklch(50%_0.005_50)] text-center">
+            <p className="text-xs text-primary-400 dark:text-faint-foreground text-center">
               You can skip this step — protection can be added later from your trip details
             </p>
           </div>
@@ -377,15 +377,15 @@ function CheckoutContent() {
       </div>
 
       {/* Sticky Navigation */}
-      <div className="fixed bottom-16 left-0 right-0 z-30 px-4 py-3 bg-background/95 dark:bg-[oklch(14%_0.003_50)]/95 backdrop-blur-sm border-t border-surface-200 dark:border-[oklch(25%_0.005_50)]">
+      <div className="fixed bottom-16 left-0 right-0 z-30 px-4 py-3 bg-background/95 dark:bg-background/95 backdrop-blur-sm border-t border-surface-200 dark:border-input">
         <div className="max-w-[640px] mx-auto flex items-center gap-3">
           {step > 1 && (
             <button
               onClick={handleBack}
               className="flex items-center gap-1.5 px-4 py-3 rounded-lg text-sm font-medium
-                         text-primary-600 dark:text-[oklch(75%_0.005_50)]
-                         border border-surface-300 dark:border-[oklch(32%_0.008_50)]
-                         hover:bg-surface-50 dark:hover:bg-[oklch(20%_0.003_50)]
+                         text-primary-600 dark:text-soft-foreground
+                         border border-surface-300 dark:border-muted
+                         hover:bg-surface-50 dark:hover:bg-surface-100
                          transition-colors duration-[--duration-short]
                          min-h-[var(--touch-preferred)]"
             >
@@ -395,8 +395,8 @@ function CheckoutContent() {
           )}
           <div className="flex-1" />
           <div className="text-right mr-3">
-            <p className="text-xs text-primary-500 dark:text-[oklch(60%_0.005_50)]">Total</p>
-            <p className="text-lg font-bold text-primary-900 dark:text-[oklch(95%_0.002_50)] tabular-nums">
+            <p className="text-xs text-primary-500 dark:text-faint-foreground">Total</p>
+            <p className="text-lg font-bold text-primary-900 dark:text-foreground tabular-nums">
               ${totalPrice.toLocaleString()}
             </p>
           </div>
@@ -410,7 +410,7 @@ function CheckoutContent() {
               'min-h-[var(--touch-preferred)]',
               isSubmitting
                 ? 'bg-primary-300 text-white cursor-not-allowed'
-                : 'bg-primary-500 text-white hover:bg-primary-600 dark:bg-[oklch(55%_0.194_262)] dark:hover:bg-[oklch(60%_0.194_262)]'
+                : 'bg-primary-500 text-white hover:bg-primary-600 dark:bg-primary-500 dark:hover:bg-primary-400'
             )}
           >
             {isSubmitting ? (

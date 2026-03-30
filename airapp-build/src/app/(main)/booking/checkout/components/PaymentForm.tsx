@@ -44,10 +44,10 @@ export function PaymentForm({ data, onChange, errors }: PaymentFormProps) {
   return (
     <div className="space-y-5">
       <div>
-        <h2 className="text-lg font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+        <h2 className="text-lg font-semibold text-primary-900 dark:text-foreground">
           Payment Method
         </h2>
-        <p className="text-sm text-primary-500 dark:text-[oklch(60%_0.005_50)] mt-0.5">
+        <p className="text-sm text-primary-500 dark:text-faint-foreground mt-0.5">
           Choose how you&apos;d like to pay
         </p>
       </div>
@@ -69,22 +69,22 @@ export function PaymentForm({ data, onChange, errors }: PaymentFormProps) {
                 'focus-visible:outline-2 focus-visible:outline-primary-500',
                 'min-h-[var(--touch-preferred)]',
                 isSelected
-                  ? 'border-primary-500 bg-primary-50 dark:bg-[oklch(20%_0.015_262)] dark:border-[oklch(55%_0.194_262)]'
-                  : 'border-surface-300 dark:border-[oklch(28%_0.005_50)] hover:border-primary-300 dark:hover:border-[oklch(40%_0.05_262)]'
+                  ? 'border-primary-500 bg-primary-50 dark:bg-surface-primary dark:border-primary-500'
+                  : 'border-surface-300 dark:border-input hover:border-primary-300 dark:hover:border-primary'
               )}
             >
               <div className={cn(
                 'w-5 h-5 rounded-full border-2 flex items-center justify-center',
                 isSelected
-                  ? 'border-primary-500 dark:border-[oklch(55%_0.194_262)]'
-                  : 'border-surface-300 dark:border-[oklch(40%_0.005_50)]'
+                  ? 'border-primary-500 dark:border-primary-500'
+                  : 'border-surface-300 dark:border-muted'
               )}>
                 {isSelected && (
-                  <div className="w-2.5 h-2.5 rounded-full bg-primary-500 dark:bg-[oklch(55%_0.194_262)]" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-primary-500 dark:bg-primary-500" />
                 )}
               </div>
-              <Icon className="w-5 h-5 text-primary-500 dark:text-[oklch(65%_0.194_262)]" />
-              <span className="text-sm font-medium text-primary-900 dark:text-[oklch(92%_0.002_50)]">
+              <Icon className="w-5 h-5 text-primary-500 dark:text-primary-400" />
+              <span className="text-sm font-medium text-primary-900 dark:text-foreground">
                 {method.label}
               </span>
             </button>
@@ -94,9 +94,9 @@ export function PaymentForm({ data, onChange, errors }: PaymentFormProps) {
 
       {/* Credit Card Fields */}
       {data.method === 'card' && (
-        <div className="space-y-3 p-4 rounded-xl bg-surface-50 dark:bg-[oklch(16%_0.003_50)] border border-surface-200 dark:border-[oklch(25%_0.005_50)]">
+        <div className="space-y-3 p-4 rounded-xl bg-surface-50 dark:bg-background border border-surface-200 dark:border-input">
           <div>
-            <label className="block text-xs font-medium text-primary-700 dark:text-[oklch(80%_0.005_50)] mb-1">
+            <label className="block text-xs font-medium text-primary-700 dark:text-soft-foreground mb-1">
               Card Number <span className="text-error-500">*</span>
             </label>
             <input
@@ -109,12 +109,12 @@ export function PaymentForm({ data, onChange, errors }: PaymentFormProps) {
               className={cn(
                 'w-full px-3 py-2.5 border rounded-md text-sm bg-background font-mono tracking-wider',
                 'focus:outline-none focus:ring-2 focus:ring-primary-500',
-                'dark:bg-[oklch(18%_0.003_50)] dark:text-[oklch(95%_0.002_50)]',
+                'dark:bg-card dark:text-foreground',
                 'min-h-[var(--touch-min)]',
-                'placeholder:text-primary-400 dark:placeholder:text-[oklch(45%_0.005_50)]',
+                'placeholder:text-primary-400 dark:placeholder:text-faint-foreground',
                 errors.cardNumber
                   ? 'border-error-400'
-                  : 'border-surface-300 dark:border-[oklch(32%_0.008_50)]'
+                  : 'border-surface-300 dark:border-muted'
               )}
               aria-label="Card number"
               aria-invalid={!!errors.cardNumber}
@@ -125,7 +125,7 @@ export function PaymentForm({ data, onChange, errors }: PaymentFormProps) {
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-primary-700 dark:text-[oklch(80%_0.005_50)] mb-1">
+            <label className="block text-xs font-medium text-primary-700 dark:text-soft-foreground mb-1">
               Cardholder Name <span className="text-error-500">*</span>
             </label>
             <input
@@ -136,10 +136,10 @@ export function PaymentForm({ data, onChange, errors }: PaymentFormProps) {
               className={cn(
                 'w-full px-3 py-2.5 border rounded-md text-sm bg-background',
                 'focus:outline-none focus:ring-2 focus:ring-primary-500',
-                'dark:bg-[oklch(18%_0.003_50)] dark:text-[oklch(95%_0.002_50)]',
+                'dark:bg-card dark:text-foreground',
                 'min-h-[var(--touch-min)]',
-                'placeholder:text-primary-400 dark:placeholder:text-[oklch(45%_0.005_50)]',
-                'border-surface-300 dark:border-[oklch(32%_0.008_50)]'
+                'placeholder:text-primary-400 dark:placeholder:text-faint-foreground',
+                'border-surface-300 dark:border-muted'
               )}
               aria-label="Cardholder name"
             />
@@ -147,7 +147,7 @@ export function PaymentForm({ data, onChange, errors }: PaymentFormProps) {
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-medium text-primary-700 dark:text-[oklch(80%_0.005_50)] mb-1">
+              <label className="block text-xs font-medium text-primary-700 dark:text-soft-foreground mb-1">
                 Expiry <span className="text-error-500">*</span>
               </label>
               <input
@@ -160,16 +160,16 @@ export function PaymentForm({ data, onChange, errors }: PaymentFormProps) {
                 className={cn(
                   'w-full px-3 py-2.5 border rounded-md text-sm bg-background font-mono',
                   'focus:outline-none focus:ring-2 focus:ring-primary-500',
-                  'dark:bg-[oklch(18%_0.003_50)] dark:text-[oklch(95%_0.002_50)]',
+                  'dark:bg-card dark:text-foreground',
                   'min-h-[var(--touch-min)]',
-                  'placeholder:text-primary-400 dark:placeholder:text-[oklch(45%_0.005_50)]',
-                  'border-surface-300 dark:border-[oklch(32%_0.008_50)]'
+                  'placeholder:text-primary-400 dark:placeholder:text-faint-foreground',
+                  'border-surface-300 dark:border-muted'
                 )}
                 aria-label="Expiry date"
               />
             </div>
             <div>
-              <label className="block text-xs font-medium text-primary-700 dark:text-[oklch(80%_0.005_50)] mb-1">
+              <label className="block text-xs font-medium text-primary-700 dark:text-soft-foreground mb-1">
                 CVV <span className="text-error-500">*</span>
               </label>
               <input
@@ -182,10 +182,10 @@ export function PaymentForm({ data, onChange, errors }: PaymentFormProps) {
                 className={cn(
                   'w-full px-3 py-2.5 border rounded-md text-sm bg-background font-mono',
                   'focus:outline-none focus:ring-2 focus:ring-primary-500',
-                  'dark:bg-[oklch(18%_0.003_50)] dark:text-[oklch(95%_0.002_50)]',
+                  'dark:bg-card dark:text-foreground',
                   'min-h-[var(--touch-min)]',
-                  'placeholder:text-primary-400 dark:placeholder:text-[oklch(45%_0.005_50)]',
-                  'border-surface-300 dark:border-[oklch(32%_0.008_50)]'
+                  'placeholder:text-primary-400 dark:placeholder:text-faint-foreground',
+                  'border-surface-300 dark:border-muted'
                 )}
                 aria-label="CVV"
               />
@@ -193,8 +193,8 @@ export function PaymentForm({ data, onChange, errors }: PaymentFormProps) {
           </div>
 
           <div className="flex items-center gap-2 mt-2">
-            <ShieldCheck className="w-4 h-4 text-success-500 dark:text-[oklch(65%_0.15_155)]" />
-            <span className="text-xs text-primary-500 dark:text-[oklch(60%_0.005_50)]">
+            <ShieldCheck className="w-4 h-4 text-success-500 dark:text-success-400" />
+            <span className="text-xs text-primary-500 dark:text-faint-foreground">
               Secure checkout — your payment info is encrypted
             </span>
           </div>
@@ -202,8 +202,8 @@ export function PaymentForm({ data, onChange, errors }: PaymentFormProps) {
       )}
 
       {data.method !== 'card' && (
-        <div className="p-4 rounded-xl bg-surface-50 dark:bg-[oklch(16%_0.003_50)] border border-surface-200 dark:border-[oklch(25%_0.005_50)] text-center">
-          <p className="text-sm text-primary-600 dark:text-[oklch(75%_0.005_50)]">
+        <div className="p-4 rounded-xl bg-surface-50 dark:bg-background border border-surface-200 dark:border-input text-center">
+          <p className="text-sm text-primary-600 dark:text-soft-foreground">
             You&apos;ll be redirected to complete payment after review.
           </p>
         </div>

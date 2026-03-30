@@ -28,8 +28,8 @@ export function DestinationCard({ destination, persona }: DestinationCardProps) 
   return (
     <div
       className={cn(
-        'rounded-lg overflow-hidden bg-surface dark:bg-[oklch(18%_0.003_50)]',
-        'border border-surface-300 dark:border-[oklch(32%_0.008_50)]',
+        'rounded-lg overflow-hidden bg-surface dark:bg-card',
+        'border border-surface-300 dark:border-muted',
         'shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-[--duration-short]'
       )}
     >
@@ -48,7 +48,7 @@ export function DestinationCard({ destination, persona }: DestinationCardProps) 
           }}
           className={cn(
             'absolute top-2 right-2 w-8 h-8 rounded-full flex items-center justify-center',
-            'bg-surface/80 dark:bg-[oklch(18%_0.003_50)]/80 backdrop-blur-sm',
+            'bg-surface/80 dark:bg-card/80 backdrop-blur-sm',
             'transition-colors duration-[--duration-micro]',
             'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500'
           )}
@@ -65,17 +65,17 @@ export function DestinationCard({ destination, persona }: DestinationCardProps) 
       </div>
 
       <div className="p-3">
-        <h3 className="text-sm font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)] mb-1">
+        <h3 className="text-sm font-semibold text-primary-900 dark:text-foreground mb-1">
           {destination.city}
         </h3>
-        <p className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)] mb-2">
+        <p className="text-xs text-primary-500 dark:text-caption-foreground mb-2">
           {destination.country}
         </p>
 
         {/* Highlights based on persona */}
         <ul className="space-y-1 mb-3" role="list">
           {destination.highlights.slice(0, persona === 'family' ? 3 : 2).map((h, i) => (
-            <li key={i} className="flex items-start gap-1.5 text-xs text-primary-700 dark:text-[oklch(80%_0.005_50)]">
+            <li key={i} className="flex items-start gap-1.5 text-xs text-primary-700 dark:text-soft-foreground">
               <span className="text-success-500 shrink-0 mt-0.5" aria-hidden="true">
                 ·
               </span>
@@ -85,12 +85,12 @@ export function DestinationCard({ destination, persona }: DestinationCardProps) 
         </ul>
 
         <div className="flex items-center justify-between">
-          <span className="text-sm font-semibold text-secondary-600 dark:text-[oklch(72%_0.158_50)]">
+          <span className="text-sm font-semibold text-secondary-600 dark:text-secondary-400">
             From ${destination.priceFrom.toLocaleString()}
           </span>
           <Link
             href={`${ROUTES.SEARCH}?to=${encodeURIComponent(destination.city)}`}
-            className="flex items-center gap-1 text-xs font-medium text-primary-500 dark:text-[oklch(65%_0.194_262)]
+            className="flex items-center gap-1 text-xs font-medium text-primary-500 dark:text-primary-400
                        hover:text-primary-600 transition-colors duration-[--duration-micro]
                        min-h-[var(--touch-min)] min-w-[var(--touch-min)] justify-end"
             aria-label={`Search flights to ${destination.city}`}

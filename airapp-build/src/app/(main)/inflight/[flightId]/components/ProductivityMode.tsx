@@ -55,11 +55,11 @@ export function ProductivityMode({ data, timeRemainingMinutes }: ProductivityMod
       className={cn(
         'rounded-lg border shadow-sm p-4',
         'bg-info-50 border-info-200',
-        'dark:bg-[oklch(18%_0.005_240)] dark:border-[oklch(32%_0.010_240)]'
+        'dark:bg-card dark:border-info'
       )}
       aria-label="Productivity mode"
     >
-      <h2 className="text-base font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)] mb-3">
+      <h2 className="text-base font-semibold text-primary-900 dark:text-foreground mb-3">
         Productivity
       </h2>
 
@@ -71,7 +71,7 @@ export function ProductivityMode({ data, timeRemainingMinutes }: ProductivityMod
             <span className="text-sm font-medium text-success-700 dark:text-success-300">
               WiFi Connected
             </span>
-            <span className="text-xs text-primary-500 dark:text-[oklch(60%_0.005_50)]">
+            <span className="text-xs text-primary-500 dark:text-faint-foreground">
               ({data.wifiBandwidth} Mbps)
             </span>
           </>
@@ -101,13 +101,13 @@ export function ProductivityMode({ data, timeRemainingMinutes }: ProductivityMod
                 'min-h-[var(--touch-min)]',
                 'opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]',
                 disabled
-                  ? 'opacity-40 cursor-not-allowed bg-surface-200 dark:bg-[oklch(22%_0.003_50)]'
-                  : 'bg-background dark:bg-[oklch(15%_0.002_50)] hover:bg-primary-50 dark:hover:bg-[oklch(20%_0.005_262)]'
+                  ? 'opacity-40 cursor-not-allowed bg-surface-200 dark:bg-surface-elevated'
+                  : 'bg-background dark:bg-background hover:bg-primary-50 dark:hover:bg-surface-primary'
               )}
               aria-label={label}
             >
-              <Icon className="w-5 h-5 text-primary-600 dark:text-[oklch(70%_0.125_262)]" aria-hidden="true" />
-              <span className="text-[10px] font-medium text-primary-700 dark:text-[oklch(85%_0.005_50)]">
+              <Icon className="w-5 h-5 text-primary-600 dark:text-primary-400" aria-hidden="true" />
+              <span className="text-[10px] font-medium text-primary-700 dark:text-muted-foreground">
                 {label}
               </span>
             </button>
@@ -120,8 +120,8 @@ export function ProductivityMode({ data, timeRemainingMinutes }: ProductivityMod
         className={cn(
           'rounded-lg p-4',
           isFocusMode
-            ? 'bg-primary-500 dark:bg-[oklch(50%_0.194_262)]'
-            : 'bg-primary-100 dark:bg-[oklch(22%_0.010_262)]'
+            ? 'bg-primary-500 dark:bg-primary-600'
+            : 'bg-primary-100 dark:bg-surface-primary'
         )}
       >
         <div className="flex items-center justify-between mb-2">
@@ -130,7 +130,7 @@ export function ProductivityMode({ data, timeRemainingMinutes }: ProductivityMod
               'text-sm font-medium',
               isFocusMode
                 ? 'text-white'
-                : 'text-primary-800 dark:text-[oklch(90%_0.002_50)]'
+                : 'text-primary-800 dark:text-subtle-foreground'
             )}
           >
             Focus Session
@@ -165,7 +165,7 @@ export function ProductivityMode({ data, timeRemainingMinutes }: ProductivityMod
               'text-4xl font-bold font-mono',
               isFocusMode
                 ? 'text-white'
-                : 'text-primary-900 dark:text-[oklch(95%_0.002_50)]'
+                : 'text-primary-900 dark:text-foreground'
             )}
           >
             {formatTimer(timer)}
@@ -211,7 +211,7 @@ export function ProductivityMode({ data, timeRemainingMinutes }: ProductivityMod
             'text-xs text-center mt-2',
             isFocusMode
               ? 'text-white/70'
-              : 'text-primary-500 dark:text-[oklch(60%_0.005_50)]'
+              : 'text-primary-500 dark:text-faint-foreground'
           )}
         >
           Productive time remaining: {hoursRemaining}h {minsRemaining}m

@@ -13,13 +13,13 @@ interface NotificationCardProps {
 function getPriorityStyles(priority: AppNotification['priority']): string {
   switch (priority) {
     case 'critical':
-      return 'border-l-4 border-error-500 bg-error-50 dark:bg-[oklch(18%_0.01_25)]';
+      return 'border-l-4 border-error-500 bg-error-50 dark:bg-surface-error';
     case 'high':
-      return 'border-l-4 border-warning-500 bg-warning-50 dark:bg-[oklch(18%_0.01_60)]';
+      return 'border-l-4 border-warning-500 bg-warning-50 dark:bg-surface-warning';
     case 'medium':
-      return 'border-l-4 border-info-500 bg-info-50 dark:bg-[oklch(18%_0.01_240)]';
+      return 'border-l-4 border-info-500 bg-info-50 dark:bg-surface-info';
     case 'low':
-      return 'border-l-4 border-primary-300 bg-surface dark:bg-[oklch(18%_0.003_50)]';
+      return 'border-l-4 border-primary-300 bg-surface dark:bg-card';
   }
 }
 
@@ -132,7 +132,7 @@ export function NotificationCard({
         'relative rounded-[var(--radius-lg)] p-3.5 cursor-pointer',
         'transition-colors duration-[--duration-micro]',
         priorityStyles,
-        !notification.isRead && 'ring-1 ring-primary-200 dark:ring-[oklch(32%_0.008_50)]',
+        !notification.isRead && 'ring-1 ring-primary-200 dark:ring-muted',
       )}
       onClick={handleClick}
       tabIndex={0}
@@ -160,8 +160,8 @@ export function NotificationCard({
               className={cn(
                 'text-sm font-semibold leading-snug',
                 notification.isRead
-                  ? 'text-primary-700 dark:text-[oklch(85%_0.005_50)]'
-                  : 'text-primary-900 dark:text-[oklch(95%_0.002_50)]',
+                  ? 'text-primary-700 dark:text-muted-foreground'
+                  : 'text-primary-900 dark:text-foreground',
               )}
             >
               {notification.title}
@@ -178,7 +178,7 @@ export function NotificationCard({
               {/* Timestamp */}
               <time
                 dateTime={notification.timestamp}
-                className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)] whitespace-nowrap"
+                className="text-xs text-primary-500 dark:text-caption-foreground whitespace-nowrap"
               >
                 {formatRelativeTime(notification.timestamp)}
               </time>
@@ -189,8 +189,8 @@ export function NotificationCard({
             className={cn(
               'text-xs leading-relaxed mt-1',
               notification.isRead
-                ? 'text-primary-500 dark:text-[oklch(70%_0.008_50)]'
-                : 'text-primary-700 dark:text-[oklch(85%_0.005_50)]',
+                ? 'text-primary-500 dark:text-caption-foreground'
+                : 'text-primary-700 dark:text-muted-foreground',
             )}
           >
             {notification.message}

@@ -30,7 +30,7 @@ export function ExpenseBreakdown({ expenses, totalCost, currency, persona }: Exp
       <div className="flex items-center justify-between">
         <h3
           id="expense-heading"
-          className="text-lg font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]"
+          className="text-lg font-semibold text-primary-900 dark:text-foreground"
         >
           Expense Breakdown
         </h3>
@@ -43,7 +43,7 @@ export function ExpenseBreakdown({ expenses, totalCost, currency, persona }: Exp
         )}
       </div>
 
-      <div className="bg-surface dark:bg-[oklch(18%_0.003_50)] rounded-[var(--radius-lg)] border border-surface-300 dark:border-[oklch(32%_0.008_50)] p-4 space-y-4">
+      <div className="bg-surface dark:bg-card rounded-[var(--radius-lg)] border border-surface-300 dark:border-muted p-4 space-y-4">
         {/* Stacked bar */}
         <div
           className="flex h-4 rounded-full overflow-hidden"
@@ -74,15 +74,15 @@ export function ExpenseBreakdown({ expenses, totalCost, currency, persona }: Exp
                     className={`w-3 h-3 rounded-sm ${expense.color} flex-shrink-0`}
                     aria-hidden="true"
                   />
-                  <span className="text-sm text-primary-700 dark:text-[oklch(85%_0.005_50)]">
+                  <span className="text-sm text-primary-700 dark:text-muted-foreground">
                     {expense.category}
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)]">
+                  <span className="text-xs text-primary-500 dark:text-caption-foreground">
                     {pct}%
                   </span>
-                  <span className="text-sm font-medium text-primary-900 dark:text-[oklch(95%_0.002_50)] tabular-nums w-16 text-right">
+                  <span className="text-sm font-medium text-primary-900 dark:text-foreground tabular-nums w-16 text-right">
                     {formatCurrency(expense.amount, currency)}
                   </span>
                 </div>
@@ -92,14 +92,14 @@ export function ExpenseBreakdown({ expenses, totalCost, currency, persona }: Exp
         </ul>
 
         {/* Divider */}
-        <div className="border-t border-surface-300 dark:border-[oklch(32%_0.008_50)]" aria-hidden="true" />
+        <div className="border-t border-surface-300 dark:border-muted" aria-hidden="true" />
 
         {/* Total */}
         <div className="flex items-center justify-between">
-          <span className="text-sm font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+          <span className="text-sm font-semibold text-primary-900 dark:text-foreground">
             Total
           </span>
-          <span className="text-lg font-bold text-primary-900 dark:text-[oklch(95%_0.002_50)] tabular-nums">
+          <span className="text-lg font-bold text-primary-900 dark:text-foreground tabular-nums">
             {formatCurrency(totalCost, currency)}
           </span>
         </div>
@@ -107,10 +107,10 @@ export function ExpenseBreakdown({ expenses, totalCost, currency, persona }: Exp
         {/* Family per-person breakdown */}
         {persona === 'family' && (
           <div className="flex items-center justify-between pt-1">
-            <span className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)]">
+            <span className="text-xs text-primary-500 dark:text-caption-foreground">
               Per person ({FAMILY_MEMBERS} travelers)
             </span>
-            <span className="text-sm font-medium text-primary-700 dark:text-[oklch(85%_0.005_50)] tabular-nums">
+            <span className="text-sm font-medium text-primary-700 dark:text-muted-foreground tabular-nums">
               {formatCurrency(Math.round(totalCost / FAMILY_MEMBERS), currency)}
             </span>
           </div>
@@ -121,7 +121,7 @@ export function ExpenseBreakdown({ expenses, totalCost, currency, persona }: Exp
           className={`w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-[var(--radius-md)] text-sm font-medium transition-colors duration-[--duration-micro] min-h-[var(--touch-preferred)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 ${
             persona === 'business'
               ? 'bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-400 text-white'
-              : 'border border-primary-300 dark:border-primary-600 text-primary-700 dark:text-primary-300 hover:bg-primary-50 dark:hover:bg-[oklch(22%_0.005_50)]'
+              : 'border border-primary-300 dark:border-primary-600 text-primary-700 dark:text-primary-300 hover:bg-primary-50 dark:hover:bg-surface-elevated'
           }`}
         >
           <FileDown className="w-4 h-4" aria-hidden="true" />

@@ -24,7 +24,7 @@ export function TravelStatsSection({ stats }: TravelStatsSectionProps) {
       >
         Travel Stats
       </h3>
-      <div className="bg-surface dark:bg-[oklch(18%_0.003_50)] rounded-[var(--radius-lg)] p-4 border border-surface-300 dark:border-[oklch(32%_0.008_50)]">
+      <div className="bg-surface dark:bg-card rounded-[var(--radius-lg)] p-4 border border-surface-300 dark:border-muted">
         {/* Stat grid */}
         <div className="grid grid-cols-2 gap-3 mb-4">
           {statItems.map((item, i) => {
@@ -32,11 +32,11 @@ export function TravelStatsSection({ stats }: TravelStatsSectionProps) {
             return (
               <div
                 key={item.label}
-                className="bg-surface-200 dark:bg-[oklch(22%_0.005_50)] rounded-[var(--radius-md)] p-3 text-center opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]"
+                className="bg-surface-200 dark:bg-surface-elevated rounded-[var(--radius-md)] p-3 text-center opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]"
                 style={{ animationDelay: `${i * 60}ms` }}
               >
                 <Icon className="w-4 h-4 text-primary-500 dark:text-primary-400 mx-auto mb-1" aria-hidden="true" />
-                <p className="text-lg font-bold text-primary-800 dark:text-[oklch(90%_0.002_50)]">
+                <p className="text-lg font-bold text-primary-800 dark:text-subtle-foreground">
                   {item.value}
                 </p>
                 <p className="text-[10px] text-primary-500 dark:text-primary-400 uppercase tracking-wider">
@@ -48,25 +48,25 @@ export function TravelStatsSection({ stats }: TravelStatsSectionProps) {
         </div>
 
         {/* Favorites */}
-        <div className="space-y-2 border-t border-surface-300 dark:border-[oklch(32%_0.008_50)] pt-3">
+        <div className="space-y-2 border-t border-surface-300 dark:border-muted pt-3">
           <div className="flex items-center gap-2">
             <Heart className="w-3.5 h-3.5 text-error-400 fill-error-400" aria-hidden="true" />
             <span className="text-xs text-primary-500 dark:text-primary-400">Favorite airline:</span>
-            <span className="text-xs font-medium text-primary-800 dark:text-[oklch(90%_0.002_50)]">
+            <span className="text-xs font-medium text-primary-800 dark:text-subtle-foreground">
               {stats.favoriteAirline}
             </span>
           </div>
           <div className="flex items-center gap-2">
             <Plane className="w-3.5 h-3.5 text-primary-400" aria-hidden="true" />
             <span className="text-xs text-primary-500 dark:text-primary-400">Top route:</span>
-            <span className="text-xs font-medium text-primary-800 dark:text-[oklch(90%_0.002_50)]">
+            <span className="text-xs font-medium text-primary-800 dark:text-subtle-foreground">
               {stats.favoriteRoute}
             </span>
           </div>
         </div>
 
         {/* Year to date */}
-        <div className="mt-3 pt-3 border-t border-surface-300 dark:border-[oklch(32%_0.008_50)]">
+        <div className="mt-3 pt-3 border-t border-surface-300 dark:border-muted">
           <p className="text-xs font-medium text-primary-600 dark:text-primary-300 mb-2">
             2026 Year to Date
           </p>

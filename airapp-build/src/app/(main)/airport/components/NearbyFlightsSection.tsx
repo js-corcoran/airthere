@@ -17,7 +17,7 @@ const statusDot: Record<string, string> = {
 export function NearbyFlightsSection({ flights }: NearbyFlightsSectionProps) {
   return (
     <section aria-labelledby="nearby-heading" className="space-y-2">
-      <h3 id="nearby-heading" className="text-sm font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+      <h3 id="nearby-heading" className="text-sm font-semibold text-primary-900 dark:text-foreground">
         Other Nearby Flights
       </h3>
       <div className="space-y-1">
@@ -25,26 +25,26 @@ export function NearbyFlightsSection({ flights }: NearbyFlightsSectionProps) {
           <div
             key={f.flightNumber}
             className="flex items-center gap-3 py-2.5 px-3 rounded-md
-                       hover:bg-surface-200 dark:hover:bg-[oklch(25%_0.005_50)]
+                       hover:bg-surface-200 dark:hover:bg-input
                        transition-colors duration-[--duration-micro]
                        opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]"
             style={{ animationDelay: `${i * 60}ms` }}
           >
             <span className={cn('w-2 h-2 rounded-full shrink-0', statusDot[f.status] ?? statusDot['on-time'])} aria-hidden="true" />
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+              <p className="text-sm font-medium text-primary-900 dark:text-foreground">
                 <span className="font-semibold">{f.flightNumber}</span>
-                <span className="text-primary-500 dark:text-[oklch(70%_0.008_50)]"> · {f.airline}</span>
+                <span className="text-primary-500 dark:text-caption-foreground"> · {f.airline}</span>
               </p>
-              <p className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)]">
+              <p className="text-xs text-primary-500 dark:text-caption-foreground">
                 to {f.destination}
               </p>
             </div>
             <div className="text-right shrink-0">
-              <p className="text-sm font-medium text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+              <p className="text-sm font-medium text-primary-900 dark:text-foreground">
                 Gate {f.gate}
               </p>
-              <p className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)]">
+              <p className="text-xs text-primary-500 dark:text-caption-foreground">
                 {f.departureTime}
               </p>
             </div>

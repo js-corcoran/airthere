@@ -51,7 +51,7 @@ export function SettingsSection({
   return (
     <section
       aria-labelledby={headerId}
-      className="bg-surface dark:bg-[oklch(18%_0.003_50)] rounded-[var(--radius-lg)] border border-surface-300 dark:border-[oklch(32%_0.008_50)] overflow-hidden"
+      className="bg-surface dark:bg-card rounded-[var(--radius-lg)] border border-surface-300 dark:border-muted overflow-hidden"
     >
       <button
         id={headerId}
@@ -59,16 +59,16 @@ export function SettingsSection({
         onClick={() => setIsOpen((prev) => !prev)}
         aria-expanded={isOpen}
         aria-controls={panelId}
-        className="w-full flex items-center gap-3 px-4 py-3.5 text-left min-h-[var(--touch-min)] transition-colors duration-[--duration-micro] hover:bg-surface-100 dark:hover:bg-[oklch(22%_0.005_50)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
+        className="w-full flex items-center gap-3 px-4 py-3.5 text-left min-h-[var(--touch-min)] transition-colors duration-[--duration-micro] hover:bg-surface-100 dark:hover:bg-surface-elevated focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
       >
         <span className="flex-shrink-0 text-primary-600 dark:text-primary-400" aria-hidden="true">
           {icon}
         </span>
-        <span className="flex-1 text-sm font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+        <span className="flex-1 text-sm font-semibold text-primary-900 dark:text-foreground">
           {title}
         </span>
         <ChevronDown
-          className={`w-5 h-5 text-primary-500 dark:text-[oklch(70%_0.008_50)] transition-transform duration-200 ${
+          className={`w-5 h-5 text-primary-500 dark:text-caption-foreground transition-transform duration-200 ${
             isOpen ? 'rotate-180' : 'rotate-0'
           }`}
           aria-hidden="true"

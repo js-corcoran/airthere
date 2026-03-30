@@ -20,8 +20,8 @@ export function TripCard({ trip, className }: TripCardProps) {
     <Link
       href={ROUTES.TRIPS}
       className={cn(
-        'block min-w-[280px] rounded-lg bg-surface dark:bg-[oklch(18%_0.003_50)]',
-        'border border-surface-300 dark:border-[oklch(32%_0.008_50)]',
+        'block min-w-[280px] rounded-lg bg-surface dark:bg-card',
+        'border border-surface-300 dark:border-muted',
         'p-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-[--duration-short]',
         'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
         className
@@ -30,25 +30,25 @@ export function TripCard({ trip, className }: TripCardProps) {
     >
       {/* Route */}
       <div className="flex items-center gap-2 mb-3">
-        <span className="text-sm font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+        <span className="text-sm font-semibold text-primary-900 dark:text-foreground">
           {trip.departure.airport}
         </span>
-        <Plane className="w-3.5 h-3.5 text-primary-400 dark:text-[oklch(65%_0.194_262)]" aria-hidden="true" />
-        <span className="text-sm font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+        <Plane className="w-3.5 h-3.5 text-primary-400 dark:text-primary-400" aria-hidden="true" />
+        <span className="text-sm font-semibold text-primary-900 dark:text-foreground">
           {trip.arrival.airport}
         </span>
-        <span className="ml-auto text-xs font-medium text-secondary-600 dark:text-[oklch(72%_0.158_50)] bg-secondary-50 dark:bg-secondary-900 px-2 py-0.5 rounded-full">
+        <span className="ml-auto text-xs font-medium text-secondary-600 dark:text-secondary-400 bg-secondary-50 dark:bg-secondary-900 px-2 py-0.5 rounded-full">
           {trip.status}
         </span>
       </div>
 
       {/* Trip name */}
-      <h3 className="text-base font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)] mb-2">
+      <h3 className="text-base font-semibold text-primary-900 dark:text-foreground mb-2">
         {trip.name}
       </h3>
 
       {/* Details */}
-      <div className="flex items-center gap-4 text-xs text-primary-600 dark:text-[oklch(80%_0.005_50)]">
+      <div className="flex items-center gap-4 text-xs text-primary-600 dark:text-soft-foreground">
         <span className="flex items-center gap-1">
           <Calendar className="w-3 h-3" aria-hidden="true" />
           {format(depDate, 'MMM d, yyyy')}
@@ -62,9 +62,9 @@ export function TripCard({ trip, className }: TripCardProps) {
       </div>
 
       {/* Price */}
-      <div className="mt-3 pt-3 border-t border-surface-300 dark:border-[oklch(32%_0.008_50)] flex items-center justify-between">
-        <span className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)]">Total cost</span>
-        <span className="text-sm font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)] font-mono">
+      <div className="mt-3 pt-3 border-t border-surface-300 dark:border-muted flex items-center justify-between">
+        <span className="text-xs text-primary-500 dark:text-caption-foreground">Total cost</span>
+        <span className="text-sm font-semibold text-primary-900 dark:text-foreground font-mono">
           ${trip.totalCost.toLocaleString()}
         </span>
       </div>

@@ -16,7 +16,7 @@ export function FlightProgressMap({ flight }: FlightProgressMapProps) {
     <section
       className={cn(
         'rounded-lg overflow-hidden shadow-sm border',
-        'border-surface-300 dark:border-[oklch(32%_0.008_50)]'
+        'border-surface-300 dark:border-muted'
       )}
       aria-label="Flight progress"
     >
@@ -25,7 +25,7 @@ export function FlightProgressMap({ flight }: FlightProgressMapProps) {
         className={cn(
           'relative h-44 md:h-56 lg:h-72',
           'bg-gradient-to-b from-primary-100 to-primary-50',
-          'dark:from-[oklch(20%_0.010_262)] dark:to-[oklch(15%_0.005_262)]'
+          'dark:from-surface-primary dark:to-background'
         )}
       >
         {/* Route visualization */}
@@ -42,7 +42,7 @@ export function FlightProgressMap({ flight }: FlightProgressMapProps) {
             stroke="oklch(85% 0.030 262)"
             strokeWidth="2"
             strokeDasharray="6 4"
-            className="dark:stroke-[oklch(40%_0.030_262)]"
+            className="dark:stroke-primary-700"
           />
           {/* Progress line */}
           <path
@@ -51,18 +51,18 @@ export function FlightProgressMap({ flight }: FlightProgressMapProps) {
             stroke="oklch(57.5% 0.194 262)"
             strokeWidth="3"
             strokeDasharray={`${flight.progress.percentComplete * 3.6} 1000`}
-            className="dark:stroke-[oklch(65%_0.194_262)]"
+            className="dark:stroke-primary-400"
           />
           {/* Departure dot */}
-          <circle cx="40" cy="120" r="5" fill="oklch(57.5% 0.194 262)" className="dark:fill-[oklch(65%_0.194_262)]" />
+          <circle cx="40" cy="120" r="5" fill="oklch(57.5% 0.194 262)" className="dark:fill-primary-400" />
           {/* Arrival dot */}
-          <circle cx="360" cy="100" r="5" fill="oklch(85% 0.030 262)" className="dark:fill-[oklch(40%_0.030_262)]" />
+          <circle cx="360" cy="100" r="5" fill="oklch(85% 0.030 262)" className="dark:fill-primary-700" />
           {/* Departure label */}
-          <text x="40" y="145" textAnchor="middle" className="fill-primary-700 dark:fill-[oklch(85%_0.005_50)]" fontSize="12" fontWeight="600">
+          <text x="40" y="145" textAnchor="middle" className="fill-primary-700 dark:fill-muted-foreground" fontSize="12" fontWeight="600">
             {flight.route.from}
           </text>
           {/* Arrival label */}
-          <text x="360" y="125" textAnchor="middle" className="fill-primary-700 dark:fill-[oklch(85%_0.005_50)]" fontSize="12" fontWeight="600">
+          <text x="360" y="125" textAnchor="middle" className="fill-primary-700 dark:fill-muted-foreground" fontSize="12" fontWeight="600">
             {flight.route.to}
           </text>
         </svg>
@@ -76,7 +76,7 @@ export function FlightProgressMap({ flight }: FlightProgressMapProps) {
             transform: 'translate(-50%, -50%) rotate(-15deg)',
           }}
         >
-          <div className="bg-primary-500 dark:bg-[oklch(65%_0.194_262)] rounded-full p-1.5 shadow-md">
+          <div className="bg-primary-500 dark:bg-primary-400 rounded-full p-1.5 shadow-md">
             <Plane className="w-5 h-5 text-white" aria-hidden="true" />
           </div>
         </div>
@@ -86,8 +86,8 @@ export function FlightProgressMap({ flight }: FlightProgressMapProps) {
           className={cn(
             'absolute top-3 right-3 px-2.5 py-1 rounded-full text-xs font-mono font-medium',
             'bg-background/80 backdrop-blur-sm',
-            'dark:bg-[oklch(18%_0.003_50)]/80',
-            'text-primary-700 dark:text-[oklch(85%_0.005_50)]'
+            'dark:bg-card/80',
+            'text-primary-700 dark:text-muted-foreground'
           )}
         >
           {flight.current.altitude.toLocaleString()} ft
@@ -95,18 +95,18 @@ export function FlightProgressMap({ flight }: FlightProgressMapProps) {
       </div>
 
       {/* Progress bar */}
-      <div className="px-4 py-3 bg-surface dark:bg-[oklch(18%_0.003_50)]">
+      <div className="px-4 py-3 bg-surface dark:bg-card">
         <div className="flex items-center justify-between mb-1.5">
-          <span className="text-xs font-medium text-primary-700 dark:text-[oklch(85%_0.005_50)]">
+          <span className="text-xs font-medium text-primary-700 dark:text-muted-foreground">
             {flight.route.fromCity}
           </span>
-          <span className="text-xs font-medium text-primary-700 dark:text-[oklch(85%_0.005_50)]">
+          <span className="text-xs font-medium text-primary-700 dark:text-muted-foreground">
             {flight.route.toCity}
           </span>
         </div>
-        <div className="h-1.5 bg-surface-200 dark:bg-[oklch(25%_0.005_50)] rounded-full overflow-hidden">
+        <div className="h-1.5 bg-surface-200 dark:bg-input rounded-full overflow-hidden">
           <div
-            className="h-full bg-primary-500 dark:bg-[oklch(65%_0.194_262)] rounded-full transition-all duration-[--duration-long]"
+            className="h-full bg-primary-500 dark:bg-primary-400 rounded-full transition-all duration-[--duration-long]"
             style={{ width: `${flight.progress.percentComplete}%` }}
             role="progressbar"
             aria-valuenow={flight.progress.percentComplete}
@@ -116,25 +116,25 @@ export function FlightProgressMap({ flight }: FlightProgressMapProps) {
           />
         </div>
         <div className="flex items-center justify-between mt-1.5">
-          <span className="text-xs text-primary-500 dark:text-[oklch(60%_0.005_50)]">
+          <span className="text-xs text-primary-500 dark:text-faint-foreground">
             {flight.progress.percentComplete}% complete
           </span>
-          <span className="text-xs font-medium text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+          <span className="text-xs font-medium text-primary-900 dark:text-foreground">
             {hoursRemaining}h {minutesRemaining}m remaining
           </span>
         </div>
 
         {/* Destination weather */}
-        <div className="flex items-center gap-3 mt-3 pt-3 border-t border-surface-300 dark:border-[oklch(32%_0.008_50)]">
+        <div className="flex items-center gap-3 mt-3 pt-3 border-t border-surface-300 dark:border-muted">
           <div className="flex items-center gap-1.5">
             <CloudSun className="w-4 h-4 text-info-500 dark:text-info-400" aria-hidden="true" />
-            <span className="text-xs text-primary-700 dark:text-[oklch(85%_0.005_50)]">
+            <span className="text-xs text-primary-700 dark:text-muted-foreground">
               {flight.route.toCity}: {flight.destinationWeather.condition}
             </span>
           </div>
           <div className="flex items-center gap-1">
             <Thermometer className="w-3.5 h-3.5 text-info-500 dark:text-info-400" aria-hidden="true" />
-            <span className="text-xs text-primary-700 dark:text-[oklch(85%_0.005_50)]">
+            <span className="text-xs text-primary-700 dark:text-muted-foreground">
               {flight.destinationWeather.temperature}°C
             </span>
           </div>

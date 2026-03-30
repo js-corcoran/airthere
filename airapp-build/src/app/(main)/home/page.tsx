@@ -71,9 +71,9 @@ export default function HomePage() {
         <button
           onClick={() => setShowDemoSheet(true)}
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-full
-                     bg-primary-900/90 dark:bg-[oklch(25%_0.01_262)]/90
+                     bg-primary-900/90 dark:bg-surface-primary/90
                      backdrop-blur-sm text-white text-xs font-medium
-                     shadow-lg hover:bg-primary-800 dark:hover:bg-[oklch(30%_0.01_262)]
+                     shadow-lg hover:bg-primary-800 dark:hover:bg-muted
                      transition-colors duration-[--duration-micro]
                      min-h-[var(--touch-min)]"
           aria-label="Switch demo persona"
@@ -88,11 +88,11 @@ export default function HomePage() {
         <div className="fixed inset-0 z-50" role="dialog" aria-modal="true" aria-label="Switch persona"
              onKeyDown={(e) => { if (e.key === 'Escape') setShowDemoSheet(false); }}>
           <div className="absolute inset-0 bg-overlay-dark" onClick={() => setShowDemoSheet(false)} aria-hidden="true" />
-          <div className="absolute bottom-0 left-0 right-0 bg-background dark:bg-[oklch(18%_0.003_50)] rounded-t-2xl p-5 pb-8 shadow-xl">
-            <h2 className="text-base font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)] mb-1">
+          <div className="absolute bottom-0 left-0 right-0 bg-background dark:bg-card rounded-t-2xl p-5 pb-8 shadow-xl">
+            <h2 className="text-base font-semibold text-primary-900 dark:text-foreground mb-1">
               Switch Persona
             </h2>
-            <p className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)] mb-4">
+            <p className="text-xs text-primary-500 dark:text-caption-foreground mb-4">
               Preview the app as a different traveler
             </p>
             <div className="space-y-2">
@@ -107,21 +107,21 @@ export default function HomePage() {
                   className={`w-full text-left p-3 rounded-xl border transition-all duration-[--duration-micro]
                     min-h-[var(--touch-preferred)]
                     ${persona === p.key
-                      ? 'border-primary-500 bg-primary-50 dark:bg-[oklch(22%_0.02_262)] dark:border-primary-400'
-                      : 'border-surface-300 dark:border-[oklch(32%_0.008_50)] hover:bg-surface-100 dark:hover:bg-[oklch(22%_0.005_50)]'
+                      ? 'border-primary-500 bg-primary-50 dark:bg-surface-primary dark:border-primary-400'
+                      : 'border-surface-300 dark:border-muted hover:bg-surface-100 dark:hover:bg-surface-elevated'
                     }`}
                   aria-pressed={persona === p.key}
                 >
                   <div className="flex items-center justify-between">
                     <div>
-                      <span className={`text-sm font-medium ${persona === p.key ? 'text-primary-700 dark:text-primary-300' : 'text-primary-800 dark:text-[oklch(90%_0.002_50)]'}`}>
+                      <span className={`text-sm font-medium ${persona === p.key ? 'text-primary-700 dark:text-primary-300' : 'text-primary-800 dark:text-subtle-foreground'}`}>
                         {p.name}
                       </span>
-                      <span className="ml-2 text-xs text-primary-400 dark:text-[oklch(60%_0.005_50)]">{p.role}</span>
+                      <span className="ml-2 text-xs text-primary-400 dark:text-faint-foreground">{p.role}</span>
                     </div>
                     {persona === p.key && <Check className="w-4 h-4 text-primary-500" />}
                   </div>
-                  <p className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)] mt-0.5">{p.desc}</p>
+                  <p className="text-xs text-primary-500 dark:text-caption-foreground mt-0.5">{p.desc}</p>
                 </button>
               ))}
             </div>
@@ -140,11 +140,11 @@ export default function HomePage() {
         <div className="px-4 mb-4">
           <Link
             href="/irops/FL-JFK-SIN-DEMO"
-            className="block p-4 rounded-xl bg-error-50 dark:bg-[oklch(22%_0.03_25)] border border-error-200 dark:border-[oklch(35%_0.06_25)] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-[--duration-short]"
+            className="block p-4 rounded-xl bg-error-50 dark:bg-surface-error border border-error-200 dark:border-error shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-[--duration-short]"
             aria-label="Flight SQ25 delayed 90 minutes — tap for recovery options"
           >
             <div className="flex items-start gap-3">
-              <div className="w-10 h-10 rounded-full bg-error-100 dark:bg-[oklch(28%_0.05_25)] flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-full bg-error-100 dark:bg-surface-error flex items-center justify-center shrink-0">
                 <AlertTriangle className="w-5 h-5 text-error-600 dark:text-error-400" aria-hidden="true" />
               </div>
               <div className="flex-1 min-w-0">
@@ -165,22 +165,22 @@ export default function HomePage() {
         <div className="px-4 mb-4">
           <Link
             href="/airport"
-            className="block p-4 rounded-xl bg-[oklch(95%_0.02_250)] dark:bg-[oklch(22%_0.03_250)] border border-[oklch(85%_0.04_250)] dark:border-[oklch(35%_0.05_250)] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-[--duration-short]"
+            className="block p-4 rounded-xl bg-info-50 dark:bg-surface-info border border-info-200 dark:border-info shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-[--duration-short]"
             aria-label="UA456 to Chicago departing tomorrow with 25-minute delay"
           >
             <div className="flex items-start gap-3">
-              <div className="w-10 h-10 rounded-full bg-[oklch(90%_0.04_250)] dark:bg-[oklch(28%_0.04_250)] flex items-center justify-center shrink-0">
-                <Clock className="w-5 h-5 text-[oklch(45%_0.15_250)] dark:text-[oklch(70%_0.12_250)]" aria-hidden="true" />
+              <div className="w-10 h-10 rounded-full bg-info-100 dark:bg-surface-info flex items-center justify-center shrink-0">
+                <Clock className="w-5 h-5 text-info-700 dark:text-info-400" aria-hidden="true" />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-semibold text-[oklch(30%_0.08_250)] dark:text-[oklch(90%_0.02_250)]">
+                <p className="text-sm font-semibold text-info-900 dark:text-info-100">
                   UA456 to Chicago — Departing Tomorrow
                 </p>
-                <p className="text-xs text-[oklch(45%_0.06_250)] dark:text-[oklch(70%_0.04_250)] mt-0.5">
+                <p className="text-xs text-info-700 dark:text-caption-foreground mt-0.5">
                   25-min delay · Gate F14 · Meeting at 2 PM still on track
                 </p>
               </div>
-              <ArrowRight className="w-4 h-4 text-[oklch(60%_0.08_250)] shrink-0 mt-0.5" aria-hidden="true" />
+              <ArrowRight className="w-4 h-4 text-info-500 shrink-0 mt-0.5" aria-hidden="true" />
             </div>
           </Link>
         </div>
@@ -190,22 +190,22 @@ export default function HomePage() {
         <div className="px-4 mb-4">
           <Link
             href="/trips"
-            className="block p-4 rounded-xl bg-[oklch(96%_0.03_155)] dark:bg-[oklch(22%_0.03_155)] border border-[oklch(88%_0.05_155)] dark:border-[oklch(35%_0.05_155)] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-[--duration-short]"
+            className="block p-4 rounded-xl bg-success-50 dark:bg-surface-success border border-success-100 dark:border-success shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-[--duration-short]"
             aria-label="Hawaii trip in 5 days — all 4 passengers confirmed"
           >
             <div className="flex items-start gap-3">
-              <div className="w-10 h-10 rounded-full bg-[oklch(92%_0.05_155)] dark:bg-[oklch(28%_0.04_155)] flex items-center justify-center shrink-0">
-                <Sun className="w-5 h-5 text-[oklch(45%_0.15_155)] dark:text-[oklch(70%_0.12_155)]" aria-hidden="true" />
+              <div className="w-10 h-10 rounded-full bg-success-100 dark:bg-surface-success flex items-center justify-center shrink-0">
+                <Sun className="w-5 h-5 text-success-700 dark:text-success-300" aria-hidden="true" />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-semibold text-[oklch(30%_0.08_155)] dark:text-[oklch(90%_0.02_155)]">
+                <p className="text-sm font-semibold text-success-900 dark:text-success-100">
                   Hawaii in 5 Days!
                 </p>
-                <p className="text-xs text-[oklch(45%_0.06_155)] dark:text-[oklch(70%_0.04_155)] mt-0.5">
+                <p className="text-xs text-success-700 dark:text-caption-foreground mt-0.5">
                   All 4 passengers · Seats 24A-D confirmed · Packing 60% done
                 </p>
               </div>
-              <ArrowRight className="w-4 h-4 text-[oklch(60%_0.08_155)] shrink-0 mt-0.5" aria-hidden="true" />
+              <ArrowRight className="w-4 h-4 text-success-500 shrink-0 mt-0.5" aria-hidden="true" />
             </div>
           </Link>
         </div>
@@ -221,13 +221,13 @@ export default function HomePage() {
       {/* Upcoming Trips */}
       <section className="px-4 mt-4" aria-labelledby="trips-heading">
         <div className="flex items-center justify-between mb-3">
-          <h2 id="trips-heading" className="text-lg font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+          <h2 id="trips-heading" className="text-lg font-semibold text-primary-900 dark:text-foreground">
             Your Next Trips
           </h2>
           {trips.length > 0 && (
             <button
               onClick={() => router.push(ROUTES.TRIPS)}
-              className="text-xs font-medium text-primary-500 dark:text-[oklch(65%_0.194_262)]
+              className="text-xs font-medium text-primary-500 dark:text-primary-400
                          hover:text-primary-600 transition-colors
                          min-h-[var(--touch-min)] flex items-center"
             >
@@ -261,14 +261,14 @@ export default function HomePage() {
       <section className="px-4 mt-6" aria-labelledby="inspiration-heading">
         <div className="flex items-center justify-between mb-3">
           <div>
-            <h2 id="inspiration-heading" className="text-lg font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+            <h2 id="inspiration-heading" className="text-lg font-semibold text-primary-900 dark:text-foreground">
               {persona === 'premium'
                 ? 'Curated for You'
                 : persona === 'business'
                   ? 'Popular Business Routes'
                   : 'Family-Friendly Destinations'}
             </h2>
-            <p className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)] mt-0.5">
+            <p className="text-xs text-primary-500 dark:text-caption-foreground mt-0.5">
               {persona === 'premium'
                 ? 'Handpicked destinations matching your preferences'
                 : persona === 'business'

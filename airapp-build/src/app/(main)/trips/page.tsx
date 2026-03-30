@@ -52,12 +52,12 @@ export default function TripsPage() {
       {/* Header */}
       <div className="px-4 pt-2 pb-3">
         <div className="flex items-center gap-2 mb-1">
-          <Luggage className="w-5 h-5 text-primary-500 dark:text-[oklch(65%_0.194_262)]" />
-          <h1 className="text-xl font-bold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+          <Luggage className="w-5 h-5 text-primary-500 dark:text-primary-400" />
+          <h1 className="text-xl font-bold text-primary-900 dark:text-foreground">
             My Trips
           </h1>
         </div>
-        <p className="text-sm text-primary-500 dark:text-[oklch(60%_0.005_50)]">
+        <p className="text-sm text-primary-500 dark:text-faint-foreground">
           {persona === 'premium'
             ? 'Your premium travel itineraries'
             : persona === 'business'
@@ -68,7 +68,7 @@ export default function TripsPage() {
 
       {/* Tabs */}
       <div className="px-4 mb-4">
-        <div className="flex rounded-lg bg-surface-100 dark:bg-[oklch(15%_0.003_50)] p-1 gap-1" role="tablist" aria-label="Trip tabs">
+        <div className="flex rounded-lg bg-surface-100 dark:bg-background p-1 gap-1" role="tablist" aria-label="Trip tabs">
           <button
             role="tab"
             aria-selected={activeTab === 'upcoming'}
@@ -79,8 +79,8 @@ export default function TripsPage() {
               'focus-visible:outline-2 focus-visible:outline-primary-500',
               'min-h-[var(--touch-min)]',
               activeTab === 'upcoming'
-                ? 'bg-background text-primary-900 shadow-sm dark:bg-[oklch(25%_0.005_50)] dark:text-[oklch(95%_0.002_50)]'
-                : 'text-primary-500 dark:text-[oklch(60%_0.005_50)]'
+                ? 'bg-background text-primary-900 shadow-sm dark:bg-input dark:text-foreground'
+                : 'text-primary-500 dark:text-faint-foreground'
             )}
           >
             Upcoming ({upcomingTrips.length})
@@ -95,8 +95,8 @@ export default function TripsPage() {
               'focus-visible:outline-2 focus-visible:outline-primary-500',
               'min-h-[var(--touch-min)]',
               activeTab === 'disrupted'
-                ? 'bg-background text-primary-900 shadow-sm dark:bg-[oklch(25%_0.005_50)] dark:text-[oklch(95%_0.002_50)]'
-                : 'text-primary-500 dark:text-[oklch(60%_0.005_50)]'
+                ? 'bg-background text-primary-900 shadow-sm dark:bg-input dark:text-foreground'
+                : 'text-primary-500 dark:text-faint-foreground'
             )}
           >
             <span className="flex items-center justify-center gap-1.5">
@@ -104,8 +104,8 @@ export default function TripsPage() {
               <span className={cn(
                 'inline-flex items-center justify-center px-1.5 py-0.5 rounded-full text-[10px] font-bold min-w-[18px] leading-none',
                 disruptedTrips.length > 0
-                  ? 'bg-error-100 text-error-600 dark:bg-[oklch(25%_0.04_25)] dark:text-[oklch(75%_0.12_25)]'
-                  : 'bg-surface-200 text-primary-400 dark:bg-[oklch(25%_0.003_50)] dark:text-[oklch(50%_0.005_50)]'
+                  ? 'bg-error-100 text-error-600 dark:bg-surface-error dark:text-error-300'
+                  : 'bg-surface-200 text-primary-400 dark:bg-input dark:text-faint-foreground'
               )}>
                 {disruptedTrips.length}
               </span>
@@ -121,8 +121,8 @@ export default function TripsPage() {
               'focus-visible:outline-2 focus-visible:outline-primary-500',
               'min-h-[var(--touch-min)]',
               activeTab === 'past'
-                ? 'bg-background text-primary-900 shadow-sm dark:bg-[oklch(25%_0.005_50)] dark:text-[oklch(95%_0.002_50)]'
-                : 'text-primary-500 dark:text-[oklch(60%_0.005_50)]'
+                ? 'bg-background text-primary-900 shadow-sm dark:bg-input dark:text-foreground'
+                : 'text-primary-500 dark:text-faint-foreground'
             )}
           >
             Past ({pastTrips.length})

@@ -25,10 +25,10 @@ export function EliteStatusCard({ loyalty }: EliteStatusCardProps) {
       >
         Your Benefits
       </h3>
-      <div className="bg-surface dark:bg-[oklch(18%_0.003_50)] rounded-[var(--radius-lg)] p-4 border border-surface-300 dark:border-[oklch(32%_0.008_50)]">
+      <div className="bg-surface dark:bg-card rounded-[var(--radius-lg)] p-4 border border-surface-300 dark:border-muted">
         <div className="flex items-center gap-2 mb-4">
           <Crown className="w-5 h-5 text-secondary-500" aria-hidden="true" />
-          <span className="font-bold text-primary-800 dark:text-[oklch(90%_0.002_50)]">
+          <span className="font-bold text-primary-800 dark:text-subtle-foreground">
             {loyalty.eliteTier} Status
           </span>
         </div>
@@ -44,7 +44,7 @@ export function EliteStatusCard({ loyalty }: EliteStatusCardProps) {
           ))}
         </div>
 
-        <div className="border-t border-surface-300 dark:border-[oklch(32%_0.008_50)] pt-3 space-y-2">
+        <div className="border-t border-surface-300 dark:border-muted pt-3 space-y-2">
           <p className="text-xs text-primary-500 dark:text-primary-400">
             Status valid through {expiryDate}
           </p>
@@ -60,7 +60,7 @@ export function EliteStatusCard({ loyalty }: EliteStatusCardProps) {
                 </span>
               </div>
               <div
-                className="h-1.5 rounded-full bg-surface-200 dark:bg-[oklch(25%_0.005_50)] overflow-hidden"
+                className="h-1.5 rounded-full bg-surface-200 dark:bg-input overflow-hidden"
                 role="progressbar"
                 aria-valuenow={Math.round(flightProgress * 100)}
                 aria-valuemin={0}

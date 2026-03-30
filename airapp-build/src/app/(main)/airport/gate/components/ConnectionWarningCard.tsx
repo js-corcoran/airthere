@@ -12,28 +12,28 @@ interface ConnectionWarningCardProps {
 
 const riskConfig = {
   low: {
-    bg: 'bg-success-50 dark:bg-[oklch(20%_0.008_142)]',
-    border: 'border-success-300 dark:border-[oklch(35%_0.040_142)]',
+    bg: 'bg-success-50 dark:bg-surface-success',
+    border: 'border-success-300 dark:border-success',
     accent: 'border-l-success-500',
     icon: CheckCircle,
-    iconColor: 'text-success-500 dark:text-[oklch(62%_0.165_142)]',
-    titleColor: 'text-success-800 dark:text-[oklch(65%_0.160_142)]',
+    iconColor: 'text-success-500 dark:text-success-500',
+    titleColor: 'text-success-800 dark:text-success-400',
   },
   medium: {
-    bg: 'bg-warning-50 dark:bg-[oklch(20%_0.005_60)]',
-    border: 'border-warning-300 dark:border-[oklch(35%_0.040_60)]',
+    bg: 'bg-warning-50 dark:bg-surface-warning',
+    border: 'border-warning-300 dark:border-warning-800',
     accent: 'border-l-warning-500',
     icon: AlertTriangle,
-    iconColor: 'text-warning-500 dark:text-[oklch(67%_0.175_60)]',
-    titleColor: 'text-warning-800 dark:text-[oklch(58%_0.165_60)]',
+    iconColor: 'text-warning-500 dark:text-warning-500',
+    titleColor: 'text-warning-800 dark:text-warning-600',
   },
   high: {
-    bg: 'bg-error-50 dark:bg-[oklch(20%_0.008_25)]',
-    border: 'border-error-300 dark:border-[oklch(35%_0.060_25)]',
+    bg: 'bg-error-50 dark:bg-surface-error',
+    border: 'border-error-300 dark:border-error',
     accent: 'border-l-error-500',
     icon: AlertTriangle,
-    iconColor: 'text-error-500 dark:text-[oklch(62%_0.228_25)]',
-    titleColor: 'text-error-800 dark:text-[oklch(55%_0.215_25)]',
+    iconColor: 'text-error-500 dark:text-error-500',
+    titleColor: 'text-error-800 dark:text-error-600',
   },
 };
 
@@ -62,15 +62,15 @@ export function ConnectionWarningCard({ connection }: ConnectionWarningCardProps
           </h3>
 
           {/* Next flight details */}
-          <div className="flex items-center gap-2 mb-2 text-sm text-primary-900 dark:text-[oklch(95%_0.002_50)] font-medium">
+          <div className="flex items-center gap-2 mb-2 text-sm text-primary-900 dark:text-foreground font-medium">
             <span>{connection.nextFlight.from}</span>
-            <ArrowRight className="w-3.5 h-3.5 text-primary-400 dark:text-[oklch(60%_0.005_50)]" aria-label="to" />
+            <ArrowRight className="w-3.5 h-3.5 text-primary-400 dark:text-faint-foreground" aria-label="to" />
             <span>{connection.nextFlight.to}</span>
-            <span className="text-primary-500 dark:text-[oklch(70%_0.008_50)]">·</span>
-            <span className="text-primary-500 dark:text-[oklch(70%_0.008_50)]">{connection.nextFlight.flightNumber}</span>
+            <span className="text-primary-500 dark:text-caption-foreground">·</span>
+            <span className="text-primary-500 dark:text-caption-foreground">{connection.nextFlight.flightNumber}</span>
           </div>
 
-          <div className="flex items-center gap-4 text-xs text-primary-600 dark:text-[oklch(75%_0.005_50)] mb-2">
+          <div className="flex items-center gap-4 text-xs text-primary-600 dark:text-soft-foreground mb-2">
             <span className="flex items-center gap-1">
               <Clock className="w-3 h-3" aria-hidden="true" />
               Departs {connection.nextFlight.departure}
@@ -83,20 +83,20 @@ export function ConnectionWarningCard({ connection }: ConnectionWarningCardProps
           </div>
 
           {connection.nextFlight.gate && (
-            <p className="text-xs text-primary-600 dark:text-[oklch(75%_0.005_50)] mb-2">
+            <p className="text-xs text-primary-600 dark:text-soft-foreground mb-2">
               Gate: {connection.nextFlight.gate}
             </p>
           )}
 
           {connection.recommendedAction && (
-            <p className="text-xs text-primary-700 dark:text-[oklch(80%_0.005_50)] italic mb-3">
+            <p className="text-xs text-primary-700 dark:text-soft-foreground italic mb-3">
               {connection.recommendedAction}
             </p>
           )}
 
           <Link
             href={ROUTES.TRIPS}
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-primary-500 dark:text-[oklch(65%_0.194_262)]
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-primary-500 dark:text-primary-400
                        hover:text-primary-600 transition-colors duration-[--duration-micro]
                        min-h-[var(--touch-min)]
                        focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"

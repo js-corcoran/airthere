@@ -25,14 +25,14 @@ export function MealServiceCard({ meal }: MealServiceCardProps) {
       className={cn(
         'rounded-lg border shadow-sm p-4',
         'bg-secondary-50 border-secondary-200',
-        'dark:bg-[oklch(18%_0.010_50)] dark:border-[oklch(32%_0.020_50)]'
+        'dark:bg-card dark:border-muted'
       )}
       aria-label="Meal service"
     >
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-2">
-          <UtensilsCrossed className="w-5 h-5 text-secondary-600 dark:text-[oklch(72%_0.158_50)]" aria-hidden="true" />
-          <h2 className="text-base font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+          <UtensilsCrossed className="w-5 h-5 text-secondary-600 dark:text-secondary-400" aria-hidden="true" />
+          <h2 className="text-base font-semibold text-primary-900 dark:text-foreground">
             Meal Service
           </h2>
         </div>
@@ -40,7 +40,7 @@ export function MealServiceCard({ meal }: MealServiceCardProps) {
           className={cn(
             'inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium',
             'bg-primary-100 text-primary-700',
-            'dark:bg-[oklch(25%_0.010_262)] dark:text-[oklch(85%_0.010_262)]'
+            'dark:bg-surface-primary dark:text-primary-200'
           )}
         >
           {meal.type.charAt(0).toUpperCase() + meal.type.slice(1)}
@@ -49,15 +49,15 @@ export function MealServiceCard({ meal }: MealServiceCardProps) {
 
       {/* Timing */}
       <div className="flex items-center gap-1.5 mb-3">
-        <Clock className="w-4 h-4 text-primary-500 dark:text-[oklch(60%_0.005_50)]" aria-hidden="true" />
-        <span className="text-sm text-primary-700 dark:text-[oklch(85%_0.005_50)]">
+        <Clock className="w-4 h-4 text-primary-500 dark:text-faint-foreground" aria-hidden="true" />
+        <span className="text-sm text-primary-700 dark:text-muted-foreground">
           {preOrdered ? 'Pre-order confirmed' : `Service in ${meal.minutesUntil} minutes`}
         </span>
       </div>
 
       {/* Previous choice */}
       {meal.previousChoice && !preOrdered && (
-        <p className="text-xs text-primary-500 dark:text-[oklch(60%_0.005_50)] mb-3">
+        <p className="text-xs text-primary-500 dark:text-faint-foreground mb-3">
           Last time: {meal.previousChoice}
         </p>
       )}
@@ -68,7 +68,7 @@ export function MealServiceCard({ meal }: MealServiceCardProps) {
           className={cn(
             'flex items-center gap-2 p-3 rounded-md mb-3',
             'bg-success-50 border border-success-200',
-            'dark:bg-[oklch(15%_0.008_142)] dark:border-success-800'
+            'dark:bg-surface-success dark:border-success-800'
           )}
         >
           <CheckCircle2 className="w-5 h-5 text-success-600 dark:text-success-400 shrink-0" aria-hidden="true" />
@@ -116,8 +116,8 @@ export function MealServiceCard({ meal }: MealServiceCardProps) {
                   'w-full text-left p-3 rounded-md border transition-all duration-[--duration-micro]',
                   'opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]',
                   selectedMeal === option.id
-                    ? 'border-secondary-500 bg-secondary-50 dark:bg-[oklch(20%_0.015_50)] dark:border-secondary-400 ring-1 ring-secondary-500'
-                    : 'border-surface-300 bg-background dark:bg-[oklch(15%_0.002_50)] dark:border-[oklch(32%_0.008_50)]',
+                    ? 'border-secondary-500 bg-secondary-50 dark:bg-surface-100 dark:border-secondary-400 ring-1 ring-secondary-500'
+                    : 'border-surface-300 bg-background dark:bg-background dark:border-muted',
                   'hover:border-secondary-400 dark:hover:border-secondary-600',
                   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
                   'min-h-[var(--touch-min)]'
@@ -126,10 +126,10 @@ export function MealServiceCard({ meal }: MealServiceCardProps) {
               >
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex-1">
-                    <p className="text-sm font-medium text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+                    <p className="text-sm font-medium text-primary-900 dark:text-foreground">
                       {option.name}
                     </p>
-                    <p className="text-xs text-primary-600 dark:text-[oklch(70%_0.008_50)] mt-0.5">
+                    <p className="text-xs text-primary-600 dark:text-caption-foreground mt-0.5">
                       {option.description}
                     </p>
                     <div className="flex flex-wrap gap-1 mt-1.5">
@@ -138,7 +138,7 @@ export function MealServiceCard({ meal }: MealServiceCardProps) {
                           {option.dietary}
                         </span>
                       )}
-                      <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-surface-200 text-primary-600 dark:bg-[oklch(25%_0.005_50)] dark:text-[oklch(70%_0.008_50)]">
+                      <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-surface-200 text-primary-600 dark:bg-input dark:text-caption-foreground">
                         {option.calories} cal
                       </span>
                     </div>

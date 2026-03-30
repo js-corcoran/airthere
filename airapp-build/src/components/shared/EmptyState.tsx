@@ -27,10 +27,10 @@ export function EmptyState({ icon, title, description, action, className }: Empt
           {icon}
         </span>
       )}
-      <h3 className="text-xl font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)] mb-2">
+      <h3 className="text-xl font-semibold text-primary-900 dark:text-foreground mb-2">
         {title}
       </h3>
-      <p className="text-sm text-primary-700 dark:text-[oklch(85%_0.005_50)] max-w-sm leading-relaxed mb-6">
+      <p className="text-sm text-primary-700 dark:text-muted-foreground max-w-sm leading-relaxed mb-6">
         {description}
       </p>
       {action && (

@@ -179,24 +179,24 @@ function SearchResultsContent() {
   return (
     <div className="pb-8">
       {/* Route Summary */}
-      <div className="px-4 pt-2 pb-3 bg-gradient-to-b from-primary-50 to-background dark:from-[oklch(18%_0.01_262)] dark:to-[oklch(14%_0.003_50)]">
+      <div className="px-4 pt-2 pb-3 bg-gradient-to-b from-primary-50 to-background dark:from-surface-primary dark:to-background">
         <div className="flex items-center gap-2 text-sm">
-          <span className="font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+          <span className="font-semibold text-primary-900 dark:text-foreground">
             {fromAirport?.city ?? from}
           </span>
           <ArrowRight className="w-4 h-4 text-primary-400" />
-          <span className="font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+          <span className="font-semibold text-primary-900 dark:text-foreground">
             {toAirport?.city ?? to}
           </span>
         </div>
-        <p className="text-xs text-primary-500 dark:text-[oklch(60%_0.005_50)] mt-0.5">
+        <p className="text-xs text-primary-500 dark:text-faint-foreground mt-0.5">
           {passengerCount} passenger{passengerCount !== 1 ? 's' : ''} · {cabinClass.replace('-', ' ')}
         </p>
       </div>
 
       {/* Flexible Date Bar */}
       {currentDate && (
-        <div className="px-4 border-b border-surface-200 dark:border-[oklch(25%_0.005_50)]">
+        <div className="px-4 border-b border-surface-200 dark:border-input">
           <FlexibleDateBar selectedDate={currentDate} onDateChange={handleDateChange} />
         </div>
       )}
@@ -223,15 +223,15 @@ function SearchResultsContent() {
 
           {/* Persona-specific banner */}
           {persona === 'business' && filteredFlights.length > 0 && (
-            <div className="mb-3 px-3 py-2 rounded-lg bg-primary-50 dark:bg-[oklch(20%_0.015_262)] border border-primary-200 dark:border-[oklch(30%_0.05_262)]">
-              <p className="text-xs text-primary-700 dark:text-[oklch(80%_0.08_262)]">
+            <div className="mb-3 px-3 py-2 rounded-lg bg-primary-50 dark:bg-surface-primary border border-primary-200 dark:border-primary">
+              <p className="text-xs text-primary-700 dark:text-primary-200">
                 Sorted by shortest duration for efficient business travel
               </p>
             </div>
           )}
           {persona === 'family' && filteredFlights.length > 0 && (
-            <div className="mb-3 px-3 py-2 rounded-lg bg-success-50 dark:bg-[oklch(20%_0.02_155)] border border-success-200 dark:border-[oklch(30%_0.05_155)]">
-              <p className="text-xs text-success-700 dark:text-[oklch(80%_0.08_155)]">
+            <div className="mb-3 px-3 py-2 rounded-lg bg-success-50 dark:bg-surface-success border border-success-200 dark:border-success">
+              <p className="text-xs text-success-700 dark:text-success-200">
                 Prices shown for {passengerCount} passengers · Family seating highlighted
               </p>
             </div>

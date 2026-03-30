@@ -15,7 +15,7 @@ export function AirportHeader({ airportCode, airportName, weather, currentTime }
   return (
     <div
       className="bg-gradient-to-r from-primary-600 to-primary-800
-                 dark:from-[oklch(30%_0.180_262)] dark:to-[oklch(20%_0.140_262)]
+                 dark:from-primary-800 dark:to-primary-900
                  px-4 py-4 text-white"
     >
       <div className="flex items-center justify-between">

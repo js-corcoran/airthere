@@ -74,7 +74,7 @@ export function QuickActions({ persona }: QuickActionsProps) {
               >
                 <Icon className="w-5 h-5" aria-hidden="true" />
               </div>
-              <span className="text-[10px] font-medium text-primary-700 dark:text-[oklch(85%_0.005_50)] text-center leading-tight">
+              <span className="text-[10px] font-medium text-primary-700 dark:text-muted-foreground text-center leading-tight">
                 {action.label}
               </span>
             </Link>

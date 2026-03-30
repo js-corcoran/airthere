@@ -130,8 +130,8 @@ function BookingDetailContent() {
         )}
 
         {!bundle?.includes.seatSelection && (
-          <div className="px-3 py-3 rounded-lg bg-surface-50 dark:bg-[oklch(20%_0.003_50)] border border-surface-200 dark:border-[oklch(25%_0.005_50)]">
-            <p className="text-sm text-primary-600 dark:text-[oklch(75%_0.005_50)]">
+          <div className="px-3 py-3 rounded-lg bg-surface-50 dark:bg-surface-100 border border-surface-200 dark:border-input">
+            <p className="text-sm text-primary-600 dark:text-soft-foreground">
               Seat selection is available with Standard or Premium fares.
               Upgrade your fare to choose your preferred seat.
             </p>
@@ -140,43 +140,43 @@ function BookingDetailContent() {
 
         {/* Price Breakdown */}
         <div className="space-y-2 pt-2">
-          <h3 className="text-xs font-medium text-primary-700 dark:text-[oklch(80%_0.005_50)] uppercase tracking-wider">
+          <h3 className="text-xs font-medium text-primary-700 dark:text-soft-foreground uppercase tracking-wider">
             Price Breakdown
           </h3>
           <div className="space-y-1.5">
             <div className="flex justify-between text-sm">
-              <span className="text-primary-600 dark:text-[oklch(75%_0.005_50)]">
+              <span className="text-primary-600 dark:text-soft-foreground">
                 Base fare × {passengerCount}
               </span>
-              <span className="text-primary-900 dark:text-[oklch(92%_0.002_50)] tabular-nums">
+              <span className="text-primary-900 dark:text-foreground tabular-nums">
                 ${(basePrice * passengerCount).toLocaleString()}
               </span>
             </div>
             {(bundle?.price ?? 0) > 0 && (
               <div className="flex justify-between text-sm">
-                <span className="text-primary-600 dark:text-[oklch(75%_0.005_50)]">
+                <span className="text-primary-600 dark:text-soft-foreground">
                   {bundle?.name} fare upgrade × {passengerCount}
                 </span>
-                <span className="text-primary-900 dark:text-[oklch(92%_0.002_50)] tabular-nums">
+                <span className="text-primary-900 dark:text-foreground tabular-nums">
                   +${((bundle?.price ?? 0) * passengerCount).toLocaleString()}
                 </span>
               </div>
             )}
             {seatUpgradeCost > 0 && (
               <div className="flex justify-between text-sm">
-                <span className="text-primary-600 dark:text-[oklch(75%_0.005_50)]">
+                <span className="text-primary-600 dark:text-soft-foreground">
                   Seat upgrades
                 </span>
-                <span className="text-primary-900 dark:text-[oklch(92%_0.002_50)] tabular-nums">
+                <span className="text-primary-900 dark:text-foreground tabular-nums">
                   +${(seatUpgradeCost * passengerCount).toLocaleString()}
                 </span>
               </div>
             )}
-            <div className="flex justify-between pt-2 border-t border-surface-300 dark:border-[oklch(28%_0.005_50)]">
-              <span className="text-base font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+            <div className="flex justify-between pt-2 border-t border-surface-300 dark:border-input">
+              <span className="text-base font-semibold text-primary-900 dark:text-foreground">
                 Total
               </span>
-              <span className="text-xl font-bold text-primary-900 dark:text-[oklch(95%_0.002_50)] tabular-nums">
+              <span className="text-xl font-bold text-primary-900 dark:text-foreground tabular-nums">
                 ${grandTotal.toLocaleString()}
               </span>
             </div>
@@ -185,11 +185,11 @@ function BookingDetailContent() {
       </div>
 
       {/* Sticky CTA */}
-      <div className="fixed bottom-16 left-0 right-0 z-30 px-4 py-3 bg-background/95 dark:bg-[oklch(14%_0.003_50)]/95 backdrop-blur-sm border-t border-surface-200 dark:border-[oklch(25%_0.005_50)]">
+      <div className="fixed bottom-16 left-0 right-0 z-30 px-4 py-3 bg-background/95 dark:bg-background/95 backdrop-blur-sm border-t border-surface-200 dark:border-input">
         <div className="max-w-[640px] mx-auto flex items-center gap-3">
           <div className="flex-1">
-            <p className="text-xs text-primary-500 dark:text-[oklch(60%_0.005_50)]">Total</p>
-            <p className="text-xl font-bold text-primary-900 dark:text-[oklch(95%_0.002_50)] tabular-nums">
+            <p className="text-xs text-primary-500 dark:text-faint-foreground">Total</p>
+            <p className="text-xl font-bold text-primary-900 dark:text-foreground tabular-nums">
               ${grandTotal.toLocaleString()}
             </p>
           </div>
@@ -202,8 +202,8 @@ function BookingDetailContent() {
               'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
               'min-h-[var(--touch-preferred)]',
               canProceed
-                ? 'bg-primary-500 text-white hover:bg-primary-600 dark:bg-[oklch(55%_0.194_262)] dark:hover:bg-[oklch(60%_0.194_262)]'
-                : 'bg-surface-200 text-surface-400 cursor-not-allowed dark:bg-[oklch(25%_0.003_50)] dark:text-[oklch(45%_0.005_50)]'
+                ? 'bg-primary-500 text-white hover:bg-primary-600 dark:bg-primary-500 dark:hover:bg-primary-400'
+                : 'bg-surface-200 text-surface-400 cursor-not-allowed dark:bg-input dark:text-faint-foreground'
             )}
           >
             Continue to Checkout

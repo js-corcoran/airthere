@@ -24,7 +24,7 @@ export function ChatMessageBubble({ message, onSuggestionSelect, onActionCardBoo
         <div className="w-8 h-8 rounded-full bg-primary-100 dark:bg-primary-800 flex items-center justify-center shrink-0">
           <span className="text-xs font-bold text-primary-600 dark:text-primary-300">AT</span>
         </div>
-        <div className="bg-surface-200 dark:bg-[oklch(25%_0.005_50)] rounded-2xl px-4 py-3 max-w-[80%]">
+        <div className="bg-surface-200 dark:bg-input rounded-2xl px-4 py-3 max-w-[80%]">
           <div className="flex gap-1.5" role="status" aria-label="Typing">
             <span className="w-2 h-2 rounded-full bg-primary-400 dark:bg-primary-500 animate-bounce" style={{ animationDelay: '0ms' }} />
             <span className="w-2 h-2 rounded-full bg-primary-400 dark:bg-primary-500 animate-bounce" style={{ animationDelay: '150ms' }} />
@@ -51,7 +51,7 @@ export function ChatMessageBubble({ message, onSuggestionSelect, onActionCardBoo
             'rounded-2xl px-4 py-2.5',
             isUser
               ? 'bg-primary-600 dark:bg-primary-500 text-white'
-              : 'bg-surface-200 dark:bg-[oklch(25%_0.005_50)] text-primary-800 dark:text-[oklch(90%_0.002_50)]',
+              : 'bg-surface-200 dark:bg-input text-primary-800 dark:text-subtle-foreground',
           )}
         >
           <p className="text-sm leading-relaxed whitespace-pre-line">{message.content}</p>
@@ -77,9 +77,9 @@ export function ChatMessageBubble({ message, onSuggestionSelect, onActionCardBoo
                 className={cn(
                   'flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-medium',
                   'border border-primary-200 dark:border-primary-700',
-                  'bg-surface dark:bg-[oklch(18%_0.003_50)]',
+                  'bg-surface dark:bg-card',
                   'text-primary-700 dark:text-primary-300',
-                  'hover:bg-primary-50 dark:hover:bg-[oklch(22%_0.01_262)]',
+                  'hover:bg-primary-50 dark:hover:bg-surface-primary',
                   'transition-colors duration-[--duration-micro]',
                   'min-h-[var(--touch-min)]',
                   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
@@ -111,9 +111,9 @@ export function ChatMessageBubble({ message, onSuggestionSelect, onActionCardBoo
 
 function ActionCardInline({ card, onBook }: { card: ActionCardData; onBook: () => void }) {
   return (
-    <div className="bg-primary-50 dark:bg-[oklch(20%_0.01_262)] border border-primary-200 dark:border-primary-700 rounded-[var(--radius-lg)] p-3 space-y-2">
+    <div className="bg-primary-50 dark:bg-surface-primary border border-primary-200 dark:border-primary-700 rounded-[var(--radius-lg)] p-3 space-y-2">
       <div className="flex items-start justify-between">
-        <h4 className="text-sm font-bold text-primary-800 dark:text-[oklch(90%_0.002_50)]">
+        <h4 className="text-sm font-bold text-primary-800 dark:text-subtle-foreground">
           {card.title}
         </h4>
         {card.badge && (
@@ -155,7 +155,7 @@ function ActionCardInline({ card, onBook }: { card: ActionCardData; onBook: () =
       )}
 
       <div className="flex items-center justify-between pt-1">
-        <span className="text-lg font-bold text-primary-800 dark:text-[oklch(95%_0.002_50)]">
+        <span className="text-lg font-bold text-primary-800 dark:text-foreground">
           ${card.details.price.toLocaleString()}
         </span>
         <button

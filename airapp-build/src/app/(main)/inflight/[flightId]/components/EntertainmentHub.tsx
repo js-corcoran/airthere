@@ -53,20 +53,20 @@ export function EntertainmentHub({ items, flightDurationMinutes }: Entertainment
     <section
       className={cn(
         'rounded-lg border shadow-sm overflow-hidden',
-        'bg-surface dark:bg-[oklch(18%_0.003_50)]',
-        'border-surface-300 dark:border-[oklch(32%_0.008_50)]'
+        'bg-surface dark:bg-card',
+        'border-surface-300 dark:border-muted'
       )}
       aria-label="In-flight entertainment"
     >
       {/* Header */}
       <div className="p-4 pb-0">
-        <h2 className="text-base font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)] mb-3">
+        <h2 className="text-base font-semibold text-primary-900 dark:text-foreground mb-3">
           Entertainment
         </h2>
 
         {/* Search */}
         <div className="relative mb-3">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-primary-400 dark:text-[oklch(50%_0.005_50)]" aria-hidden="true" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-primary-400 dark:text-faint-foreground" aria-hidden="true" />
           <input
             type="search"
             value={searchQuery}
@@ -75,9 +75,9 @@ export function EntertainmentHub({ items, flightDurationMinutes }: Entertainment
             className={cn(
               'w-full pl-9 pr-3 py-2 text-sm rounded-md border',
               'bg-background border-surface-300',
-              'dark:bg-[oklch(15%_0.002_50)] dark:border-[oklch(32%_0.008_50)]',
-              'text-primary-900 dark:text-[oklch(95%_0.002_50)]',
-              'placeholder:text-primary-400 dark:placeholder:text-[oklch(50%_0.005_50)]',
+              'dark:bg-background dark:border-muted',
+              'text-primary-900 dark:text-foreground',
+              'placeholder:text-primary-400 dark:placeholder:text-faint-foreground',
               'focus:outline-none focus:ring-2 focus:ring-primary-500',
               'min-h-[var(--touch-min)]'
             )}
@@ -104,8 +104,8 @@ export function EntertainmentHub({ items, flightDurationMinutes }: Entertainment
               'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
               'min-h-[var(--touch-min)]',
               activeTab === id
-                ? 'bg-primary-500 text-white dark:bg-[oklch(65%_0.194_262)]'
-                : 'bg-surface-200 text-primary-700 dark:bg-[oklch(25%_0.005_50)] dark:text-[oklch(85%_0.005_50)] hover:bg-surface-300 dark:hover:bg-[oklch(30%_0.008_50)]'
+                ? 'bg-primary-500 text-white dark:bg-primary-400'
+                : 'bg-surface-200 text-primary-700 dark:bg-input dark:text-muted-foreground hover:bg-surface-300 dark:hover:bg-muted'
             )}
           >
             <Icon className="w-3.5 h-3.5" aria-hidden="true" />
@@ -126,7 +126,7 @@ export function EntertainmentHub({ items, flightDurationMinutes }: Entertainment
             onClick={() => setSelectedItem(item)}
             className={cn(
               'text-left rounded-lg overflow-hidden',
-              'bg-surface-200 dark:bg-[oklch(22%_0.005_50)]',
+              'bg-surface-200 dark:bg-surface-elevated',
               'hover:shadow-md hover:-translate-y-0.5 transition-all duration-[--duration-micro]',
               'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
               'opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]'
@@ -138,13 +138,13 @@ export function EntertainmentHub({ items, flightDurationMinutes }: Entertainment
               className={cn(
                 'aspect-[3/4] flex items-center justify-center',
                 'bg-gradient-to-br from-primary-200 to-primary-100',
-                'dark:from-[oklch(25%_0.020_262)] dark:to-[oklch(20%_0.010_262)]'
+                'dark:from-surface-primary dark:to-surface-primary'
               )}
             >
-              {item.type === 'movie' && <Film className="w-8 h-8 text-primary-400 dark:text-[oklch(50%_0.030_262)]" />}
-              {item.type === 'show' && <Tv className="w-8 h-8 text-primary-400 dark:text-[oklch(50%_0.030_262)]" />}
-              {item.type === 'game' && <Gamepad2 className="w-8 h-8 text-primary-400 dark:text-[oklch(50%_0.030_262)]" />}
-              {(item.type === 'music' || item.type === 'podcast') && <Music className="w-8 h-8 text-primary-400 dark:text-[oklch(50%_0.030_262)]" />}
+              {item.type === 'movie' && <Film className="w-8 h-8 text-primary-400 dark:text-primary-600" />}
+              {item.type === 'show' && <Tv className="w-8 h-8 text-primary-400 dark:text-primary-600" />}
+              {item.type === 'game' && <Gamepad2 className="w-8 h-8 text-primary-400 dark:text-primary-600" />}
+              {(item.type === 'music' || item.type === 'podcast') && <Music className="w-8 h-8 text-primary-400 dark:text-primary-600" />}
               {item.isNew && (
                 <span className="absolute top-1.5 left-1.5 text-[10px] px-1.5 py-0.5 rounded-full bg-secondary-500 text-white font-medium">
                   NEW
@@ -154,20 +154,20 @@ export function EntertainmentHub({ items, flightDurationMinutes }: Entertainment
 
             {/* Info */}
             <div className="p-2">
-              <p className="text-xs font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)] truncate">
+              <p className="text-xs font-semibold text-primary-900 dark:text-foreground truncate">
                 {item.title}
               </p>
               <div className="flex items-center gap-1.5 mt-0.5">
                 <Star className="w-3 h-3 text-secondary-500" aria-hidden="true" />
-                <span className="text-[10px] text-primary-600 dark:text-[oklch(70%_0.008_50)]">
+                <span className="text-[10px] text-primary-600 dark:text-caption-foreground">
                   {item.rating}
                 </span>
-                <Clock className="w-3 h-3 text-primary-400 dark:text-[oklch(50%_0.005_50)] ml-1" aria-hidden="true" />
-                <span className="text-[10px] text-primary-600 dark:text-[oklch(70%_0.008_50)]">
+                <Clock className="w-3 h-3 text-primary-400 dark:text-faint-foreground ml-1" aria-hidden="true" />
+                <span className="text-[10px] text-primary-600 dark:text-caption-foreground">
                   {item.runtime}m
                 </span>
               </div>
-              <p className="text-[10px] text-primary-500 dark:text-[oklch(60%_0.005_50)] mt-0.5 truncate">
+              <p className="text-[10px] text-primary-500 dark:text-faint-foreground mt-0.5 truncate">
                 {item.genre.join(', ')}
               </p>
             </div>
@@ -190,39 +190,39 @@ export function EntertainmentHub({ items, flightDurationMinutes }: Entertainment
           <div
             className={cn(
               'w-full max-h-[70vh] overflow-y-auto rounded-t-2xl p-5',
-              'bg-background dark:bg-[oklch(15%_0.002_50)]',
+              'bg-background dark:bg-background',
               'animate-[slideUp_var(--duration-short)_var(--ease-in-out)]'
             )}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="w-10 h-1 bg-surface-300 dark:bg-[oklch(40%_0.005_50)] rounded-full mx-auto mb-4" />
-            <h3 className="text-lg font-bold text-primary-900 dark:text-[oklch(95%_0.002_50)] mb-1">
+            <div className="w-10 h-1 bg-surface-300 dark:bg-muted rounded-full mx-auto mb-4" />
+            <h3 className="text-lg font-bold text-primary-900 dark:text-foreground mb-1">
               {selectedItem.title}
             </h3>
             <div className="flex items-center gap-3 mb-3">
               <div className="flex items-center gap-1">
                 <Star className="w-4 h-4 text-secondary-500" aria-hidden="true" />
-                <span className="text-sm font-medium text-primary-700 dark:text-[oklch(85%_0.005_50)]">
+                <span className="text-sm font-medium text-primary-700 dark:text-muted-foreground">
                   {selectedItem.rating}/10
                 </span>
               </div>
-              <span className="text-sm text-primary-500 dark:text-[oklch(60%_0.005_50)]">
+              <span className="text-sm text-primary-500 dark:text-faint-foreground">
                 {selectedItem.runtime} min
               </span>
               {selectedItem.ageRestriction && (
-                <span className="text-xs px-2 py-0.5 rounded-full border border-primary-300 text-primary-600 dark:border-[oklch(40%_0.030_262)] dark:text-[oklch(70%_0.008_50)]">
+                <span className="text-xs px-2 py-0.5 rounded-full border border-primary-300 text-primary-600 dark:border-primary dark:text-caption-foreground">
                   {selectedItem.ageRestriction}
                 </span>
               )}
             </div>
-            <p className="text-sm text-primary-700 dark:text-[oklch(85%_0.005_50)] leading-relaxed mb-4">
+            <p className="text-sm text-primary-700 dark:text-muted-foreground leading-relaxed mb-4">
               {selectedItem.description}
             </p>
             <div className="flex flex-wrap gap-1.5 mb-4">
               {selectedItem.genre.map((g) => (
                 <span
                   key={g}
-                  className="text-xs px-2.5 py-1 rounded-full bg-surface-200 text-primary-700 dark:bg-[oklch(25%_0.005_50)] dark:text-[oklch(85%_0.005_50)]"
+                  className="text-xs px-2.5 py-1 rounded-full bg-surface-200 text-primary-700 dark:bg-input dark:text-muted-foreground"
                 >
                   {g}
                 </span>

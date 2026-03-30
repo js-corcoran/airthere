@@ -71,13 +71,13 @@ export function MemoriesCarousel({ memories }: MemoriesCarouselProps) {
       <section aria-labelledby="memories-heading" className="space-y-3">
         <h3
           id="memories-heading"
-          className="text-lg font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]"
+          className="text-lg font-semibold text-primary-900 dark:text-foreground"
         >
           Memories
         </h3>
-        <div className="flex flex-col items-center justify-center py-10 bg-surface dark:bg-[oklch(18%_0.003_50)] rounded-[var(--radius-lg)] border border-surface-300 dark:border-[oklch(32%_0.008_50)]">
-          <Images className="w-8 h-8 text-primary-300 dark:text-[oklch(50%_0.008_50)] mb-2" aria-hidden="true" />
-          <p className="text-sm text-primary-500 dark:text-[oklch(70%_0.008_50)]">
+        <div className="flex flex-col items-center justify-center py-10 bg-surface dark:bg-card rounded-[var(--radius-lg)] border border-surface-300 dark:border-muted">
+          <Images className="w-8 h-8 text-primary-300 dark:text-faint-foreground mb-2" aria-hidden="true" />
+          <p className="text-sm text-primary-500 dark:text-caption-foreground">
             No photos from this trip yet.
           </p>
         </div>
@@ -90,7 +90,7 @@ export function MemoriesCarousel({ memories }: MemoriesCarouselProps) {
       <div className="flex items-center justify-between">
         <h3
           id="memories-heading"
-          className="text-lg font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]"
+          className="text-lg font-semibold text-primary-900 dark:text-foreground"
         >
           Memories
         </h3>
@@ -144,7 +144,7 @@ export function MemoriesCarousel({ memories }: MemoriesCarouselProps) {
               onClick={handlePrev}
               disabled={currentIndex === 0}
               aria-label="Previous photo"
-              className="absolute left-0 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full bg-surface/90 dark:bg-[oklch(18%_0.003_50)]/90 shadow-[var(--shadow-sm)] text-primary-700 dark:text-[oklch(85%_0.005_50)] disabled:opacity-30 disabled:cursor-not-allowed transition-opacity duration-[--duration-micro] min-h-[var(--touch-min)] min-w-[var(--touch-min)] -ml-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
+              className="absolute left-0 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full bg-surface/90 dark:bg-card/90 shadow-[var(--shadow-sm)] text-primary-700 dark:text-muted-foreground disabled:opacity-30 disabled:cursor-not-allowed transition-opacity duration-[--duration-micro] min-h-[var(--touch-min)] min-w-[var(--touch-min)] -ml-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
             >
               <ChevronLeft className="w-4 h-4" aria-hidden="true" />
             </button>
@@ -152,7 +152,7 @@ export function MemoriesCarousel({ memories }: MemoriesCarouselProps) {
               onClick={handleNext}
               disabled={currentIndex === memories.length - 1}
               aria-label="Next photo"
-              className="absolute right-0 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full bg-surface/90 dark:bg-[oklch(18%_0.003_50)]/90 shadow-[var(--shadow-sm)] text-primary-700 dark:text-[oklch(85%_0.005_50)] disabled:opacity-30 disabled:cursor-not-allowed transition-opacity duration-[--duration-micro] min-h-[var(--touch-min)] min-w-[var(--touch-min)] -mr-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
+              className="absolute right-0 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full bg-surface/90 dark:bg-card/90 shadow-[var(--shadow-sm)] text-primary-700 dark:text-muted-foreground disabled:opacity-30 disabled:cursor-not-allowed transition-opacity duration-[--duration-micro] min-h-[var(--touch-min)] min-w-[var(--touch-min)] -mr-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
             >
               <ChevronRight className="w-4 h-4" aria-hidden="true" />
             </button>
@@ -171,11 +171,11 @@ export function MemoriesCarousel({ memories }: MemoriesCarouselProps) {
               className={`w-2 h-2 rounded-full transition-colors duration-[--duration-micro] ${
                 i === currentIndex
                   ? 'bg-primary-600 dark:bg-primary-400'
-                  : 'bg-primary-200 dark:bg-[oklch(35%_0.005_50)]'
+                  : 'bg-primary-200 dark:bg-muted'
               }`}
             />
           ))}
-          <span className="ml-2 text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)]">
+          <span className="ml-2 text-xs text-primary-500 dark:text-caption-foreground">
             {currentIndex + 1} of {memories.length}
           </span>
         </div>

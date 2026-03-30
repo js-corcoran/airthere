@@ -38,7 +38,7 @@ function FormField({
 }) {
   return (
     <div>
-      <label className="block text-xs font-medium text-primary-700 dark:text-[oklch(80%_0.005_50)] mb-1">
+      <label className="block text-xs font-medium text-primary-700 dark:text-soft-foreground mb-1">
         {label} {required && <span className="text-error-500">*</span>}
       </label>
       <input
@@ -50,12 +50,12 @@ function FormField({
           'w-full px-3 py-2.5 border rounded-md text-sm bg-background',
           'transition-colors duration-[--duration-short]',
           'focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500',
-          'dark:bg-[oklch(18%_0.003_50)] dark:text-[oklch(95%_0.002_50)]',
+          'dark:bg-card dark:text-foreground',
           'min-h-[var(--touch-min)]',
-          'placeholder:text-primary-400 dark:placeholder:text-[oklch(45%_0.005_50)]',
+          'placeholder:text-primary-400 dark:placeholder:text-faint-foreground disabled:opacity-50 disabled:cursor-not-allowed',
           error
-            ? 'border-error-400 dark:border-[oklch(55%_0.15_25)]'
-            : 'border-surface-300 dark:border-[oklch(32%_0.008_50)]'
+            ? 'border-error-400 dark:border-error-600'
+            : 'border-surface-300 dark:border-muted'
         )}
         aria-invalid={!!error}
         aria-describedby={error ? `${label}-error` : undefined}
@@ -77,10 +77,10 @@ export function PassengerForm({ passengers, onChange, errors, persona }: Passeng
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-lg font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+        <h2 className="text-lg font-semibold text-primary-900 dark:text-foreground">
           Passenger Details
         </h2>
-        <p className="text-sm text-primary-500 dark:text-[oklch(60%_0.005_50)] mt-0.5">
+        <p className="text-sm text-primary-500 dark:text-faint-foreground mt-0.5">
           Enter details as they appear on travel documents
         </p>
       </div>
@@ -88,12 +88,12 @@ export function PassengerForm({ passengers, onChange, errors, persona }: Passeng
       {passengers.map((pax, i) => (
         <div
           key={i}
-          className="p-4 rounded-xl border border-surface-300 dark:border-[oklch(28%_0.005_50)] space-y-3 opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]"
+          className="p-4 rounded-xl border border-surface-300 dark:border-input space-y-3 opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]"
           style={{ animationDelay: `${i * 60}ms` }}
         >
           <div className="flex items-center gap-2 mb-2">
-            <User className="w-4 h-4 text-primary-500 dark:text-[oklch(65%_0.194_262)]" />
-            <h3 className="text-sm font-semibold text-primary-900 dark:text-[oklch(92%_0.002_50)]">
+            <User className="w-4 h-4 text-primary-500 dark:text-primary-400" />
+            <h3 className="text-sm font-semibold text-primary-900 dark:text-foreground">
               Passenger {i + 1}
             </h3>
           </div>

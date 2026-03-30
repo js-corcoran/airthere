@@ -14,7 +14,7 @@ export function DiscoverSkeleton() {
       </div>
 
       {/* Tab bar skeleton */}
-      <div className="flex gap-2 px-4 py-3 border-b border-surface-300 dark:border-[oklch(32%_0.008_50)]">
+      <div className="flex gap-2 px-4 py-3 border-b border-surface-300 dark:border-muted">
         <Skeleton className="flex-1 h-10 rounded-md" />
         <Skeleton className="flex-1 h-10 rounded-md" />
         <Skeleton className="flex-1 h-10 rounded-md" />

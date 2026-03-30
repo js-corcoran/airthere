@@ -26,7 +26,7 @@ export function AccountSecuritySection({ security }: AccountSecuritySectionProps
       >
         Account Security
       </h3>
-      <div className="bg-surface dark:bg-[oklch(18%_0.003_50)] rounded-[var(--radius-lg)] border border-surface-300 dark:border-[oklch(32%_0.008_50)] divide-y divide-surface-300 dark:divide-[oklch(32%_0.008_50)]">
+      <div className="bg-surface dark:bg-card rounded-[var(--radius-lg)] border border-surface-300 dark:border-muted divide-y divide-surface-300 dark:divide-muted">
         <InfoRow
           icon={<Mail className="w-4 h-4" aria-hidden="true" />}
           label="Email"
@@ -56,7 +56,7 @@ export function AccountSecuritySection({ security }: AccountSecuritySectionProps
           className={cn(
             'w-full flex items-center justify-center gap-2 px-4 py-3',
             'text-sm font-medium text-primary-600 dark:text-primary-300',
-            'hover:bg-surface-200 dark:hover:bg-[oklch(22%_0.005_50)]',
+            'hover:bg-surface-200 dark:hover:bg-surface-elevated',
             'transition-colors duration-[--duration-micro]',
             'rounded-b-[var(--radius-lg)]',
             'min-h-[var(--touch-min)]',
@@ -86,7 +86,7 @@ function InfoRow({
     <div className="flex items-center gap-3 px-4 py-3">
       <span className="text-primary-500 dark:text-primary-400 shrink-0">{icon}</span>
       <div className="flex-1 min-w-0">
-        <p className="text-sm font-medium text-primary-800 dark:text-[oklch(90%_0.002_50)]">
+        <p className="text-sm font-medium text-primary-800 dark:text-subtle-foreground">
           {label}
         </p>
         <p className="text-xs text-primary-500 dark:text-primary-400 truncate">

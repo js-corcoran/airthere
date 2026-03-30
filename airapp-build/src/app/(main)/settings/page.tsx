@@ -43,7 +43,7 @@ function CheckboxGroup({
     <fieldset className="py-1.5">
       <legend
         id={groupId}
-        className="text-sm text-primary-800 dark:text-[oklch(90%_0.002_50)] mb-2"
+        className="text-sm text-primary-800 dark:text-subtle-foreground mb-2"
       >
         {label}
       </legend>
@@ -61,8 +61,8 @@ function CheckboxGroup({
                 focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-primary-500
                 ${
                   isChecked
-                    ? 'border-primary-500 bg-primary-50 text-primary-700 dark:border-primary-400 dark:bg-[oklch(22%_0.02_262)] dark:text-primary-300'
-                    : 'border-surface-300 dark:border-[oklch(32%_0.008_50)] text-primary-600 dark:text-[oklch(75%_0.005_50)] hover:bg-surface-100 dark:hover:bg-[oklch(22%_0.005_50)]'
+                    ? 'border-primary-500 bg-primary-50 text-primary-700 dark:border-primary-400 dark:bg-surface-primary dark:text-primary-300'
+                    : 'border-surface-300 dark:border-muted text-primary-600 dark:text-soft-foreground hover:bg-surface-100 dark:hover:bg-surface-elevated'
                 }
               `}
             >
@@ -152,7 +152,7 @@ export default function SettingsPage() {
     <main
       role="main"
       aria-label="Settings and preferences"
-      className="min-h-screen bg-background dark:bg-[oklch(12%_0.002_50)] pb-24"
+      className="min-h-screen bg-background dark:bg-background pb-24"
     >
       {/* Save confirmation toast */}
       <div
@@ -177,10 +177,10 @@ export default function SettingsPage() {
       <div className="px-4 pt-4 space-y-6">
         {/* Page header */}
         <header>
-          <h1 className="text-lg font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+          <h1 className="text-lg font-semibold text-primary-900 dark:text-foreground">
             Settings &amp; Preferences
           </h1>
-          <p className="text-sm text-primary-500 dark:text-[oklch(70%_0.008_50)] mt-1">
+          <p className="text-sm text-primary-500 dark:text-caption-foreground mt-1">
             Customize your AirThere experience
           </p>
         </header>
@@ -272,7 +272,7 @@ export default function SettingsPage() {
           />
 
           {/* Alert types */}
-          <div className="border-t border-surface-300 dark:border-[oklch(32%_0.008_50)] my-1" />
+          <div className="border-t border-surface-300 dark:border-muted my-1" />
           <p className="text-xs font-medium text-primary-600 dark:text-primary-400">
             Alert types
           </p>
@@ -309,7 +309,7 @@ export default function SettingsPage() {
           />
 
           {/* Quiet hours */}
-          <div className="border-t border-surface-300 dark:border-[oklch(32%_0.008_50)] my-1" />
+          <div className="border-t border-surface-300 dark:border-muted my-1" />
           <p className="text-xs font-medium text-primary-600 dark:text-primary-400">
             Quiet hours
           </p>
@@ -423,7 +423,7 @@ export default function SettingsPage() {
             onChange={(v) => update('privacy', 'analyticsOptIn', v as never)}
           />
 
-          <div className="border-t border-surface-300 dark:border-[oklch(32%_0.008_50)] my-1" />
+          <div className="border-t border-surface-300 dark:border-muted my-1" />
 
           <button
             type="button"
@@ -433,7 +433,7 @@ export default function SettingsPage() {
               border border-primary-300 dark:border-primary-600
               text-primary-700 dark:text-primary-300
               text-sm font-medium
-              hover:bg-primary-50 dark:hover:bg-[oklch(22%_0.005_50)]
+              hover:bg-primary-50 dark:hover:bg-surface-elevated
               transition-colors duration-[--duration-micro]
               min-h-[var(--touch-min)]
               focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500
@@ -452,7 +452,7 @@ export default function SettingsPage() {
               border border-error-300 dark:border-error-600
               text-error-600 dark:text-error-400
               text-sm font-medium
-              hover:bg-error-50 dark:hover:bg-[oklch(20%_0.03_25)]
+              hover:bg-error-50 dark:hover:bg-surface-error
               transition-colors duration-[--duration-micro]
               min-h-[var(--touch-min)]
               focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500
@@ -514,7 +514,7 @@ export default function SettingsPage() {
               type="text"
               value={settings.account.displayName}
               onChange={(e) => update('account', 'displayName', e.target.value as never)}
-              className="w-full px-3 py-2.5 rounded-[var(--radius-md)] border border-surface-300 dark:border-[oklch(32%_0.008_50)] bg-surface dark:bg-[oklch(22%_0.005_50)] text-sm text-primary-800 dark:text-[oklch(90%_0.002_50)] focus:outline-none focus:ring-1 focus:ring-primary-300 dark:focus:ring-primary-600 min-h-[var(--touch-min)]"
+              className="w-full px-3 py-2.5 rounded-[var(--radius-md)] border border-surface-300 dark:border-muted bg-surface dark:bg-surface-elevated text-sm text-primary-800 dark:text-subtle-foreground focus:outline-none focus:ring-1 focus:ring-primary-300 dark:focus:ring-primary-600 min-h-[var(--touch-min)]"
             />
           </div>
 
@@ -532,7 +532,7 @@ export default function SettingsPage() {
               value={settings.account.email}
               readOnly
               aria-readonly="true"
-              className="w-full px-3 py-2.5 rounded-[var(--radius-md)] border border-surface-300 dark:border-[oklch(32%_0.008_50)] bg-surface-100 dark:bg-[oklch(16%_0.003_50)] text-sm text-primary-500 dark:text-[oklch(70%_0.008_50)] min-h-[var(--touch-min)] cursor-not-allowed"
+              className="w-full px-3 py-2.5 rounded-[var(--radius-md)] border border-surface-300 dark:border-muted bg-surface-100 dark:bg-background text-sm text-primary-500 dark:text-caption-foreground min-h-[var(--touch-min)] cursor-not-allowed"
             />
           </div>
 
@@ -549,7 +549,7 @@ export default function SettingsPage() {
               type="tel"
               value={settings.account.phone}
               onChange={(e) => update('account', 'phone', e.target.value as never)}
-              className="w-full px-3 py-2.5 rounded-[var(--radius-md)] border border-surface-300 dark:border-[oklch(32%_0.008_50)] bg-surface dark:bg-[oklch(22%_0.005_50)] text-sm text-primary-800 dark:text-[oklch(90%_0.002_50)] focus:outline-none focus:ring-1 focus:ring-primary-300 dark:focus:ring-primary-600 min-h-[var(--touch-min)]"
+              className="w-full px-3 py-2.5 rounded-[var(--radius-md)] border border-surface-300 dark:border-muted bg-surface dark:bg-surface-elevated text-sm text-primary-800 dark:text-subtle-foreground focus:outline-none focus:ring-1 focus:ring-primary-300 dark:focus:ring-primary-600 min-h-[var(--touch-min)]"
             />
           </div>
 
@@ -597,7 +597,7 @@ export default function SettingsPage() {
           title="Demo Persona"
           icon={<Users className="w-5 h-5" />}
         >
-          <p className="text-xs text-primary-500 dark:text-[oklch(70%_0.008_50)] mb-3">
+          <p className="text-xs text-primary-500 dark:text-caption-foreground mb-3">
             Switch persona to preview different traveler experiences.
           </p>
           <div className="flex gap-2">
@@ -615,8 +615,8 @@ export default function SettingsPage() {
                   min-h-[var(--touch-preferred)]
                   focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500
                   ${persona === p.key
-                    ? 'border-primary-500 bg-primary-50 dark:bg-[oklch(22%_0.02_262)] dark:border-primary-400'
-                    : 'border-surface-300 dark:border-[oklch(32%_0.008_50)] hover:bg-surface-100 dark:hover:bg-[oklch(22%_0.005_50)]'
+                    ? 'border-primary-500 bg-primary-50 dark:bg-surface-primary dark:border-primary-400'
+                    : 'border-surface-300 dark:border-muted hover:bg-surface-100 dark:hover:bg-surface-elevated'
                   }
                 `}
                 aria-pressed={persona === p.key}
@@ -624,11 +624,11 @@ export default function SettingsPage() {
                 <span className={`block text-sm font-medium ${
                   persona === p.key
                     ? 'text-primary-700 dark:text-primary-300'
-                    : 'text-primary-600 dark:text-[oklch(75%_0.005_50)]'
+                    : 'text-primary-600 dark:text-soft-foreground'
                 }`}>
                   {p.label}
                 </span>
-                <span className="block text-[10px] text-primary-400 dark:text-[oklch(60%_0.005_50)] mt-0.5">
+                <span className="block text-[10px] text-primary-400 dark:text-faint-foreground mt-0.5">
                   {p.sub}
                 </span>
               </button>
@@ -643,22 +643,22 @@ export default function SettingsPage() {
           icon={<Info className="w-5 h-5" />}
         >
           <div className="py-1.5 flex items-center justify-between">
-            <span className="text-sm text-primary-800 dark:text-[oklch(90%_0.002_50)]">
+            <span className="text-sm text-primary-800 dark:text-subtle-foreground">
               Version
             </span>
-            <span className="text-sm text-primary-500 dark:text-[oklch(70%_0.008_50)]">
+            <span className="text-sm text-primary-500 dark:text-caption-foreground">
               AirThere v2.1.0
             </span>
           </div>
 
-          <div className="border-t border-surface-300 dark:border-[oklch(32%_0.008_50)] my-1" />
+          <div className="border-t border-surface-300 dark:border-muted my-1" />
 
           <AboutLink label="Terms of Service" />
           <AboutLink label="Privacy Policy" />
           <AboutLink label="Contact Support" />
           <AboutLink label="Send Feedback" />
 
-          <p className="text-xs text-center text-primary-400 dark:text-[oklch(55%_0.008_50)] pt-3">
+          <p className="text-xs text-center text-primary-400 dark:text-faint-foreground pt-3">
             Made with care for travelers
           </p>
         </SettingsSection>
@@ -677,20 +677,20 @@ export default function SettingsPage() {
             onClick={() => setShowDeleteConfirm(false)}
             aria-hidden="true"
           />
-          <div className="relative w-full max-w-sm bg-background dark:bg-[oklch(18%_0.003_50)] rounded-t-2xl sm:rounded-2xl p-6 shadow-xl">
+          <div className="relative w-full max-w-sm bg-background dark:bg-card rounded-t-2xl sm:rounded-2xl p-6 shadow-xl">
             <div className="w-12 h-12 rounded-full bg-error-50 dark:bg-error-900 flex items-center justify-center mx-auto mb-4">
               <Trash2 className="w-6 h-6 text-error-500" aria-hidden="true" />
             </div>
-            <h2 className="text-lg font-bold text-primary-900 dark:text-[oklch(95%_0.002_50)] text-center mb-2">
+            <h2 className="text-lg font-bold text-primary-900 dark:text-foreground text-center mb-2">
               Delete Account?
             </h2>
-            <p className="text-sm text-primary-600 dark:text-[oklch(75%_0.005_50)] text-center mb-6 leading-relaxed">
+            <p className="text-sm text-primary-600 dark:text-soft-foreground text-center mb-6 leading-relaxed">
               This action is permanent and cannot be undone. All your data, bookings, and loyalty points will be permanently removed.
             </p>
             <div className="flex gap-3">
               <button
                 onClick={() => setShowDeleteConfirm(false)}
-                className="flex-1 px-4 py-2.5 rounded-[var(--radius-md)] border border-primary-300 dark:border-primary-600 text-primary-700 dark:text-primary-300 text-sm font-medium hover:bg-primary-50 dark:hover:bg-[oklch(22%_0.005_50)] transition-colors min-h-[var(--touch-preferred)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
+                className="flex-1 px-4 py-2.5 rounded-[var(--radius-md)] border border-primary-300 dark:border-primary-600 text-primary-700 dark:text-primary-300 text-sm font-medium hover:bg-primary-50 dark:hover:bg-surface-elevated transition-colors min-h-[var(--touch-preferred)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
               >
                 Cancel
               </button>
@@ -715,15 +715,15 @@ function AboutLink({ label }: { label: string }) {
       href="#"
       className="
         flex items-center justify-between py-2.5
-        text-sm text-primary-700 dark:text-[oklch(85%_0.005_50)]
-        hover:text-primary-900 dark:hover:text-[oklch(95%_0.002_50)]
+        text-sm text-primary-700 dark:text-muted-foreground
+        hover:text-primary-900 dark:hover:text-foreground
         transition-colors duration-[--duration-micro]
         min-h-[var(--touch-min)]
         focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500
       "
     >
       {label}
-      <ExternalLink className="w-4 h-4 text-primary-400 dark:text-[oklch(55%_0.008_50)]" aria-hidden="true" />
+      <ExternalLink className="w-4 h-4 text-primary-400 dark:text-faint-foreground" aria-hidden="true" />
     </a>
   );
 }

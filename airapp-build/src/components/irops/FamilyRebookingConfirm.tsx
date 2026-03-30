@@ -23,8 +23,8 @@ export function FamilyRebookingConfirm({ familyInfo, onConfirm }: FamilyRebookin
       <div className={cn(
         'rounded-[var(--radius-lg)] p-4 border',
         seatingIntegrityMaintained
-          ? 'bg-info-50 dark:bg-[oklch(18%_0.02_240)] border-info-300 dark:border-info-700'
-          : 'bg-warning-50 dark:bg-[oklch(18%_0.02_60)] border-warning-400 dark:border-warning-600',
+          ? 'bg-info-50 dark:bg-surface-info border-info-300 dark:border-info-700'
+          : 'bg-warning-50 dark:bg-surface-warning border-warning-400 dark:border-warning-600',
       )}>
         <div className="flex items-center gap-2 mb-4">
           {seatingIntegrityMaintained ? (
@@ -55,7 +55,7 @@ export function FamilyRebookingConfirm({ familyInfo, onConfirm }: FamilyRebookin
                 className={cn(
                   'flex items-center justify-between py-2.5 px-3',
                   'rounded-[var(--radius-md)]',
-                  'bg-white/60 dark:bg-[oklch(22%_0.005_50)]',
+                  'bg-white/60 dark:bg-surface-elevated',
                   'opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]',
                   idx !== members.length - 1 && 'mb-1'
                 )}
@@ -71,7 +71,7 @@ export function FamilyRebookingConfirm({ familyInfo, onConfirm }: FamilyRebookin
                     {member.name.split(' ').map(n => n[0]).join('')}
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-primary-800 dark:text-[oklch(90%_0.002_50)]">
+                    <p className="text-sm font-medium text-primary-800 dark:text-subtle-foreground">
                       {member.name}
                     </p>
                     <p className="text-xs text-primary-500 dark:text-primary-400">
@@ -85,7 +85,7 @@ export function FamilyRebookingConfirm({ familyInfo, onConfirm }: FamilyRebookin
                     {origSeat?.seat}
                   </span>
                   <span className="text-primary-400 dark:text-primary-500" aria-hidden="true">&rarr;</span>
-                  <span className="font-mono font-semibold text-primary-800 dark:text-[oklch(90%_0.002_50)]">
+                  <span className="font-mono font-semibold text-primary-800 dark:text-subtle-foreground">
                     {newSeat?.seat}
                   </span>
                 </div>

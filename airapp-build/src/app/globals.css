@@ -73,13 +73,42 @@
   --color-info-800: oklch(40% 0.130 240);
   --color-info-900: oklch(28% 0.100 240);
 
-  /* SURFACE */
-  --color-background: oklch(98% 0.001 50);
-  --color-surface: oklch(97% 0.002 50);
-  --color-surface-200: oklch(94% 0.003 50);
-  --color-surface-300: oklch(91% 0.005 50);
+  /* SURFACE — auto-switching via CSS variables */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-input: var(--input);
+  --color-surface: var(--card);
+  --color-surface-100: var(--surface-100);
+  --color-surface-200: var(--surface-200);
+  --color-surface-300: var(--muted);
+  --color-surface-elevated: var(--surface-elevated);
   --color-overlay-dark: rgba(0, 0, 0, 0.6);
   --color-overlay-light: rgba(0, 0, 0, 0.1);
+
+  /* TEXT HIERARCHY — auto-switching */
+  --color-subtle-foreground: var(--subtle-foreground);
+  --color-soft-foreground: var(--soft-foreground);
+  --color-caption-foreground: var(--caption-foreground);
+  --color-dimmed-foreground: var(--dimmed-foreground);
+  --color-faint-foreground: var(--faint-foreground);
+
+  /* TINTED SURFACES — auto-switching */
+  --color-surface-primary: var(--surface-primary);
+  --color-surface-error: var(--surface-error);
+  --color-surface-success: var(--surface-success);
+  --color-surface-warning: var(--surface-warning);
+  --color-surface-info: var(--surface-info);
+
+  /* TINTED BORDERS — auto-switching */
+  --color-border-default: var(--border);
+  --color-border-primary: var(--border-primary);
+  --color-border-error: var(--border-error);
+  --color-border-success: var(--border-success);
+  --color-border-info: var(--border-info);
 
   /* TYPOGRAPHY */
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
@@ -122,11 +151,11 @@
   --radius-2xl: 20px;
   --radius-full: 9999px;
 
-  /* SHADOWS */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.16), 0 4px 8px rgba(0, 0, 0, 0.08);
-  --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.2), 0 8px 16px rgba(0, 0, 0, 0.1);
+  /* SHADOWS — auto-switching */
+  --shadow-sm: var(--shadow-light-sm, 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04));
+  --shadow-md: var(--shadow-light-md, 0 4px 8px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.06));
+  --shadow-lg: var(--shadow-light-lg, 0 8px 16px rgba(0, 0, 0, 0.16), 0 4px 8px rgba(0, 0, 0, 0.08));
+  --shadow-xl: var(--shadow-light-xl, 0 16px 32px rgba(0, 0, 0, 0.2), 0 8px 16px rgba(0, 0, 0, 0.1));
 
   /* ANIMATION */
   --duration-micro: 150ms;
@@ -166,6 +195,31 @@
     --input: oklch(91% 0.005 50);
     --ring: oklch(57.5% 0.194 262);
     --radius: 8px;
+
+    /* Surface scale */
+    --surface-100: oklch(96% 0.001 50);
+    --surface-200: oklch(94% 0.003 50);
+    --surface-elevated: oklch(95% 0.002 50);
+
+    /* Text hierarchy */
+    --subtle-foreground: oklch(35% 0.180 262);
+    --soft-foreground: oklch(50% 0.194 262);
+    --caption-foreground: oklch(57.5% 0.194 262);
+    --dimmed-foreground: oklch(68% 0.125 262);
+    --faint-foreground: oklch(78% 0.070 262);
+
+    /* Tinted surfaces */
+    --surface-primary: oklch(97% 0.002 262);
+    --surface-error: oklch(96% 0.008 25);
+    --surface-success: oklch(95% 0.008 142);
+    --surface-warning: oklch(96% 0.005 60);
+    --surface-info: oklch(96% 0.002 240);
+
+    /* Tinted borders */
+    --border-primary: oklch(85% 0.030 262);
+    --border-error: oklch(85% 0.080 25);
+    --border-success: oklch(88% 0.050 142);
+    --border-info: oklch(86% 0.040 240);
   }
 
   .dark {
@@ -188,6 +242,37 @@
     --border: oklch(32% 0.008 50);
     --input: oklch(25% 0.005 50);
     --ring: oklch(65% 0.194 262);
+
+    /* Surface scale */
+    --surface-100: oklch(20% 0.005 50);
+    --surface-200: oklch(22% 0.005 50);
+    --surface-elevated: oklch(22% 0.005 50);
+
+    /* Text hierarchy */
+    --subtle-foreground: oklch(90% 0.002 50);
+    --soft-foreground: oklch(80% 0.005 50);
+    --caption-foreground: oklch(70% 0.008 50);
+    --dimmed-foreground: oklch(65% 0.005 50);
+    --faint-foreground: oklch(60% 0.005 50);
+
+    /* Tinted surfaces */
+    --surface-primary: oklch(22% 0.02 262);
+    --surface-error: oklch(22% 0.03 25);
+    --surface-success: oklch(22% 0.03 155);
+    --surface-warning: oklch(22% 0.03 60);
+    --surface-info: oklch(22% 0.03 250);
+
+    /* Tinted borders */
+    --border-primary: oklch(40% 0.08 262);
+    --border-error: oklch(35% 0.06 25);
+    --border-success: oklch(35% 0.05 155);
+    --border-info: oklch(35% 0.05 250);
+
+    /* Dark shadows */
+    --shadow-light-sm: 0 1px 3px rgba(0, 0, 0, 0.24), 0 1px 2px rgba(0, 0, 0, 0.16);
+    --shadow-light-md: 0 4px 8px rgba(0, 0, 0, 0.32), 0 2px 4px rgba(0, 0, 0, 0.20);
+    --shadow-light-lg: 0 8px 16px rgba(0, 0, 0, 0.40), 0 4px 8px rgba(0, 0, 0, 0.24);
+    --shadow-light-xl: 0 16px 32px rgba(0, 0, 0, 0.48), 0 8px 16px rgba(0, 0, 0, 0.32);
   }
 }
 

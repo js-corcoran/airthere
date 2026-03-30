@@ -27,8 +27,8 @@ export function BottomTabBar() {
   return (
     <nav
       className="fixed bottom-0 left-0 right-0 z-50
-                 bg-surface dark:bg-[oklch(18%_0.003_50)]
-                 border-t border-surface-300 dark:border-[oklch(32%_0.008_50)]
+                 bg-surface dark:bg-card
+                 border-t border-surface-300 dark:border-muted
                  shadow-[0_-1px_3px_rgba(0,0,0,0.08)]
                  dark:shadow-[0_-1px_3px_rgba(0,0,0,0.3)]
                  pb-[env(safe-area-inset-bottom)]"
@@ -52,8 +52,8 @@ export function BottomTabBar() {
                 'transition-colors duration-[--duration-micro]',
                 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 rounded-md',
                 isActive
-                  ? 'text-secondary-500 dark:text-[oklch(72%_0.158_50)]'
-                  : 'text-primary-400 dark:text-[oklch(70%_0.008_50)]'
+                  ? 'text-secondary-500 dark:text-secondary-400'
+                  : 'text-primary-400 dark:text-caption-foreground hover:text-primary-500'
               )}
             >
               <Icon

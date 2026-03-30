@@ -37,7 +37,7 @@ export function RootCauseExplanation({ disruption }: RootCauseExplanationProps) 
       >
         What Happened
       </h3>
-      <div className="bg-surface dark:bg-[oklch(18%_0.003_50)] rounded-[var(--radius-lg)] p-4 border border-surface-300 dark:border-[oklch(32%_0.008_50)]">
+      <div className="bg-surface dark:bg-card rounded-[var(--radius-lg)] p-4 border border-surface-300 dark:border-muted">
         <div className="flex items-center gap-2 mb-3">
           <div className="w-8 h-8 rounded-[var(--radius-md)] bg-primary-100 dark:bg-primary-800 flex items-center justify-center">
             <Icon className="w-4 h-4 text-primary-600 dark:text-primary-300" aria-hidden="true" />
@@ -46,7 +46,7 @@ export function RootCauseExplanation({ disruption }: RootCauseExplanationProps) 
             {causeConfig.label}
           </span>
         </div>
-        <p className="text-sm leading-relaxed text-primary-800 dark:text-[oklch(85%_0.005_50)]">
+        <p className="text-sm leading-relaxed text-primary-800 dark:text-muted-foreground">
           {disruption.rootCause.description}
         </p>
         {resolutionTime && (

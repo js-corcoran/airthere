@@ -42,21 +42,21 @@ export function BiometricUnlock({ isLocked, onUnlock }: BiometricUnlockProps) {
       <div
         className={cn(
           'w-20 h-20 rounded-full flex items-center justify-center mb-6',
-          'bg-primary-100 dark:bg-[oklch(22%_0.010_262)]',
+          'bg-primary-100 dark:bg-surface-primary',
           authenticating && 'animate-pulse'
         )}
       >
         {authenticating ? (
           <div className="w-10 h-10 rounded-full border-4 border-primary-200 border-t-primary-500 animate-spin" />
         ) : (
-          <Lock className="w-10 h-10 text-primary-500 dark:text-[oklch(65%_0.194_262)]" />
+          <Lock className="w-10 h-10 text-primary-500 dark:text-primary-400" />
         )}
       </div>
 
-      <h2 className="text-lg font-bold text-primary-900 dark:text-[oklch(95%_0.002_50)] mb-2">
+      <h2 className="text-lg font-bold text-primary-900 dark:text-foreground mb-2">
         Document Vault Locked
       </h2>
-      <p className="text-sm text-primary-600 dark:text-[oklch(70%_0.008_50)] text-center mb-6 max-w-xs">
+      <p className="text-sm text-primary-600 dark:text-caption-foreground text-center mb-6 max-w-xs">
         Your documents are encrypted and secure. Authenticate to access them.
       </p>
 
@@ -77,7 +77,7 @@ export function BiometricUnlock({ isLocked, onUnlock }: BiometricUnlockProps) {
         {authenticating ? 'Authenticating...' : 'Unlock with Biometrics'}
       </button>
 
-      <div className="flex items-center gap-1.5 mt-4 text-xs text-primary-400 dark:text-[oklch(50%_0.005_50)]">
+      <div className="flex items-center gap-1.5 mt-4 text-xs text-primary-400 dark:text-faint-foreground">
         <ShieldCheck className="w-3.5 h-3.5" aria-hidden="true" />
         <span>AES-256 encrypted</span>
       </div>

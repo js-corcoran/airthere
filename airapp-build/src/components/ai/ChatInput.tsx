@@ -39,7 +39,7 @@ export function ChatInput({ onSend, isLoading, placeholder = 'Ask me anything...
   };
 
   return (
-    <div className="flex items-end gap-2 p-3 border-t border-surface-300 dark:border-[oklch(32%_0.008_50)] bg-surface dark:bg-[oklch(18%_0.003_50)]">
+    <div className="flex items-end gap-2 p-3 border-t border-surface-300 dark:border-muted bg-surface dark:bg-card">
       <textarea
         ref={textareaRef}
         value={input}
@@ -52,8 +52,8 @@ export function ChatInput({ onSend, isLoading, placeholder = 'Ask me anything...
         aria-label="Message input"
         className={cn(
           'flex-1 resize-none rounded-[var(--radius-lg)] px-4 py-2.5 text-sm',
-          'bg-surface-200 dark:bg-[oklch(22%_0.005_50)]',
-          'text-primary-800 dark:text-[oklch(90%_0.002_50)]',
+          'bg-surface-200 dark:bg-surface-elevated',
+          'text-primary-800 dark:text-subtle-foreground',
           'placeholder:text-primary-400 dark:placeholder:text-primary-500',
           'border border-transparent',
           'focus:border-primary-300 dark:focus:border-primary-600',
@@ -68,7 +68,7 @@ export function ChatInput({ onSend, isLoading, placeholder = 'Ask me anything...
         className={cn(
           'flex items-center justify-center w-[var(--touch-min)] h-[var(--touch-min)] rounded-full',
           'text-primary-500 dark:text-primary-400',
-          'hover:bg-surface-200 dark:hover:bg-[oklch(25%_0.005_50)]',
+          'hover:bg-surface-200 dark:hover:bg-input',
           'transition-colors duration-[--duration-micro]',
           'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
         )}
@@ -86,7 +86,7 @@ export function ChatInput({ onSend, isLoading, placeholder = 'Ask me anything...
           'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
           input.trim() && !isLoading
             ? 'bg-primary-600 dark:bg-primary-500 text-white hover:bg-primary-700 dark:hover:bg-primary-400'
-            : 'bg-surface-200 dark:bg-[oklch(25%_0.005_50)] text-primary-400 dark:text-primary-500 cursor-not-allowed',
+            : 'bg-surface-200 dark:bg-input text-primary-400 dark:text-primary-500 cursor-not-allowed',
         )}
         aria-label="Send message"
       >

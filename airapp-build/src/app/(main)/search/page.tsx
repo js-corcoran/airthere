@@ -145,14 +145,14 @@ function SearchPageInner() {
   return (
     <div className="pb-8">
       {/* Hero Banner */}
-      <div className="px-4 pt-2 pb-4 bg-gradient-to-b from-primary-50 to-background dark:from-[oklch(18%_0.01_262)] dark:to-[oklch(14%_0.003_50)]">
+      <div className="px-4 pt-2 pb-4 bg-gradient-to-b from-primary-50 to-background dark:from-surface-primary dark:to-background">
         <div className="flex items-center gap-2 mb-1">
-          <Plane className="w-5 h-5 text-primary-500 dark:text-[oklch(65%_0.194_262)]" />
-          <h1 className="text-xl font-bold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+          <Plane className="w-5 h-5 text-primary-500 dark:text-primary-400" />
+          <h1 className="text-xl font-bold text-primary-900 dark:text-foreground">
             Search Flights
           </h1>
         </div>
-        <p className="text-sm text-primary-500 dark:text-[oklch(65%_0.005_50)]">
+        <p className="text-sm text-primary-500 dark:text-dimmed-foreground">
           {persona === 'premium'
             ? 'Find your next premium experience'
             : persona === 'business'
@@ -195,8 +195,8 @@ function SearchPageInner() {
                   'focus-visible:outline-2 focus-visible:outline-primary-500',
                   'min-h-[var(--touch-min)] min-w-[var(--touch-min)] flex items-center justify-center',
                   from || to
-                    ? 'border-primary-300 text-primary-500 hover:bg-primary-50 dark:border-[oklch(50%_0.1_262)] dark:hover:bg-[oklch(25%_0.005_50)]'
-                    : 'border-surface-300 text-surface-300 cursor-not-allowed dark:border-[oklch(32%_0.008_50)] dark:text-[oklch(40%_0.005_50)]'
+                    ? 'border-primary-300 text-primary-500 hover:bg-primary-50 dark:border-primary-500 dark:hover:bg-input'
+                    : 'border-surface-300 text-surface-300 cursor-not-allowed dark:border-muted dark:text-faint-foreground'
                 )}
                 aria-label="Swap departure and arrival airports"
               >
@@ -268,9 +268,9 @@ function SearchPageInner() {
 
         {/* Family seating note */}
         {persona === 'family' && (
-          <div className="flex items-start gap-2 px-3 py-2.5 rounded-lg bg-info-50 dark:bg-[oklch(20%_0.02_240)] border border-info-200 dark:border-[oklch(35%_0.05_240)]">
+          <div className="flex items-start gap-2 px-3 py-2.5 rounded-lg bg-info-50 dark:bg-surface-info border border-info-200 dark:border-info">
             <span className="text-sm" aria-hidden="true">👨‍👩‍👧‍👦</span>
-            <p className="text-xs text-info-700 dark:text-[oklch(80%_0.04_240)]">
+            <p className="text-xs text-info-700 dark:text-info-300">
               We&apos;ll prioritize flights with family seating options so you can sit together.
             </p>
           </div>
@@ -287,8 +287,8 @@ function SearchPageInner() {
             'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
             'min-h-[var(--touch-preferred)]',
             isSearching
-              ? 'bg-primary-300 text-white cursor-not-allowed dark:bg-[oklch(45%_0.12_262)]'
-              : 'bg-primary-500 text-white hover:bg-primary-600 active:bg-primary-700 dark:bg-[oklch(55%_0.194_262)] dark:hover:bg-[oklch(60%_0.194_262)]'
+              ? 'bg-primary-300 text-white cursor-not-allowed dark:bg-primary-700'
+              : 'bg-primary-500 text-white hover:bg-primary-600 active:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-400'
           )}
         >
           <Search className="w-4.5 h-4.5" />

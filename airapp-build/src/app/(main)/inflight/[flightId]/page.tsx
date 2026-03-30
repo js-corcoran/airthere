@@ -80,7 +80,7 @@ export default function InflightPage() {
         className={cn(
           'sticky top-0 z-30 px-4 py-3',
           'bg-primary-900/95 backdrop-blur-sm',
-          'dark:bg-[oklch(12%_0.010_262)]/95'
+          'dark:bg-background/95'
         )}
       >
         <div className="flex items-center justify-between">

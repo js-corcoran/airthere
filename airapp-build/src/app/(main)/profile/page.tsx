@@ -55,7 +55,7 @@ export default function ProfilePage() {
     <main
       role="main"
       aria-label="User profile"
-      className="min-h-screen bg-background dark:bg-[oklch(12%_0.002_50)] pb-24"
+      className="min-h-screen bg-background dark:bg-background pb-24"
     >
       <div className="px-4 pt-4 space-y-6">
         {/* Profile header with avatar and tier */}
@@ -90,31 +90,31 @@ export default function ProfilePage() {
         <section aria-label="Quick links" className="space-y-2">
           <Link
             href="/settings"
-            className="flex items-center justify-between px-4 py-3 rounded-[var(--radius-lg)] bg-surface dark:bg-[oklch(18%_0.003_50)] border border-surface-300 dark:border-[oklch(32%_0.008_50)] min-h-[var(--touch-preferred)] transition-colors hover:bg-surface-200 dark:hover:bg-[oklch(22%_0.005_50)]"
+            className="flex items-center justify-between px-4 py-3 rounded-[var(--radius-lg)] bg-surface dark:bg-card border border-surface-300 dark:border-muted min-h-[var(--touch-preferred)] transition-colors hover:bg-surface-200 dark:hover:bg-surface-elevated"
           >
-            <span className="text-sm font-medium text-primary-800 dark:text-[oklch(90%_0.002_50)]">Settings & Preferences</span>
-            <span className="text-primary-400 dark:text-[oklch(60%_0.005_50)]" aria-hidden="true">&rsaquo;</span>
+            <span className="text-sm font-medium text-primary-800 dark:text-subtle-foreground">Settings & Preferences</span>
+            <span className="text-primary-400 dark:text-faint-foreground" aria-hidden="true">&rsaquo;</span>
           </Link>
           <Link
             href="/notifications"
-            className="flex items-center justify-between px-4 py-3 rounded-[var(--radius-lg)] bg-surface dark:bg-[oklch(18%_0.003_50)] border border-surface-300 dark:border-[oklch(32%_0.008_50)] min-h-[var(--touch-preferred)] transition-colors hover:bg-surface-200 dark:hover:bg-[oklch(22%_0.005_50)]"
+            className="flex items-center justify-between px-4 py-3 rounded-[var(--radius-lg)] bg-surface dark:bg-card border border-surface-300 dark:border-muted min-h-[var(--touch-preferred)] transition-colors hover:bg-surface-200 dark:hover:bg-surface-elevated"
           >
-            <span className="text-sm font-medium text-primary-800 dark:text-[oklch(90%_0.002_50)]">Notifications</span>
-            <span className="text-primary-400 dark:text-[oklch(60%_0.005_50)]" aria-hidden="true">&rsaquo;</span>
+            <span className="text-sm font-medium text-primary-800 dark:text-subtle-foreground">Notifications</span>
+            <span className="text-primary-400 dark:text-faint-foreground" aria-hidden="true">&rsaquo;</span>
           </Link>
           <Link
             href="/trips/documents"
-            className="flex items-center justify-between px-4 py-3 rounded-[var(--radius-lg)] bg-surface dark:bg-[oklch(18%_0.003_50)] border border-surface-300 dark:border-[oklch(32%_0.008_50)] min-h-[var(--touch-preferred)] transition-colors hover:bg-surface-200 dark:hover:bg-[oklch(22%_0.005_50)]"
+            className="flex items-center justify-between px-4 py-3 rounded-[var(--radius-lg)] bg-surface dark:bg-card border border-surface-300 dark:border-muted min-h-[var(--touch-preferred)] transition-colors hover:bg-surface-200 dark:hover:bg-surface-elevated"
           >
-            <span className="text-sm font-medium text-primary-800 dark:text-[oklch(90%_0.002_50)]">Document Vault</span>
-            <span className="text-primary-400 dark:text-[oklch(60%_0.005_50)]" aria-hidden="true">&rsaquo;</span>
+            <span className="text-sm font-medium text-primary-800 dark:text-subtle-foreground">Document Vault</span>
+            <span className="text-primary-400 dark:text-faint-foreground" aria-hidden="true">&rsaquo;</span>
           </Link>
         </section>
 
         {/* Biometric enrollment CTA (for unenrolled users) */}
         {(!user.biometric.faceIdEnrolled || !user.biometric.fingerprintEnrolled) && (
           <section aria-labelledby="biometric-cta" className="space-y-3">
-            <div className="bg-primary-50 dark:bg-[oklch(18%_0.01_262)] rounded-[var(--radius-lg)] p-4 border border-primary-200 dark:border-primary-700">
+            <div className="bg-primary-50 dark:bg-surface-primary rounded-[var(--radius-lg)] p-4 border border-primary-200 dark:border-primary-700">
               <h3
                 id="biometric-cta"
                 className="text-sm font-semibold text-primary-800 dark:text-primary-200 mb-1"
@@ -160,8 +160,8 @@ export default function ProfilePage() {
             onClick={() => setShowEditModal(false)}
             aria-hidden="true"
           />
-          <div className="relative w-full max-w-md bg-background dark:bg-[oklch(18%_0.003_50)] rounded-t-2xl sm:rounded-2xl p-6 shadow-xl">
-            <h2 className="text-lg font-bold text-primary-900 dark:text-[oklch(95%_0.002_50)] mb-4">
+          <div className="relative w-full max-w-md bg-background dark:bg-card rounded-t-2xl sm:rounded-2xl p-6 shadow-xl">
+            <h2 className="text-lg font-bold text-primary-900 dark:text-foreground mb-4">
               Edit Profile
             </h2>
 
@@ -173,7 +173,7 @@ export default function ProfilePage() {
                 <input
                   type="text"
                   defaultValue={user.firstName}
-                  className="w-full px-3 py-2.5 rounded-[var(--radius-md)] border border-surface-300 dark:border-[oklch(32%_0.008_50)] bg-surface dark:bg-[oklch(22%_0.005_50)] text-sm text-primary-800 dark:text-[oklch(90%_0.002_50)] focus:outline-none focus:ring-1 focus:ring-primary-300 dark:focus:ring-primary-600 min-h-[var(--touch-min)]"
+                  className="w-full px-3 py-2.5 rounded-[var(--radius-md)] border border-surface-300 dark:border-muted bg-surface dark:bg-surface-elevated text-sm text-primary-800 dark:text-subtle-foreground focus:outline-none focus:ring-1 focus:ring-primary-300 dark:focus:ring-primary-600 min-h-[var(--touch-min)]"
                   aria-label="First name"
                 />
               </div>
@@ -184,7 +184,7 @@ export default function ProfilePage() {
                 <input
                   type="text"
                   defaultValue={user.lastName}
-                  className="w-full px-3 py-2.5 rounded-[var(--radius-md)] border border-surface-300 dark:border-[oklch(32%_0.008_50)] bg-surface dark:bg-[oklch(22%_0.005_50)] text-sm text-primary-800 dark:text-[oklch(90%_0.002_50)] focus:outline-none focus:ring-1 focus:ring-primary-300 dark:focus:ring-primary-600 min-h-[var(--touch-min)]"
+                  className="w-full px-3 py-2.5 rounded-[var(--radius-md)] border border-surface-300 dark:border-muted bg-surface dark:bg-surface-elevated text-sm text-primary-800 dark:text-subtle-foreground focus:outline-none focus:ring-1 focus:ring-primary-300 dark:focus:ring-primary-600 min-h-[var(--touch-min)]"
                   aria-label="Last name"
                 />
               </div>
@@ -195,7 +195,7 @@ export default function ProfilePage() {
                 <input
                   type="email"
                   defaultValue={user.email}
-                  className="w-full px-3 py-2.5 rounded-[var(--radius-md)] border border-surface-300 dark:border-[oklch(32%_0.008_50)] bg-surface dark:bg-[oklch(22%_0.005_50)] text-sm text-primary-800 dark:text-[oklch(90%_0.002_50)] focus:outline-none focus:ring-1 focus:ring-primary-300 dark:focus:ring-primary-600 min-h-[var(--touch-min)]"
+                  className="w-full px-3 py-2.5 rounded-[var(--radius-md)] border border-surface-300 dark:border-muted bg-surface dark:bg-surface-elevated text-sm text-primary-800 dark:text-subtle-foreground focus:outline-none focus:ring-1 focus:ring-primary-300 dark:focus:ring-primary-600 min-h-[var(--touch-min)]"
                   aria-label="Email"
                 />
               </div>
@@ -206,7 +206,7 @@ export default function ProfilePage() {
                 <input
                   type="tel"
                   defaultValue={user.phone}
-                  className="w-full px-3 py-2.5 rounded-[var(--radius-md)] border border-surface-300 dark:border-[oklch(32%_0.008_50)] bg-surface dark:bg-[oklch(22%_0.005_50)] text-sm text-primary-800 dark:text-[oklch(90%_0.002_50)] focus:outline-none focus:ring-1 focus:ring-primary-300 dark:focus:ring-primary-600 min-h-[var(--touch-min)]"
+                  className="w-full px-3 py-2.5 rounded-[var(--radius-md)] border border-surface-300 dark:border-muted bg-surface dark:bg-surface-elevated text-sm text-primary-800 dark:text-subtle-foreground focus:outline-none focus:ring-1 focus:ring-primary-300 dark:focus:ring-primary-600 min-h-[var(--touch-min)]"
                   aria-label="Phone"
                 />
               </div>
@@ -215,7 +215,7 @@ export default function ProfilePage() {
             <div className="flex gap-3 mt-6">
               <button
                 onClick={() => setShowEditModal(false)}
-                className="flex-1 px-4 py-2.5 rounded-[var(--radius-md)] border border-primary-300 dark:border-primary-600 text-primary-700 dark:text-primary-300 text-sm font-medium hover:bg-primary-50 dark:hover:bg-[oklch(22%_0.005_50)] transition-colors min-h-[var(--touch-preferred)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
+                className="flex-1 px-4 py-2.5 rounded-[var(--radius-md)] border border-primary-300 dark:border-primary-600 text-primary-700 dark:text-primary-300 text-sm font-medium hover:bg-primary-50 dark:hover:bg-surface-elevated transition-colors min-h-[var(--touch-preferred)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
               >
                 Cancel
               </button>

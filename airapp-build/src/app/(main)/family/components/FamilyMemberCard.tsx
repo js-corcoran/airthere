@@ -41,7 +41,7 @@ export function FamilyMemberCard({ member, onEdit }: FamilyMemberCardProps) {
       className={cn(
         'rounded-lg p-4 border shadow-sm',
         'bg-primary-50 border-primary-200',
-        'dark:bg-[oklch(18%_0.003_50)] dark:border-[oklch(32%_0.008_50)]',
+        'dark:bg-card dark:border-muted',
         'transition-all duration-[--duration-micro] hover:shadow-md hover:-translate-y-0.5'
       )}
       role="article"
@@ -52,27 +52,27 @@ export function FamilyMemberCard({ member, onEdit }: FamilyMemberCardProps) {
         <div
           className={cn(
             'w-12 h-12 rounded-full flex items-center justify-center shrink-0',
-            'bg-primary-200 dark:bg-[oklch(30%_0.030_262)]'
+            'bg-primary-200 dark:bg-muted'
           )}
           aria-hidden="true"
         >
-          <User className="w-6 h-6 text-primary-600 dark:text-[oklch(70%_0.125_262)]" />
+          <User className="w-6 h-6 text-primary-600 dark:text-primary-400" />
         </div>
 
         {/* Info */}
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap">
-            <h3 className="font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+            <h3 className="font-semibold text-primary-900 dark:text-foreground">
               {member.name}
             </h3>
-            <span className="text-xs px-2 py-0.5 rounded-full bg-surface-200 text-primary-700 dark:bg-[oklch(25%_0.005_50)] dark:text-[oklch(85%_0.005_50)]">
+            <span className="text-xs px-2 py-0.5 rounded-full bg-surface-200 text-primary-700 dark:bg-input dark:text-muted-foreground">
               {getRelationshipLabel(member.relationship, member.age)}
             </span>
           </div>
 
           {/* Dietary */}
           {member.dietary && (
-            <p className="text-xs text-primary-600 dark:text-[oklch(70%_0.008_50)] mt-1">
+            <p className="text-xs text-primary-600 dark:text-caption-foreground mt-1">
               Dietary: {member.dietary}
             </p>
           )}
@@ -103,7 +103,7 @@ export function FamilyMemberCard({ member, onEdit }: FamilyMemberCardProps) {
 
           {/* Document status */}
           <div className="flex items-center gap-2 mt-2">
-            <FileCheck className="w-3.5 h-3.5 text-primary-500 dark:text-[oklch(60%_0.005_50)]" aria-hidden="true" />
+            <FileCheck className="w-3.5 h-3.5 text-primary-500 dark:text-faint-foreground" aria-hidden="true" />
             <span className={cn('text-xs px-2 py-0.5 rounded-full font-medium', passport.className)}>
               Passport: {passport.label}
               {member.documents.passportExpiry && ` (${member.documents.passportExpiry.slice(0, 4)})`}
@@ -116,7 +116,7 @@ export function FamilyMemberCard({ member, onEdit }: FamilyMemberCardProps) {
           onClick={() => onEdit(member.id)}
           className={cn(
             'shrink-0 p-2 rounded-md',
-            'text-primary-500 hover:bg-surface-200 dark:hover:bg-[oklch(25%_0.005_50)]',
+            'text-primary-500 hover:bg-surface-200 dark:hover:bg-input',
             'transition-colors duration-[--duration-micro]',
             'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
             'min-w-[var(--touch-min)] min-h-[var(--touch-min)] flex items-center justify-center'

@@ -31,7 +31,7 @@ export function AirlineContact({ contactMethods }: AirlineContactProps) {
       >
         Need Help?
       </h3>
-      <div className="bg-surface dark:bg-[oklch(18%_0.003_50)] rounded-[var(--radius-lg)] p-4 border border-surface-300 dark:border-[oklch(32%_0.008_50)]">
+      <div className="bg-surface dark:bg-card rounded-[var(--radius-lg)] p-4 border border-surface-300 dark:border-muted">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           {contactMethods.map((method, i) => {
             const config = METHOD_CONFIG[method.type] ?? METHOD_CONFIG.chat;
@@ -44,10 +44,10 @@ export function AirlineContact({ contactMethods }: AirlineContactProps) {
                 style={{ animationDelay: `${i * 60}ms` }}
                 className={cn(
                   'flex items-center gap-3 p-3 rounded-[var(--radius-md)] text-left',
-                  'border border-surface-300 dark:border-[oklch(32%_0.008_50)]',
+                  'border border-surface-300 dark:border-muted',
                   'transition-colors duration-[--duration-micro]',
                   'min-h-[var(--touch-preferred)]',
-                  'hover:bg-surface-200 dark:hover:bg-[oklch(22%_0.005_50)]',
+                  'hover:bg-surface-200 dark:hover:bg-surface-elevated',
                   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
                   'disabled:opacity-50 disabled:cursor-not-allowed',
                   'opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]',
@@ -58,7 +58,7 @@ export function AirlineContact({ contactMethods }: AirlineContactProps) {
                   <Icon className="w-5 h-5" aria-hidden="true" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-primary-800 dark:text-[oklch(90%_0.002_50)]">
+                  <p className="text-sm font-medium text-primary-800 dark:text-subtle-foreground">
                     {method.label}
                   </p>
                   <p className="text-xs text-primary-500 dark:text-primary-400">

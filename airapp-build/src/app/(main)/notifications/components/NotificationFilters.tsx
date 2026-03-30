@@ -57,7 +57,7 @@ export function NotificationFilters({
               'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
               isActive
                 ? 'bg-primary-600 text-white dark:bg-primary-500'
-                : 'bg-surface-200 dark:bg-[oklch(25%_0.005_50)] text-primary-700 dark:text-[oklch(85%_0.005_50)]',
+                : 'bg-surface-200 dark:bg-input text-primary-700 dark:text-muted-foreground hover:bg-surface-300 dark:hover:bg-muted',
             )}
           >
             {filter.label}

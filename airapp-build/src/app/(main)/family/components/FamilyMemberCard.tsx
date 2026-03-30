@@ -42,7 +42,7 @@ export function FamilyMemberCard({ member, onEdit }: FamilyMemberCardProps) {
         'rounded-lg p-4 border shadow-sm',
         'bg-primary-50 border-primary-200',
         'dark:bg-[oklch(18%_0.003_50)] dark:border-[oklch(32%_0.008_50)]',
-        'transition-shadow duration-[--duration-micro] hover:shadow-md'
+        'transition-all duration-[--duration-micro] hover:shadow-md hover:-translate-y-0.5'
       )}
       role="article"
       aria-label={`Family member: ${member.name}, age ${member.age}`}

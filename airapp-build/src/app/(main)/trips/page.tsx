@@ -101,13 +101,14 @@ export default function TripsPage() {
       {/* Trip List */}
       <div className="px-4 space-y-3">
         {displayedTrips.length > 0 ? (
-          displayedTrips.map((trip) => (
-            <TripDashboardCard
-              key={trip.id}
-              trip={trip}
-              onClick={setSelectedTrip}
-              persona={persona}
-            />
+          displayedTrips.map((trip, i) => (
+            <div key={trip.id} className="opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]" style={{ animationDelay: `${i * 60}ms` }}>
+              <TripDashboardCard
+                trip={trip}
+                onClick={setSelectedTrip}
+                persona={persona}
+              />
+            </div>
           ))
         ) : activeTab === 'upcoming' ? (
           <EmptyState

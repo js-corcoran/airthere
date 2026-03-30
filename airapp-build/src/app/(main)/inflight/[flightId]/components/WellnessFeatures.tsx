@@ -55,13 +55,15 @@ export function WellnessFeatures({ data, flightDurationMinutes }: WellnessFeatur
 
       {/* Features */}
       <div className="space-y-1">
-        {features.map(({ icon: Icon, label, description, detail, color }) => (
+        {features.map(({ icon: Icon, label, description, detail, color }, i) => (
           <div
             key={label}
             className={cn(
               'flex items-center gap-3 py-3 border-b last:border-b-0',
-              'border-surface-300 dark:border-[oklch(32%_0.008_50)]'
+              'border-surface-300 dark:border-[oklch(32%_0.008_50)]',
+              'opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]'
             )}
+            style={{ animationDelay: `${i * 60}ms` }}
           >
             <Icon className={cn('w-6 h-6 shrink-0', color)} aria-hidden="true" />
             <div className="flex-1 min-w-0">

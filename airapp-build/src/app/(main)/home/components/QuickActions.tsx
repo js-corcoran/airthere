@@ -60,7 +60,7 @@ export function QuickActions({ persona }: QuickActionsProps) {
               className={cn(
                 'flex flex-col items-center gap-1.5 p-3 rounded-lg',
                 'transition-all duration-[--duration-short]',
-                'hover:shadow-sm active:scale-95',
+                'hover:shadow-sm hover:-translate-y-0.5 active:scale-95',
                 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
                 'min-h-[var(--touch-preferred)]'
               )}

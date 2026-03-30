@@ -22,12 +22,14 @@ export function GateAmenitiesSection({ amenities, gate, terminal }: GateAmenitie
       </div>
 
       <div className="grid grid-cols-2 gap-2">
-        {amenities.map((amenity) => (
+        {amenities.map((amenity, i) => (
           <div
             key={amenity.name}
             className="flex items-center gap-3 p-3 rounded-lg
                        bg-surface dark:bg-[oklch(18%_0.003_50)]
-                       border border-surface-300 dark:border-[oklch(32%_0.008_50)]"
+                       border border-surface-300 dark:border-[oklch(32%_0.008_50)]
+                       opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]"
+            style={{ animationDelay: `${i * 60}ms` }}
           >
             <span className="text-xl shrink-0" aria-hidden="true">{amenity.icon}</span>
             <div className="min-w-0">

@@ -109,15 +109,125 @@ export const MOCK_TRIPS: Trip[] = [
     confirmationNumber: 'AT-UA-9K2D7L',
     createdAt: '2026-03-25',
   },
+  // Completed trips for Trip Recap
+  {
+    id: 'trip-004',
+    name: 'Singapore Grand Prix Weekend',
+    status: 'completed',
+    departure: { airport: 'SFO', city: 'San Francisco', date: '2026-03-10' },
+    arrival: { airport: 'SIN', city: 'Singapore', date: '2026-03-11' },
+    flights: [
+      {
+        id: 'tf-004',
+        flight: {
+          id: 'FL-SFO-SIN-0',
+          airline: AIRLINES.SQ,
+          flightNumber: 'SQ0001',
+          departure: { airport: 'SFO', city: 'San Francisco', time: '2026-03-10T23:30:00Z', terminal: 'I', gate: 'G92' },
+          arrival: { airport: 'SIN', city: 'Singapore', time: '2026-03-12T06:45:00Z', terminal: '3' },
+          duration: 1035,
+          stops: 0,
+          aircraft: 'Airbus A350-900ULR',
+          amenities: ['wifi', 'entertainment', 'meals', 'flatbed', 'lounge-access'],
+          pricing: { economy: 1200, premiumEconomy: 2100, business: 6800, first: 12400, currency: 'USD' },
+          seatsAvailable: 0,
+          operationalStatus: 'arrived',
+        },
+        status: 'on-time',
+        seat: '1A',
+        checkedIn: true,
+        boardingPass: 'BP-SQ001-1A',
+      },
+    ],
+    passengers: [{ id: 'p7', name: 'Alexandra Sterling', type: 'adult', seat: '1A', meal: 'Chef\'s Tasting Menu' }],
+    hotel: { name: 'Marina Bay Sands', city: 'Singapore', checkIn: '2026-03-12', checkOut: '2026-03-17', confirmationNumber: 'MBS-284716' },
+    totalCost: 18200,
+    currency: 'USD',
+    confirmationNumber: 'AT-SQ-4R8N2K',
+    createdAt: '2026-02-15',
+  },
+  {
+    id: 'trip-005',
+    name: 'Chicago Client Meeting',
+    status: 'completed',
+    departure: { airport: 'SFO', city: 'San Francisco', date: '2026-03-18' },
+    arrival: { airport: 'ORD', city: 'Chicago', date: '2026-03-18' },
+    flights: [
+      {
+        id: 'tf-005',
+        flight: {
+          id: 'FL-SFO-ORD-0',
+          airline: AIRLINES.UA,
+          flightNumber: 'UA0858',
+          departure: { airport: 'SFO', city: 'San Francisco', time: '2026-03-18T06:15:00Z', terminal: '3', gate: 'E7' },
+          arrival: { airport: 'ORD', city: 'Chicago', time: '2026-03-18T12:28:00Z', terminal: '1' },
+          duration: 253,
+          stops: 0,
+          aircraft: 'Boeing 737 MAX 9',
+          amenities: ['wifi', 'entertainment', 'power'],
+          pricing: { economy: 320, premiumEconomy: 510, business: 1640, first: 3200, currency: 'USD' },
+          seatsAvailable: 0,
+          operationalStatus: 'arrived',
+        },
+        status: 'on-time',
+        seat: '2A',
+        checkedIn: true,
+      },
+    ],
+    passengers: [{ id: 'p8', name: 'Marcus Johnson', type: 'adult', seat: '2A', meal: 'Standard' }],
+    hotel: { name: 'The Peninsula Chicago', city: 'Chicago', checkIn: '2026-03-18', checkOut: '2026-03-20', confirmationNumber: 'PEN-583291' },
+    totalCost: 2840,
+    currency: 'USD',
+    confirmationNumber: 'AT-UA-6H3M9P',
+    createdAt: '2026-03-05',
+  },
+  {
+    id: 'trip-006',
+    name: 'Orlando Spring Break',
+    status: 'completed',
+    departure: { airport: 'LAX', city: 'Los Angeles', date: '2026-03-08' },
+    arrival: { airport: 'MCO', city: 'Orlando', date: '2026-03-08' },
+    flights: [
+      {
+        id: 'tf-006',
+        flight: {
+          id: 'FL-LAX-MCO-0',
+          airline: AIRLINES.AA,
+          flightNumber: 'AA2847',
+          departure: { airport: 'LAX', city: 'Los Angeles', time: '2026-03-08T08:00:00Z', terminal: '4', gate: '47A' },
+          arrival: { airport: 'MCO', city: 'Orlando', time: '2026-03-08T16:15:00Z', terminal: 'A' },
+          duration: 315,
+          stops: 0,
+          aircraft: 'Airbus A321neo',
+          amenities: ['wifi', 'entertainment', 'power'],
+          pricing: { economy: 280, premiumEconomy: 450, business: 1200, first: 2400, currency: 'USD' },
+          seatsAvailable: 0,
+          operationalStatus: 'arrived',
+        },
+        status: 'on-time',
+        checkedIn: true,
+      },
+    ],
+    passengers: [
+      { id: 'p9', name: 'Sarah Chen', type: 'adult' },
+      { id: 'p10', name: 'David Chen', type: 'adult' },
+      { id: 'p11', name: 'Emily Chen', type: 'child' },
+      { id: 'p12', name: 'Lucas Chen', type: 'child' },
+    ],
+    totalCost: 4280,
+    currency: 'USD',
+    confirmationNumber: 'AT-AA-8K5R2N',
+    createdAt: '2026-02-20',
+  },
 ];
 
 export function getTripsForPersona(persona: 'premium' | 'business' | 'family'): Trip[] {
   switch (persona) {
     case 'premium':
-      return [MOCK_TRIPS[0]];
+      return [MOCK_TRIPS[0], MOCK_TRIPS[3]]; // upcoming London + completed Singapore
     case 'business':
-      return [MOCK_TRIPS[2]];
+      return [MOCK_TRIPS[2], MOCK_TRIPS[4]]; // upcoming NY + completed Chicago
     case 'family':
-      return [MOCK_TRIPS[1]];
+      return [MOCK_TRIPS[1], MOCK_TRIPS[5]]; // upcoming Tokyo + completed Orlando
   }
 }

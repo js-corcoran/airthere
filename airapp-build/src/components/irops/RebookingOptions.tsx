@@ -76,13 +76,14 @@ export function RebookingOptions({ alternatives, onSelect, selectedId }: Rebooki
             No flights available for this filter. Try another option.
           </p>
         ) : (
-          filtered.map((flight) => (
-            <FlightOptionCard
-              key={flight.id}
-              flight={flight}
-              isSelected={flight.id === selectedId}
-              onSelect={() => onSelect(flight)}
-            />
+          filtered.map((flight, i) => (
+            <div key={flight.id} className="opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]" style={{ animationDelay: `${i * 60}ms` }}>
+              <FlightOptionCard
+                flight={flight}
+                isSelected={flight.id === selectedId}
+                onSelect={() => onSelect(flight)}
+              />
+            </div>
           ))
         )}
       </div>
@@ -113,7 +114,7 @@ function FlightOptionCard({
         'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
         isSelected
           ? 'border-primary-500 bg-primary-50 dark:bg-[oklch(20%_0.01_262)] dark:border-primary-400 shadow-md'
-          : 'border-surface-300 dark:border-[oklch(32%_0.008_50)] bg-surface dark:bg-[oklch(18%_0.003_50)] hover:shadow-sm',
+          : 'border-surface-300 dark:border-[oklch(32%_0.008_50)] bg-surface dark:bg-[oklch(18%_0.003_50)] hover:shadow-sm hover:-translate-y-0.5',
       )}
     >
       <div className="flex items-start justify-between mb-3">

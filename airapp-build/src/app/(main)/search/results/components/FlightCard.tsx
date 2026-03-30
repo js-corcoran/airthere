@@ -67,7 +67,7 @@ export function FlightCard({ flight, cabinClass, passengerCount, onSelect, perso
       className={cn(
         'w-full text-left p-4 rounded-xl border bg-background',
         'transition-all duration-[--duration-short]',
-        'hover:shadow-md hover:border-primary-300 dark:hover:border-[oklch(45%_0.1_262)]',
+        'hover:shadow-md hover:-translate-y-0.5 hover:border-primary-300 dark:hover:border-[oklch(45%_0.1_262)]',
         'focus-visible:outline-2 focus-visible:outline-primary-500',
         'border-surface-300 dark:border-[oklch(28%_0.005_50)]',
         'dark:bg-[oklch(18%_0.003_50)]',

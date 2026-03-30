@@ -150,12 +150,17 @@ export default function FamilyHubPage() {
             Family Members
           </h2>
           <div className="space-y-3">
-            {family.members.map((member) => (
-              <FamilyMemberCard
+            {family.members.map((member, i) => (
+              <div
                 key={member.id}
-                member={member}
-                onEdit={handleEditMember}
-              />
+                className="opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]"
+                style={{ animationDelay: `${i * 60}ms` }}
+              >
+                <FamilyMemberCard
+                  member={member}
+                  onEdit={handleEditMember}
+                />
+              </div>
             ))}
           </div>
         </section>

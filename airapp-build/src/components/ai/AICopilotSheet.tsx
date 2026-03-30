@@ -175,13 +175,18 @@ export function AICopilotSheet({ isOpen, onClose, embedded }: AICopilotSheetProp
         aria-live="polite"
         aria-label="Conversation history"
       >
-        {messages.map((message) => (
-          <ChatMessageBubble
+        {messages.map((message, i) => (
+          <div
             key={message.id}
-            message={message}
-            onSuggestionSelect={handleSuggestionSelect}
-            onActionCardBook={handleActionCardBook}
-          />
+            className="opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]"
+            style={{ animationDelay: `${i * 60}ms` }}
+          >
+            <ChatMessageBubble
+              message={message}
+              onSuggestionSelect={handleSuggestionSelect}
+              onActionCardBook={handleActionCardBook}
+            />
+          </div>
         ))}
 
         {/* Suggested prompts (when conversation is empty) */}

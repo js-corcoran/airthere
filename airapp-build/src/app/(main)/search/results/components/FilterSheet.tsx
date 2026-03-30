@@ -128,7 +128,7 @@ export function FilterSheet({ filters, onChange, availableAirlines, maxPriceLimi
       {isOpen && (
         <>
           <div
-            className="fixed inset-0 bg-black/40 z-40"
+            className="fixed inset-0 bg-overlay-dark z-40"
             onClick={() => setIsOpen(false)}
             aria-hidden="true"
           />

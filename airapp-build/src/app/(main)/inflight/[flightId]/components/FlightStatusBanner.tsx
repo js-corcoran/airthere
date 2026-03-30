@@ -42,8 +42,8 @@ export function FlightStatusBanner({ flight }: FlightStatusBannerProps) {
       role="status"
       aria-label="Flight quick status"
     >
-      {stats.map(({ icon: Icon, label, value }) => (
-        <div key={label} className="flex flex-col items-center text-center gap-1">
+      {stats.map(({ icon: Icon, label, value }, i) => (
+        <div key={label} className="flex flex-col items-center text-center gap-1 opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]" style={{ animationDelay: `${i * 60}ms` }}>
           <Icon className="w-4 h-4 text-primary-500 dark:text-[oklch(65%_0.194_262)]" aria-hidden="true" />
           <span className="text-[10px] text-primary-500 dark:text-[oklch(60%_0.005_50)] leading-none">
             {label}

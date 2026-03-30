@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import Link from 'next/link';
 import { usePersona } from '@/stores/usePersonaStore';
 import { getProfileForPersona } from '@/lib/mock-data/profile';
 import type { ProfileData } from '@/lib/types/profile';
@@ -85,6 +86,24 @@ export default function ProfilePage() {
         {/* Account security */}
         <AccountSecuritySection security={security} />
 
+        {/* Quick links */}
+        <section aria-label="Quick links" className="space-y-2">
+          <Link
+            href="/settings"
+            className="flex items-center justify-between px-4 py-3 rounded-[var(--radius-lg)] bg-surface dark:bg-[oklch(18%_0.003_50)] border border-surface-300 dark:border-[oklch(32%_0.008_50)] min-h-[var(--touch-preferred)] transition-colors hover:bg-surface-200 dark:hover:bg-[oklch(22%_0.005_50)]"
+          >
+            <span className="text-sm font-medium text-primary-800 dark:text-[oklch(90%_0.002_50)]">Settings & Preferences</span>
+            <span className="text-primary-400 dark:text-[oklch(60%_0.005_50)]" aria-hidden="true">&rsaquo;</span>
+          </Link>
+          <Link
+            href="/notifications"
+            className="flex items-center justify-between px-4 py-3 rounded-[var(--radius-lg)] bg-surface dark:bg-[oklch(18%_0.003_50)] border border-surface-300 dark:border-[oklch(32%_0.008_50)] min-h-[var(--touch-preferred)] transition-colors hover:bg-surface-200 dark:hover:bg-[oklch(22%_0.005_50)]"
+          >
+            <span className="text-sm font-medium text-primary-800 dark:text-[oklch(90%_0.002_50)]">Notifications</span>
+            <span className="text-primary-400 dark:text-[oklch(60%_0.005_50)]" aria-hidden="true">&rsaquo;</span>
+          </Link>
+        </section>
+
         {/* Biometric enrollment CTA (for unenrolled users) */}
         {(!user.biometric.faceIdEnrolled || !user.biometric.fingerprintEnrolled) && (
           <section aria-labelledby="biometric-cta" className="space-y-3">
@@ -115,9 +134,22 @@ export default function ProfilePage() {
           role="dialog"
           aria-modal="true"
           aria-label="Edit profile"
+          onKeyDown={(e) => { if (e.key === 'Escape') setShowEditModal(false); }}
+          ref={(el) => {
+            if (!el) return;
+            const focusable = el.querySelectorAll<HTMLElement>('input, button, [tabindex]:not([tabindex="-1"])');
+            if (focusable.length) (focusable[0] as HTMLElement).focus();
+            const trap = (e: KeyboardEvent) => {
+              if (e.key !== 'Tab' || !focusable.length) return;
+              const first = focusable[0], last = focusable[focusable.length - 1];
+              if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+              else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+            };
+            el.addEventListener('keydown', trap);
+          }}
         >
           <div
-            className="absolute inset-0 bg-black/50"
+            className="absolute inset-0 bg-overlay-dark"
             onClick={() => setShowEditModal(false)}
             aria-hidden="true"
           />

@@ -25,10 +25,11 @@ export function FlightFactsCard({ facts }: FlightFactsCardProps) {
       </div>
 
       <dl className="space-y-2">
-        {facts.map(({ label, value }) => (
+        {facts.map(({ label, value }, i) => (
           <div
             key={label}
-            className="flex items-center justify-between py-1.5 border-b border-surface-300 dark:border-[oklch(32%_0.008_50)] last:border-b-0"
+            className="flex items-center justify-between py-1.5 border-b border-surface-300 dark:border-[oklch(32%_0.008_50)] last:border-b-0 opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]"
+            style={{ animationDelay: `${i * 60}ms` }}
           >
             <dt className="text-xs text-primary-500 dark:text-[oklch(60%_0.005_50)]">
               {label}

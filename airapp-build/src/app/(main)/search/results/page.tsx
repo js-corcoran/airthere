@@ -240,15 +240,16 @@ function SearchResultsContent() {
           {/* Results */}
           {filteredFlights.length > 0 ? (
             <div className="space-y-3">
-              {filteredFlights.map((flight) => (
-                <FlightCard
-                  key={flight.id}
-                  flight={flight}
-                  cabinClass={cabinClass}
-                  passengerCount={passengerCount}
-                  onSelect={handleSelectFlight}
-                  persona={persona}
-                />
+              {filteredFlights.map((flight, index) => (
+                <div key={flight.id} className="opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]" style={{ animationDelay: `${index * 60}ms` }}>
+                  <FlightCard
+                    flight={flight}
+                    cabinClass={cabinClass}
+                    passengerCount={passengerCount}
+                    onSelect={handleSelectFlight}
+                    persona={persona}
+                  />
+                </div>
               ))}
             </div>
           ) : flights.length > 0 ? (

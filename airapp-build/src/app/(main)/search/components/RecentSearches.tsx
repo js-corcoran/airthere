@@ -84,14 +84,15 @@ export function RecentSearches({ onSelect }: RecentSearchesProps) {
         </button>
       </div>
       <div className="space-y-2">
-        {searches.map((search) => {
+        {searches.map((search, index) => {
           const total = search.passengers.adults + search.passengers.children + search.passengers.infants;
           return (
             <button
               key={search.id}
+              style={{ animationDelay: `${index * 60}ms` }}
               onClick={() => onSelect(search)}
               className={cn(
-                'w-full flex items-center gap-3 px-3 py-3 rounded-lg text-left',
+                'w-full flex items-center gap-3 px-3 py-3 rounded-lg text-left opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]',
                 'bg-surface-50 dark:bg-[oklch(18%_0.003_50)]',
                 'border border-surface-200 dark:border-[oklch(28%_0.005_50)]',
                 'hover:bg-surface-100 dark:hover:bg-[oklch(22%_0.003_50)]',

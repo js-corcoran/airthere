@@ -30,7 +30,7 @@ export function TransportVoucher({ options, onSelect, selectedId }: TransportVou
       </h3>
       <div className="bg-surface dark:bg-[oklch(18%_0.003_50)] rounded-[var(--radius-lg)] p-4 border border-surface-300 dark:border-[oklch(32%_0.008_50)]">
         <div className="space-y-2">
-          {options.map((option) => {
+          {options.map((option, i) => {
             const Icon = TYPE_ICONS[option.type] ?? Car;
             const isSelected = selectedId === option.id;
 
@@ -39,11 +39,13 @@ export function TransportVoucher({ options, onSelect, selectedId }: TransportVou
                 key={option.id}
                 onClick={() => onSelect(option.id)}
                 aria-pressed={isSelected}
+                style={{ animationDelay: `${i * 60}ms` }}
                 className={cn(
                   'w-full flex items-center gap-3 p-3 rounded-[var(--radius-md)] text-left',
                   'border transition-all duration-[--duration-micro]',
                   'min-h-[var(--touch-preferred)]',
                   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
+                  'opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]',
                   isSelected
                     ? 'border-primary-500 bg-primary-50 dark:bg-[oklch(20%_0.01_262)] dark:border-primary-400'
                     : 'border-surface-300 dark:border-[oklch(32%_0.008_50)] hover:bg-surface-200 dark:hover:bg-[oklch(22%_0.005_50)]',

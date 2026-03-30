@@ -22,7 +22,7 @@ export function TripCard({ trip, className }: TripCardProps) {
       className={cn(
         'block min-w-[280px] rounded-lg bg-surface dark:bg-[oklch(18%_0.003_50)]',
         'border border-surface-300 dark:border-[oklch(32%_0.008_50)]',
-        'p-4 shadow-sm hover:shadow-md transition-shadow duration-[--duration-short]',
+        'p-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-[--duration-short]',
         'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
         className
       )}

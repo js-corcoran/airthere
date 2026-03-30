@@ -82,7 +82,7 @@ export function CabinCrewAssistance({ requests }: CabinCrewAssistanceProps) {
 
       {/* Quick requests */}
       <div className="grid grid-cols-4 gap-2">
-        {requests.map((req) => {
+        {requests.map((req, i) => {
           const Icon = ICON_MAP[req.icon] || MessageCircle;
           return (
             <button
@@ -95,8 +95,10 @@ export function CabinCrewAssistance({ requests }: CabinCrewAssistanceProps) {
                 'hover:bg-surface-200 dark:hover:bg-[oklch(22%_0.005_50)]',
                 'transition-colors duration-[--duration-micro]',
                 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
-                'min-h-[var(--touch-min)]'
+                'min-h-[var(--touch-min)]',
+                'opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]'
               )}
+              style={{ animationDelay: `${i * 60}ms` }}
               aria-label={`Request ${req.label}`}
             >
               <Icon className="w-5 h-5 text-primary-600 dark:text-[oklch(70%_0.125_262)]" aria-hidden="true" />

@@ -87,17 +87,19 @@ export function ProductivityMode({ data, timeRemainingMinutes }: ProductivityMod
 
       {/* Quick tools */}
       <div className="grid grid-cols-4 gap-2 mb-4">
-        {TOOLS.map(({ icon: Icon, label, requiresWifi }) => {
+        {TOOLS.map(({ icon: Icon, label, requiresWifi }, i) => {
           const disabled = requiresWifi && !data.wifiConnected;
           return (
             <button
               key={label}
               disabled={disabled}
+              style={{ animationDelay: `${i * 60}ms` }}
               className={cn(
                 'flex flex-col items-center justify-center gap-1.5 p-3 rounded-lg',
                 'transition-colors duration-[--duration-micro]',
                 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
                 'min-h-[var(--touch-min)]',
+                'opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]',
                 disabled
                   ? 'opacity-40 cursor-not-allowed bg-surface-200 dark:bg-[oklch(22%_0.003_50)]'
                   : 'bg-background dark:bg-[oklch(15%_0.002_50)] hover:bg-primary-50 dark:hover:bg-[oklch(20%_0.005_262)]'

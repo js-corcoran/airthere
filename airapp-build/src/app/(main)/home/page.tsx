@@ -95,8 +95,10 @@ export default function HomePage() {
 
         {trips.length > 0 ? (
           <div className="flex gap-3 overflow-x-auto pb-2 -mx-4 px-4 snap-x snap-mandatory scrollbar-hide">
-            {trips.map((trip) => (
-              <TripCard key={trip.id} trip={trip} className="snap-start" />
+            {trips.map((trip, index) => (
+              <div key={trip.id} className="opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]" style={{ animationDelay: `${index * 60}ms` }}>
+                <TripCard trip={trip} className="snap-start" />
+              </div>
             ))}
           </div>
         ) : (
@@ -134,12 +136,13 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-          {filteredDestinations.map((dest) => (
-            <DestinationCard
-              key={dest.id}
-              destination={dest}
-              persona={persona}
-            />
+          {filteredDestinations.map((dest, index) => (
+            <div key={dest.id} className="opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]" style={{ animationDelay: `${index * 60}ms` }}>
+              <DestinationCard
+                destination={dest}
+                persona={persona}
+              />
+            </div>
           ))}
         </div>
       </section>

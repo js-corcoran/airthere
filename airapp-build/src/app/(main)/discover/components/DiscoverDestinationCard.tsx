@@ -30,7 +30,7 @@ export function DiscoverDestinationCard({
       className={cn(
         'rounded-lg overflow-hidden bg-surface dark:bg-[oklch(18%_0.003_50)]',
         'border border-surface-300 dark:border-[oklch(32%_0.008_50)]',
-        'shadow-sm hover:shadow-md transition-shadow duration-[--duration-short]',
+        'shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-[--duration-short]',
         isFeatured && 'col-span-2'
       )}
     >
@@ -51,7 +51,7 @@ export function DiscoverDestinationCard({
           }}
           className={cn(
             'absolute top-2 right-2 w-8 h-8 rounded-full flex items-center justify-center',
-            'bg-white/80 dark:bg-black/50 backdrop-blur-sm',
+            'bg-surface/80 dark:bg-[oklch(18%_0.003_50)]/80 backdrop-blur-sm',
             'transition-colors duration-[--duration-micro]',
             'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500'
           )}
@@ -83,7 +83,7 @@ export function DiscoverDestinationCard({
         )}
 
         {/* Rating badge */}
-        <span className="bg-black/50 backdrop-blur-sm text-white text-[10px] font-medium px-2 py-0.5 rounded-full">
+        <span className="bg-overlay-dark backdrop-blur-sm text-white text-[10px] font-medium px-2 py-0.5 rounded-full">
           ★ {destination.rating}
         </span>
       </div>

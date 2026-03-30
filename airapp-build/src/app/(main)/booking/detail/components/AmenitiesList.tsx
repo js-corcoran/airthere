@@ -25,14 +25,15 @@ export function AmenitiesList({ amenities }: AmenitiesListProps) {
         Amenities
       </h3>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-        {amenities.map((amenity) => {
+        {amenities.map((amenity, i) => {
           const config = AMENITY_CONFIG[amenity];
           if (!config) return null;
           const Icon = config.icon;
           return (
             <div
               key={amenity}
-              className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-surface-50 dark:bg-[oklch(20%_0.003_50)] border border-surface-200 dark:border-[oklch(25%_0.005_50)]"
+              className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-surface-50 dark:bg-[oklch(20%_0.003_50)] border border-surface-200 dark:border-[oklch(25%_0.005_50)] opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]"
+              style={{ animationDelay: `${i * 60}ms` }}
             >
               <Icon className="w-4 h-4 text-primary-500 dark:text-[oklch(65%_0.194_262)] shrink-0" />
               <div>

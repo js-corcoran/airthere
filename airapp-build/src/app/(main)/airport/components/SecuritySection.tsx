@@ -24,14 +24,16 @@ export function SecuritySection({ checkpoints }: SecuritySectionProps) {
         </h3>
       </div>
       <div className="space-y-2">
-        {checkpoints.map((cp) => {
+        {checkpoints.map((cp, i) => {
           const status = statusConfig[cp.status];
           return (
             <div
               key={cp.id}
               className="flex items-center gap-3 p-3 rounded-lg
                          bg-surface dark:bg-[oklch(18%_0.003_50)]
-                         border border-surface-300 dark:border-[oklch(32%_0.008_50)]"
+                         border border-surface-300 dark:border-[oklch(32%_0.008_50)]
+                         opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]"
+              style={{ animationDelay: `${i * 60}ms` }}
             >
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-medium text-primary-900 dark:text-[oklch(95%_0.002_50)]">

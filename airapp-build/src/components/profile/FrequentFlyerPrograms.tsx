@@ -33,16 +33,18 @@ export function FrequentFlyerPrograms({ programs }: FrequentFlyerProgramsProps) 
       </div>
 
       <div className="space-y-2">
-        {visible.map((program) => (
+        {visible.map((program, i) => (
           <button
             key={program.id}
+            style={{ animationDelay: `${i * 60}ms` }}
             className={cn(
               'w-full flex items-center gap-3 p-3 rounded-[var(--radius-lg)] text-left',
               'bg-surface dark:bg-[oklch(18%_0.003_50)]',
               'border border-surface-300 dark:border-[oklch(32%_0.008_50)]',
-              'hover:shadow-sm transition-shadow duration-[--duration-micro]',
+              'hover:shadow-sm hover:-translate-y-0.5 transition-all duration-[--duration-micro]',
               'min-h-[var(--touch-preferred)]',
               'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
+              'opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]',
             )}
             aria-label={`${program.airline} ${program.programName}: ${program.balance.toLocaleString()} ${program.unit}`}
           >

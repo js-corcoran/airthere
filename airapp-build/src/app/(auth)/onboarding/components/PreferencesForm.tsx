@@ -188,8 +188,8 @@ export function PreferencesForm({ onComplete }: PreferencesFormProps) {
           onClick={handleSubmit}
           className="w-full py-3 bg-secondary-500 text-white font-medium rounded-md text-base
                      hover:bg-secondary-600 active:bg-secondary-700
-                     transition-colors duration-[--duration-short]
-                     shadow-sm hover:shadow-md
+                     transition-all duration-[--duration-short]
+                     shadow-sm hover:shadow-md hover:-translate-y-0.5
                      focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500
                      min-h-[var(--touch-preferred)]"
         >

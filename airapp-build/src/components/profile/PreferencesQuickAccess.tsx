@@ -41,11 +41,12 @@ export function PreferencesQuickAccess({ preferences }: PreferencesQuickAccessPr
         Preferences
       </h3>
       <div className="bg-surface dark:bg-[oklch(18%_0.003_50)] rounded-[var(--radius-lg)] border border-surface-300 dark:border-[oklch(32%_0.008_50)] divide-y divide-surface-300 dark:divide-[oklch(32%_0.008_50)]">
-        {items.map((item) => {
+        {items.map((item, i) => {
           const Icon = item.icon;
           return (
             <button
               key={item.label}
+              style={{ animationDelay: `${i * 60}ms` }}
               className={cn(
                 'w-full flex items-center gap-3 px-4 py-3 text-left',
                 'hover:bg-surface-200 dark:hover:bg-[oklch(22%_0.005_50)]',
@@ -53,6 +54,7 @@ export function PreferencesQuickAccess({ preferences }: PreferencesQuickAccessPr
                 'min-h-[var(--touch-preferred)]',
                 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
                 'first:rounded-t-[var(--radius-lg)] last:rounded-b-[var(--radius-lg)]',
+                'opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]',
               )}
               aria-label={`${item.label}: ${item.value}`}
             >

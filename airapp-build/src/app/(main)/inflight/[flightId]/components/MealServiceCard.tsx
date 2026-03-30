@@ -103,7 +103,7 @@ export function MealServiceCard({ meal }: MealServiceCardProps) {
       {/* Meal options */}
       {showOptions && !preOrdered && (
         <div className="mt-3 space-y-2">
-          {meal.options.map((option) => {
+          {meal.options.map((option, i) => {
             const hasAllergenConflict = option.allergens.some((a) =>
               meal.passengerAllergies.includes(a)
             );
@@ -111,8 +111,10 @@ export function MealServiceCard({ meal }: MealServiceCardProps) {
               <button
                 key={option.id}
                 onClick={() => setSelectedMeal(option.id)}
+                style={{ animationDelay: `${i * 60}ms` }}
                 className={cn(
                   'w-full text-left p-3 rounded-md border transition-all duration-[--duration-micro]',
+                  'opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]',
                   selectedMeal === option.id
                     ? 'border-secondary-500 bg-secondary-50 dark:bg-[oklch(20%_0.015_50)] dark:border-secondary-400 ring-1 ring-secondary-500'
                     : 'border-surface-300 bg-background dark:bg-[oklch(15%_0.002_50)] dark:border-[oklch(32%_0.008_50)]',

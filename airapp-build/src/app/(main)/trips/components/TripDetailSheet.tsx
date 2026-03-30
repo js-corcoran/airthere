@@ -1,10 +1,11 @@
 'use client';
 
 import { cn } from '@/lib/utils/cn';
+import { useRouter } from 'next/navigation';
 import { Trip } from '@/lib/types/trip';
 import {
   X, Plane, Clock, MapPin, Users, Hotel, FileText,
-  CheckCircle2, AlertCircle, ArrowRight, Download, Share2
+  CheckCircle2, AlertCircle, ArrowRight, Download, Share2, BookOpen
 } from 'lucide-react';
 
 interface TripDetailSheetProps {
@@ -33,13 +34,15 @@ function formatDuration(minutes: number): string {
 }
 
 export function TripDetailSheet({ trip, onClose, persona }: TripDetailSheetProps) {
+  const router = useRouter();
   const flight = trip.flights[0];
+  const isCompleted = trip.status === 'completed';
 
   return (
     <>
       {/* Overlay */}
       <div
-        className="fixed inset-0 bg-black/40 z-40"
+        className="fixed inset-0 bg-overlay-dark z-40"
         onClick={onClose}
         aria-hidden="true"
       />
@@ -266,17 +269,29 @@ export function TripDetailSheet({ trip, onClose, persona }: TripDetailSheetProps
 
           {/* Actions */}
           <div className="space-y-2">
-            <button className="w-full py-3 rounded-lg font-semibold text-sm bg-primary-500 text-white hover:bg-primary-600 transition-colors min-h-[var(--touch-preferred)] dark:bg-[oklch(55%_0.194_262)] dark:hover:bg-[oklch(60%_0.194_262)]">
-              {flight?.checkedIn ? 'View Boarding Pass' : 'Check In'}
-            </button>
-            <div className="grid grid-cols-2 gap-2">
-              <button className="py-2.5 rounded-lg text-sm font-medium border border-surface-300 dark:border-[oklch(32%_0.008_50)] text-primary-600 dark:text-[oklch(75%_0.005_50)] hover:bg-surface-50 dark:hover:bg-[oklch(20%_0.003_50)] transition-colors min-h-[var(--touch-min)]">
-                Modify Booking
+            {isCompleted ? (
+              <button
+                onClick={() => { onClose(); router.push('/trips/recap'); }}
+                className="w-full py-3 rounded-lg font-semibold text-sm bg-secondary-500 text-white hover:bg-secondary-600 transition-colors min-h-[var(--touch-preferred)] dark:bg-[oklch(64%_0.158_50)] dark:hover:bg-[oklch(55%_0.160_50)] flex items-center justify-center gap-2"
+              >
+                <BookOpen className="w-4 h-4" aria-hidden="true" />
+                View Trip Recap
               </button>
-              <button className="py-2.5 rounded-lg text-sm font-medium border border-error-300 dark:border-[oklch(45%_0.1_25)] text-error-600 dark:text-[oklch(70%_0.15_25)] hover:bg-error-50 dark:hover:bg-[oklch(20%_0.03_25)] transition-colors min-h-[var(--touch-min)]">
-                Cancel Trip
-              </button>
-            </div>
+            ) : (
+              <>
+                <button className="w-full py-3 rounded-lg font-semibold text-sm bg-primary-500 text-white hover:bg-primary-600 transition-colors min-h-[var(--touch-preferred)] dark:bg-[oklch(55%_0.194_262)] dark:hover:bg-[oklch(60%_0.194_262)]">
+                  {flight?.checkedIn ? 'View Boarding Pass' : 'Check In'}
+                </button>
+                <div className="grid grid-cols-2 gap-2">
+                  <button className="py-2.5 rounded-lg text-sm font-medium border border-surface-300 dark:border-[oklch(32%_0.008_50)] text-primary-600 dark:text-[oklch(75%_0.005_50)] hover:bg-surface-50 dark:hover:bg-[oklch(20%_0.003_50)] transition-colors min-h-[var(--touch-min)]">
+                    Modify Booking
+                  </button>
+                  <button className="py-2.5 rounded-lg text-sm font-medium border border-error-300 dark:border-[oklch(45%_0.1_25)] text-error-600 dark:text-[oklch(70%_0.15_25)] hover:bg-error-50 dark:hover:bg-[oklch(20%_0.03_25)] transition-colors min-h-[var(--touch-min)]">
+                    Cancel Trip
+                  </button>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>

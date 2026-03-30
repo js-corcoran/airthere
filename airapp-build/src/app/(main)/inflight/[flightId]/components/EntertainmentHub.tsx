@@ -120,16 +120,18 @@ export function EntertainmentHub({ items, flightDurationMinutes }: Entertainment
         role="tabpanel"
         aria-label={`${activeTab} content`}
       >
-        {filteredItems.map((item) => (
+        {filteredItems.map((item, i) => (
           <button
             key={item.id}
             onClick={() => setSelectedItem(item)}
             className={cn(
               'text-left rounded-lg overflow-hidden',
               'bg-surface-200 dark:bg-[oklch(22%_0.005_50)]',
-              'hover:shadow-md transition-shadow duration-[--duration-micro]',
-              'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500'
+              'hover:shadow-md hover:-translate-y-0.5 transition-all duration-[--duration-micro]',
+              'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
+              'opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]'
             )}
+            style={{ animationDelay: `${i * 60}ms` }}
           >
             {/* Poster placeholder */}
             <div

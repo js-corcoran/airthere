@@ -50,7 +50,7 @@ export function DocumentCard({ document: doc, onView, onDelete, onShare, onUploa
     <div
       className={cn(
         'rounded-lg p-4 border shadow-sm',
-        'transition-shadow duration-[--duration-micro] hover:shadow-md',
+        'transition-all duration-[--duration-micro] hover:shadow-md hover:-translate-y-0.5',
         doc.status === 'expired'
           ? 'bg-error-50 border-error-300 dark:bg-[oklch(18%_0.008_25)] dark:border-error-800'
           : doc.status === 'expiring-soon'

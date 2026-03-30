@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { cn } from '@/lib/utils/cn';
 import {
   Wifi,
@@ -177,8 +178,10 @@ export function LoungeSection({ lounges, persona }: LoungeSectionProps) {
       {/* Accessible lounges */}
       {accessibleLounges.length > 0 && (
         <div className="space-y-3">
-          {accessibleLounges.map((lounge) => (
-            <LoungeCard key={lounge.id} lounge={lounge} persona={persona} />
+          {accessibleLounges.map((lounge, i) => (
+            <div key={lounge.id} className="opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]" style={{ animationDelay: `${i * 60}ms` }}>
+              <LoungeCard lounge={lounge} persona={persona} />
+            </div>
           ))}
         </div>
       )}
@@ -189,11 +192,21 @@ export function LoungeSection({ lounges, persona }: LoungeSectionProps) {
           <h3 className="text-sm font-medium text-primary-700 dark:text-[oklch(80%_0.005_50)]">
             {accessibleLounges.length > 0 ? 'Other Lounges (Paid)' : 'Available Lounges'}
           </h3>
-          {otherLounges.map((lounge) => (
-            <LoungeCard key={lounge.id} lounge={lounge} persona={persona} />
+          {otherLounges.map((lounge, i) => (
+            <div key={lounge.id} className="opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]" style={{ animationDelay: `${i * 60}ms` }}>
+              <LoungeCard lounge={lounge} persona={persona} />
+            </div>
           ))}
         </div>
       )}
+
+      {/* Link to full Lounge Finder */}
+      <Link
+        href="/lounge"
+        className="flex items-center justify-center gap-2 w-full py-3 rounded-[var(--radius-md)] border border-primary-300 dark:border-primary-600 text-primary-600 dark:text-primary-300 text-sm font-medium hover:bg-primary-50 dark:hover:bg-[oklch(22%_0.005_50)] transition-colors min-h-[var(--touch-preferred)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
+      >
+        Explore All Lounges
+      </Link>
     </section>
   );
 }

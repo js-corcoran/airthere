@@ -25,7 +25,7 @@ export function BoardingPhaseIndicator({ phases, passengerGroup }: BoardingPhase
 
       <div className="space-y-0">
         {phases.map((phase, idx) => (
-          <div key={phase.id} className="flex items-start gap-3">
+          <div key={phase.id} className="flex items-start gap-3 opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]" style={{ animationDelay: `${idx * 60}ms` }}>
             {/* Timeline indicator */}
             <div className="flex flex-col items-center">
               <div

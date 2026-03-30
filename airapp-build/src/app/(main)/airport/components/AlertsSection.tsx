@@ -48,7 +48,7 @@ export function AlertsSection({ alerts }: AlertsSectionProps) {
         Alerts & Updates
       </h3>
       <div className="space-y-2">
-        {alerts.map((alert) => {
+        {alerts.map((alert, i) => {
           const config = alertConfig[alert.type];
           const Icon = config.icon;
           return (
@@ -56,9 +56,11 @@ export function AlertsSection({ alerts }: AlertsSectionProps) {
               key={alert.id}
               className={cn(
                 'flex items-start gap-3 p-3 rounded-lg border',
+                'opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]',
                 config.bg,
                 config.border
               )}
+              style={{ animationDelay: `${i * 60}ms` }}
               role="alert"
             >
               <Icon className={cn('w-4 h-4 mt-0.5 shrink-0', config.iconColor)} aria-hidden="true" />

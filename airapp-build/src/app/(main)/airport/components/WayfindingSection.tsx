@@ -153,7 +153,7 @@ export function WayfindingSection({ destinations, gateNumber }: WayfindingSectio
 
       {/* Destination list */}
       <div className="space-y-1">
-        {destinations.map((dest) => {
+        {destinations.map((dest, i) => {
           const config = typeConfig[dest.type];
           const Icon = config.icon;
           const isSelected = selectedDest === dest.id;
@@ -162,8 +162,10 @@ export function WayfindingSection({ destinations, gateNumber }: WayfindingSectio
             <button
               key={dest.id}
               onClick={() => setSelectedDest(dest.id)}
+              style={{ animationDelay: `${i * 60}ms` }}
               className={cn(
                 'w-full flex items-center gap-3 py-2.5 px-3 rounded-md text-left',
+                'opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]',
                 'transition-colors duration-[--duration-micro]',
                 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
                 'min-h-[var(--touch-min)]',

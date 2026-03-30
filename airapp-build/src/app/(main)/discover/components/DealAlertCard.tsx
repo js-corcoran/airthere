@@ -51,7 +51,7 @@ export function DealAlertCard({ deal, onSave }: DealAlertCardProps) {
       className={cn(
         'bg-surface dark:bg-[oklch(18%_0.003_50)]',
         'rounded-lg border border-surface-300 dark:border-[oklch(32%_0.008_50)]',
-        'shadow-sm hover:shadow-md transition-shadow duration-[--duration-short]',
+        'shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-[--duration-short]',
         'overflow-hidden'
       )}
     >

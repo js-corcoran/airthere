@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useMemo, useCallback } from 'react';
+import { cn } from '@/lib/utils/cn';
 import { usePersona } from '@/stores/usePersonaStore';
 import { EmptyState } from '@/components/shared/EmptyState';
 import { ErrorState } from '@/components/shared/ErrorState';
@@ -148,6 +149,7 @@ export default function DiscoverPage() {
         onChange={setSearchQuery}
         onFilterToggle={() => setFilterOpen(true)}
         hasActiveFilters={hasActiveFilters}
+        isFilterOpen={filterOpen}
       />
 
       {/* Tabs */}
@@ -179,14 +181,15 @@ export default function DiscoverPage() {
 
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                   {filteredDestinations.map((dest, i) => (
-                    <DiscoverDestinationCard
-                      key={dest.id}
-                      destination={dest}
-                      persona={persona}
-                      isSaved={wishlist.includes(dest.id)}
-                      onToggleSave={toggleWishlist}
-                      variant={i === 0 ? 'featured' : 'grid'}
-                    />
+                    <div key={dest.id} className={cn('opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]', i === 0 && 'col-span-2')} style={{ animationDelay: `${i * 60}ms` }}>
+                      <DiscoverDestinationCard
+                        destination={dest}
+                        persona={persona}
+                        isSaved={wishlist.includes(dest.id)}
+                        onToggleSave={toggleWishlist}
+                        variant={i === 0 ? 'featured' : 'grid'}
+                      />
+                    </div>
                   ))}
                 </div>
               </div>
@@ -260,8 +263,10 @@ export default function DiscoverPage() {
                   </div>
                 )}
 
-                {filteredDeals.map((deal) => (
-                  <DealAlertCard key={deal.id} deal={deal} />
+                {filteredDeals.map((deal, index) => (
+                  <div key={deal.id} className="opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]" style={{ animationDelay: `${index * 60}ms` }}>
+                    <DealAlertCard deal={deal} />
+                  </div>
                 ))}
               </div>
             ) : (
@@ -297,14 +302,15 @@ export default function DiscoverPage() {
                 </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                  {wishlistDestinations.map((dest) => (
-                    <DiscoverDestinationCard
-                      key={dest.id}
-                      destination={dest}
-                      persona={persona}
-                      isSaved={true}
-                      onToggleSave={toggleWishlist}
-                    />
+                  {wishlistDestinations.map((dest, index) => (
+                    <div key={dest.id} className="opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]" style={{ animationDelay: `${index * 60}ms` }}>
+                      <DiscoverDestinationCard
+                        destination={dest}
+                        persona={persona}
+                        isSaved={true}
+                        onToggleSave={toggleWishlist}
+                      />
+                    </div>
                   ))}
                 </div>
               </div>

@@ -16,5 +16,9 @@ export const ROUTES = {
   IROPS: (flightId: string) => `/irops/${flightId}`,
   FAMILY: '/family',
   PROFILE: '/profile',
+  SETTINGS: '/settings',
+  NOTIFICATIONS: '/notifications',
   AI_COPILOT: '/ai/copilot',
+  LOUNGE: '/lounge',
+  TRIP_RECAP: '/trips/recap',
 } as const;

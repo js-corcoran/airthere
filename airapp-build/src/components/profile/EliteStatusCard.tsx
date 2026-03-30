@@ -35,7 +35,7 @@ export function EliteStatusCard({ loyalty }: EliteStatusCardProps) {
 
         <div className="space-y-2 mb-4">
           {loyalty.benefits.map((benefit, i) => (
-            <div key={i} className="flex items-start gap-2">
+            <div key={i} className="flex items-start gap-2 opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]" style={{ animationDelay: `${i * 60}ms` }}>
               <CheckCircle className="w-4 h-4 text-success-500 shrink-0 mt-0.5" aria-hidden="true" />
               <span className="text-sm text-primary-700 dark:text-primary-300">
                 {benefit}

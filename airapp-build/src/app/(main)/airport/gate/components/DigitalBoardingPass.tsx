@@ -149,14 +149,15 @@ export function DigitalBoardingPass({
 
       <div className="space-y-3">
         {passes.map((pass, idx) => (
-          <SingleBoardingPass
-            key={idx}
-            pass={pass}
-            flightNumber={flightNumber}
-            route={route}
-            departureTime={departureTime}
-            onExpand={() => setExpandedIndex(idx)}
-          />
+          <div key={idx} className="opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]" style={{ animationDelay: `${idx * 60}ms` }}>
+            <SingleBoardingPass
+              pass={pass}
+              flightNumber={flightNumber}
+              route={route}
+              departureTime={departureTime}
+              onExpand={() => setExpandedIndex(idx)}
+            />
+          </div>
         ))}
       </div>
 

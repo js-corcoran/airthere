@@ -32,21 +32,22 @@ export function PersonaSelector({ onSelect, selectedPersona }: PersonaSelectorPr
         </p>
 
         <div className="grid grid-cols-1 gap-4 w-full" role="radiogroup" aria-label="Travel persona selection">
-          {PERSONAS.map((persona) => {
+          {PERSONAS.map((persona, index) => {
             const isSelected = selected === persona.id;
             return (
               <button
                 key={persona.id}
+                style={{ animationDelay: `${index * 60}ms` }}
                 onClick={() => handleSelect(persona.id)}
                 role="radio"
                 aria-checked={isSelected}
                 className={cn(
-                  'p-5 rounded-lg border-2 text-left transition-all duration-[--duration-short]',
+                  'p-5 rounded-lg border-2 text-left transition-all duration-[--duration-short] opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]',
                   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
                   'min-h-[var(--touch-preferred)]',
                   isSelected
                     ? 'border-primary-500 bg-primary-50 dark:bg-primary-900 shadow-md'
-                    : 'border-surface-300 dark:border-[oklch(32%_0.008_50)] bg-surface dark:bg-[oklch(18%_0.003_50)] hover:border-primary-300 hover:shadow-sm'
+                    : 'border-surface-300 dark:border-[oklch(32%_0.008_50)] bg-surface dark:bg-[oklch(18%_0.003_50)] hover:border-primary-300 hover:shadow-sm hover:-translate-y-0.5'
                 )}
               >
                 <div className="flex items-center gap-3 mb-3">

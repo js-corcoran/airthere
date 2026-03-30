@@ -12,11 +12,15 @@ const TITLE_MAP: Record<string, string> = {
   '/booking/detail': 'Flight Details',
   '/booking/checkout': 'Checkout',
   '/trips': 'My Trips',
+  '/trips/recap': 'Trip Recap',
   '/trips/documents': 'Document Vault',
   '/airport': 'Airport Live',
   '/airport/gate': 'Gate & Boarding',
   '/family': 'Family Hub',
   '/profile': 'Profile',
+  '/settings': 'Settings',
+  '/notifications': 'Notifications',
+  '/lounge': 'Lounge Finder',
   '/ai/copilot': 'AI Copilot',
 };
 
@@ -63,6 +67,7 @@ export function ContextualHeader({ title, showBack, className }: ContextualHeade
 
         <div className="flex items-center gap-1">
           <button
+            onClick={() => router.push('/notifications')}
             className="flex items-center justify-center w-[var(--touch-min)] h-[var(--touch-min)]
                        rounded-md transition-colors duration-[--duration-micro]
                        hover:bg-surface-200 dark:hover:bg-[oklch(25%_0.005_50)]
@@ -72,6 +77,7 @@ export function ContextualHeader({ title, showBack, className }: ContextualHeade
             <Bell className="w-5 h-5 text-primary-700 dark:text-[oklch(85%_0.005_50)]" />
           </button>
           <button
+            onClick={() => router.push('/settings')}
             className="flex items-center justify-center w-[var(--touch-min)] h-[var(--touch-min)]
                        rounded-md transition-colors duration-[--duration-micro]
                        hover:bg-surface-200 dark:hover:bg-[oklch(25%_0.005_50)]

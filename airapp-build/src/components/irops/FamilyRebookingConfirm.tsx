@@ -56,8 +56,10 @@ export function FamilyRebookingConfirm({ familyInfo, onConfirm }: FamilyRebookin
                   'flex items-center justify-between py-2.5 px-3',
                   'rounded-[var(--radius-md)]',
                   'bg-white/60 dark:bg-[oklch(22%_0.005_50)]',
+                  'opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]',
                   idx !== members.length - 1 && 'mb-1'
                 )}
+                style={{ animationDelay: `${idx * 60}ms` }}
               >
                 <div className="flex items-center gap-3">
                   <div className={cn(

@@ -27,12 +27,13 @@ export function TravelStatsSection({ stats }: TravelStatsSectionProps) {
       <div className="bg-surface dark:bg-[oklch(18%_0.003_50)] rounded-[var(--radius-lg)] p-4 border border-surface-300 dark:border-[oklch(32%_0.008_50)]">
         {/* Stat grid */}
         <div className="grid grid-cols-2 gap-3 mb-4">
-          {statItems.map((item) => {
+          {statItems.map((item, i) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.label}
-                className="bg-surface-200 dark:bg-[oklch(22%_0.005_50)] rounded-[var(--radius-md)] p-3 text-center"
+                className="bg-surface-200 dark:bg-[oklch(22%_0.005_50)] rounded-[var(--radius-md)] p-3 text-center opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]"
+                style={{ animationDelay: `${i * 60}ms` }}
               >
                 <Icon className="w-4 h-4 text-primary-500 dark:text-primary-400 mx-auto mb-1" aria-hidden="true" />
                 <p className="text-lg font-bold text-primary-800 dark:text-[oklch(90%_0.002_50)]">

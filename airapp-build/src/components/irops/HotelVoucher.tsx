@@ -74,14 +74,15 @@ export function HotelVoucher({ voucherValue, checkIn, checkOut, options, onSelec
         </div>
 
         <div className="space-y-3">
-          {options.map((hotel) => (
-            <HotelCard
-              key={hotel.id}
-              hotel={hotel}
-              voucherValue={voucherValue}
-              isSelected={selectedId === hotel.id}
-              onSelect={() => handleSelect(hotel.id)}
-            />
+          {options.map((hotel, i) => (
+            <div key={hotel.id} className="opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]" style={{ animationDelay: `${i * 60}ms` }}>
+              <HotelCard
+                hotel={hotel}
+                voucherValue={voucherValue}
+                isSelected={selectedId === hotel.id}
+                onSelect={() => handleSelect(hotel.id)}
+              />
+            </div>
           ))}
         </div>
       </div>

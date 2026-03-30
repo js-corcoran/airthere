@@ -9,6 +9,7 @@ interface DiscoverSearchBarProps {
   onChange: (value: string) => void;
   onFilterToggle: () => void;
   hasActiveFilters: boolean;
+  isFilterOpen?: boolean;
 }
 
 export function DiscoverSearchBar({
@@ -16,6 +17,7 @@ export function DiscoverSearchBar({
   onChange,
   onFilterToggle,
   hasActiveFilters,
+  isFilterOpen = false,
 }: DiscoverSearchBarProps) {
   const [isFocused, setIsFocused] = useState(false);
 
@@ -71,7 +73,7 @@ export function DiscoverSearchBar({
               : 'bg-surface-200 dark:bg-[oklch(25%_0.005_50)] text-primary-700 dark:text-[oklch(85%_0.005_50)]'
           )}
           aria-label={hasActiveFilters ? 'Filters active — tap to modify' : 'Open filters'}
-          aria-expanded={false}
+          aria-expanded={isFilterOpen}
         >
           <SlidersHorizontal className="w-5 h-5" />
           {hasActiveFilters && (

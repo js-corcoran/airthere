@@ -17,8 +17,8 @@ const TABS: TabItem[] = [
   { label: 'Home', href: ROUTES.HOME, icon: Home, matchPaths: ['/home'] },
   { label: 'Discover', href: ROUTES.DISCOVER, icon: Compass, matchPaths: ['/discover'] },
   { label: 'Search', href: ROUTES.SEARCH, icon: Search, matchPaths: ['/search'] },
-  { label: 'Trips', href: ROUTES.TRIPS, icon: Briefcase, matchPaths: ['/trips', '/booking', '/airport', '/irops', '/inflight', '/family'] },
-  { label: 'Profile', href: ROUTES.PROFILE, icon: User, matchPaths: ['/profile'] },
+  { label: 'Trips', href: ROUTES.TRIPS, icon: Briefcase, matchPaths: ['/trips', '/booking', '/airport', '/irops', '/inflight', '/family', '/lounge'] },
+  { label: 'Profile', href: ROUTES.PROFILE, icon: User, matchPaths: ['/profile', '/settings', '/notifications'] },
 ];
 
 export function BottomTabBar() {

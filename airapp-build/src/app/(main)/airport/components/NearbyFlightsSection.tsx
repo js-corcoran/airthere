@@ -21,12 +21,14 @@ export function NearbyFlightsSection({ flights }: NearbyFlightsSectionProps) {
         Other Nearby Flights
       </h3>
       <div className="space-y-1">
-        {flights.map((f) => (
+        {flights.map((f, i) => (
           <div
             key={f.flightNumber}
             className="flex items-center gap-3 py-2.5 px-3 rounded-md
                        hover:bg-surface-200 dark:hover:bg-[oklch(25%_0.005_50)]
-                       transition-colors duration-[--duration-micro]"
+                       transition-colors duration-[--duration-micro]
+                       opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]"
+            style={{ animationDelay: `${i * 60}ms` }}
           >
             <span className={cn('w-2 h-2 rounded-full shrink-0', statusDot[f.status] ?? statusDot['on-time'])} aria-hidden="true" />
             <div className="flex-1 min-w-0">

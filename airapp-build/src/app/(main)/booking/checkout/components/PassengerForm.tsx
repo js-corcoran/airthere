@@ -88,7 +88,8 @@ export function PassengerForm({ passengers, onChange, errors, persona }: Passeng
       {passengers.map((pax, i) => (
         <div
           key={i}
-          className="p-4 rounded-xl border border-surface-300 dark:border-[oklch(28%_0.005_50)] space-y-3"
+          className="p-4 rounded-xl border border-surface-300 dark:border-[oklch(28%_0.005_50)] space-y-3 opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]"
+          style={{ animationDelay: `${i * 60}ms` }}
         >
           <div className="flex items-center gap-2 mb-2">
             <User className="w-4 h-4 text-primary-500 dark:text-[oklch(65%_0.194_262)]" />

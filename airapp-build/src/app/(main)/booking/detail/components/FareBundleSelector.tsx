@@ -38,14 +38,16 @@ export function FareBundleSelector({ bundles, selectedId, basePrice, onChange }:
         Choose Your Fare
       </h3>
       <div className="grid grid-cols-3 gap-2">
-        {bundles.map((bundle) => {
+        {bundles.map((bundle, i) => {
           const isSelected = selectedId === bundle.id;
           const isRecommended = bundle.tier === 'standard';
           return (
             <button
               key={bundle.id}
               onClick={() => onChange(bundle.id)}
+              style={{ animationDelay: `${i * 60}ms` }}
               className={cn(
+                'opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]',
                 'relative flex flex-col p-3 rounded-xl border text-left',
                 'transition-all duration-[--duration-short]',
                 'focus-visible:outline-2 focus-visible:outline-primary-500',

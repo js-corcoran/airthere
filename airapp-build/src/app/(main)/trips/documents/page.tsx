@@ -172,8 +172,8 @@ export default function DocumentVaultPage() {
 
           {tripDocuments.length > 0 ? (
             <ul className="space-y-3" role="list" aria-label="Travel documents">
-              {tripDocuments.map((doc) => (
-                <li key={doc.id}>
+              {tripDocuments.map((doc, i) => (
+                <li key={doc.id} className="opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]" style={{ animationDelay: `${i * 60}ms` }}>
                   <DocumentCard
                     document={doc}
                     onView={handleView}
@@ -204,8 +204,8 @@ export default function DocumentVaultPage() {
               General Documents
             </h2>
             <ul className="space-y-3" role="list" aria-label="General documents">
-              {generalDocuments.map((doc) => (
-                <li key={doc.id}>
+              {generalDocuments.map((doc, i) => (
+                <li key={doc.id} className="opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]" style={{ animationDelay: `${i * 60}ms` }}>
                   <DocumentCard
                     document={doc}
                     onView={handleView}

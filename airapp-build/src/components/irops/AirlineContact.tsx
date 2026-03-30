@@ -33,7 +33,7 @@ export function AirlineContact({ contactMethods }: AirlineContactProps) {
       </h3>
       <div className="bg-surface dark:bg-[oklch(18%_0.003_50)] rounded-[var(--radius-lg)] p-4 border border-surface-300 dark:border-[oklch(32%_0.008_50)]">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-          {contactMethods.map((method) => {
+          {contactMethods.map((method, i) => {
             const config = METHOD_CONFIG[method.type] ?? METHOD_CONFIG.chat;
             const Icon = config.icon;
 
@@ -41,6 +41,7 @@ export function AirlineContact({ contactMethods }: AirlineContactProps) {
               <button
                 key={method.type}
                 disabled={!method.available}
+                style={{ animationDelay: `${i * 60}ms` }}
                 className={cn(
                   'flex items-center gap-3 p-3 rounded-[var(--radius-md)] text-left',
                   'border border-surface-300 dark:border-[oklch(32%_0.008_50)]',
@@ -49,6 +50,7 @@ export function AirlineContact({ contactMethods }: AirlineContactProps) {
                   'hover:bg-surface-200 dark:hover:bg-[oklch(22%_0.005_50)]',
                   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
                   'disabled:opacity-50 disabled:cursor-not-allowed',
+                  'opacity-0 animate-[cardEnter_0.4s_ease-out_forwards]',
                 )}
                 aria-label={`${method.label}: ${method.waitTime} wait`}
               >

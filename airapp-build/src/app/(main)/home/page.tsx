@@ -17,7 +17,7 @@ import { DESTINATIONS } from './components/destinations';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { ROUTES } from '@/lib/constants/routes';
-import { AlertTriangle, ArrowRight, Clock, Sun, Users, Check } from 'lucide-react';
+import { AlertTriangle, ArrowRight, Clock, Sun, Users, Check, Navigation } from 'lucide-react';
 
 type LoadingState = 'loading' | 'success' | 'error';
 
@@ -206,6 +206,32 @@ export default function HomePage() {
                 </p>
               </div>
               <ArrowRight className="w-4 h-4 text-success-500 shrink-0 mt-0.5" aria-hidden="true" />
+            </div>
+          </Link>
+        </div>
+      )}
+
+      {/* Airport Mode Banner — all personas, when upcoming/active trip exists */}
+      {travelDayTrip && (travelDayTrip.status === 'upcoming' || travelDayTrip.status === 'active' || travelDayTrip.status === 'disrupted') && (
+        <div className="px-4 mb-4">
+          <Link
+            href="/airport"
+            className="block p-4 rounded-xl bg-primary-50 dark:bg-surface-primary border border-primary-200 dark:border-primary shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-[--duration-short]"
+            aria-label="Open Airport Live mode for your upcoming flight"
+          >
+            <div className="flex items-start gap-3">
+              <div className="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center shrink-0">
+                <Navigation className="w-5 h-5 text-primary-600 dark:text-primary-300" aria-hidden="true" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-semibold text-primary-900 dark:text-foreground">
+                  Airport Live Mode
+                </p>
+                <p className="text-xs text-primary-600 dark:text-caption-foreground mt-0.5">
+                  {travelDayTrip.departure.airport} → {travelDayTrip.arrival.airport} · Gate info, security, lounges & more
+                </p>
+              </div>
+              <ArrowRight className="w-4 h-4 text-primary-400 shrink-0 mt-0.5" aria-hidden="true" />
             </div>
           </Link>
         </div>

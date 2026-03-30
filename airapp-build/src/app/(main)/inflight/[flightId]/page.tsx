@@ -8,6 +8,7 @@ import { InflightData } from '@/lib/types/inflight';
 import { MOCK_INFLIGHT_DATA } from '@/lib/mock-data/inflight';
 import { PageSkeleton } from '@/components/shared/LoadingSkeleton';
 import { ErrorState } from '@/components/shared/ErrorState';
+import { JourneyBreadcrumb } from '@/components/navigation/JourneyBreadcrumb';
 import { Plane, ArrowLeft } from 'lucide-react';
 
 import { FlightProgressMap } from './components/FlightProgressMap';
@@ -121,8 +122,11 @@ export default function InflightPage() {
         </div>
       </div>
 
+      {/* Journey Breadcrumb */}
+      <JourneyBreadcrumb currentStep="inflight" flightId={String(params.flightId)} />
+
       {/* Content */}
-      <div className="px-4 space-y-4 mt-4">
+      <div className="px-4 space-y-4 mt-2">
         {/* Flight Map */}
         <FlightProgressMap flight={data.flight} />
 

@@ -14,7 +14,8 @@ import { LoungeSection } from './components/LoungeSection';
 import { WayfindingSection } from './components/WayfindingSection';
 import { BiometricSection } from './components/BiometricSection';
 import Link from 'next/link';
-import { DoorOpen, Armchair } from 'lucide-react';
+import { DoorOpen, Armchair, Plane } from 'lucide-react';
+import { JourneyBreadcrumb } from '@/components/navigation/JourneyBreadcrumb';
 import {
   getAirportFlightInfo,
   getAirportAlerts,
@@ -97,8 +98,18 @@ export default function AirportLivePage() {
     LAX: 'Los Angeles International Airport',
   };
 
+  const flightIdMap: Record<string, string> = {
+    premium: 'FL-JFK-SIN-DEMO',
+    business: 'FL-SFO-ORD-BIZ',
+    family: 'FL-LAX-HNL-FAM',
+  };
+  const flightId = flightIdMap[persona] ?? 'FL-JFK-SIN-DEMO';
+
   return (
     <div className="pb-4">
+      {/* Journey Breadcrumb */}
+      <JourneyBreadcrumb currentStep="airport" flightId={flightId} />
+
       {/* Airport header with weather */}
       <AirportHeader
         airportCode={airportCode}
@@ -107,23 +118,31 @@ export default function AirportLivePage() {
         currentTime={currentTime}
       />
 
-      {/* Quick Navigation — Gate & Boarding + Lounge Finder */}
-      <div className="px-4 py-3 flex gap-3">
+      {/* Quick Navigation — Gate & Boarding + In-Flight + Lounge Finder */}
+      <div className="px-4 py-3 flex gap-2">
         <Link
           href="/airport/gate"
-          className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-[var(--radius-lg)] bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-400 text-white text-sm font-medium transition-colors min-h-[var(--touch-preferred)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
+          className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-400 text-white text-sm font-medium transition-colors min-h-[var(--touch-preferred)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
           aria-label="Gate and Boarding information"
         >
           <DoorOpen className="w-4 h-4" aria-hidden="true" />
-          Gate & Boarding
+          Gate
+        </Link>
+        <Link
+          href={`/inflight/${flightId}`}
+          className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg bg-secondary-500 hover:bg-secondary-600 dark:bg-secondary-500 dark:hover:bg-secondary-400 text-white text-sm font-medium transition-colors min-h-[var(--touch-preferred)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-500"
+          aria-label="In-Flight Experience"
+        >
+          <Plane className="w-4 h-4" aria-hidden="true" />
+          In-Flight
         </Link>
         <Link
           href="/lounge"
-          className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-[var(--radius-lg)] border border-primary-300 dark:border-primary text-primary-700 dark:text-primary-200 hover:bg-primary-50 dark:hover:bg-surface-primary text-sm font-medium transition-colors min-h-[var(--touch-preferred)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
+          className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg border border-primary-300 dark:border-primary text-primary-700 dark:text-primary-200 hover:bg-primary-50 dark:hover:bg-surface-primary text-sm font-medium transition-colors min-h-[var(--touch-preferred)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
           aria-label="Lounge Finder"
         >
           <Armchair className="w-4 h-4" aria-hidden="true" />
-          Lounge Finder
+          Lounge
         </Link>
       </div>
 

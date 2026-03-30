@@ -2,9 +2,11 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { Home, Compass, Search, Briefcase, User } from 'lucide-react';
+import { Home, Compass, Search, Briefcase, User, Plane } from 'lucide-react';
 import { cn } from '@/lib/utils/cn';
 import { ROUTES } from '@/lib/constants/routes';
+import { usePersona } from '@/stores/usePersonaStore';
+import { getTripsForPersona } from '@/lib/mock-data/trips';
 
 interface TabItem {
   label: string;
@@ -23,6 +25,9 @@ const TABS: TabItem[] = [
 
 export function BottomTabBar() {
   const pathname = usePathname();
+  const { persona } = usePersona();
+  const trips = getTripsForPersona(persona);
+  const hasActiveTrip = trips.some((t) => t.status === 'upcoming' || t.status === 'active' || t.status === 'disrupted');
 
   return (
     <nav
@@ -56,10 +61,15 @@ export function BottomTabBar() {
                   : 'text-primary-400 dark:text-caption-foreground hover:text-primary-500'
               )}
             >
-              <Icon
-                className={cn('w-5 h-5', isActive && 'stroke-[2.5]')}
-                aria-hidden="true"
-              />
+              <div className="relative">
+                <Icon
+                  className={cn('w-5 h-5', isActive && 'stroke-[2.5]')}
+                  aria-hidden="true"
+                />
+                {tab.label === 'Trips' && hasActiveTrip && !isActive && (
+                  <Plane className="absolute -top-1 -right-2.5 w-3 h-3 text-secondary-500 dark:text-secondary-400" aria-hidden="true" />
+                )}
+              </div>
               <span className="text-[10px] font-medium leading-none">{tab.label}</span>
             </Link>
           );

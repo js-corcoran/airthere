@@ -2,8 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import { usePersona } from '@/stores/usePersonaStore';
+import Link from 'next/link';
+import { Plane } from 'lucide-react';
 import { PageSkeleton } from '@/components/shared/LoadingSkeleton';
 import { ErrorState } from '@/components/shared/ErrorState';
+import { JourneyBreadcrumb } from '@/components/navigation/JourneyBreadcrumb';
 import { GateCountdownHero } from './components/GateCountdownHero';
 import { BoardingPhaseIndicator } from './components/BoardingPhaseIndicator';
 import { DigitalBoardingPass } from './components/DigitalBoardingPass';
@@ -66,8 +69,18 @@ export default function GateBoardingPage() {
     );
   }
 
+  const flightIdMap: Record<string, string> = {
+    premium: 'FL-JFK-SIN-DEMO',
+    business: 'FL-SFO-ORD-BIZ',
+    family: 'FL-LAX-HNL-FAM',
+  };
+  const flightId = flightIdMap[persona] ?? 'FL-JFK-SIN-DEMO';
+
   return (
     <div className="pb-4">
+      {/* Journey Breadcrumb */}
+      <JourneyBreadcrumb currentStep="gate" flightId={flightId} />
+
       {/* Live status pill */}
       <div className="px-4 py-2 flex items-center justify-center">
         <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium
@@ -187,6 +200,22 @@ export default function GateBoardingPage() {
             </p>
           </div>
         )}
+
+        {/* Start In-Flight Mode CTA */}
+        <Link
+          href={`/inflight/${flightId}`}
+          className="flex items-center justify-center gap-2 w-full py-3.5 rounded-lg
+                     bg-secondary-500 hover:bg-secondary-600 dark:bg-secondary-500 dark:hover:bg-secondary-400
+                     text-white text-sm font-semibold
+                     transition-all duration-[--duration-short]
+                     min-h-[var(--touch-preferred)]
+                     focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-500
+                     shadow-md hover:shadow-lg"
+          aria-label="Start in-flight experience"
+        >
+          <Plane className="w-4.5 h-4.5" aria-hidden="true" />
+          Start In-Flight Mode
+        </Link>
       </div>
     </div>
   );

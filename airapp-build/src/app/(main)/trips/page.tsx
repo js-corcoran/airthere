@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { usePersona } from '@/stores/usePersonaStore';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { cn } from '@/lib/utils/cn';
 import { ROUTES } from '@/lib/constants/routes';
 import { Trip } from '@/lib/types/trip';
@@ -10,7 +11,7 @@ import { MOCK_TRIPS, getTripsForPersona } from '@/lib/mock-data/trips';
 import { PageSkeleton } from '@/components/shared/LoadingSkeleton';
 import { EmptyState } from '@/components/shared/EmptyState';
 import { ErrorState } from '@/components/shared/ErrorState';
-import { Luggage } from 'lucide-react';
+import { Luggage, Navigation, ArrowRight } from 'lucide-react';
 
 import { TripDashboardCard } from './components/TripDashboardCard';
 import { TripDetailSheet } from './components/TripDetailSheet';
@@ -65,6 +66,30 @@ export default function TripsPage() {
               : 'Family adventures'}
         </p>
       </div>
+
+      {/* Airport Quick-Action — shown when upcoming/active trips exist */}
+      {upcomingTrips.length > 0 && (
+        <div className="px-4 mb-3">
+          <Link
+            href="/airport"
+            className="flex items-center gap-3 p-3 rounded-xl
+                       bg-primary-50 dark:bg-surface-primary
+                       border border-primary-200 dark:border-primary
+                       hover:shadow-sm hover:-translate-y-0.5
+                       transition-all duration-[--duration-short]"
+            aria-label="Go to Airport Live"
+          >
+            <div className="w-9 h-9 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center shrink-0">
+              <Navigation className="w-4.5 h-4.5 text-primary-600 dark:text-primary-300" aria-hidden="true" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-semibold text-primary-900 dark:text-foreground">Go to Airport</p>
+              <p className="text-xs text-primary-500 dark:text-caption-foreground">Live gate, security & lounge info</p>
+            </div>
+            <ArrowRight className="w-4 h-4 text-primary-400 shrink-0" aria-hidden="true" />
+          </Link>
+        </div>
+      )}
 
       {/* Tabs */}
       <div className="px-4 mb-4">

@@ -7,7 +7,7 @@ import Link from 'next/link';
 import {
   X, Plane, Clock, MapPin, Users, Hotel, FileText,
   CheckCircle2, AlertCircle, ArrowRight, Download, Share2, BookOpen,
-  AlertTriangle, Navigation, DoorOpen, FolderOpen, UsersRound
+  AlertTriangle, Navigation, DoorOpen, FolderOpen, UsersRound, Headphones
 } from 'lucide-react';
 
 interface TripDetailSheetProps {
@@ -292,42 +292,51 @@ export function TripDetailSheet({ trip, onClose, persona }: TripDetailSheetProps
               <h3 className="text-xs font-medium text-primary-700 dark:text-soft-foreground uppercase tracking-wider mb-3">
                 Quick Access
               </h3>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-3 gap-2">
                 <Link
                   href="/airport"
                   onClick={onClose}
-                  className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-surface-50 dark:bg-surface-100 border border-surface-200 dark:border-input hover:bg-surface-100 dark:hover:bg-input transition-colors min-h-[var(--touch-min)]"
+                  className="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-surface-50 dark:bg-surface-100 border border-surface-200 dark:border-input hover:bg-surface-100 dark:hover:bg-input transition-colors min-h-[var(--touch-min)]"
                   aria-label="Airport Live"
                 >
-                  <Navigation className="w-4 h-4 text-primary-500 dark:text-primary-400" aria-hidden="true" />
-                  <span className="text-sm font-medium text-primary-700 dark:text-soft-foreground">Airport Live</span>
+                  <Navigation className="w-4 h-4 text-primary-500 dark:text-primary-400 shrink-0" aria-hidden="true" />
+                  <span className="text-xs font-medium text-primary-700 dark:text-soft-foreground">Airport</span>
                 </Link>
                 <Link
                   href="/airport/gate"
                   onClick={onClose}
-                  className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-surface-50 dark:bg-surface-100 border border-surface-200 dark:border-input hover:bg-surface-100 dark:hover:bg-input transition-colors min-h-[var(--touch-min)]"
+                  className="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-surface-50 dark:bg-surface-100 border border-surface-200 dark:border-input hover:bg-surface-100 dark:hover:bg-input transition-colors min-h-[var(--touch-min)]"
                   aria-label="Gate and Boarding"
                 >
-                  <DoorOpen className="w-4 h-4 text-primary-500 dark:text-primary-400" aria-hidden="true" />
-                  <span className="text-sm font-medium text-primary-700 dark:text-soft-foreground">Gate & Boarding</span>
+                  <DoorOpen className="w-4 h-4 text-primary-500 dark:text-primary-400 shrink-0" aria-hidden="true" />
+                  <span className="text-xs font-medium text-primary-700 dark:text-soft-foreground">Gate</span>
+                </Link>
+                <Link
+                  href={`/inflight/${flight?.flight.id ?? 'FL-JFK-SIN-DEMO'}`}
+                  onClick={onClose}
+                  className="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-surface-50 dark:bg-surface-100 border border-surface-200 dark:border-input hover:bg-surface-100 dark:hover:bg-input transition-colors min-h-[var(--touch-min)]"
+                  aria-label="In-Flight Experience"
+                >
+                  <Headphones className="w-4 h-4 text-primary-500 dark:text-primary-400 shrink-0" aria-hidden="true" />
+                  <span className="text-xs font-medium text-primary-700 dark:text-soft-foreground">In-Flight</span>
                 </Link>
                 <Link
                   href="/trips/documents"
                   onClick={onClose}
-                  className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-surface-50 dark:bg-surface-100 border border-surface-200 dark:border-input hover:bg-surface-100 dark:hover:bg-input transition-colors min-h-[var(--touch-min)]"
+                  className="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-surface-50 dark:bg-surface-100 border border-surface-200 dark:border-input hover:bg-surface-100 dark:hover:bg-input transition-colors min-h-[var(--touch-min)]"
                   aria-label="Documents"
                 >
-                  <FolderOpen className="w-4 h-4 text-primary-500 dark:text-primary-400" aria-hidden="true" />
-                  <span className="text-sm font-medium text-primary-700 dark:text-soft-foreground">Documents</span>
+                  <FolderOpen className="w-4 h-4 text-primary-500 dark:text-primary-400 shrink-0" aria-hidden="true" />
+                  <span className="text-xs font-medium text-primary-700 dark:text-soft-foreground">Documents</span>
                 </Link>
                 <Link
                   href="/family"
                   onClick={onClose}
-                  className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-surface-50 dark:bg-surface-100 border border-surface-200 dark:border-input hover:bg-surface-100 dark:hover:bg-input transition-colors min-h-[var(--touch-min)]"
+                  className="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-surface-50 dark:bg-surface-100 border border-surface-200 dark:border-input hover:bg-surface-100 dark:hover:bg-input transition-colors min-h-[var(--touch-min)]"
                   aria-label="Family Hub"
                 >
-                  <UsersRound className="w-4 h-4 text-primary-500 dark:text-primary-400" aria-hidden="true" />
-                  <span className="text-sm font-medium text-primary-700 dark:text-soft-foreground">Family Hub</span>
+                  <UsersRound className="w-4 h-4 text-primary-500 dark:text-primary-400 shrink-0" aria-hidden="true" />
+                  <span className="text-xs font-medium text-primary-700 dark:text-soft-foreground">Family Hub</span>
                 </Link>
               </div>
             </section>

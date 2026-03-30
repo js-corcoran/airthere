@@ -2,6 +2,120 @@ import { Trip } from '@/lib/types/trip';
 import { AIRLINES } from '@/lib/constants/airlines';
 
 export const MOCK_TRIPS: Trip[] = [
+  // Demo Trip 1: JFK → SIN — DISRUPTED (departing in 3 days)
+  {
+    id: 'trip-demo-001',
+    name: 'Singapore Business Trip',
+    status: 'disrupted' as const,
+    departure: { airport: 'JFK', city: 'New York', date: '2026-04-01' },
+    arrival: { airport: 'SIN', city: 'Singapore', date: '2026-04-02' },
+    flights: [
+      {
+        id: 'tf-demo-001',
+        flight: {
+          id: 'FL-JFK-SIN-DEMO',
+          airline: AIRLINES.SQ,
+          flightNumber: 'SQ25',
+          departure: { airport: 'JFK', city: 'New York', time: '2026-04-01T22:25:00Z', terminal: '4', gate: 'B22' },
+          arrival: { airport: 'SIN', city: 'Singapore', time: '2026-04-02T17:05:00Z', terminal: '3' },
+          duration: 1120,
+          stops: 0,
+          aircraft: 'Airbus A350-900ULR',
+          amenities: ['wifi', 'entertainment', 'meals', 'flatbed', 'lounge-access'] as const,
+          pricing: { economy: 1400, premiumEconomy: 2450, business: 7200, first: 13500, currency: 'USD' },
+          seatsAvailable: 12,
+          operationalStatus: 'delayed' as const,
+        },
+        status: 'delayed' as const,
+        seat: '14A',
+        checkedIn: false,
+      },
+    ],
+    passengers: [
+      { id: 'p-demo-1', name: 'Alexandra Sterling', type: 'adult' as const, seat: '14A', meal: 'Vegetarian' },
+      { id: 'p-demo-2', name: 'James Sterling', type: 'adult' as const, seat: '14C', meal: 'Standard' },
+      { id: 'p-demo-3', name: 'Sophie Sterling', type: 'child' as const, seat: '14E' },
+    ],
+    hotel: { name: 'Marina Bay Sands', city: 'Singapore', checkIn: '2026-04-02', checkOut: '2026-04-07', confirmationNumber: 'MBS-847291' },
+    totalCost: 24800,
+    currency: 'USD',
+    confirmationNumber: 'AT-SQ-3K7M9P',
+    createdAt: '2026-03-15',
+  },
+  // Demo Trip 2: LAX → NRT — COMPLETED (2 weeks ago)
+  {
+    id: 'trip-demo-002',
+    name: 'Tokyo Spring Getaway',
+    status: 'completed' as const,
+    departure: { airport: 'LAX', city: 'Los Angeles', date: '2026-03-15' },
+    arrival: { airport: 'NRT', city: 'Tokyo', date: '2026-03-16' },
+    flights: [
+      {
+        id: 'tf-demo-002',
+        flight: {
+          id: 'FL-LAX-NRT-DEMO',
+          airline: AIRLINES.NH,
+          flightNumber: 'NH0105',
+          departure: { airport: 'LAX', city: 'Los Angeles', time: '2026-03-15T11:30:00Z', terminal: 'B', gate: 'B42' },
+          arrival: { airport: 'NRT', city: 'Tokyo', time: '2026-03-16T15:50:00Z', terminal: '1' },
+          duration: 700,
+          stops: 0,
+          aircraft: 'Boeing 787-9',
+          amenities: ['wifi', 'entertainment', 'meals', 'flatbed', 'lounge-access'] as const,
+          pricing: { economy: 1350, premiumEconomy: 2160, business: 6500, first: 11200, currency: 'USD' },
+          seatsAvailable: 0,
+          operationalStatus: 'arrived' as const,
+        },
+        status: 'on-time' as const,
+        seat: '2K',
+        checkedIn: true,
+        boardingPass: 'BP-NH105-2K',
+      },
+    ],
+    passengers: [{ id: 'p-demo-4', name: 'Alexandra Sterling', type: 'adult' as const, seat: '2K', meal: 'Japanese Set' }],
+    hotel: { name: 'Aman Tokyo', city: 'Tokyo', checkIn: '2026-03-16', checkOut: '2026-03-22', confirmationNumber: 'AMN-529384' },
+    totalCost: 15800,
+    currency: 'USD',
+    confirmationNumber: 'AT-NH-8R4K2M',
+    createdAt: '2026-02-28',
+  },
+  // Demo Trip 3: SFO → LHR — UPCOMING (3 weeks out)
+  {
+    id: 'trip-demo-003',
+    name: 'London Conference',
+    status: 'upcoming' as const,
+    departure: { airport: 'SFO', city: 'San Francisco', date: '2026-04-19' },
+    arrival: { airport: 'LHR', city: 'London', date: '2026-04-20' },
+    flights: [
+      {
+        id: 'tf-demo-003',
+        flight: {
+          id: 'FL-SFO-LHR-DEMO',
+          airline: AIRLINES.BA,
+          flightNumber: 'BA0286',
+          departure: { airport: 'SFO', city: 'San Francisco', time: '2026-04-19T17:20:00Z', terminal: 'I', gate: 'G96' },
+          arrival: { airport: 'LHR', city: 'London', time: '2026-04-20T11:30:00Z', terminal: '5' },
+          duration: 610,
+          stops: 0,
+          aircraft: 'Boeing 777-300ER',
+          amenities: ['wifi', 'entertainment', 'meals', 'flatbed', 'lounge-access'] as const,
+          pricing: { economy: 892, premiumEconomy: 1428, business: 5240, first: 8920, currency: 'USD' },
+          seatsAvailable: 14,
+          operationalStatus: 'on-time' as const,
+        },
+        status: 'on-time' as const,
+        seat: '7A',
+        checkedIn: false,
+      },
+    ],
+    passengers: [{ id: 'p-demo-5', name: 'Alexandra Sterling', type: 'adult' as const, seat: '7A', meal: 'Vegetarian' }],
+    hotel: { name: 'The Savoy', city: 'London', checkIn: '2026-04-20', checkOut: '2026-04-24', confirmationNumber: 'SAV-681742' },
+    totalCost: 8640,
+    currency: 'USD',
+    confirmationNumber: 'AT-BA-5N2H8K',
+    createdAt: '2026-03-20',
+  },
+  // Original trip-001 (kept for reference)
   {
     id: 'trip-001',
     name: 'London Business Trip',
@@ -224,10 +338,10 @@ export const MOCK_TRIPS: Trip[] = [
 export function getTripsForPersona(persona: 'premium' | 'business' | 'family'): Trip[] {
   switch (persona) {
     case 'premium':
-      return [MOCK_TRIPS[0], MOCK_TRIPS[3]]; // upcoming London + completed Singapore
+      return MOCK_TRIPS.filter(t => ['trip-demo-001', 'trip-demo-002', 'trip-demo-003'].includes(t.id));
     case 'business':
-      return [MOCK_TRIPS[2], MOCK_TRIPS[4]]; // upcoming NY + completed Chicago
+      return MOCK_TRIPS.filter(t => ['trip-003', 'trip-005'].includes(t.id)); // upcoming NY + completed Chicago
     case 'family':
-      return [MOCK_TRIPS[1], MOCK_TRIPS[5]]; // upcoming Tokyo + completed Orlando
+      return MOCK_TRIPS.filter(t => ['trip-002', 'trip-006'].includes(t.id)); // upcoming Tokyo + completed Orlando
   }
 }

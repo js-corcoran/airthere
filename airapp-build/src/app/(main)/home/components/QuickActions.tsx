@@ -2,7 +2,7 @@
 
 import { cn } from '@/lib/utils/cn';
 import { PersonaType } from '@/lib/types/user';
-import { Search, Globe, CalendarDays, Shield, Users, Wallet, Armchair, Sparkles } from 'lucide-react';
+import { Search, Globe, CalendarDays, Users, Wallet, Armchair, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 import { ROUTES } from '@/lib/constants/routes';
 
@@ -23,19 +23,19 @@ function getQuickActions(persona: PersonaType): QuickAction[] {
     case 'premium':
       return [
         ...common,
-        { label: 'Lounge Finder', icon: Armchair, href: ROUTES.DISCOVER, color: 'bg-info-100 dark:bg-info-900 text-info-600 dark:text-info-300' },
-        { label: 'Concierge', icon: Sparkles, href: ROUTES.PROFILE, color: 'bg-success-100 dark:bg-success-900 text-success-600 dark:text-success-300' },
+        { label: 'Lounge Finder', icon: Armchair, href: ROUTES.LOUNGE, color: 'bg-info-100 dark:bg-info-900 text-info-600 dark:text-info-300' },
+        { label: 'AI Concierge', icon: Sparkles, href: ROUTES.AI_COPILOT, color: 'bg-success-100 dark:bg-success-900 text-success-600 dark:text-success-300' },
       ];
     case 'business':
       return [
         ...common,
         { label: 'Expenses', icon: Wallet, href: ROUTES.PROFILE, color: 'bg-warning-100 dark:bg-warning-900 text-warning-600 dark:text-warning-300' },
-        { label: 'Policy Check', icon: Shield, href: ROUTES.PROFILE, color: 'bg-info-100 dark:bg-info-900 text-info-600 dark:text-info-300' },
+        { label: 'AI Copilot', icon: Sparkles, href: ROUTES.AI_COPILOT, color: 'bg-info-100 dark:bg-info-900 text-info-600 dark:text-info-300' },
       ];
     case 'family':
       return [
         ...common,
-        { label: 'Family Hub', icon: Users, href: ROUTES.PROFILE, color: 'bg-success-100 dark:bg-success-900 text-success-600 dark:text-success-300' },
+        { label: 'Family Hub', icon: Users, href: ROUTES.FAMILY, color: 'bg-success-100 dark:bg-success-900 text-success-600 dark:text-success-300' },
         { label: 'Explore', icon: Globe, href: ROUTES.DISCOVER, color: 'bg-info-100 dark:bg-info-900 text-info-600 dark:text-info-300' },
       ];
   }

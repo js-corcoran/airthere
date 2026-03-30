@@ -18,6 +18,10 @@ export const MOCK_USERS: Record<string, UserProfile> = {
     },
     frequentAirports: ['SFO', 'LHR', 'CDG', 'SIN'],
     savedDestinations: ['Paris', 'Tokyo', 'Dubai', 'Milan'],
+    familyMembers: [
+      { id: 'fm-a1', name: 'James Sterling', age: 47, relationship: 'spouse', mealPreference: 'Standard' },
+      { id: 'fm-a2', name: 'Sophie Sterling', age: 12, relationship: 'child', mealPreference: 'Child meal' },
+    ],
     loyaltyPrograms: [
       { airlineCode: 'UA', programName: 'MileagePlus', memberId: 'MP0038472', tier: 'Global Services', points: 482000 },
       { airlineCode: 'BA', programName: 'Executive Club', memberId: 'GB2839471', tier: 'Gold', points: 128000 },

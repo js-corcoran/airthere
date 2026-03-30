@@ -3,9 +3,11 @@
 import { cn } from '@/lib/utils/cn';
 import { useRouter } from 'next/navigation';
 import { Trip } from '@/lib/types/trip';
+import Link from 'next/link';
 import {
   X, Plane, Clock, MapPin, Users, Hotel, FileText,
-  CheckCircle2, AlertCircle, ArrowRight, Download, Share2, BookOpen
+  CheckCircle2, AlertCircle, ArrowRight, Download, Share2, BookOpen,
+  AlertTriangle, Navigation, DoorOpen, FolderOpen, UsersRound
 } from 'lucide-react';
 
 interface TripDetailSheetProps {
@@ -37,6 +39,8 @@ export function TripDetailSheet({ trip, onClose, persona }: TripDetailSheetProps
   const router = useRouter();
   const flight = trip.flights[0];
   const isCompleted = trip.status === 'completed';
+  const isDisrupted = trip.status === 'disrupted';
+  const isUpcoming = trip.status === 'upcoming' || trip.status === 'active';
 
   return (
     <>
@@ -267,16 +271,79 @@ export function TripDetailSheet({ trip, onClose, persona }: TripDetailSheetProps
             </div>
           </div>
 
+          {/* Disrupted Trip — Recovery CTA */}
+          {isDisrupted && (
+            <div className="space-y-3">
+              <Link
+                href={`/irops/${flight?.flight.id ?? 'FL-JFK-SIN-DEMO'}`}
+                onClick={onClose}
+                className="w-full py-3 rounded-lg font-semibold text-sm bg-error-600 text-white hover:bg-error-700 dark:bg-error-500 dark:hover:bg-error-400 transition-colors min-h-[var(--touch-preferred)] flex items-center justify-center gap-2"
+                aria-label="View recovery options for disrupted flight"
+              >
+                <AlertTriangle className="w-4 h-4" aria-hidden="true" />
+                View Recovery Options
+              </Link>
+            </div>
+          )}
+
+          {/* Quick Navigation Links */}
+          {(isUpcoming || isDisrupted) && (
+            <section aria-label="Trip quick links">
+              <h3 className="text-xs font-medium text-primary-700 dark:text-[oklch(80%_0.005_50)] uppercase tracking-wider mb-3">
+                Quick Access
+              </h3>
+              <div className="grid grid-cols-2 gap-2">
+                <Link
+                  href="/airport"
+                  onClick={onClose}
+                  className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-surface-50 dark:bg-[oklch(20%_0.003_50)] border border-surface-200 dark:border-[oklch(25%_0.005_50)] hover:bg-surface-100 dark:hover:bg-[oklch(24%_0.005_50)] transition-colors min-h-[var(--touch-min)]"
+                  aria-label="Airport Live"
+                >
+                  <Navigation className="w-4 h-4 text-primary-500 dark:text-[oklch(65%_0.194_262)]" aria-hidden="true" />
+                  <span className="text-sm font-medium text-primary-700 dark:text-[oklch(80%_0.005_50)]">Airport Live</span>
+                </Link>
+                <Link
+                  href="/airport/gate"
+                  onClick={onClose}
+                  className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-surface-50 dark:bg-[oklch(20%_0.003_50)] border border-surface-200 dark:border-[oklch(25%_0.005_50)] hover:bg-surface-100 dark:hover:bg-[oklch(24%_0.005_50)] transition-colors min-h-[var(--touch-min)]"
+                  aria-label="Gate and Boarding"
+                >
+                  <DoorOpen className="w-4 h-4 text-primary-500 dark:text-[oklch(65%_0.194_262)]" aria-hidden="true" />
+                  <span className="text-sm font-medium text-primary-700 dark:text-[oklch(80%_0.005_50)]">Gate & Boarding</span>
+                </Link>
+                <Link
+                  href="/trips/documents"
+                  onClick={onClose}
+                  className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-surface-50 dark:bg-[oklch(20%_0.003_50)] border border-surface-200 dark:border-[oklch(25%_0.005_50)] hover:bg-surface-100 dark:hover:bg-[oklch(24%_0.005_50)] transition-colors min-h-[var(--touch-min)]"
+                  aria-label="Documents"
+                >
+                  <FolderOpen className="w-4 h-4 text-primary-500 dark:text-[oklch(65%_0.194_262)]" aria-hidden="true" />
+                  <span className="text-sm font-medium text-primary-700 dark:text-[oklch(80%_0.005_50)]">Documents</span>
+                </Link>
+                <Link
+                  href="/family"
+                  onClick={onClose}
+                  className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-surface-50 dark:bg-[oklch(20%_0.003_50)] border border-surface-200 dark:border-[oklch(25%_0.005_50)] hover:bg-surface-100 dark:hover:bg-[oklch(24%_0.005_50)] transition-colors min-h-[var(--touch-min)]"
+                  aria-label="Family Hub"
+                >
+                  <UsersRound className="w-4 h-4 text-primary-500 dark:text-[oklch(65%_0.194_262)]" aria-hidden="true" />
+                  <span className="text-sm font-medium text-primary-700 dark:text-[oklch(80%_0.005_50)]">Family Hub</span>
+                </Link>
+              </div>
+            </section>
+          )}
+
           {/* Actions */}
           <div className="space-y-2">
             {isCompleted ? (
-              <button
-                onClick={() => { onClose(); router.push('/trips/recap'); }}
+              <Link
+                href="/trips/recap"
+                onClick={onClose}
                 className="w-full py-3 rounded-lg font-semibold text-sm bg-secondary-500 text-white hover:bg-secondary-600 transition-colors min-h-[var(--touch-preferred)] dark:bg-[oklch(64%_0.158_50)] dark:hover:bg-[oklch(55%_0.160_50)] flex items-center justify-center gap-2"
               >
                 <BookOpen className="w-4 h-4" aria-hidden="true" />
                 View Trip Recap
-              </button>
+              </Link>
             ) : (
               <>
                 <button className="w-full py-3 rounded-lg font-semibold text-sm bg-primary-500 text-white hover:bg-primary-600 transition-colors min-h-[var(--touch-preferred)] dark:bg-[oklch(55%_0.194_262)] dark:hover:bg-[oklch(60%_0.194_262)]">

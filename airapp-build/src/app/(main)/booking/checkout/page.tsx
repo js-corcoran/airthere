@@ -11,7 +11,7 @@ import { getFlightById } from '@/lib/mock-data/flights';
 import { FARE_BUNDLES } from '@/lib/mock-data/seats';
 import { PageSkeleton } from '@/components/shared/LoadingSkeleton';
 import { ErrorState } from '@/components/shared/ErrorState';
-import { ArrowLeft, ArrowRight, Loader2 } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Loader2, Shield, Check } from 'lucide-react';
 
 import { StepProgress } from './components/StepProgress';
 import { PassengerForm, PassengerData } from './components/PassengerForm';
@@ -19,7 +19,53 @@ import { PaymentForm, PaymentData } from './components/PaymentForm';
 import { ReviewSummary } from './components/ReviewSummary';
 import { BookingConfirmation } from './components/BookingConfirmation';
 
-const STEP_LABELS = ['Passengers', 'Payment', 'Review'];
+const STEP_LABELS = ['Passengers', 'Trip Protection', 'Payment', 'Review'];
+
+interface ProtectionOption {
+  id: keyof TripProtectionState;
+  title: string;
+  price: number;
+  description: string;
+  icon: string;
+}
+
+interface TripProtectionState {
+  cancellation: boolean;
+  baggage: boolean;
+  weatherGuarantee: boolean;
+  conciergeCoverage: boolean;
+}
+
+const PROTECTION_OPTIONS: ProtectionOption[] = [
+  {
+    id: 'cancellation',
+    title: 'Cancellation Protection',
+    price: 49,
+    description: 'Full refund if you cancel for any reason up to 24h before departure',
+    icon: '🛡️',
+  },
+  {
+    id: 'baggage',
+    title: 'Baggage Insurance',
+    price: 29,
+    description: 'Coverage up to $3,000 for lost, damaged, or delayed baggage',
+    icon: '🧳',
+  },
+  {
+    id: 'weatherGuarantee',
+    title: 'Weather Guarantee',
+    price: 39,
+    description: 'Free rebooking if severe weather disrupts your travel plans',
+    icon: '🌦️',
+  },
+  {
+    id: 'conciergeCoverage',
+    title: 'Concierge Coverage',
+    price: 89,
+    description: '24/7 personal travel concierge for emergencies and changes',
+    icon: '🎧',
+  },
+];
 
 function generateConfirmationNumber(airline: string): string {
   const digits = Math.floor(10000 + Math.random() * 90000);
@@ -84,6 +130,18 @@ function CheckoutContent() {
     cvv: '',
   });
 
+  const [tripProtection, setTripProtection] = useState<TripProtectionState>({
+    cancellation: false,
+    baggage: false,
+    weatherGuarantee: false,
+    conciergeCoverage: false,
+  });
+
+  const protectionTotal = PROTECTION_OPTIONS.reduce(
+    (sum, opt) => sum + (tripProtection[opt.id] ? opt.price : 0),
+    0
+  );
+
   useEffect(() => {
     if (!flightId || !from || !to || !departDate) return;
     const timer = setTimeout(() => {
@@ -96,12 +154,14 @@ function CheckoutContent() {
 
   const bundle = FARE_BUNDLES.find((b) => b.id === bundleId);
 
-  const totalPrice = useMemo(() => {
+  const basePrice = useMemo(() => {
     if (!flight) return 0;
     const key = cabinClass === 'premium-economy' ? 'premiumEconomy' : cabinClass;
     const base = flight.pricing[key as keyof typeof flight.pricing] as number;
     return (base + (bundle?.price ?? 0)) * passengerCount;
   }, [flight, cabinClass, bundle, passengerCount]);
+
+  const totalPrice = basePrice + protectionTotal;
 
   const validateStep1 = (): boolean => {
     const newErrors: Record<string, string> = {};
@@ -115,7 +175,7 @@ function CheckoutContent() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const validateStep2 = (): boolean => {
+  const validateStep3 = (): boolean => {
     const newErrors: Record<string, string> = {};
     if (payment.method === 'card') {
       if (payment.cardNumber.length < 13) newErrors.cardNumber = 'Invalid card number';
@@ -129,18 +189,19 @@ function CheckoutContent() {
 
   const handleNext = () => {
     if (step === 1 && !validateStep1()) return;
-    if (step === 2 && !validateStep2()) return;
-    if (step === 3) {
+    // Step 2 = Trip Protection — no validation needed
+    if (step === 3 && !validateStep3()) return;
+    if (step === 4) {
       handleConfirm();
       return;
     }
     setErrors({});
-    setStep((s) => Math.min(s + 1, 3) as 1 | 2 | 3);
+    setStep((s) => Math.min(s + 1, 4));
   };
 
   const handleBack = () => {
     setErrors({});
-    setStep((s) => Math.max(s - 1, 1) as 1 | 2 | 3);
+    setStep((s) => Math.max(s - 1, 1));
   };
 
   const handleConfirm = () => {
@@ -185,7 +246,7 @@ function CheckoutContent() {
     <div className="pb-24">
       {/* Progress Bar */}
       <div className="px-4 py-3 border-b border-surface-200 dark:border-[oklch(25%_0.005_50)]">
-        <StepProgress currentStep={step} totalSteps={3} labels={STEP_LABELS} />
+        <StepProgress currentStep={step} totalSteps={4} labels={STEP_LABELS} />
       </div>
 
       {/* Step Content */}
@@ -199,13 +260,108 @@ function CheckoutContent() {
           />
         )}
         {step === 2 && (
+          <div className="space-y-5">
+            <div>
+              <div className="flex items-center gap-2">
+                <Shield className="w-5 h-5 text-primary-500 dark:text-[oklch(65%_0.194_262)]" />
+                <h2 className="text-lg font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+                  Trip Protection
+                </h2>
+              </div>
+              <p className="text-sm text-primary-500 dark:text-[oklch(60%_0.005_50)] mt-1">
+                Protect your trip with optional coverage — select any that apply
+              </p>
+            </div>
+
+            <div className="space-y-3" role="group" aria-label="Trip protection options">
+              {PROTECTION_OPTIONS.map((option) => {
+                const isSelected = tripProtection[option.id];
+                return (
+                  <button
+                    key={option.id}
+                    type="button"
+                    role="checkbox"
+                    aria-checked={isSelected}
+                    aria-label={`${option.title} — $${option.price}`}
+                    onClick={() =>
+                      setTripProtection((prev) => ({
+                        ...prev,
+                        [option.id]: !prev[option.id],
+                      }))
+                    }
+                    className={cn(
+                      'w-full text-left p-4 rounded-xl border transition-all duration-[--duration-short]',
+                      'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
+                      'min-h-[var(--touch-preferred)]',
+                      isSelected
+                        ? 'border-primary-500 bg-primary-50 dark:border-[oklch(55%_0.194_262)] dark:bg-[oklch(20%_0.015_262)]'
+                        : 'border-surface-300 bg-background hover:border-primary-300 dark:border-[oklch(28%_0.005_50)] dark:bg-[oklch(18%_0.003_50)] dark:hover:border-[oklch(40%_0.05_262)]'
+                    )}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className={cn(
+                        'mt-0.5 w-5 h-5 rounded-md border-2 flex items-center justify-center flex-shrink-0 transition-colors duration-[--duration-micro]',
+                        isSelected
+                          ? 'bg-primary-500 border-primary-500 dark:bg-[oklch(55%_0.194_262)] dark:border-[oklch(55%_0.194_262)]'
+                          : 'border-surface-400 dark:border-[oklch(40%_0.005_50)]'
+                      )}>
+                        {isSelected && <Check className="w-3 h-3 text-white" />}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="text-sm font-semibold text-primary-900 dark:text-[oklch(95%_0.002_50)]">
+                            <span className="mr-1.5">{option.icon}</span>
+                            {option.title}
+                          </span>
+                          <span className="text-sm font-bold text-primary-900 dark:text-[oklch(95%_0.002_50)] tabular-nums flex-shrink-0">
+                            ${option.price}
+                          </span>
+                        </div>
+                        <p className="text-xs text-primary-500 dark:text-[oklch(60%_0.005_50)] mt-1 leading-relaxed">
+                          {option.description}
+                        </p>
+                      </div>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Running Total */}
+            <div className={cn(
+              'p-4 rounded-xl border transition-colors duration-[--duration-short]',
+              protectionTotal > 0
+                ? 'bg-primary-50 border-primary-200 dark:bg-[oklch(20%_0.015_262)] dark:border-[oklch(30%_0.05_262)]'
+                : 'bg-surface-50 border-surface-200 dark:bg-[oklch(16%_0.003_50)] dark:border-[oklch(25%_0.005_50)]'
+            )}>
+              <div className="flex justify-between items-center">
+                <span className="text-sm font-medium text-primary-700 dark:text-[oklch(80%_0.005_50)]">
+                  Protection Total
+                </span>
+                <span className="text-lg font-bold text-primary-900 dark:text-[oklch(95%_0.002_50)] tabular-nums">
+                  {protectionTotal > 0 ? `+$${protectionTotal}` : '$0'}
+                </span>
+              </div>
+              {protectionTotal > 0 && (
+                <p className="text-xs text-primary-500 dark:text-[oklch(60%_0.005_50)] mt-1">
+                  Added to your booking total
+                </p>
+              )}
+            </div>
+
+            <p className="text-xs text-primary-400 dark:text-[oklch(50%_0.005_50)] text-center">
+              You can skip this step — protection can be added later from your trip details
+            </p>
+          </div>
+        )}
+        {step === 3 && (
           <PaymentForm
             data={payment}
             onChange={setPayment}
             errors={errors}
           />
         )}
-        {step === 3 && (
+        {step === 4 && (
           <ReviewSummary
             flight={flight}
             cabinClass={cabinClass}
@@ -262,7 +418,7 @@ function CheckoutContent() {
                 <Loader2 className="w-4 h-4 animate-spin" />
                 Confirming...
               </>
-            ) : step === 3 ? (
+            ) : step === 4 ? (
               'Confirm Booking'
             ) : (
               <>

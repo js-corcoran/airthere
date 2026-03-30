@@ -14,7 +14,7 @@ export const SUGGESTED_PROMPTS: Record<PersonaType, SuggestionChipData[]> = {
     { id: 'sp-1', label: 'First class to Tokyo', icon: '✈', value: 'Find me first class flights to Tokyo next week' },
     { id: 'sp-2', label: 'Upgrade my seat', icon: '⬆', value: 'Can I upgrade my seat on my London flight?' },
     { id: 'sp-3', label: 'Lounge access', icon: '🛋', value: 'What lounge access do I have at JFK?' },
-    { id: 'sp-4', label: 'Trip status', icon: '📋', value: 'What is the status of my upcoming trip?' },
+    { id: 'sp-4', label: 'Delay options', icon: '⚠', value: 'What are my options for the delayed SQ25 flight?' },
   ],
   business: [
     { id: 'sp-1', label: 'Quick flight search', icon: '✈', value: 'Find me flights to London next Friday, business class' },
@@ -171,6 +171,54 @@ export const DEMO_CONVERSATIONS: Record<string, ConversationFlow> = {
           { id: 'dq-s1', label: 'Confirm rebooking', icon: '✓', value: 'confirm-rebook' },
           { id: 'dq-s2', label: 'See other options', icon: '↻', value: 'other-options' },
           { id: 'dq-s3', label: 'Talk to agent', icon: '💬', value: 'contact-agent' },
+        ],
+      },
+    ],
+  },
+  'disruption-demo': {
+    id: 'disruption-demo',
+    name: 'Flight Disruption Assistance',
+    description: 'AI copilot helping with SQ25 delay',
+    messages: [
+      {
+        id: 'dd-1',
+        role: 'system' as const,
+        content: 'Disruption detected: SQ25 JFK→SIN delayed 90 minutes due to aircraft swap.',
+        timestamp: new Date(Date.now() - 15 * 60 * 1000).toISOString(),
+      },
+      {
+        id: 'dd-2',
+        role: 'assistant' as const,
+        content: "Alexandra, I've detected a 90-minute delay on your SQ25 flight to Singapore. The airline is swapping from an A350-900ULR to an A380 — which means a larger aircraft with even better Business Class suites. Your seat 14A has been automatically remapped to seat 14A on the A380. I've identified 2 alternative flights if you'd prefer not to wait, and the SilverKris Lounge at JFK T4 is open for your use during the delay.",
+        timestamp: new Date(Date.now() - 14 * 60 * 1000).toISOString(),
+        suggestions: [
+          { id: 'dd-s1', label: 'View alternatives', icon: '✈', value: 'Show me alternative flights' },
+          { id: 'dd-s2', label: 'Lounge details', icon: '🛋', value: 'Tell me about the lounge' },
+          { id: 'dd-s3', label: 'Keep current flight', icon: '✓', value: 'I\'ll keep my current flight' },
+        ],
+      },
+      {
+        id: 'dd-3',
+        role: 'user' as const,
+        content: 'Show me alternative flights',
+        timestamp: new Date(Date.now() - 12 * 60 * 1000).toISOString(),
+      },
+      {
+        id: 'dd-4',
+        role: 'assistant' as const,
+        content: "Here are your options:\n\n**Option 1 (Recommended):** Keep SQ25 — departs 11:55 PM, arrives SIN 6:35 PM+1. The A380 Business Class is actually an upgrade. No cost.\n\n**Option 2:** SQ23 tomorrow at 10:40 AM — arrives SIN 3:20 PM+1. Hotel voucher provided for tonight at the TWA Hotel (JFK). No cost.\n\n**Option 3:** CX841 via Hong Kong — departs 1:10 AM, arrives SIN 8:45 PM+1. One stop, Cathay Pacific Business. $0 rebooking fee.\n\nYour family members James and Sophie have been automatically included in all options. Shall I proceed with any of these?",
+        timestamp: new Date(Date.now() - 10 * 60 * 1000).toISOString(),
+        actionCards: [
+          {
+            id: 'dd-ac1', type: 'rebook' as const, title: 'Keep SQ25 (Delayed)', badge: 'Recommended',
+            details: { route: 'JFK → SIN', time: '11:55 PM', duration: '18h 40m', stops: 0, price: 0, currency: 'USD', highlights: ['A380 Business Suite upgrade', 'No additional cost', 'Same seats'] },
+            confidence: 98,
+          },
+          {
+            id: 'dd-ac2', type: 'rebook' as const, title: 'SQ23 Tomorrow Morning', badge: 'Hotel Included',
+            details: { route: 'JFK → SIN', time: '10:40 AM +1', duration: '18h 40m', stops: 0, price: 0, currency: 'USD', highlights: ['TWA Hotel tonight', 'Fresh start tomorrow', 'Same aircraft type'] },
+            confidence: 82,
+          },
         ],
       },
     ],

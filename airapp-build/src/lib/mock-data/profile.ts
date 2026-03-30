@@ -3,7 +3,7 @@ import type { PersonaType } from '@/lib/types/user';
 
 // ─── Frequent Flyer Programs ───────────────────────────────────────
 const PROGRAMS_PREMIUM: FrequentFlyerProgram[] = [
-  { id: 'ffp-001', airline: 'Singapore Airlines', airlineCode: 'SQ', programName: 'KrisFlyer', accountNumber: 'KF-9928-7741', balance: 245000, unit: 'miles', eliteStatus: 'PPS Club', lastActivity: '2026-03-15' },
+  { id: 'ffp-001', airline: 'Singapore Airlines', airlineCode: 'SQ', programName: 'KrisFlyer', accountNumber: 'KF-9928-7741', balance: 47500, unit: 'miles', eliteStatus: 'PPS Club', lastActivity: '2026-03-15' },
   { id: 'ffp-002', airline: 'Emirates', airlineCode: 'EK', programName: 'Skywards', accountNumber: 'EK-1187-5523', balance: 182000, unit: 'miles', eliteStatus: 'Platinum', lastActivity: '2026-03-01' },
   { id: 'ffp-003', airline: 'Cathay Pacific', airlineCode: 'CX', programName: 'Asia Miles', accountNumber: 'AM-4412-8890', balance: 96500, unit: 'miles', eliteStatus: 'Diamond', lastActivity: '2026-02-20' },
   { id: 'ffp-004', airline: 'British Airways', airlineCode: 'BA', programName: 'Executive Club', accountNumber: 'BA-7734-2201', balance: 78200, unit: 'points', eliteStatus: 'Gold', lastActivity: '2026-02-10' },
@@ -25,12 +25,12 @@ const PROGRAMS_FAMILY: FrequentFlyerProgram[] = [
 
 // ─── Travel Stats ──────────────────────────────────────────────────
 const STATS_PREMIUM: TravelStats = {
-  totalTrips: 186,
-  totalFlights: 412,
-  totalMiles: 892000,
-  countriesVisited: 47,
+  totalTrips: 42,
+  totalFlights: 89,
+  totalMiles: 284000,
+  countriesVisited: 31,
   favoriteAirline: 'Singapore Airlines',
-  favoriteRoute: 'SFO — SIN',
+  favoriteRoute: 'JFK — SIN',
   yearToDate: { trips: 8, miles: 72000, spent: 184000 },
 };
 
@@ -67,12 +67,12 @@ const PROFILE_PREMIUM: ProfileData = {
     biometric: { faceIdEnrolled: true, fingerprintEnrolled: true },
   },
   loyalty: {
-    eliteTier: 'PPS Club',
-    totalPoints: 663700,
-    pointsToNextTier: 0,
-    nextTier: 'Solitaire PPS',
+    eliteTier: 'Star Alliance Gold',
+    totalPoints: 47500,
+    pointsToNextTier: 13200,
+    nextTier: 'Platinum',
     qualifiedFlights: 28,
-    flightsToNextTier: 2,
+    flightsToNextTier: 8,
     tierExpiry: '2027-03-31',
     programs: PROGRAMS_PREMIUM,
     benefits: [

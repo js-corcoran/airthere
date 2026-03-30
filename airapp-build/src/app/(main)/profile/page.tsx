@@ -102,6 +102,13 @@ export default function ProfilePage() {
             <span className="text-sm font-medium text-primary-800 dark:text-[oklch(90%_0.002_50)]">Notifications</span>
             <span className="text-primary-400 dark:text-[oklch(60%_0.005_50)]" aria-hidden="true">&rsaquo;</span>
           </Link>
+          <Link
+            href="/trips/documents"
+            className="flex items-center justify-between px-4 py-3 rounded-[var(--radius-lg)] bg-surface dark:bg-[oklch(18%_0.003_50)] border border-surface-300 dark:border-[oklch(32%_0.008_50)] min-h-[var(--touch-preferred)] transition-colors hover:bg-surface-200 dark:hover:bg-[oklch(22%_0.005_50)]"
+          >
+            <span className="text-sm font-medium text-primary-800 dark:text-[oklch(90%_0.002_50)]">Document Vault</span>
+            <span className="text-primary-400 dark:text-[oklch(60%_0.005_50)]" aria-hidden="true">&rsaquo;</span>
+          </Link>
         </section>
 
         {/* Biometric enrollment CTA (for unenrolled users) */}

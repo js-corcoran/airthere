@@ -15,7 +15,9 @@ import { CountdownHero } from './components/CountdownHero';
 import { QuickActions } from './components/QuickActions';
 import { DESTINATIONS } from './components/destinations';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { ROUTES } from '@/lib/constants/routes';
+import { AlertTriangle, ArrowRight } from 'lucide-react';
 
 type LoadingState = 'loading' | 'success' | 'error';
 
@@ -39,7 +41,8 @@ export default function HomePage() {
   }, [persona]);
 
   const userName = user?.name ?? 'Traveler';
-  const isTravelDay = false; // Simulate non-travel day for now
+  const hasDisruptedTrip = persona === 'premium' && trips.some((t) => t.status === 'disrupted');
+  const isTravelDay = persona === 'premium'; // Premium persona departs in 3 days — show countdown
   const travelDayTrip = trips[0];
 
   const filteredDestinations = DESTINATIONS.filter((d) =>
@@ -67,6 +70,32 @@ export default function HomePage() {
         isTravelDay={isTravelDay}
         userName={userName}
       />
+
+      {/* Disruption Alert Banner */}
+      {hasDisruptedTrip && (
+        <div className="px-4 mb-4">
+          <Link
+            href="/irops/FL-JFK-SIN-DEMO"
+            className="block p-4 rounded-xl bg-error-50 dark:bg-[oklch(22%_0.03_25)] border border-error-200 dark:border-[oklch(35%_0.06_25)] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-[--duration-short]"
+            aria-label="Flight SQ25 delayed 90 minutes — tap for recovery options"
+          >
+            <div className="flex items-start gap-3">
+              <div className="w-10 h-10 rounded-full bg-error-100 dark:bg-[oklch(28%_0.05_25)] flex items-center justify-center shrink-0">
+                <AlertTriangle className="w-5 h-5 text-error-600 dark:text-error-400" aria-hidden="true" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-semibold text-error-800 dark:text-error-200">
+                  Flight SQ25 Delayed — 90 Minutes
+                </p>
+                <p className="text-xs text-error-600 dark:text-error-400 mt-0.5">
+                  JFK → SIN · Aircraft swap to A380 · Rebooking options available
+                </p>
+              </div>
+              <ArrowRight className="w-4 h-4 text-error-400 shrink-0 mt-0.5" aria-hidden="true" />
+            </div>
+          </Link>
+        </div>
+      )}
 
       <QuickActions persona={persona} />
 

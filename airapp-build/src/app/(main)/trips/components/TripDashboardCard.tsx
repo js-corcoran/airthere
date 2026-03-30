@@ -2,7 +2,7 @@
 
 import { cn } from '@/lib/utils/cn';
 import { Trip } from '@/lib/types/trip';
-import { ArrowRight, Clock, Plane, MapPin, Users } from 'lucide-react';
+import { ArrowRight, Clock, Plane, MapPin, Users, AlertTriangle, BookOpen } from 'lucide-react';
 
 interface TripDashboardCardProps {
   trip: Trip;
@@ -31,6 +31,11 @@ const STATUS_STYLES: Record<string, { bg: string; text: string; label: string }>
     text: 'text-error-700 dark:text-[oklch(80%_0.12_25)]',
     label: 'Cancelled',
   },
+  disrupted: {
+    bg: 'bg-error-100 dark:bg-[oklch(25%_0.04_25)]',
+    text: 'text-error-700 dark:text-[oklch(80%_0.12_25)]',
+    label: 'Disrupted',
+  },
 };
 
 function formatDate(dateStr: string): string {
@@ -38,6 +43,13 @@ function formatDate(dateStr: string): string {
     month: 'short',
     day: 'numeric',
   });
+}
+
+function getDaysUntil(dateStr: string): number {
+  const target = new Date(dateStr);
+  const now = new Date();
+  const diff = target.getTime() - now.getTime();
+  return Math.max(0, Math.ceil(diff / (1000 * 60 * 60 * 24)));
 }
 
 export function TripDashboardCard({ trip, onClick, persona }: TripDashboardCardProps) {
@@ -123,6 +135,41 @@ export function TripDashboardCard({ trip, onClick, persona }: TripDashboardCardP
         <span className="text-base font-bold text-primary-900 dark:text-[oklch(95%_0.002_50)] tabular-nums">
           ${trip.totalCost.toLocaleString()}
         </span>
+      </div>
+
+      {/* Next Action Badge */}
+      <div className={cn(
+        'mt-3 px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5',
+        trip.status === 'disrupted' && 'bg-error-50 dark:bg-[oklch(22%_0.03_25)] text-error-700 dark:text-error-300',
+        trip.status === 'upcoming' && getDaysUntil(trip.departure.date) <= 7
+          ? 'bg-warning-50 dark:bg-[oklch(22%_0.03_75)] text-warning-700 dark:text-warning-300'
+          : trip.status === 'upcoming' && 'bg-success-50 dark:bg-[oklch(22%_0.03_142)] text-success-700 dark:text-success-300',
+        trip.status === 'completed' && 'bg-info-50 dark:bg-[oklch(22%_0.02_240)] text-info-700 dark:text-info-300',
+      )}>
+        {trip.status === 'disrupted' && (
+          <>
+            <AlertTriangle className="w-3.5 h-3.5" />
+            Flight delayed — view recovery options
+          </>
+        )}
+        {trip.status === 'upcoming' && getDaysUntil(trip.departure.date) <= 7 && (
+          <>
+            <Clock className="w-3.5 h-3.5" />
+            Check-in opens soon
+          </>
+        )}
+        {trip.status === 'upcoming' && getDaysUntil(trip.departure.date) > 7 && (
+          <>
+            <Clock className="w-3.5 h-3.5" />
+            Confirmed — {getDaysUntil(trip.departure.date)} days until departure
+          </>
+        )}
+        {trip.status === 'completed' && (
+          <>
+            <BookOpen className="w-3.5 h-3.5" />
+            View trip recap
+          </>
+        )}
       </div>
     </button>
   );

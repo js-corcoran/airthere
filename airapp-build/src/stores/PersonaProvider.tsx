@@ -11,7 +11,7 @@ interface PersonaProviderProps {
 export function PersonaProvider({ children }: PersonaProviderProps) {
   const [persona, setPersonaState] = useState<PersonaType>('premium');
   const [user, setUser] = useState<UserProfile | null>(null);
-  const [isOnboarded, setOnboarded] = useState(false);
+  const [isOnboarded, setOnboarded] = useState(true);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {

@@ -15,7 +15,7 @@ import { Luggage } from 'lucide-react';
 import { TripDashboardCard } from './components/TripDashboardCard';
 import { TripDetailSheet } from './components/TripDetailSheet';
 
-type TabId = 'upcoming' | 'past';
+type TabId = 'upcoming' | 'disrupted' | 'past';
 
 export default function TripsPage() {
   const { persona } = usePersona();
@@ -35,9 +35,15 @@ export default function TripsPage() {
   }, [persona]);
 
   const upcomingTrips = trips.filter((t) => t.status === 'upcoming' || t.status === 'active');
+  const disruptedTrips = trips.filter((t) => t.status === 'disrupted');
   const pastTrips = trips.filter((t) => t.status === 'completed' || t.status === 'cancelled');
 
-  const displayedTrips = activeTab === 'upcoming' ? upcomingTrips : pastTrips;
+  const displayedTrips =
+    activeTab === 'upcoming'
+      ? upcomingTrips
+      : activeTab === 'disrupted'
+        ? disruptedTrips
+        : pastTrips;
 
   if (loading) return <PageSkeleton />;
 
@@ -81,6 +87,32 @@ export default function TripsPage() {
           </button>
           <button
             role="tab"
+            aria-selected={activeTab === 'disrupted'}
+            onClick={() => setActiveTab('disrupted')}
+            className={cn(
+              'flex-1 py-2 text-sm font-medium rounded-md text-center',
+              'transition-all duration-[--duration-micro]',
+              'focus-visible:outline-2 focus-visible:outline-primary-500',
+              'min-h-[var(--touch-min)]',
+              activeTab === 'disrupted'
+                ? 'bg-background text-primary-900 shadow-sm dark:bg-[oklch(25%_0.005_50)] dark:text-[oklch(95%_0.002_50)]'
+                : 'text-primary-500 dark:text-[oklch(60%_0.005_50)]'
+            )}
+          >
+            <span className="flex items-center justify-center gap-1.5">
+              Disrupted
+              <span className={cn(
+                'inline-flex items-center justify-center px-1.5 py-0.5 rounded-full text-[10px] font-bold min-w-[18px] leading-none',
+                disruptedTrips.length > 0
+                  ? 'bg-error-100 text-error-600 dark:bg-[oklch(25%_0.04_25)] dark:text-[oklch(75%_0.12_25)]'
+                  : 'bg-surface-200 text-primary-400 dark:bg-[oklch(25%_0.003_50)] dark:text-[oklch(50%_0.005_50)]'
+              )}>
+                {disruptedTrips.length}
+              </span>
+            </span>
+          </button>
+          <button
+            role="tab"
             aria-selected={activeTab === 'past'}
             onClick={() => setActiveTab('past')}
             className={cn(
@@ -119,6 +151,12 @@ export default function TripsPage() {
               label: 'Search Flights',
               onClick: () => router.push(ROUTES.SEARCH),
             }}
+          />
+        ) : activeTab === 'disrupted' ? (
+          <EmptyState
+            icon="🌊"
+            title="No disruptions — smooth sailing!"
+            description="All your trips are on track. We'll alert you if anything changes."
           />
         ) : (
           <EmptyState

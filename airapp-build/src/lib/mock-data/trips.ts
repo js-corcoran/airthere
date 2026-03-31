@@ -1,6 +1,27 @@
 import { Trip } from '@/lib/types/trip';
 import { AIRLINES } from '@/lib/constants/airlines';
 
+// Generate a departure time that's always "tomorrow at 7:15 AM UTC" for demo consistency
+function getTomorrowDeparture(hoursUTC: number = 7, minutesUTC: number = 15): string {
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  tomorrow.setHours(hoursUTC, minutesUTC, 0, 0);
+  return tomorrow.toISOString();
+}
+
+function getTomorrowArrival(hoursUTC: number = 13, minutesUTC: number = 22): string {
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  tomorrow.setHours(hoursUTC, minutesUTC, 0, 0);
+  return tomorrow.toISOString();
+}
+
+function getTomorrowDateString(): string {
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  return tomorrow.toISOString().split('T')[0];
+}
+
 export const MOCK_TRIPS: Trip[] = [
   // Demo Trip 1: JFK → SIN — DISRUPTED (departing in 3 days)
   {
@@ -192,8 +213,8 @@ export const MOCK_TRIPS: Trip[] = [
     id: 'trip-biz-001',
     name: 'Chicago Strategy Offsite',
     status: 'upcoming' as const,
-    departure: { airport: 'SFO', city: 'San Francisco', date: '2026-03-30' },
-    arrival: { airport: 'ORD', city: 'Chicago', date: '2026-03-30' },
+    departure: { airport: 'SFO', city: 'San Francisco', date: getTomorrowDateString() },
+    arrival: { airport: 'ORD', city: 'Chicago', date: getTomorrowDateString() },
     flights: [
       {
         id: 'tf-biz-001',
@@ -201,8 +222,8 @@ export const MOCK_TRIPS: Trip[] = [
           id: 'FL-SFO-ORD-BIZ',
           airline: AIRLINES.UA,
           flightNumber: 'UA456',
-          departure: { airport: 'SFO', city: 'San Francisco', time: '2026-03-30T07:15:00Z', terminal: '3', gate: 'F14' },
-          arrival: { airport: 'ORD', city: 'Chicago', time: '2026-03-30T13:22:00Z', terminal: '1' },
+          departure: { airport: 'SFO', city: 'San Francisco', time: getTomorrowDeparture(7, 15), terminal: '3', gate: 'F14' },
+          arrival: { airport: 'ORD', city: 'Chicago', time: getTomorrowArrival(13, 22), terminal: '1' },
           duration: 247,
           stops: 0,
           aircraft: 'Boeing 737 MAX 9',
@@ -217,7 +238,7 @@ export const MOCK_TRIPS: Trip[] = [
       },
     ],
     passengers: [{ id: 'p-biz-1', name: 'Marcus Webb', type: 'adult' as const, seat: '8C', meal: 'Standard' }],
-    hotel: { name: 'The Langham Chicago', city: 'Chicago', checkIn: '2026-03-30', checkOut: '2026-04-02', confirmationNumber: 'LNG-482916' },
+    hotel: { name: 'The Langham Chicago', city: 'Chicago', checkIn: getTomorrowDateString(), checkOut: '2026-04-02', confirmationNumber: 'LNG-482916' },
     totalCost: 3240,
     currency: 'USD',
     confirmationNumber: 'AT-UA-8K2M5P',

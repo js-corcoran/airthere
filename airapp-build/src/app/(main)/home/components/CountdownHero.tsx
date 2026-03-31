@@ -34,6 +34,17 @@ export function CountdownHero({ trip }: CountdownHeroProps) {
 
   const pad = (n: number) => String(n).padStart(2, '0');
 
+  const statusConfig: Record<string, { label: string; dot: string }> = {
+    'on-time': { label: 'On time', dot: 'bg-success-400' },
+    delayed: { label: 'Delayed', dot: 'bg-warning-400 animate-pulse' },
+    cancelled: { label: 'Cancelled', dot: 'bg-error-400' },
+    diverted: { label: 'Diverted', dot: 'bg-error-400' },
+    boarding: { label: 'Boarding', dot: 'bg-info-400 animate-pulse' },
+    departed: { label: 'Departed', dot: 'bg-info-400' },
+    arrived: { label: 'Arrived', dot: 'bg-success-400' },
+  };
+  const status = statusConfig[flight.status] ?? statusConfig['on-time'];
+
   return (
     <div
       className="mx-4 my-4 rounded-xl overflow-hidden
@@ -68,8 +79,8 @@ export function CountdownHero({ trip }: CountdownHeroProps) {
         <div>
           <span className="block text-xs opacity-60 uppercase tracking-wider">Status</span>
           <span className="text-lg font-semibold flex items-center gap-1">
-            <span className="w-2 h-2 rounded-full bg-success-400 inline-block" aria-hidden="true" />
-            On time
+            <span className={`w-2 h-2 rounded-full ${status.dot} inline-block`} aria-hidden="true" />
+            {status.label}
           </span>
         </div>
       </div>

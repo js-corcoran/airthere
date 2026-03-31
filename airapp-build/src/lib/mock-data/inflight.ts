@@ -182,7 +182,7 @@ const PREMIUM_MEAL: MealService = {
 };
 
 const BUSINESS_FLIGHT: FlightProgress = {
-  flightNumber: 'UA 456',
+  flightNumber: 'UA456',
   aircraft: 'Boeing 737 MAX 9',
   route: { from: 'SFO', fromCity: 'San Francisco', to: 'ORD', toCity: 'Chicago' },
   current: { latitude: 40.8, longitude: -102.3, altitude: 36000, groundSpeed: 485, outsideTemp: -54 },

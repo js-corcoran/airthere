@@ -31,7 +31,7 @@ export function getGateBoardingInfo(persona: PersonaType): GateBoardingInfo {
       };
     case 'business':
       return {
-        flightNumber: 'UA0456',
+        flightNumber: 'UA456',
         airline: 'United Airlines',
         route: { from: 'SFO', to: 'ORD', fromCity: 'San Francisco', toCity: 'Chicago' },
         departureTime: '7:15 AM',

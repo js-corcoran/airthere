@@ -36,7 +36,7 @@ export function getAirportFlightInfo(persona: PersonaType): AirportFlightInfo {
       };
     case 'business':
       return {
-        flightNumber: 'UA0456',
+        flightNumber: 'UA456',
         airline: 'United Airlines',
         route: { from: 'SFO', to: 'ORD', fromCity: 'San Francisco', toCity: 'Chicago' },
         departureTime: '7:15 AM',
@@ -118,7 +118,7 @@ export function getAirportAlerts(persona: PersonaType): AirportAlert[] {
           id: 'alert-delay',
           type: 'warning',
           title: '25-Minute Delay',
-          message: 'UA0456 is delayed 25 minutes due to late inbound aircraft. New departure: 7:40 AM.',
+          message: 'UA456 is delayed 25 minutes due to late inbound aircraft. New departure: 7:40 AM.',
           timestamp: '3 min ago',
         },
         ...common,

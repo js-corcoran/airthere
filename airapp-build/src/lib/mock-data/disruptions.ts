@@ -342,7 +342,7 @@ export const diversionScenario: DisruptionScenario = {
       alternateAirport: 'COS',
     },
     affectedFlight: {
-      flightNumber: 'UA 456',
+      flightNumber: 'UA456',
       airline: 'United Airlines',
       route: 'SFO → DEN',
       cabinClass: 'economy',
@@ -361,7 +361,7 @@ export const diversionScenario: DisruptionScenario = {
 export const businessMinorDelayScenario: DisruptionScenario = {
   disruption: {
     id: 'dis-biz-001',
-    flightId: 'UA0456',
+    flightId: 'UA456',
     type: 'delay',
     severity: 'low',
     detectedAt: '2026-04-03T06:50:00Z',
@@ -377,7 +377,7 @@ export const businessMinorDelayScenario: DisruptionScenario = {
       isCancelled: false,
     },
     affectedFlight: {
-      flightNumber: 'UA0456',
+      flightNumber: 'UA456',
       airline: 'United Airlines',
       route: 'SFO → ORD',
       cabinClass: 'economy',

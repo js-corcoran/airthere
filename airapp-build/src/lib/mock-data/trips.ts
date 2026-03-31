@@ -200,7 +200,7 @@ export const MOCK_TRIPS: Trip[] = [
         flight: {
           id: 'FL-SFO-ORD-BIZ',
           airline: AIRLINES.UA,
-          flightNumber: 'UA0456',
+          flightNumber: 'UA456',
           departure: { airport: 'SFO', city: 'San Francisco', time: '2026-03-30T07:15:00Z', terminal: '3', gate: 'F14' },
           arrival: { airport: 'ORD', city: 'Chicago', time: '2026-03-30T13:22:00Z', terminal: '1' },
           duration: 247,

@@ -164,7 +164,7 @@ export default function HomePage() {
       {persona === 'business' && (
         <div className="px-4 mt-4 mb-4">
           <Link
-            href="/airport"
+            href="/trips"
             className="block p-4 rounded-xl bg-info-50 dark:bg-surface-info border border-info-200 dark:border-info shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-[--duration-short]"
             aria-label="UA456 to Chicago departing tomorrow with 25-minute delay"
           >

@@ -66,14 +66,14 @@ export default function HomePage() {
 
   return (
     <div className="pb-24">
-      {/* Demo Mode Pill - top right of Home screen */}
-      <div className="fixed top-3 right-3 z-40">
+      {/* Demo Mode Pill - centered in top header */}
+      <div className="fixed top-0 left-0 right-0 z-40 flex items-center justify-center py-2 pointer-events-none">
         <button
           onClick={() => setShowDemoSheet(true)}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full
-                     bg-primary-900/90 dark:bg-surface-primary/90
-                     backdrop-blur-sm text-white text-xs font-medium
-                     shadow-lg hover:bg-primary-800 dark:hover:bg-muted
+          className="pointer-events-auto flex items-center gap-1.5 px-4 py-1.5 rounded-full
+                     bg-primary-900 dark:bg-primary-800
+                     text-white text-xs font-semibold
+                     shadow-md hover:bg-primary-800 dark:hover:bg-primary-700
                      transition-colors duration-[--duration-micro]
                      min-h-[var(--touch-min)]"
           aria-label="Switch demo persona"

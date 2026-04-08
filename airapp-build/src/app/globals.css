@@ -474,28 +474,68 @@
   }
 }
 
-/* Wireframe interactive affordance — muted blue for clickable elements */
-.wireframe a,
+/* Wireframe interactive affordance — buttons get blue fill, links get blue text */
+
+/* === FILLED BUTTONS (primary CTAs, tab buttons, FABs) === */
 .wireframe button:not([role="switch"]),
-.wireframe [role="link"],
-.wireframe [role="button"],
-.wireframe .bottom-tab-bar a {
-  --tw-text-opacity: 1;
+.wireframe [role="button"] {
+  background-color: #4A7CFF !important;
+  color: #ffffff !important;
+  border-color: #4A7CFF !important;
+}
+
+.wireframe button:not([role="switch"]):hover,
+.wireframe [role="button"]:hover {
+  background-color: #3A6AE0 !important;
+  border-color: #3A6AE0 !important;
+  color: #ffffff !important;
+}
+
+/* === TEXT LINKS (inline links, "View all", breadcrumbs) === */
+.wireframe a {
   color: #4A7CFF !important;
 }
 
-.wireframe a:hover,
-.wireframe button:not([role="switch"]):hover {
+.wireframe a:hover {
   color: #3A6AE0 !important;
 }
 
-/* Keep toggle switches grayscale — they're not navigation */
-.wireframe [role="switch"] {
-  color: inherit !important;
+/* === NAVIGATION TABS (bottom bar) — text style, not filled === */
+.wireframe .bottom-tab-bar a,
+.wireframe nav a {
+  color: #4A7CFF !important;
+  background-color: transparent !important;
 }
 
-/* Navigation active tab gets the interactive blue */
 .wireframe nav a[aria-current="page"],
 .wireframe nav a.active {
   color: #4A7CFF !important;
+  border-bottom-color: #4A7CFF !important;
+}
+
+/* === KEEP TOGGLE SWITCHES GRAYSCALE === */
+.wireframe [role="switch"] {
+  color: inherit !important;
+  background-color: inherit !important;
+  border-color: inherit !important;
+}
+
+/* === CARD BUTTONS (persona sheet items, list items that are buttons) === */
+.wireframe button[aria-pressed],
+.wireframe button.w-full.text-left {
+  background-color: var(--card) !important;
+  color: var(--foreground) !important;
+  border-color: var(--border) !important;
+}
+
+.wireframe button[aria-pressed="true"] {
+  border-color: #4A7CFF !important;
+  background-color: var(--card) !important;
+  color: var(--foreground) !important;
+}
+
+/* Demo Mode pill — keep it prominent in wireframe */
+.wireframe button[aria-label="Switch demo persona"] {
+  background-color: #4A7CFF !important;
+  color: #ffffff !important;
 }

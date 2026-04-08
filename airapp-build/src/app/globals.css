@@ -474,33 +474,97 @@
   }
 }
 
-/* Wireframe interactive affordance — buttons get blue fill, links get blue text */
+/* ═══════════════════════════════════════════════════════════════
+   WIREFRAME INTERACTIVE AFFORDANCE — TIERED SYSTEM
+   ═══════════════════════════════════════════════════════════════ */
 
-/* === FILLED BUTTONS (primary CTAs, tab buttons, FABs) === */
-.wireframe button:not([role="switch"]),
-.wireframe [role="button"] {
+/* ── TIER 1: PRIMARY CTA BUTTONS (filled blue + white text) ──
+   Catches: Book Now, Edit Profile, Documents, AI Chat FAB,
+   form submit buttons, etc. */
+.wireframe button:not([role="switch"]):not([role="tab"]):not([aria-pressed]):not([aria-label="Notifications"]):not([aria-label="Settings"]):not([aria-label="Filter"]):not([aria-label="Switch demo persona"]),
+.wireframe [role="button"]:not([role="tab"]) {
   background-color: #4A7CFF !important;
   color: #ffffff !important;
   border-color: #4A7CFF !important;
 }
 
-.wireframe button:not([role="switch"]):hover,
-.wireframe [role="button"]:hover {
+.wireframe button:not([role="switch"]):not([role="tab"]):not([aria-pressed]):not([aria-label="Notifications"]):not([aria-label="Settings"]):not([aria-label="Filter"]):not([aria-label="Switch demo persona"]):hover,
+.wireframe [role="button"]:not([role="tab"]):hover {
   background-color: #3A6AE0 !important;
   border-color: #3A6AE0 !important;
   color: #ffffff !important;
 }
 
-/* === TEXT LINKS (inline links, "View all", breadcrumbs) === */
+/* ── TIER 2: ICON-ONLY BUTTONS (transparent bg + blue icon) ── */
+.wireframe button[aria-label="Notifications"],
+.wireframe button[aria-label="Settings"],
+.wireframe button[aria-label="Filter"] {
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
+.wireframe button[aria-label="Notifications"] svg,
+.wireframe button[aria-label="Settings"] svg,
+.wireframe button[aria-label="Filter"] svg {
+  color: #4A7CFF !important;
+}
+
+.wireframe button[aria-label="Notifications"]:hover,
+.wireframe button[aria-label="Settings"]:hover,
+.wireframe button[aria-label="Filter"]:hover {
+  background-color: rgba(74, 124, 255, 0.08) !important;
+}
+
+/* ── TIER 3: TEXT LINKS (blue text, no background fill) ── */
 .wireframe a {
   color: #4A7CFF !important;
+  background-color: transparent !important;
 }
 
 .wireframe a:hover {
   color: #3A6AE0 !important;
 }
 
-/* === NAVIGATION TABS (bottom bar) — text style, not filled === */
+/* Exception: links styled as primary CTAs (Book Now <Link>, etc.) */
+.wireframe a[class*="bg-secondary"],
+.wireframe a[class*="bg-primary"],
+.wireframe a[class*="rounded-md"][class*="font-medium"],
+.wireframe a[class*="rounded-lg"][class*="font-medium"],
+.wireframe a[class*="rounded-xl"][class*="font-medium"] {
+  background-color: #4A7CFF !important;
+  color: #ffffff !important;
+  border-color: #4A7CFF !important;
+}
+
+.wireframe a[class*="bg-secondary"]:hover,
+.wireframe a[class*="bg-primary"]:hover {
+  background-color: #3A6AE0 !important;
+  color: #ffffff !important;
+}
+
+/* ── TIER 4: TAB BUTTONS (active = dark blue, inactive = light) ── */
+.wireframe button[role="tab"] {
+  color: #ffffff !important;
+  border-color: #4A7CFF !important;
+}
+
+.wireframe button[role="tab"][aria-selected="false"] {
+  background-color: #6B9AFF !important;
+  color: #ffffff !important;
+}
+
+.wireframe button[role="tab"][aria-selected="true"] {
+  background-color: #2D5FD6 !important;
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+.wireframe button[role="tab"]:hover {
+  background-color: #3A6AE0 !important;
+  color: #ffffff !important;
+}
+
+/* ── TIER 5: NAVIGATION (bottom tab bar) ── */
 .wireframe .bottom-tab-bar a,
 .wireframe nav a {
   color: #4A7CFF !important;
@@ -509,18 +573,17 @@
 
 .wireframe nav a[aria-current="page"],
 .wireframe nav a.active {
-  color: #4A7CFF !important;
-  border-bottom-color: #4A7CFF !important;
+  color: #2D5FD6 !important;
 }
 
-/* === KEEP TOGGLE SWITCHES GRAYSCALE === */
+/* ── TIER 6: TOGGLE SWITCHES — stay grayscale ── */
 .wireframe [role="switch"] {
   color: inherit !important;
   background-color: inherit !important;
   border-color: inherit !important;
 }
 
-/* === CARD BUTTONS (persona sheet items, list items that are buttons) === */
+/* ── TIER 7: CARD/CONTAINER BUTTONS — stay gray ── */
 .wireframe button[aria-pressed],
 .wireframe button.w-full.text-left {
   background-color: var(--card) !important;
@@ -534,8 +597,13 @@
   color: var(--foreground) !important;
 }
 
-/* Demo Mode pill — keep it prominent in wireframe */
+/* ── TIER 8: DEMO MODE PILL — always prominent ── */
 .wireframe button[aria-label="Switch demo persona"] {
   background-color: #4A7CFF !important;
   color: #ffffff !important;
+  border-color: #4A7CFF !important;
+}
+
+.wireframe button[aria-label="Switch demo persona"]:hover {
+  background-color: #2D5FD6 !important;
 }

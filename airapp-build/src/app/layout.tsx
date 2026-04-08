@@ -20,8 +20,12 @@ const themeScript = `
 (function(){
   try {
     var m = localStorage.getItem('airthere-theme') || 'system';
-    var d = m === 'dark' || (m === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    if (d) document.documentElement.classList.add('dark');
+    if (m === 'wireframe') {
+      document.documentElement.classList.add('wireframe');
+    } else {
+      var d = m === 'dark' || (m === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      if (d) document.documentElement.classList.add('dark');
+    }
   } catch(e){}
 })();
 `;

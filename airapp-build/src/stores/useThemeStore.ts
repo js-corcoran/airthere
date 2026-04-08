@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 
-export type ThemeMode = 'system' | 'light' | 'dark';
+export type ThemeMode = 'system' | 'light' | 'dark' | 'wireframe';
 
 const STORAGE_KEY = 'airthere-theme';
 
@@ -18,7 +18,9 @@ function getSystemPrefersDark(): boolean {
 
 function applyTheme(mode: ThemeMode) {
   const isDark = mode === 'dark' || (mode === 'system' && getSystemPrefersDark());
+  const isWireframe = mode === 'wireframe';
   document.documentElement.classList.toggle('dark', isDark);
+  document.documentElement.classList.toggle('wireframe', isWireframe);
 }
 
 export function useTheme() {
@@ -50,6 +52,7 @@ export function useTheme() {
   }, []);
 
   const isDark = mode === 'dark' || (mode === 'system' && getSystemPrefersDark());
+  const isWireframe = mode === 'wireframe';
 
-  return { mode, setMode, isDark };
+  return { mode, setMode, isDark, isWireframe };
 }

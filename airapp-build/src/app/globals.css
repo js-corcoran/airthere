@@ -276,6 +276,60 @@
     --shadow-light-lg: 0 8px 16px rgba(0, 0, 0, 0.40), 0 4px 8px rgba(0, 0, 0, 0.24);
     --shadow-light-xl: 0 16px 32px rgba(0, 0, 0, 0.48), 0 8px 16px rgba(0, 0, 0, 0.32);
   }
+
+  .wireframe {
+    /* Wireframe mode: structural grayscale, no brand colors */
+    --background: #ffffff;
+    --foreground: #1a1a1a;
+    --card: #f5f5f5;
+    --card-foreground: #1a1a1a;
+    --popover: #f5f5f5;
+    --popover-foreground: #1a1a1a;
+    --primary: #666666;
+    --primary-foreground: #ffffff;
+    --secondary: #888888;
+    --secondary-foreground: #ffffff;
+    --muted: #e5e5e5;
+    --muted-foreground: #666666;
+    --accent: #999999;
+    --accent-foreground: #ffffff;
+    --destructive: #cc0000;
+    --destructive-foreground: #ffffff;
+    --border: #cccccc;
+    --input: #e5e5e5;
+    --ring: #666666;
+
+    /* Surface scale — flat, no depth */
+    --surface-100: #f0f0f0;
+    --surface-200: #e8e8e8;
+    --surface-elevated: #f0f0f0;
+
+    /* Text hierarchy — pure grayscale */
+    --subtle-foreground: #333333;
+    --soft-foreground: #555555;
+    --caption-foreground: #777777;
+    --dimmed-foreground: #999999;
+    --faint-foreground: #bbbbbb;
+
+    /* Tinted surfaces — all neutral gray */
+    --surface-primary: #f0f0f0;
+    --surface-error: #f0f0f0;
+    --surface-success: #f0f0f0;
+    --surface-warning: #f0f0f0;
+    --surface-info: #f0f0f0;
+
+    /* Tinted borders — all neutral gray */
+    --border-primary: #cccccc;
+    --border-error: #cccccc;
+    --border-success: #cccccc;
+    --border-info: #cccccc;
+
+    /* Flat shadows — minimal depth */
+    --shadow-light-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
+    --shadow-light-md: 0 2px 4px rgba(0, 0, 0, 0.10);
+    --shadow-light-lg: 0 4px 8px rgba(0, 0, 0, 0.12);
+    --shadow-light-xl: 0 8px 16px rgba(0, 0, 0, 0.14);
+  }
 }
 
 @layer base {

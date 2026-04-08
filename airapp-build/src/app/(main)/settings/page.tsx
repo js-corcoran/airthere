@@ -24,6 +24,7 @@ import {
   Sun,
   Moon,
   Monitor,
+  PenTool,
 } from 'lucide-react';
 import { useTheme, type ThemeMode } from '@/stores/useThemeStore';
 
@@ -206,7 +207,7 @@ export default function SettingsPage() {
               )}
               <div>
                 <p className="text-sm font-medium text-primary-900 dark:text-foreground">
-                  {isDark ? 'Dark' : 'Light'} Mode
+                  {themeMode === 'wireframe' ? 'Wireframe' : isDark ? 'Dark' : 'Light'} Mode
                 </p>
                 <p className="text-xs text-primary-600 dark:text-faint-foreground">
                   {themeMode === 'system' ? 'Following system preference' : `Manually set to ${themeMode}`}
@@ -252,6 +253,7 @@ export default function SettingsPage() {
               { key: 'system' as ThemeMode, label: 'System', icon: Monitor },
               { key: 'light' as ThemeMode, label: 'Light', icon: Sun },
               { key: 'dark' as ThemeMode, label: 'Dark', icon: Moon },
+              { key: 'wireframe' as ThemeMode, label: 'Wireframe', icon: PenTool },
             ]).map((opt) => {
               const Icon = opt.icon;
               return (
